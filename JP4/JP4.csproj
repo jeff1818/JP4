@@ -145,6 +145,9 @@
     <EmbeddedResource Include="Form_janela_inicial.resx">
       <DependentUpon>Form_janela_inicial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_parada_mq.resx">
+      <DependentUpon>Form_janela_parada_mq.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

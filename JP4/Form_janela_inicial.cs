@@ -51,7 +51,7 @@ namespace JP4
         #endregion
 
 
-        #region Menu vertical
+        #region Metodos da janela
 
         private void panel_titulo_menu_MouseDown(object sender, MouseEventArgs e)
         {
@@ -59,6 +59,29 @@ namespace JP4
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        #endregion 
+                
+        private void abrir_janelas(object formularios)
+        {
+            if (this.panel_central.Controls.Count > 0)
+                this.panel_central.Controls.RemoveAt(0);
+
+            Form janela = formularios as Form;
+            janela.TopLevel = false;
+            janela.Dock = DockStyle.Fill;
+            this.panel_central.Controls.Add(janela);
+            this.panel_central.Tag = janela;
+            janela.Show();
+        }
+
+
+        #endregion
+
+        #region Menu Vertial
+
+        private void button_apontamento_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_apont());
+        }
+        #endregion
     }
 }
