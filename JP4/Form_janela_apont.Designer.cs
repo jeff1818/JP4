@@ -31,7 +31,23 @@ namespace JP4
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.etruturaDoItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatoriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apontamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.defeitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.retrabalhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadItensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maquinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.turnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.operadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.operaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.localToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.empresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.defeitosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.paradasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.text_qtd_saldo = new System.Windows.Forms.TextBox();
@@ -39,40 +55,40 @@ namespace JP4
             this.text_qtd_planejada = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.combo_desc_completa = new System.Windows.Forms.ComboBox();
-            this.combo_desc_reduzi = new System.Windows.Forms.ComboBox();
+            this.combo_cod_item = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.combo_ordem_prod = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.text_largura = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.text_qtd_fardos = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.text_contador = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.text_velocidade = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.text_bobina_fim = new System.Windows.Forms.TextBox();
+            this.text_bobina_ini = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.text_qtd_boa = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.text_operacao = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.hr_final_prod = new System.Windows.Forms.DateTimePicker();
+            this.dt_final_pro = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.hr_inicial_prod = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio_pro = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.combo_operadores = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label_descri_turno = new System.Windows.Forms.Label();
+            this.combo_turnos = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.combo_maquinas = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button_retrabalho = new System.Windows.Forms.Button();
@@ -84,16 +100,18 @@ namespace JP4
             this.button_estornar = new System.Windows.Forms.Button();
             this.button_apontamento = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.combo_local_desti = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.combo_local_orig = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox = new System.Windows.Forms.TextBox();
+            this.text_lotes = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.combo_empresa = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.richText_observacao = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -101,6 +119,7 @@ namespace JP4
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -108,24 +127,138 @@ namespace JP4
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
             this.relatoriosToolStripMenuItem,
+            this.cadastrosToolStripMenuItem1,
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(912, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1092, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // cadastrosToolStripMenuItem
             // 
+            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.etruturaDoItemToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.cadastrosToolStripMenuItem.Text = "Configuração";
+            // 
+            // etruturaDoItemToolStripMenuItem
+            // 
+            this.etruturaDoItemToolStripMenuItem.Name = "etruturaDoItemToolStripMenuItem";
+            this.etruturaDoItemToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.etruturaDoItemToolStripMenuItem.Text = "Etrutura do item";
             // 
             // relatoriosToolStripMenuItem
             // 
+            this.relatoriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.apontamentosToolStripMenuItem,
+            this.paradasToolStripMenuItem,
+            this.defeitosToolStripMenuItem,
+            this.retrabalhoToolStripMenuItem});
             this.relatoriosToolStripMenuItem.Name = "relatoriosToolStripMenuItem";
             this.relatoriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatoriosToolStripMenuItem.Text = "Relatorios";
+            // 
+            // apontamentosToolStripMenuItem
+            // 
+            this.apontamentosToolStripMenuItem.Name = "apontamentosToolStripMenuItem";
+            this.apontamentosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.apontamentosToolStripMenuItem.Text = "Apontamentos";
+            // 
+            // paradasToolStripMenuItem
+            // 
+            this.paradasToolStripMenuItem.Name = "paradasToolStripMenuItem";
+            this.paradasToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.paradasToolStripMenuItem.Text = "Paradas";
+            // 
+            // defeitosToolStripMenuItem
+            // 
+            this.defeitosToolStripMenuItem.Name = "defeitosToolStripMenuItem";
+            this.defeitosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.defeitosToolStripMenuItem.Text = "Defeitos";
+            // 
+            // retrabalhoToolStripMenuItem
+            // 
+            this.retrabalhoToolStripMenuItem.Name = "retrabalhoToolStripMenuItem";
+            this.retrabalhoToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.retrabalhoToolStripMenuItem.Text = "Retrabalho";
+            // 
+            // cadastrosToolStripMenuItem1
+            // 
+            this.cadastrosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadItensToolStripMenuItem,
+            this.maquinasToolStripMenuItem,
+            this.turnosToolStripMenuItem,
+            this.operadoresToolStripMenuItem,
+            this.operaçãoToolStripMenuItem,
+            this.localToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.empresaToolStripMenuItem,
+            this.defeitosToolStripMenuItem1,
+            this.paradasToolStripMenuItem1});
+            this.cadastrosToolStripMenuItem1.Name = "cadastrosToolStripMenuItem1";
+            this.cadastrosToolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
+            this.cadastrosToolStripMenuItem1.Text = "Cadastros";
+            // 
+            // cadItensToolStripMenuItem
+            // 
+            this.cadItensToolStripMenuItem.Name = "cadItensToolStripMenuItem";
+            this.cadItensToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.cadItensToolStripMenuItem.Text = "Cad. Itens";
+            // 
+            // maquinasToolStripMenuItem
+            // 
+            this.maquinasToolStripMenuItem.Name = "maquinasToolStripMenuItem";
+            this.maquinasToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.maquinasToolStripMenuItem.Text = "Maquinas";
+            // 
+            // turnosToolStripMenuItem
+            // 
+            this.turnosToolStripMenuItem.Name = "turnosToolStripMenuItem";
+            this.turnosToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.turnosToolStripMenuItem.Text = "Turnos";
+            // 
+            // operadoresToolStripMenuItem
+            // 
+            this.operadoresToolStripMenuItem.Name = "operadoresToolStripMenuItem";
+            this.operadoresToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.operadoresToolStripMenuItem.Text = "Operadores";
+            // 
+            // operaçãoToolStripMenuItem
+            // 
+            this.operaçãoToolStripMenuItem.Name = "operaçãoToolStripMenuItem";
+            this.operaçãoToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.operaçãoToolStripMenuItem.Text = "Operação";
+            // 
+            // localToolStripMenuItem
+            // 
+            this.localToolStripMenuItem.Name = "localToolStripMenuItem";
+            this.localToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.localToolStripMenuItem.Text = "Local";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(132, 6);
+            // 
+            // empresaToolStripMenuItem
+            // 
+            this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
+            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.empresaToolStripMenuItem.Text = "Empresa";
+            // 
+            // defeitosToolStripMenuItem1
+            // 
+            this.defeitosToolStripMenuItem1.Name = "defeitosToolStripMenuItem1";
+            this.defeitosToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.defeitosToolStripMenuItem1.Text = "Defeitos";
+            // 
+            // paradasToolStripMenuItem1
+            // 
+            this.paradasToolStripMenuItem1.Name = "paradasToolStripMenuItem1";
+            this.paradasToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.paradasToolStripMenuItem1.Text = "Paradas";
             // 
             // sairToolStripMenuItem
             // 
@@ -143,12 +276,12 @@ namespace JP4
             this.groupBox1.Controls.Add(this.text_qtd_planejada);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.combo_desc_completa);
-            this.groupBox1.Controls.Add(this.combo_desc_reduzi);
+            this.groupBox1.Controls.Add(this.combo_cod_item);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.combo_ordem_prod);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 27);
+            this.groupBox1.Location = new System.Drawing.Point(188, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(706, 122);
             this.groupBox1.TabIndex = 4;
@@ -177,6 +310,7 @@ namespace JP4
             this.text_qtd_planejada.Name = "text_qtd_planejada";
             this.text_qtd_planejada.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_planejada.TabIndex = 7;
+            this.text_qtd_planejada.WordWrap = false;
             // 
             // label4
             // 
@@ -195,13 +329,13 @@ namespace JP4
             this.combo_desc_completa.Size = new System.Drawing.Size(421, 21);
             this.combo_desc_completa.TabIndex = 5;
             // 
-            // combo_desc_reduzi
+            // combo_cod_item
             // 
-            this.combo_desc_reduzi.FormattingEnabled = true;
-            this.combo_desc_reduzi.Location = new System.Drawing.Point(121, 64);
-            this.combo_desc_reduzi.Name = "combo_desc_reduzi";
-            this.combo_desc_reduzi.Size = new System.Drawing.Size(143, 21);
-            this.combo_desc_reduzi.TabIndex = 4;
+            this.combo_cod_item.FormattingEnabled = true;
+            this.combo_cod_item.Location = new System.Drawing.Point(121, 64);
+            this.combo_cod_item.Name = "combo_cod_item";
+            this.combo_cod_item.Size = new System.Drawing.Size(143, 21);
+            this.combo_cod_item.TabIndex = 4;
             // 
             // label3
             // 
@@ -217,18 +351,20 @@ namespace JP4
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(270, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.Size = new System.Drawing.Size(16, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "tipo do movimento";
+            this.label2.Text = "---";
             // 
             // combo_ordem_prod
             // 
             this.combo_ordem_prod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.combo_ordem_prod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_ordem_prod.FormattingEnabled = true;
             this.combo_ordem_prod.Location = new System.Drawing.Point(121, 37);
             this.combo_ordem_prod.Name = "combo_ordem_prod";
             this.combo_ordem_prod.Size = new System.Drawing.Size(143, 21);
             this.combo_ordem_prod.TabIndex = 1;
+            this.combo_ordem_prod.SelectedIndexChanged += new System.EventHandler(this.combo_ordem_prod_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -241,48 +377,48 @@ namespace JP4
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox10);
+            this.groupBox2.Controls.Add(this.text_largura);
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.textBox9);
+            this.groupBox2.Controls.Add(this.text_qtd_fardos);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.textBox8);
+            this.groupBox2.Controls.Add(this.text_contador);
             this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.text_velocidade);
             this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.text_bobina_fim);
+            this.groupBox2.Controls.Add(this.text_bobina_ini);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.text_qtd_boa);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.text_operacao);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.dateTimePicker3);
-            this.groupBox2.Controls.Add(this.dateTimePicker4);
+            this.groupBox2.Controls.Add(this.hr_final_prod);
+            this.groupBox2.Controls.Add(this.dt_final_pro);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.hr_inicial_prod);
+            this.groupBox2.Controls.Add(this.dt_inicio_pro);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.comboBox6);
+            this.groupBox2.Controls.Add(this.combo_operadores);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.comboBox5);
+            this.groupBox2.Controls.Add(this.label_descri_turno);
+            this.groupBox2.Controls.Add(this.combo_turnos);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.combo_maquinas);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(12, 155);
+            this.groupBox2.Location = new System.Drawing.Point(188, 155);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(706, 212);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informação Quantidade";
             // 
-            // textBox10
+            // text_largura
             // 
-            this.textBox10.Location = new System.Drawing.Point(360, 177);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(79, 20);
-            this.textBox10.TabIndex = 30;
+            this.text_largura.Location = new System.Drawing.Point(360, 177);
+            this.text_largura.Name = "text_largura";
+            this.text_largura.Size = new System.Drawing.Size(79, 20);
+            this.text_largura.TabIndex = 30;
             // 
             // label19
             // 
@@ -293,13 +429,14 @@ namespace JP4
             this.label19.TabIndex = 29;
             this.label19.Text = "Largura:";
             // 
-            // textBox9
+            // text_qtd_fardos
             // 
-            this.textBox9.BackColor = System.Drawing.Color.LightGray;
-            this.textBox9.Location = new System.Drawing.Point(121, 177);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(79, 20);
-            this.textBox9.TabIndex = 28;
+            this.text_qtd_fardos.BackColor = System.Drawing.Color.LightGray;
+            this.text_qtd_fardos.Location = new System.Drawing.Point(121, 177);
+            this.text_qtd_fardos.Name = "text_qtd_fardos";
+            this.text_qtd_fardos.Size = new System.Drawing.Size(79, 20);
+            this.text_qtd_fardos.TabIndex = 28;
+            this.text_qtd_fardos.TextChanged += new System.EventHandler(this.text_qtd_fardos_TextChanged);
             // 
             // label18
             // 
@@ -310,12 +447,12 @@ namespace JP4
             this.label18.TabIndex = 27;
             this.label18.Text = "Qtd. Fardos:";
             // 
-            // textBox8
+            // text_contador
             // 
-            this.textBox8.Location = new System.Drawing.Point(511, 151);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(79, 20);
-            this.textBox8.TabIndex = 26;
+            this.text_contador.Location = new System.Drawing.Point(511, 151);
+            this.text_contador.Name = "text_contador";
+            this.text_contador.Size = new System.Drawing.Size(79, 20);
+            this.text_contador.TabIndex = 26;
             // 
             // label17
             // 
@@ -326,12 +463,12 @@ namespace JP4
             this.label17.TabIndex = 25;
             this.label17.Text = "Contador:";
             // 
-            // textBox7
+            // text_velocidade
             // 
-            this.textBox7.Location = new System.Drawing.Point(360, 151);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(79, 20);
-            this.textBox7.TabIndex = 24;
+            this.text_velocidade.Location = new System.Drawing.Point(360, 151);
+            this.text_velocidade.Name = "text_velocidade";
+            this.text_velocidade.Size = new System.Drawing.Size(79, 20);
+            this.text_velocidade.TabIndex = 24;
             // 
             // label16
             // 
@@ -342,19 +479,19 @@ namespace JP4
             this.label16.TabIndex = 23;
             this.label16.Text = "Velocidade:";
             // 
-            // textBox6
+            // text_bobina_fim
             // 
-            this.textBox6.Location = new System.Drawing.Point(206, 151);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(79, 20);
-            this.textBox6.TabIndex = 22;
+            this.text_bobina_fim.Location = new System.Drawing.Point(206, 151);
+            this.text_bobina_fim.Name = "text_bobina_fim";
+            this.text_bobina_fim.Size = new System.Drawing.Size(79, 20);
+            this.text_bobina_fim.TabIndex = 22;
             // 
-            // textBox5
+            // text_bobina_ini
             // 
-            this.textBox5.Location = new System.Drawing.Point(121, 151);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(79, 20);
-            this.textBox5.TabIndex = 21;
+            this.text_bobina_ini.Location = new System.Drawing.Point(121, 151);
+            this.text_bobina_ini.Name = "text_bobina_ini";
+            this.text_bobina_ini.Size = new System.Drawing.Size(79, 20);
+            this.text_bobina_ini.TabIndex = 21;
             // 
             // label15
             // 
@@ -365,13 +502,13 @@ namespace JP4
             this.label15.TabIndex = 20;
             this.label15.Text = "Nº Bobina:";
             // 
-            // textBox4
+            // text_qtd_boa
             // 
-            this.textBox4.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox4.Location = new System.Drawing.Point(121, 125);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(143, 20);
-            this.textBox4.TabIndex = 19;
+            this.text_qtd_boa.BackColor = System.Drawing.Color.Gainsboro;
+            this.text_qtd_boa.Location = new System.Drawing.Point(121, 125);
+            this.text_qtd_boa.Name = "text_qtd_boa";
+            this.text_qtd_boa.Size = new System.Drawing.Size(143, 20);
+            this.text_qtd_boa.TabIndex = 19;
             // 
             // label14
             // 
@@ -391,12 +528,13 @@ namespace JP4
             this.label13.TabIndex = 17;
             this.label13.Text = "descrição de opera";
             // 
-            // textBox3
+            // text_operacao
             // 
-            this.textBox3.Location = new System.Drawing.Point(121, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(143, 20);
-            this.textBox3.TabIndex = 16;
+            this.text_operacao.Enabled = false;
+            this.text_operacao.Location = new System.Drawing.Point(121, 99);
+            this.text_operacao.Name = "text_operacao";
+            this.text_operacao.Size = new System.Drawing.Size(143, 20);
+            this.text_operacao.TabIndex = 16;
             // 
             // label12
             // 
@@ -407,23 +545,24 @@ namespace JP4
             this.label12.TabIndex = 15;
             this.label12.Text = "Operação:";
             // 
-            // dateTimePicker3
+            // hr_final_prod
             // 
-            this.dateTimePicker3.CustomFormat = "hh:mm";
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker3.Location = new System.Drawing.Point(584, 73);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(78, 20);
-            this.dateTimePicker3.TabIndex = 14;
+            this.hr_final_prod.CustomFormat = "hh:mm";
+            this.hr_final_prod.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.hr_final_prod.Location = new System.Drawing.Point(584, 73);
+            this.hr_final_prod.Name = "hr_final_prod";
+            this.hr_final_prod.ShowUpDown = true;
+            this.hr_final_prod.Size = new System.Drawing.Size(78, 20);
+            this.hr_final_prod.TabIndex = 14;
             // 
-            // dateTimePicker4
+            // dt_final_pro
             // 
-            this.dateTimePicker4.CustomFormat = "";
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(435, 73);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(143, 20);
-            this.dateTimePicker4.TabIndex = 13;
+            this.dt_final_pro.CustomFormat = "";
+            this.dt_final_pro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_final_pro.Location = new System.Drawing.Point(435, 73);
+            this.dt_final_pro.Name = "dt_final_pro";
+            this.dt_final_pro.Size = new System.Drawing.Size(143, 20);
+            this.dt_final_pro.TabIndex = 13;
             // 
             // label11
             // 
@@ -434,23 +573,25 @@ namespace JP4
             this.label11.TabIndex = 12;
             this.label11.Text = "Fim prod:";
             // 
-            // dateTimePicker2
+            // hr_inicial_prod
             // 
-            this.dateTimePicker2.CustomFormat = "hh:mm";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(273, 72);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(78, 20);
-            this.dateTimePicker2.TabIndex = 11;
+            this.hr_inicial_prod.CustomFormat = "hh:mm";
+            this.hr_inicial_prod.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.hr_inicial_prod.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hr_inicial_prod.Location = new System.Drawing.Point(273, 72);
+            this.hr_inicial_prod.Name = "hr_inicial_prod";
+            this.hr_inicial_prod.ShowUpDown = true;
+            this.hr_inicial_prod.Size = new System.Drawing.Size(78, 20);
+            this.hr_inicial_prod.TabIndex = 11;
             // 
-            // dateTimePicker1
+            // dt_inicio_pro
             // 
-            this.dateTimePicker1.CustomFormat = "";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(121, 73);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(143, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dt_inicio_pro.CustomFormat = "";
+            this.dt_inicio_pro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio_pro.Location = new System.Drawing.Point(121, 73);
+            this.dt_inicio_pro.Name = "dt_inicio_pro";
+            this.dt_inicio_pro.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio_pro.TabIndex = 10;
             // 
             // label10
             // 
@@ -461,13 +602,15 @@ namespace JP4
             this.label10.TabIndex = 9;
             this.label10.Text = "Inicio Prod:";
             // 
-            // comboBox6
+            // combo_operadores
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(121, 46);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(143, 21);
-            this.comboBox6.TabIndex = 8;
+            this.combo_operadores.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.combo_operadores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.combo_operadores.FormattingEnabled = true;
+            this.combo_operadores.Location = new System.Drawing.Point(121, 46);
+            this.combo_operadores.Name = "combo_operadores";
+            this.combo_operadores.Size = new System.Drawing.Size(143, 21);
+            this.combo_operadores.TabIndex = 8;
             // 
             // label9
             // 
@@ -478,22 +621,23 @@ namespace JP4
             this.label9.TabIndex = 7;
             this.label9.Text = "Operador:";
             // 
-            // label8
+            // label_descri_turno
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(462, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "descrição do turno e hora";
+            this.label_descri_turno.AutoSize = true;
+            this.label_descri_turno.Location = new System.Drawing.Point(462, 22);
+            this.label_descri_turno.Name = "label_descri_turno";
+            this.label_descri_turno.Size = new System.Drawing.Size(128, 13);
+            this.label_descri_turno.TabIndex = 6;
+            this.label_descri_turno.Text = "descrição do turno e hora";
             // 
-            // comboBox5
+            // combo_turnos
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(313, 19);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(143, 21);
-            this.comboBox5.TabIndex = 5;
+            this.combo_turnos.FormattingEnabled = true;
+            this.combo_turnos.Location = new System.Drawing.Point(313, 19);
+            this.combo_turnos.Name = "combo_turnos";
+            this.combo_turnos.Size = new System.Drawing.Size(143, 21);
+            this.combo_turnos.TabIndex = 5;
+            this.combo_turnos.SelectedIndexChanged += new System.EventHandler(this.combo_turnos_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -504,13 +648,13 @@ namespace JP4
             this.label7.TabIndex = 4;
             this.label7.Text = "Turno:";
             // 
-            // comboBox4
+            // combo_maquinas
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(121, 19);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(143, 21);
-            this.comboBox4.TabIndex = 3;
+            this.combo_maquinas.FormattingEnabled = true;
+            this.combo_maquinas.Location = new System.Drawing.Point(121, 19);
+            this.combo_maquinas.Name = "combo_maquinas";
+            this.combo_maquinas.Size = new System.Drawing.Size(143, 21);
+            this.combo_maquinas.TabIndex = 3;
             // 
             // label6
             // 
@@ -531,7 +675,7 @@ namespace JP4
             this.groupBox3.Controls.Add(this.button_importar);
             this.groupBox3.Controls.Add(this.button_estornar);
             this.groupBox3.Controls.Add(this.button_apontamento);
-            this.groupBox3.Location = new System.Drawing.Point(724, 27);
+            this.groupBox3.Location = new System.Drawing.Point(12, 27);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(170, 288);
             this.groupBox3.TabIndex = 6;
@@ -620,24 +764,24 @@ namespace JP4
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.comboBox8);
+            this.groupBox4.Controls.Add(this.combo_local_desti);
             this.groupBox4.Controls.Add(this.label22);
-            this.groupBox4.Controls.Add(this.comboBox7);
+            this.groupBox4.Controls.Add(this.combo_local_orig);
             this.groupBox4.Controls.Add(this.label21);
-            this.groupBox4.Location = new System.Drawing.Point(12, 373);
+            this.groupBox4.Location = new System.Drawing.Point(188, 373);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(706, 66);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Informação de local";
             // 
-            // comboBox8
+            // combo_local_desti
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(347, 19);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(143, 21);
-            this.comboBox8.TabIndex = 9;
+            this.combo_local_desti.FormattingEnabled = true;
+            this.combo_local_desti.Location = new System.Drawing.Point(347, 19);
+            this.combo_local_desti.Name = "combo_local_desti";
+            this.combo_local_desti.Size = new System.Drawing.Size(143, 21);
+            this.combo_local_desti.TabIndex = 9;
             // 
             // label22
             // 
@@ -648,13 +792,13 @@ namespace JP4
             this.label22.TabIndex = 8;
             this.label22.Text = "Local Destino";
             // 
-            // comboBox7
+            // combo_local_orig
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(121, 19);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(143, 21);
-            this.comboBox7.TabIndex = 7;
+            this.combo_local_orig.FormattingEnabled = true;
+            this.combo_local_orig.Location = new System.Drawing.Point(121, 19);
+            this.combo_local_orig.Name = "combo_local_orig";
+            this.combo_local_orig.Size = new System.Drawing.Size(143, 21);
+            this.combo_local_orig.TabIndex = 7;
             // 
             // label21
             // 
@@ -667,21 +811,21 @@ namespace JP4
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox);
+            this.groupBox5.Controls.Add(this.text_lotes);
             this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Location = new System.Drawing.Point(12, 445);
+            this.groupBox5.Location = new System.Drawing.Point(188, 445);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(706, 66);
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Informação de Ordem";
             // 
-            // textBox
+            // text_lotes
             // 
-            this.textBox.Location = new System.Drawing.Point(121, 19);
-            this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(573, 20);
-            this.textBox.TabIndex = 7;
+            this.text_lotes.Location = new System.Drawing.Point(121, 19);
+            this.text_lotes.Name = "text_lotes";
+            this.text_lotes.Size = new System.Drawing.Size(573, 20);
+            this.text_lotes.TabIndex = 7;
             // 
             // label20
             // 
@@ -696,7 +840,7 @@ namespace JP4
             // 
             this.groupBox6.Controls.Add(this.combo_empresa);
             this.groupBox6.Controls.Add(this.label24);
-            this.groupBox6.Location = new System.Drawing.Point(724, 321);
+            this.groupBox6.Location = new System.Drawing.Point(12, 321);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(170, 190);
             this.groupBox6.TabIndex = 9;
@@ -705,6 +849,7 @@ namespace JP4
             // 
             // combo_empresa
             // 
+            this.combo_empresa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.combo_empresa.FormattingEnabled = true;
             this.combo_empresa.Location = new System.Drawing.Point(6, 38);
             this.combo_empresa.Name = "combo_empresa";
@@ -720,11 +865,32 @@ namespace JP4
             this.label24.TabIndex = 6;
             this.label24.Text = "Empresa";
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.richText_observacao);
+            this.groupBox7.Location = new System.Drawing.Point(900, 27);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(180, 478);
+            this.groupBox7.TabIndex = 10;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Observação";
+            // 
+            // richText_observacao
+            // 
+            this.richText_observacao.Location = new System.Drawing.Point(6, 19);
+            this.richText_observacao.Name = "richText_observacao";
+            this.richText_observacao.Size = new System.Drawing.Size(168, 320);
+            this.richText_observacao.TabIndex = 0;
+            this.richText_observacao.Text = "";
+            // 
             // Form_janela_apont
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 525);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1092, 522);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -733,7 +899,6 @@ namespace JP4
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_janela_apont";
             this.Text = "Form_janela_apont";
@@ -751,6 +916,7 @@ namespace JP4
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -763,7 +929,7 @@ namespace JP4
         private System.Windows.Forms.TextBox text_qtd_planejada;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox combo_desc_completa;
-        private System.Windows.Forms.ComboBox combo_desc_reduzi;
+        private System.Windows.Forms.ComboBox combo_cod_item;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox combo_ordem_prod;
@@ -772,46 +938,46 @@ namespace JP4
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox text_qtd_saldo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker hr_inicial_prod;
+        private System.Windows.Forms.DateTimePicker dt_inicio_pro;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox combo_operadores;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label_descri_turno;
+        private System.Windows.Forms.ComboBox combo_turnos;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox combo_maquinas;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem relatoriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox text_operacao;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker hr_final_prod;
+        private System.Windows.Forms.DateTimePicker dt_final_pro;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox text_qtd_boa;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox text_largura;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox text_qtd_fardos;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox text_contador;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox text_velocidade;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox text_bobina_fim;
+        private System.Windows.Forms.TextBox text_bobina_ini;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button_apontamento;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button_estornar;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox combo_local_desti;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox combo_local_orig;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox;
+        private System.Windows.Forms.TextBox text_lotes;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.ComboBox combo_empresa;
@@ -822,5 +988,23 @@ namespace JP4
         private System.Windows.Forms.Button button_defeitos;
         private System.Windows.Forms.Button button_paradas;
         private System.Windows.Forms.Button button_importar;
+        private System.Windows.Forms.ToolStripMenuItem etruturaDoItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem apontamentosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paradasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defeitosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem retrabalhoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cadItensToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maquinasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turnosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem operadoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem operaçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem localToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem empresaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defeitosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem paradasToolStripMenuItem1;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.RichTextBox richText_observacao;
     }
 }

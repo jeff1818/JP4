@@ -82,6 +82,19 @@ namespace JP4
         {
             abrir_janelas(new Form_janela_apont());
         }
+
+        private void button_cadastro_material_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cadastro_material());
+        }
+
+
+
         #endregion
+
+        private void button_abrir_op_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

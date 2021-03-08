@@ -93,33 +93,41 @@ namespace JP4
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "hh:mm";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker1.Location = new System.Drawing.Point(141, 97);
             this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker1.TabIndex = 2;
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "hh:mm";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker2.Location = new System.Drawing.Point(240, 97);
             this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowUpDown = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker2.TabIndex = 3;
             // 
             // dateTimePicker3
             // 
+            this.dateTimePicker3.CustomFormat = "hh:mm";
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker3.Location = new System.Drawing.Point(240, 123);
             this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.ShowUpDown = true;
             this.dateTimePicker3.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker3.TabIndex = 6;
             // 
             // dateTimePicker4
             // 
+            this.dateTimePicker4.CustomFormat = "hh:mm";
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker4.Location = new System.Drawing.Point(141, 123);
             this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.ShowUpDown = true;
             this.dateTimePicker4.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker4.TabIndex = 5;
             // 
@@ -133,17 +141,21 @@ namespace JP4
             // 
             // dateTimePicker5
             // 
+            this.dateTimePicker5.CustomFormat = "hh:mm";
             this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker5.Location = new System.Drawing.Point(240, 149);
             this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.ShowUpDown = true;
             this.dateTimePicker5.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker5.TabIndex = 9;
             // 
             // dateTimePicker6
             // 
+            this.dateTimePicker6.CustomFormat = "hh:mm";
             this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker6.Location = new System.Drawing.Point(141, 149);
             this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.ShowUpDown = true;
             this.dateTimePicker6.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker6.TabIndex = 8;
             // 
@@ -157,17 +169,21 @@ namespace JP4
             // 
             // dateTimePicker7
             // 
+            this.dateTimePicker7.CustomFormat = "hh:mm";
             this.dateTimePicker7.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker7.Location = new System.Drawing.Point(240, 175);
             this.dateTimePicker7.Name = "dateTimePicker7";
+            this.dateTimePicker7.ShowUpDown = true;
             this.dateTimePicker7.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker7.TabIndex = 12;
             // 
             // dateTimePicker8
             // 
+            this.dateTimePicker8.CustomFormat = "hh:mm";
             this.dateTimePicker8.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker8.Location = new System.Drawing.Point(141, 175);
             this.dateTimePicker8.Name = "dateTimePicker8";
+            this.dateTimePicker8.ShowUpDown = true;
             this.dateTimePicker8.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker8.TabIndex = 11;
             // 
@@ -181,17 +197,21 @@ namespace JP4
             // 
             // dateTimePicker9
             // 
+            this.dateTimePicker9.CustomFormat = "hh:mm";
             this.dateTimePicker9.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker9.Location = new System.Drawing.Point(240, 201);
             this.dateTimePicker9.Name = "dateTimePicker9";
+            this.dateTimePicker9.ShowUpDown = true;
             this.dateTimePicker9.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker9.TabIndex = 15;
             // 
             // dateTimePicker10
             // 
+            this.dateTimePicker10.CustomFormat = "hh:mm";
             this.dateTimePicker10.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker10.Location = new System.Drawing.Point(141, 201);
             this.dateTimePicker10.Name = "dateTimePicker10";
+            this.dateTimePicker10.ShowUpDown = true;
             this.dateTimePicker10.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker10.TabIndex = 14;
             // 
@@ -205,17 +225,21 @@ namespace JP4
             // 
             // dateTimePicker11
             // 
+            this.dateTimePicker11.CustomFormat = "hh:mm";
             this.dateTimePicker11.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker11.Location = new System.Drawing.Point(240, 227);
             this.dateTimePicker11.Name = "dateTimePicker11";
+            this.dateTimePicker11.ShowUpDown = true;
             this.dateTimePicker11.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker11.TabIndex = 18;
             // 
             // dateTimePicker12
             // 
+            this.dateTimePicker12.CustomFormat = "hh:mm";
             this.dateTimePicker12.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker12.Location = new System.Drawing.Point(141, 227);
             this.dateTimePicker12.Name = "dateTimePicker12";
+            this.dateTimePicker12.ShowUpDown = true;
             this.dateTimePicker12.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker12.TabIndex = 17;
             // 
@@ -229,17 +253,21 @@ namespace JP4
             // 
             // dateTimePicker13
             // 
+            this.dateTimePicker13.CustomFormat = "hh:mm";
             this.dateTimePicker13.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker13.Location = new System.Drawing.Point(240, 253);
             this.dateTimePicker13.Name = "dateTimePicker13";
+            this.dateTimePicker13.ShowUpDown = true;
             this.dateTimePicker13.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker13.TabIndex = 21;
             // 
             // dateTimePicker14
             // 
+            this.dateTimePicker14.CustomFormat = "hh:mm";
             this.dateTimePicker14.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker14.Location = new System.Drawing.Point(141, 253);
             this.dateTimePicker14.Name = "dateTimePicker14";
+            this.dateTimePicker14.ShowUpDown = true;
             this.dateTimePicker14.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker14.TabIndex = 20;
             // 
@@ -253,17 +281,21 @@ namespace JP4
             // 
             // dateTimePicker15
             // 
+            this.dateTimePicker15.CustomFormat = "hh:mm";
             this.dateTimePicker15.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker15.Location = new System.Drawing.Point(240, 279);
             this.dateTimePicker15.Name = "dateTimePicker15";
+            this.dateTimePicker15.ShowUpDown = true;
             this.dateTimePicker15.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker15.TabIndex = 24;
             // 
             // dateTimePicker16
             // 
+            this.dateTimePicker16.CustomFormat = "hh:mm";
             this.dateTimePicker16.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker16.Location = new System.Drawing.Point(141, 279);
             this.dateTimePicker16.Name = "dateTimePicker16";
+            this.dateTimePicker16.ShowUpDown = true;
             this.dateTimePicker16.Size = new System.Drawing.Size(93, 20);
             this.dateTimePicker16.TabIndex = 23;
             // 
