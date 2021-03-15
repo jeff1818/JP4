@@ -1,16 +1,14 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Data.OleDb;
-using System.Windows.Forms;
-using System.IO;
 using System.Linq;
-using System.Data;
-using ClosedXML.Excel;
+using System.Windows.Forms;
 
 namespace JP4
 {
-    public partial class Form_janela_apont : Form
+    public partial class AP01 : Form
     {
-        public Form_janela_apont()
+        public AP01()
         {
             InitializeComponent();
 
@@ -20,16 +18,30 @@ namespace JP4
             carregar_maquina_db();
             carregar_turno_db();
             carregar_operadores_db();
-
+            carregar_local_destino_db();
+            carregar_local_origem_db();
             #endregion
 
         }
 
         private void Form_janela_apont_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.A)
+            if (e.KeyCode == Keys.Escape)
             {
-                button_apontamento.Focus();
+                DialogResult resposta = MessageBox.Show(this, "Deseja salvar lançamento!", "Apontamento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resposta == DialogResult.Yes)
+                {
+                    MessageBox.Show(resposta.ToString());
+                    apontar_ordem();
+                    
+
+                }
+                else if (resposta == DialogResult.No)
+                {
+
+                }
+
             }
         }
 
@@ -39,66 +51,248 @@ namespace JP4
             this.Close();
         }
 
+
         #region Metodos Janela Apontamento
+
+        private int verifica_campos()
+        {
+            //if(!string.IsNullOrEmpty(this.combo_ordem_prod.Text))
+
+
+
+            this.combo_maquinas.Enabled = true;
+            this.combo_cod_item.Enabled = true;
+            this.combo_desc_completa.Enabled = true;
+            this.text_qtd_planejada.Enabled = true;
+            this.text_qtd_saldo.Enabled = true;
+            this.combo_maquinas.Enabled = true;
+            this.combo_turnos.Enabled = true;
+            this.combo_operadores.Enabled = true;
+            this.dt_inicio_pro.Enabled = true;
+            this.hr_inicial_prod.Enabled = true;
+            this.dt_final_pro.Enabled = true;
+            this.hr_final_prod.Enabled = true;
+            this.text_operacao.Enabled = true;
+            this.text_qtd_boa.Enabled = true;
+            this.text_bobina_ini.Enabled = true;
+            this.text_bobina_fim.Enabled = true;
+            this.text_velocidade.Enabled = true;
+            this.text_contador.Enabled = true;
+            this.text_qtd_fardos.Enabled = true;
+            this.text_largura.Enabled = true;
+            this.combo_local_orig.Enabled = true;
+            this.combo_local_desti.Enabled = true;
+            this.text_lotes.Enabled = true;
+            this.combo_empresa.Enabled = true;
+            this.dt_lançamento.Enabled = true;
+
+            return 0;
+        }
+
+        private void desbloquear_controles()
+        {
+            this.text_operacao.Text = "APON";
+
+
+            this.combo_ordem_prod.Enabled = true;
+            this.combo_maquinas.Enabled = true;
+            this.combo_cod_item.Enabled = true;
+            this.combo_desc_completa.Enabled = true;
+            this.text_qtd_planejada.Enabled = true;
+            this.text_qtd_saldo.Enabled = true;
+            this.combo_maquinas.Enabled = true;
+            this.combo_turnos.Enabled = true;
+            this.combo_operadores.Enabled = true;
+            this.dt_inicio_pro.Enabled = true;
+            this.hr_inicial_prod.Enabled = true;
+            this.dt_final_pro.Enabled = true;
+            this.hr_final_prod.Enabled = true;
+            this.text_operacao.Enabled = true;
+            this.text_qtd_boa.Enabled = true;
+            this.text_bobina_ini.Enabled = true;
+            this.text_bobina_fim.Enabled = true;
+            this.text_velocidade.Enabled = true;
+            this.text_contador.Enabled = true;
+            this.text_qtd_fardos.Enabled = true;
+            this.text_largura.Enabled = true;
+            this.combo_local_orig.Enabled = true;
+            this.combo_local_desti.Enabled = true;
+            this.text_lotes.Enabled = true;
+            this.combo_empresa.Enabled = true;
+            this.dt_lançamento.Enabled = true;
+
+
+
+        }
+
+
 
         private void apontar_ordem()
         {
-            // Variaveis
+            // Metodos
+            //desbloquear_controles();
+
+            //----
+
+            // id_estoque_trans = 
+            string cod_empresa = this.combo_empresa.Text;
+            double num_transac = 0;
+            string cod_item = this.combo_cod_item.Text;
+            string cod_descri_completa = this.combo_desc_completa.Text;
+            string cod_descri_reduzida = "";
+            int mes_proces = DateTime.Now.Month;
+            int mes_movto = DateTime.Now.Month;
+            int ano_movto = DateTime.Now.Year;
+            DateTime dat_proces = DateTime.Today;
+            DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
+            string cod_operacao = this.text_operacao.Text;
+            double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
+            string ies_tip_movto = this.label_tipo_movimento.Text;
+            double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
+            double qtd_real = qtd_movto * (-1);            
+            double fardos = Convert.ToDouble(this.text_qtd_fardos.Text);
+            double num_secao_requis = 1;
+            string operador = this.combo_operadores.Text;
+            string secao_nome = "";
+            string cod_local_est_orig = this.combo_local_orig.Text;
+            string cod_local_est_dest = this.combo_local_desti.Text;
+            string num_lote_orig = "";
+            string num_lote_dest = text_lotes.Text;
+            string ies_sit_est_orig = "L";
+            string ies_sit_est_dest = "L";
+            string cod_turno = this.combo_turnos.Text;
+            string nom_usuario = "";
+            string num_prog = this.Name;
+            double largura_material = 0;
+            double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
+            double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
+            double velocidade = Convert.ToDouble(this.text_velocidade.Text);
+            double contador_fardos = Convert.ToDouble(this.text_contador.Text);
+            double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
+            double peso_total_fardo = 0; // Fazer metodos pra calcular
+            DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
+            DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
+            DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
+            DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
+            string Tipo_material = this.label_tipo_material.Text;
+            string observacao = this.richText_observacao.Text;
+
+
+            // links para banco de dados
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                string comando_sql;
+
+                comando_sql = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao) " +
+                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "')";
+
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+                MessageBox.Show("Salvo com Sucesso!!");
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+
+            }
+
 
             /*
-             * 
-             * id_estoque_trans
-             * cod_empresa
-             * num_transac
-             * cod_item
-             * cod_descri_completa
-             * cod_descri_reduzida
-             * mes_proces
-             * mes_movto
-             * ano_movto
-             * dat_proces
-             * dat_movto
-             * cod_operacao
-             * num_docum
-             * ies_tip_movto
-             * qtd_real
-             * qtd_movto
-             * num_secao_requis
-             * operador
-             * secao_nome
-             * cod_local_est_orig
-             * cod_local_est_dest
-             * num_lote_orig
-             * num_lote_dest
-             * ies_sit_est_orig
-             * ies_sit_est_dest
-             * cod_turno
-             * nom_usuario
-             * num_prog
-             * largura_material
-             * n_bobina_inical
-             * n_bobina_final
-             * velocidade
-             * contador	fardos
-             * peso_medio_bobina
-             * peso_total_fardo
-             * hora_inical
-             * hora_final
-             * data_operac
-             * hor_operac
-             * Tipo_material
-             * observacao
+             * Antes de Salvar
+             * 01 - Lançar primeiro a movimentação APON
+             * 02 - Buscar estrutura do item pai
+             * 03 - fazer os calculos da estrutura
+             * 04 - lançar componenten com a operação BACK (baixa)
+             * 05 - Mostrar mensagem
              */
 
 
-            // links para banco de dados  
 
+
+        }
+
+        private void consumo_estrutura(string descri_item, double qtd_apont)
+        {
+            try
+            {
+                string item_filho = "";
+                double qtd_item_filho = 0;
+
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                string comando_sql = "select * from db_estrutura where descri_pai = '" + descri_item + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    if (DateTime.Today >= Convert.ToDateTime(myreader["dat_validade_ini"]) & DateTime.Today <= Convert.ToDateTime(myreader["dat_validade_fim"]))
+                    {
+                        item_filho = myreader["descri_filho"].ToString();
+                        qtd_item_filho = Convert.ToDouble(myreader["qtd_necessaria"]) * qtd_apont;
+                    }
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
         }
 
         private void estornar_ordem()
         {
+            /*
+            try
+            {
 
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                string comando_sql = "select * from db_cadastro_empresas";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    this.combo_empresa.Items.Add(myreader["descricao"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+            */
         }
+
+
 
         #endregion
 
@@ -124,7 +318,7 @@ namespace JP4
 
                     if (planilha.Cell($"G{l}").Value.ToString() != "Digitada")
                         this.combo_ordem_prod.Items.Add(planilha.Cell($"B{l}").Value.ToString());
-                    
+
 
                 }
             }
@@ -134,7 +328,7 @@ namespace JP4
             }
 
         }
-        
+
         private void carregar_descricao_completa(string ordem_prod)
         {
             try
@@ -154,7 +348,7 @@ namespace JP4
                     {
                         this.combo_desc_completa.Text = planilha.Cell($"F{l}").Value.ToString();
                         break;
-                    }                    
+                    }
 
                 }
             }
@@ -221,11 +415,6 @@ namespace JP4
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
-
-
-
 
         private void calculo_velocidade()
         {
@@ -422,6 +611,66 @@ namespace JP4
 
         }
 
+        private void carregar_local_origem_db()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_local_estoque";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    this.combo_local_orig.Items.Add(myreader["local_estoque"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void carregar_local_destino_db()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_local_estoque";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    this.combo_local_desti.Items.Add(myreader["local_estoque"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
 
         #endregion
 
@@ -430,6 +679,8 @@ namespace JP4
 
         private void button_apontamento_Click(object sender, EventArgs e)
         {
+            desbloquear_controles();
+            this.label_tipo_movimento.Text = "N";
 
         }
 
@@ -573,12 +824,14 @@ namespace JP4
                 // 
 
                 var turno = this.combo_turnos.Text;
-                var descri_turno = "";
+
+                DateTime hora_inicio;
+                DateTime hora_final;
 
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
 
-                string comando_sql = "select * from db_cadastro_turnos where turno='"+ turno + "'";
+                string comando_sql = "select * from db_cadastro_turnos where turno='" + turno + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -590,8 +843,10 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    descri_turno = myreader["inicio_turno"].ToString() + " / " + myreader["fim_turno"].ToString();
-                    this.label_descri_turno.Text = descri_turno;                    
+                    hora_inicio = Convert.ToDateTime( myreader["inicio_turno"]);
+                    hora_final = Convert.ToDateTime( myreader["fim_turno"]);
+
+                    this.label_descri_turno.Text = hora_inicio.ToString("hh:mm") + " as " + hora_final.ToString("hh;mm");
                 }
 
                 conexao.Close();
@@ -601,6 +856,60 @@ namespace JP4
             {
 
                 MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void text_qtd_boa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_bobina_ini_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_bobina_fim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_contador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_qtd_fardos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_largura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
             }
         }
     }

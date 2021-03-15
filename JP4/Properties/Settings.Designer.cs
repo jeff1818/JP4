@@ -26,8 +26,8 @@ namespace JP4.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\db_aplicativo_kpi.md" +
-            "b")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"C:\\Users\\Jeferson\\OneDrive\\Visual -" +
+            " basic c#\\banco\\db_aplicativo_kpi.mdb\"")]
         public string db_aplicativo_kpiConnectionString {
             get {
                 return ((string)(this["db_aplicativo_kpiConnectionString"]));

@@ -80,7 +80,7 @@ namespace JP4
 
         private void button_apontamento_Click(object sender, EventArgs e)
         {
-            abrir_janelas(new Form_janela_apont());
+            abrir_janelas(new AP01());
         }
 
         private void button_cadastro_material_Click(object sender, EventArgs e)

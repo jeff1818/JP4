@@ -1,7 +1,7 @@
 ﻿
 namespace JP4
 {
-    partial class Form_janela_apont
+    partial class AP01
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,9 @@ namespace JP4
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.salvarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.repetirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pesquisarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.etruturaDoItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatoriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +53,7 @@ namespace JP4
             this.paradasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_tipo_material = new System.Windows.Forms.Label();
             this.text_qtd_saldo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.text_qtd_planejada = new System.Windows.Forms.TextBox();
@@ -57,7 +61,7 @@ namespace JP4
             this.combo_desc_completa = new System.Windows.Forms.ComboBox();
             this.combo_cod_item = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_tipo_movimento = new System.Windows.Forms.Label();
             this.combo_ordem_prod = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -108,10 +112,13 @@ namespace JP4
             this.text_lotes = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dt_lançamento = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
             this.combo_empresa = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.richText_observacao = new System.Windows.Forms.RichTextBox();
+            this.status_bar_apon = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -125,6 +132,9 @@ namespace JP4
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salvarToolStripMenuItem,
+            this.repetirToolStripMenuItem,
+            this.pesquisarToolStripMenuItem,
             this.cadastrosToolStripMenuItem,
             this.relatoriosToolStripMenuItem,
             this.cadastrosToolStripMenuItem1,
@@ -134,6 +144,24 @@ namespace JP4
             this.menuStrip1.Size = new System.Drawing.Size(1092, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // salvarToolStripMenuItem
+            // 
+            this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
+            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.salvarToolStripMenuItem.Text = "Salvar";
+            // 
+            // repetirToolStripMenuItem
+            // 
+            this.repetirToolStripMenuItem.Name = "repetirToolStripMenuItem";
+            this.repetirToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.repetirToolStripMenuItem.Text = "Repetir";
+            // 
+            // pesquisarToolStripMenuItem
+            // 
+            this.pesquisarToolStripMenuItem.Name = "pesquisarToolStripMenuItem";
+            this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.pesquisarToolStripMenuItem.Text = "Pesquisar";
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -265,12 +293,13 @@ namespace JP4
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             this.sairToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.sairToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.sairToolStripMenuItem.Text = "SAIR";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label_tipo_material);
             this.groupBox1.Controls.Add(this.text_qtd_saldo);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.text_qtd_planejada);
@@ -278,7 +307,7 @@ namespace JP4
             this.groupBox1.Controls.Add(this.combo_desc_completa);
             this.groupBox1.Controls.Add(this.combo_cod_item);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label_tipo_movimento);
             this.groupBox1.Controls.Add(this.combo_ordem_prod);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(188, 27);
@@ -288,12 +317,23 @@ namespace JP4
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação de Ordem";
             // 
+            // label_tipo_material
+            // 
+            this.label_tipo_material.AutoSize = true;
+            this.label_tipo_material.Location = new System.Drawing.Point(574, 40);
+            this.label_tipo_material.Name = "label_tipo_material";
+            this.label_tipo_material.Size = new System.Drawing.Size(16, 13);
+            this.label_tipo_material.TabIndex = 10;
+            this.label_tipo_material.Text = "---";
+            // 
             // text_qtd_saldo
             // 
+            this.text_qtd_saldo.Enabled = false;
             this.text_qtd_saldo.Location = new System.Drawing.Point(313, 91);
             this.text_qtd_saldo.Name = "text_qtd_saldo";
             this.text_qtd_saldo.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_saldo.TabIndex = 9;
+            this.text_qtd_saldo.Text = "0";
             // 
             // label5
             // 
@@ -306,10 +346,12 @@ namespace JP4
             // 
             // text_qtd_planejada
             // 
+            this.text_qtd_planejada.Enabled = false;
             this.text_qtd_planejada.Location = new System.Drawing.Point(121, 91);
             this.text_qtd_planejada.Name = "text_qtd_planejada";
             this.text_qtd_planejada.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_planejada.TabIndex = 7;
+            this.text_qtd_planejada.Text = "0";
             this.text_qtd_planejada.WordWrap = false;
             // 
             // label4
@@ -323,6 +365,7 @@ namespace JP4
             // 
             // combo_desc_completa
             // 
+            this.combo_desc_completa.Enabled = false;
             this.combo_desc_completa.FormattingEnabled = true;
             this.combo_desc_completa.Location = new System.Drawing.Point(273, 64);
             this.combo_desc_completa.Name = "combo_desc_completa";
@@ -331,6 +374,7 @@ namespace JP4
             // 
             // combo_cod_item
             // 
+            this.combo_cod_item.Enabled = false;
             this.combo_cod_item.FormattingEnabled = true;
             this.combo_cod_item.Location = new System.Drawing.Point(121, 64);
             this.combo_cod_item.Name = "combo_cod_item";
@@ -346,19 +390,20 @@ namespace JP4
             this.label3.TabIndex = 3;
             this.label3.Text = "Item:";
             // 
-            // label2
+            // label_tipo_movimento
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(270, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "---";
+            this.label_tipo_movimento.AutoSize = true;
+            this.label_tipo_movimento.Location = new System.Drawing.Point(270, 40);
+            this.label_tipo_movimento.Name = "label_tipo_movimento";
+            this.label_tipo_movimento.Size = new System.Drawing.Size(16, 13);
+            this.label_tipo_movimento.TabIndex = 2;
+            this.label_tipo_movimento.Text = "---";
             // 
             // combo_ordem_prod
             // 
             this.combo_ordem_prod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.combo_ordem_prod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.combo_ordem_prod.Enabled = false;
             this.combo_ordem_prod.FormattingEnabled = true;
             this.combo_ordem_prod.Location = new System.Drawing.Point(121, 37);
             this.combo_ordem_prod.Name = "combo_ordem_prod";
@@ -415,10 +460,13 @@ namespace JP4
             // 
             // text_largura
             // 
+            this.text_largura.Enabled = false;
             this.text_largura.Location = new System.Drawing.Point(360, 177);
             this.text_largura.Name = "text_largura";
             this.text_largura.Size = new System.Drawing.Size(79, 20);
             this.text_largura.TabIndex = 30;
+            this.text_largura.Text = "0";
+            this.text_largura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_largura_KeyPress);
             // 
             // label19
             // 
@@ -432,11 +480,15 @@ namespace JP4
             // text_qtd_fardos
             // 
             this.text_qtd_fardos.BackColor = System.Drawing.Color.LightGray;
+            this.text_qtd_fardos.Enabled = false;
+            this.text_qtd_fardos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.text_qtd_fardos.Location = new System.Drawing.Point(121, 177);
             this.text_qtd_fardos.Name = "text_qtd_fardos";
             this.text_qtd_fardos.Size = new System.Drawing.Size(79, 20);
             this.text_qtd_fardos.TabIndex = 28;
+            this.text_qtd_fardos.Text = "0";
             this.text_qtd_fardos.TextChanged += new System.EventHandler(this.text_qtd_fardos_TextChanged);
+            this.text_qtd_fardos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qtd_fardos_KeyPress);
             // 
             // label18
             // 
@@ -449,10 +501,13 @@ namespace JP4
             // 
             // text_contador
             // 
+            this.text_contador.Enabled = false;
             this.text_contador.Location = new System.Drawing.Point(511, 151);
             this.text_contador.Name = "text_contador";
             this.text_contador.Size = new System.Drawing.Size(79, 20);
             this.text_contador.TabIndex = 26;
+            this.text_contador.Text = "0";
+            this.text_contador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_contador_KeyPress);
             // 
             // label17
             // 
@@ -465,10 +520,12 @@ namespace JP4
             // 
             // text_velocidade
             // 
+            this.text_velocidade.Enabled = false;
             this.text_velocidade.Location = new System.Drawing.Point(360, 151);
             this.text_velocidade.Name = "text_velocidade";
             this.text_velocidade.Size = new System.Drawing.Size(79, 20);
             this.text_velocidade.TabIndex = 24;
+            this.text_velocidade.Text = "0";
             // 
             // label16
             // 
@@ -481,17 +538,23 @@ namespace JP4
             // 
             // text_bobina_fim
             // 
+            this.text_bobina_fim.Enabled = false;
             this.text_bobina_fim.Location = new System.Drawing.Point(206, 151);
             this.text_bobina_fim.Name = "text_bobina_fim";
             this.text_bobina_fim.Size = new System.Drawing.Size(79, 20);
             this.text_bobina_fim.TabIndex = 22;
+            this.text_bobina_fim.Text = "0";
+            this.text_bobina_fim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_bobina_fim_KeyPress);
             // 
             // text_bobina_ini
             // 
+            this.text_bobina_ini.Enabled = false;
             this.text_bobina_ini.Location = new System.Drawing.Point(121, 151);
             this.text_bobina_ini.Name = "text_bobina_ini";
             this.text_bobina_ini.Size = new System.Drawing.Size(79, 20);
             this.text_bobina_ini.TabIndex = 21;
+            this.text_bobina_ini.Text = "0";
+            this.text_bobina_ini.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_bobina_ini_KeyPress);
             // 
             // label15
             // 
@@ -505,10 +568,14 @@ namespace JP4
             // text_qtd_boa
             // 
             this.text_qtd_boa.BackColor = System.Drawing.Color.Gainsboro;
+            this.text_qtd_boa.Enabled = false;
+            this.text_qtd_boa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.text_qtd_boa.Location = new System.Drawing.Point(121, 125);
             this.text_qtd_boa.Name = "text_qtd_boa";
             this.text_qtd_boa.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_boa.TabIndex = 19;
+            this.text_qtd_boa.Text = "0";
+            this.text_qtd_boa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qtd_boa_KeyPress);
             // 
             // label14
             // 
@@ -548,6 +615,7 @@ namespace JP4
             // hr_final_prod
             // 
             this.hr_final_prod.CustomFormat = "hh:mm";
+            this.hr_final_prod.Enabled = false;
             this.hr_final_prod.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.hr_final_prod.Location = new System.Drawing.Point(584, 73);
             this.hr_final_prod.Name = "hr_final_prod";
@@ -558,6 +626,7 @@ namespace JP4
             // dt_final_pro
             // 
             this.dt_final_pro.CustomFormat = "";
+            this.dt_final_pro.Enabled = false;
             this.dt_final_pro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dt_final_pro.Location = new System.Drawing.Point(435, 73);
             this.dt_final_pro.Name = "dt_final_pro";
@@ -576,6 +645,7 @@ namespace JP4
             // hr_inicial_prod
             // 
             this.hr_inicial_prod.CustomFormat = "hh:mm";
+            this.hr_inicial_prod.Enabled = false;
             this.hr_inicial_prod.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.hr_inicial_prod.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.hr_inicial_prod.Location = new System.Drawing.Point(273, 72);
@@ -587,11 +657,13 @@ namespace JP4
             // dt_inicio_pro
             // 
             this.dt_inicio_pro.CustomFormat = "";
+            this.dt_inicio_pro.Enabled = false;
             this.dt_inicio_pro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dt_inicio_pro.Location = new System.Drawing.Point(121, 73);
             this.dt_inicio_pro.Name = "dt_inicio_pro";
             this.dt_inicio_pro.Size = new System.Drawing.Size(143, 20);
             this.dt_inicio_pro.TabIndex = 10;
+            this.dt_inicio_pro.Value = new System.DateTime(2021, 3, 9, 8, 49, 5, 0);
             // 
             // label10
             // 
@@ -606,6 +678,7 @@ namespace JP4
             // 
             this.combo_operadores.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.combo_operadores.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.combo_operadores.Enabled = false;
             this.combo_operadores.FormattingEnabled = true;
             this.combo_operadores.Location = new System.Drawing.Point(121, 46);
             this.combo_operadores.Name = "combo_operadores";
@@ -632,6 +705,7 @@ namespace JP4
             // 
             // combo_turnos
             // 
+            this.combo_turnos.Enabled = false;
             this.combo_turnos.FormattingEnabled = true;
             this.combo_turnos.Location = new System.Drawing.Point(313, 19);
             this.combo_turnos.Name = "combo_turnos";
@@ -650,6 +724,7 @@ namespace JP4
             // 
             // combo_maquinas
             // 
+            this.combo_maquinas.Enabled = false;
             this.combo_maquinas.FormattingEnabled = true;
             this.combo_maquinas.Location = new System.Drawing.Point(121, 19);
             this.combo_maquinas.Name = "combo_maquinas";
@@ -777,6 +852,7 @@ namespace JP4
             // 
             // combo_local_desti
             // 
+            this.combo_local_desti.Enabled = false;
             this.combo_local_desti.FormattingEnabled = true;
             this.combo_local_desti.Location = new System.Drawing.Point(347, 19);
             this.combo_local_desti.Name = "combo_local_desti";
@@ -794,6 +870,7 @@ namespace JP4
             // 
             // combo_local_orig
             // 
+            this.combo_local_orig.Enabled = false;
             this.combo_local_orig.FormattingEnabled = true;
             this.combo_local_orig.Location = new System.Drawing.Point(121, 19);
             this.combo_local_orig.Name = "combo_local_orig";
@@ -822,6 +899,7 @@ namespace JP4
             // 
             // text_lotes
             // 
+            this.text_lotes.Enabled = false;
             this.text_lotes.Location = new System.Drawing.Point(121, 19);
             this.text_lotes.Name = "text_lotes";
             this.text_lotes.Size = new System.Drawing.Size(573, 20);
@@ -838,6 +916,8 @@ namespace JP4
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.dt_lançamento);
+            this.groupBox6.Controls.Add(this.label8);
             this.groupBox6.Controls.Add(this.combo_empresa);
             this.groupBox6.Controls.Add(this.label24);
             this.groupBox6.Location = new System.Drawing.Point(12, 321);
@@ -847,9 +927,29 @@ namespace JP4
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Informação de local";
             // 
+            // dt_lançamento
+            // 
+            this.dt_lançamento.CustomFormat = "";
+            this.dt_lançamento.Enabled = false;
+            this.dt_lançamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_lançamento.Location = new System.Drawing.Point(6, 107);
+            this.dt_lançamento.Name = "dt_lançamento";
+            this.dt_lançamento.Size = new System.Drawing.Size(143, 20);
+            this.dt_lançamento.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(37, 81);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Data lançamento";
+            // 
             // combo_empresa
             // 
             this.combo_empresa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.combo_empresa.Enabled = false;
             this.combo_empresa.FormattingEnabled = true;
             this.combo_empresa.Location = new System.Drawing.Point(6, 38);
             this.combo_empresa.Name = "combo_empresa";
@@ -870,7 +970,7 @@ namespace JP4
             this.groupBox7.Controls.Add(this.richText_observacao);
             this.groupBox7.Location = new System.Drawing.Point(900, 27);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(180, 478);
+            this.groupBox7.Size = new System.Drawing.Size(180, 484);
             this.groupBox7.TabIndex = 10;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Observação";
@@ -883,13 +983,22 @@ namespace JP4
             this.richText_observacao.TabIndex = 0;
             this.richText_observacao.Text = "";
             // 
-            // Form_janela_apont
+            // status_bar_apon
+            // 
+            this.status_bar_apon.Location = new System.Drawing.Point(0, 522);
+            this.status_bar_apon.Name = "status_bar_apon";
+            this.status_bar_apon.Size = new System.Drawing.Size(1092, 22);
+            this.status_bar_apon.TabIndex = 11;
+            this.status_bar_apon.Text = "statusStrip1";
+            // 
+            // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1092, 522);
+            this.ClientSize = new System.Drawing.Size(1092, 544);
+            this.Controls.Add(this.status_bar_apon);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -899,8 +1008,9 @@ namespace JP4
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form_janela_apont";
+            this.Name = "AP01";
             this.Text = "Form_janela_apont";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_janela_apont_KeyDown);
             this.menuStrip1.ResumeLayout(false);
@@ -931,7 +1041,7 @@ namespace JP4
         private System.Windows.Forms.ComboBox combo_desc_completa;
         private System.Windows.Forms.ComboBox combo_cod_item;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_tipo_movimento;
         private System.Windows.Forms.ComboBox combo_ordem_prod;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1006,5 +1116,12 @@ namespace JP4
         private System.Windows.Forms.ToolStripMenuItem paradasToolStripMenuItem1;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RichTextBox richText_observacao;
+        private System.Windows.Forms.DateTimePicker dt_lançamento;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.StatusStrip status_bar_apon;
+        private System.Windows.Forms.Label label_tipo_material;
+        private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem repetirToolStripMenuItem;
     }
 }
