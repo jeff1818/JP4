@@ -36,12 +36,14 @@ namespace JP4
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button_abrir_op = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_estrutura = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button_cadastro_material = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -129,12 +131,14 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.panel6);
+            this.panel_menu_vertical.Controls.Add(this.button3);
             this.panel_menu_vertical.Controls.Add(this.panel5);
             this.panel_menu_vertical.Controls.Add(this.button1);
             this.panel_menu_vertical.Controls.Add(this.panel4);
             this.panel_menu_vertical.Controls.Add(this.button_abrir_op);
             this.panel_menu_vertical.Controls.Add(this.panel3);
-            this.panel_menu_vertical.Controls.Add(this.button2);
+            this.panel_menu_vertical.Controls.Add(this.button_estrutura);
             this.panel_menu_vertical.Controls.Add(this.panel2);
             this.panel_menu_vertical.Controls.Add(this.button_cadastro_material);
             this.panel_menu_vertical.Controls.Add(this.panel1);
@@ -146,10 +150,31 @@ namespace JP4
             this.panel_menu_vertical.Size = new System.Drawing.Size(200, 615);
             this.panel_menu_vertical.TabIndex = 4;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Black;
+            this.panel6.Location = new System.Drawing.Point(3, 263);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(5, 32);
+            this.panel6.TabIndex = 13;
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(14, 263);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(180, 32);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Configuração";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(3, 263);
+            this.panel5.Location = new System.Drawing.Point(3, 301);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(5, 32);
             this.panel5.TabIndex = 11;
@@ -160,7 +185,7 @@ namespace JP4
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(14, 263);
+            this.button1.Location = new System.Drawing.Point(14, 301);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 32);
             this.button1.TabIndex = 10;
@@ -197,18 +222,19 @@ namespace JP4
             this.panel3.Size = new System.Drawing.Size(5, 32);
             this.panel3.TabIndex = 7;
             // 
-            // button2
+            // button_estrutura
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(14, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 32);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Configuração";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_estrutura.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_estrutura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_estrutura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_estrutura.ForeColor = System.Drawing.Color.White;
+            this.button_estrutura.Location = new System.Drawing.Point(14, 225);
+            this.button_estrutura.Name = "button_estrutura";
+            this.button_estrutura.Size = new System.Drawing.Size(180, 32);
+            this.button_estrutura.TabIndex = 6;
+            this.button_estrutura.Text = "Estrutura Material";
+            this.button_estrutura.UseVisualStyleBackColor = true;
+            this.button_estrutura.Click += new System.EventHandler(this.button_estrutura_Click);
             // 
             // panel2
             // 
@@ -326,12 +352,14 @@ namespace JP4
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button_abrir_op;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_estrutura;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button_cadastro_material;
         private db_aplicativo_kpiDataSet db_aplicativo_kpiDataSet;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button button3;
     }
 }
 

@@ -489,6 +489,7 @@ namespace JP4
             this.text_qtd_fardos.Text = "0";
             this.text_qtd_fardos.TextChanged += new System.EventHandler(this.text_qtd_fardos_TextChanged);
             this.text_qtd_fardos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qtd_fardos_KeyPress);
+            this.text_qtd_fardos.Leave += new System.EventHandler(this.text_qtd_fardos_Leave);
             // 
             // label18
             // 
@@ -526,6 +527,7 @@ namespace JP4
             this.text_velocidade.Size = new System.Drawing.Size(79, 20);
             this.text_velocidade.TabIndex = 24;
             this.text_velocidade.Text = "0";
+            this.text_velocidade.Leave += new System.EventHandler(this.text_velocidade_Leave);
             // 
             // label16
             // 

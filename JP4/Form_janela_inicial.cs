@@ -88,7 +88,10 @@ namespace JP4
             abrir_janelas(new Form_janela_cadastro_material());
         }
 
-
+        private void button_estrutura_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new ST01());
+        }
 
         #endregion
 
@@ -96,5 +99,7 @@ namespace JP4
         {
 
         }
+
+       
     }
 }

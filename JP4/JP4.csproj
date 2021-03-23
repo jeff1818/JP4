@@ -92,6 +92,7 @@
     <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -109,6 +110,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>db_aplicativo_kpiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form_consumo_estrutura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_consumo_estrutura.Designer.cs">
+      <DependentUpon>Form_consumo_estrutura.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_janela_abrir_op.cs">
       <SubType>Form</SubType>
@@ -172,6 +179,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_consumo_estrutura.resx">
+      <DependentUpon>Form_consumo_estrutura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_abrir_op.resx">
       <DependentUpon>Form_janela_abrir_op.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_cadastro_material.resx">
       <DependentUpon>Form_janela_cadastro_material.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_estrutura.resx">
+      <DependentUpon>Form_janela_estrutura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_inicial.resx">
       <DependentUpon>Form_janela_inicial.cs</DependentUpon>
