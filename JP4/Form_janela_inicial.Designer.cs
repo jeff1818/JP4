@@ -71,7 +71,7 @@ namespace JP4
             this.panel_titulo_menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_titulo_menu.Location = new System.Drawing.Point(0, 0);
             this.panel_titulo_menu.Name = "panel_titulo_menu";
-            this.panel_titulo_menu.Size = new System.Drawing.Size(1300, 35);
+            this.panel_titulo_menu.Size = new System.Drawing.Size(1369, 35);
             this.panel_titulo_menu.TabIndex = 3;
             this.panel_titulo_menu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_titulo_menu_MouseDown);
             // 
@@ -80,7 +80,7 @@ namespace JP4
             this.botao_restor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.botao_restor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.botao_restor.Image = ((System.Drawing.Image)(resources.GetObject("botao_restor.Image")));
-            this.botao_restor.Location = new System.Drawing.Point(1232, 4);
+            this.botao_restor.Location = new System.Drawing.Point(1301, 4);
             this.botao_restor.Name = "botao_restor";
             this.botao_restor.Size = new System.Drawing.Size(25, 25);
             this.botao_restor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,7 +94,7 @@ namespace JP4
             this.botao_mini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.botao_mini.Cursor = System.Windows.Forms.Cursors.Hand;
             this.botao_mini.Image = ((System.Drawing.Image)(resources.GetObject("botao_mini.Image")));
-            this.botao_mini.Location = new System.Drawing.Point(1201, 4);
+            this.botao_mini.Location = new System.Drawing.Point(1270, 4);
             this.botao_mini.Name = "botao_mini";
             this.botao_mini.Size = new System.Drawing.Size(25, 25);
             this.botao_mini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -107,7 +107,7 @@ namespace JP4
             this.botao_maxm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.botao_maxm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.botao_maxm.Image = ((System.Drawing.Image)(resources.GetObject("botao_maxm.Image")));
-            this.botao_maxm.Location = new System.Drawing.Point(1232, 4);
+            this.botao_maxm.Location = new System.Drawing.Point(1301, 4);
             this.botao_maxm.Name = "botao_maxm";
             this.botao_maxm.Size = new System.Drawing.Size(25, 25);
             this.botao_maxm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,7 +120,7 @@ namespace JP4
             this.botao_fechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.botao_fechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.botao_fechar.Image = ((System.Drawing.Image)(resources.GetObject("botao_fechar.Image")));
-            this.botao_fechar.Location = new System.Drawing.Point(1263, 4);
+            this.botao_fechar.Location = new System.Drawing.Point(1332, 4);
             this.botao_fechar.Name = "botao_fechar";
             this.botao_fechar.Size = new System.Drawing.Size(25, 25);
             this.botao_fechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -147,7 +147,7 @@ namespace JP4
             this.panel_menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_menu_vertical.Location = new System.Drawing.Point(0, 35);
             this.panel_menu_vertical.Name = "panel_menu_vertical";
-            this.panel_menu_vertical.Size = new System.Drawing.Size(200, 615);
+            this.panel_menu_vertical.Size = new System.Drawing.Size(200, 689);
             this.panel_menu_vertical.TabIndex = 4;
             // 
             // panel6
@@ -298,7 +298,7 @@ namespace JP4
             this.panel_central.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_central.Location = new System.Drawing.Point(200, 35);
             this.panel_central.Name = "panel_central";
-            this.panel_central.Size = new System.Drawing.Size(1100, 615);
+            this.panel_central.Size = new System.Drawing.Size(1169, 689);
             this.panel_central.TabIndex = 5;
             // 
             // db_aplicativo_kpiDataSet
@@ -313,7 +313,7 @@ namespace JP4
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1300, 650);
+            this.ClientSize = new System.Drawing.Size(1369, 724);
             this.Controls.Add(this.panel_central);
             this.Controls.Add(this.panel_menu_vertical);
             this.Controls.Add(this.panel_titulo_menu);

@@ -111,11 +111,14 @@ namespace JP4
             // 
             // Grid_estrutura_item
             // 
+            this.Grid_estrutura_item.AllowUserToAddRows = false;
+            this.Grid_estrutura_item.AllowUserToDeleteRows = false;
             this.Grid_estrutura_item.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Grid_estrutura_item.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.Grid_estrutura_item.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_estrutura_item.Location = new System.Drawing.Point(9, 127);
             this.Grid_estrutura_item.Name = "Grid_estrutura_item";
+            this.Grid_estrutura_item.ReadOnly = true;
             this.Grid_estrutura_item.Size = new System.Drawing.Size(703, 217);
             this.Grid_estrutura_item.TabIndex = 6;
             // 

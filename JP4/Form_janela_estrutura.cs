@@ -513,7 +513,7 @@ namespace JP4
             conexao.Open();
             try
             {
-                if (this.id01.Text == "id")
+                if (id01.Text == "id")
                 {
                     if (combo_componente01.Text != string.Empty && text_qtd_necess01.Text != string.Empty && text_percentual_refugo01.Text != string.Empty && text_dt_inicio01.Text != string.Empty)
                     {
@@ -527,8 +527,7 @@ namespace JP4
                         cmd.ExecuteNonQuery();
                     }
                 }
-
-                if (this.id01.Text != "id")
+                if (id01.Text != "id")
                 {
                     string data_inicio = this.text_dt_inicio01.Text;
                     string data_validade = this.text_dt_validade01.Text;
@@ -561,7 +560,6 @@ namespace JP4
                         cmd.ExecuteNonQuery();
                     }                    
                 }
-
                 if (id02.Text != "id")
                 {
                     string data_inicio = this.text_dt_inicio02.Text;
@@ -595,8 +593,7 @@ namespace JP4
                         cmd.ExecuteNonQuery();
                     }
                 }
-
-                if (id02.Text != "id")
+                if (id03.Text != "id")
                 {
                     string data_inicio = this.text_dt_inicio03.Text;
                     string data_validade = this.text_dt_validade03.Text;
@@ -615,6 +612,236 @@ namespace JP4
                     cmd.ExecuteNonQuery();
                 }
 
+                if (id04.Text == "id")
+                {
+                    if (combo_componente04.Text != string.Empty && text_qtd_necess04.Text != string.Empty && text_percentual_refugo04.Text != string.Empty && text_dt_inicio04.Text != string.Empty)
+                    {
+                        DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio04.Text);
+                        DateTime data_validade = Convert.ToDateTime(this.text_dt_validade04.Text);
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente04.Text + "','" + text_qtd_necess04.Text + "','" + text_percentual_refugo04.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                if (id04.Text != "id")
+                {
+                    string data_inicio = this.text_dt_inicio04.Text;
+                    string data_validade = this.text_dt_validade04.Text;
+
+                    comando_sql = "UPDATE db_estrutura SET " +
+                        "empresa='" + combo_empresa.Text +
+                        "', item_pai='" + text_cod_item.Text +
+                        "', descri_filho='" + combo_componente04.Text +
+                        "', qtd_necessaria='" + text_qtd_necess04.Text +
+                        "', pct_refug='" + text_percentual_refugo04.Text +
+                        "', dat_validade_ini='" + Convert.ToDateTime(data_inicio) +
+                        "', dat_validade_fim='" + Convert.ToDateTime(data_validade) +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id04.Text) + "";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (id05.Text == "id")
+                {
+                    if (combo_componente05.Text != string.Empty && text_qtd_necess05.Text != string.Empty && text_percentual_refugo05.Text != string.Empty && text_dt_inicio05.Text != string.Empty)
+                    {
+                        DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio05.Text);
+                        DateTime data_validade = Convert.ToDateTime(this.text_dt_validade05.Text);
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente05.Text + "','" + text_qtd_necess05.Text + "','" + text_percentual_refugo05.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                if (id05.Text != "id")
+                {
+                    string data_inicio = this.text_dt_inicio05.Text;
+                    string data_validade = this.text_dt_validade05.Text;
+
+                    comando_sql = "UPDATE db_estrutura SET " +
+                        "empresa='" + combo_empresa.Text +
+                        "', item_pai='" + text_cod_item.Text +
+                        "', descri_filho='" + combo_componente05.Text +
+                        "', qtd_necessaria='" + text_qtd_necess05.Text +
+                        "', pct_refug='" + text_percentual_refugo05.Text +
+                        "', dat_validade_ini='" + Convert.ToDateTime(data_inicio) +
+                        "', dat_validade_fim='" + Convert.ToDateTime(data_validade) +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id05.Text) + "";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (id06.Text == "id")
+                {
+                    if (combo_componente06.Text != string.Empty && text_qtd_necess06.Text != string.Empty && text_percentual_refugo06.Text != string.Empty && text_dt_inicio06.Text != string.Empty)
+                    {
+                        DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio06.Text);
+                        DateTime data_validade = Convert.ToDateTime(this.text_dt_validade06.Text);
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente06.Text + "','" + text_qtd_necess06.Text + "','" + text_percentual_refugo06.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                if (id06.Text != "id")
+                {
+                    string data_inicio = this.text_dt_inicio06.Text;
+                    string data_validade = this.text_dt_validade06.Text;
+
+                    comando_sql = "UPDATE db_estrutura SET " +
+                        "empresa='" + combo_empresa.Text +
+                        "', item_pai='" + text_cod_item.Text +
+                        "', descri_filho='" + combo_componente06.Text +
+                        "', qtd_necessaria='" + text_qtd_necess06.Text +
+                        "', pct_refug='" + text_percentual_refugo06.Text +
+                        "', dat_validade_ini='" + Convert.ToDateTime(data_inicio) +
+                        "', dat_validade_fim='" + Convert.ToDateTime(data_validade) +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id06.Text) + "";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (id07.Text == "id")
+                {
+                    if (combo_componente07.Text != string.Empty && text_qtd_necess07.Text != string.Empty && text_percentual_refugo07.Text != string.Empty && text_dt_inicio07.Text != string.Empty)
+                    {
+                        DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio07.Text);
+                        DateTime data_validade = Convert.ToDateTime(this.text_dt_validade07.Text);
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente07.Text + "','" + text_qtd_necess07.Text + "','" + text_percentual_refugo07.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                if (id07.Text != "id")
+                {
+                    string data_inicio = this.text_dt_inicio07.Text;
+                    string data_validade = this.text_dt_validade07.Text;
+
+                    comando_sql = "UPDATE db_estrutura SET " +
+                        "empresa='" + combo_empresa.Text +
+                        "', item_pai='" + text_cod_item.Text +
+                        "', descri_filho='" + combo_componente07.Text +
+                        "', qtd_necessaria='" + text_qtd_necess07.Text +
+                        "', pct_refug='" + text_percentual_refugo07.Text +
+                        "', dat_validade_ini='" + Convert.ToDateTime(data_inicio) +
+                        "', dat_validade_fim='" + Convert.ToDateTime(data_validade) +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id07.Text) + "";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                }               
+
+                if (id08.Text == "id")
+                {
+                    if (combo_componente08.Text != string.Empty && text_qtd_necess08.Text != string.Empty && text_percentual_refugo08.Text != string.Empty && text_dt_inicio08.Text != string.Empty)
+                    {
+                        DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio08.Text);
+                        DateTime data_validade = Convert.ToDateTime(this.text_dt_validade08.Text);
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente08.Text + "','" + text_qtd_necess08.Text + "','" + text_percentual_refugo08.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                if (id08.Text != "id")
+                {
+                    string data_inicio = this.text_dt_inicio08.Text;
+                    string data_validade = this.text_dt_validade08.Text;
+
+                    comando_sql = "UPDATE db_estrutura SET " +
+                        "empresa='" + combo_empresa.Text +
+                        "', item_pai='" + text_cod_item.Text +
+                        "', descri_filho='" + combo_componente08.Text +
+                        "', qtd_necessaria='" + text_qtd_necess08.Text +
+                        "', pct_refug='" + text_percentual_refugo08.Text +
+                        "', dat_validade_ini='" + Convert.ToDateTime(data_inicio) +
+                        "', dat_validade_fim='" + Convert.ToDateTime(data_validade) +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id08.Text) + "";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (id09.Text == "id")
+                {
+                    if (combo_componente09.Text != string.Empty && text_qtd_necess09.Text != string.Empty && text_percentual_refugo09.Text != string.Empty && text_dt_inicio09.Text != string.Empty)
+                    {
+                        DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio09.Text);
+                        DateTime data_validade = Convert.ToDateTime(this.text_dt_validade09.Text);
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente09.Text + "','" + text_qtd_necess09.Text + "','" + text_percentual_refugo09.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                if (id09.Text != "id")
+                {
+                    string data_inicio = this.text_dt_inicio09.Text;
+                    string data_validade = this.text_dt_validade09.Text;
+
+                    comando_sql = "UPDATE db_estrutura SET " +
+                        "empresa='" + combo_empresa.Text +
+                        "', item_pai='" + text_cod_item.Text +
+                        "', descri_filho='" + combo_componente09.Text +
+                        "', qtd_necessaria='" + text_qtd_necess09.Text +
+                        "', pct_refug='" + text_percentual_refugo09.Text +
+                        "', dat_validade_ini='" + Convert.ToDateTime(data_inicio) +
+                        "', dat_validade_fim='" + Convert.ToDateTime(data_validade) +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id09.Text) + "";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (id10.Text == "id")
+                {
+                    if (combo_componente10.Text != string.Empty && text_qtd_necess10.Text != string.Empty && text_percentual_refugo10.Text != string.Empty && text_dt_inicio10.Text != string.Empty)
+                    {
+                        DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio10.Text);
+                        DateTime data_validade = Convert.ToDateTime(this.text_dt_validade10.Text);
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente10.Text + "','" + text_qtd_necess10.Text + "','" + text_percentual_refugo10.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                if (id10.Text != "id")
+                {
+                    string data_inicio = this.text_dt_inicio10.Text;
+                    string data_validade = this.text_dt_validade10.Text;
+
+                    comando_sql = "UPDATE db_estrutura SET " +
+                        "empresa='" + combo_empresa.Text +
+                        "', item_pai='" + text_cod_item.Text +
+                        "', descri_filho='" + combo_componente10.Text +
+                        "', qtd_necessaria='" + text_qtd_necess10.Text +
+                        "', pct_refug='" + text_percentual_refugo10.Text +
+                        "', dat_validade_ini='" + Convert.ToDateTime(data_inicio) +
+                        "', dat_validade_fim='" + Convert.ToDateTime(data_validade) +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id10.Text) + "";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                }
 
 
                 conexao.Close();
@@ -707,10 +934,52 @@ namespace JP4
             {
                 Delete_item_estrutura(Convert.ToInt64(id01.Text));
             }
+
             if (delete02.Checked == true)
             {
                 Delete_item_estrutura(Convert.ToInt64(id02.Text));
             }
+
+            if (delete03.Checked == true)
+            {
+                Delete_item_estrutura(Convert.ToInt64(id03.Text));
+            }
+
+            if (delete04.Checked == true)
+            {
+                Delete_item_estrutura(Convert.ToInt64(id04.Text));
+            }
+
+            if (delete05.Checked == true)
+            {
+                Delete_item_estrutura(Convert.ToInt64(id05.Text));
+            }
+
+            if (delete06.Checked == true)
+            {
+                Delete_item_estrutura(Convert.ToInt64(id06.Text));
+            }
+
+            if (delete07.Checked == true)
+            {
+                Delete_item_estrutura(Convert.ToInt64(id07.Text));
+            }
+
+            if (delete08.Checked == true)
+            {
+                Delete_item_estrutura(Convert.ToInt64(id08.Text));
+            }
+
+            if (delete09.Checked == true)
+            {
+                Delete_item_estrutura(Convert.ToInt64(id09.Text));
+            }
+
+            if (delete10.Checked == true)
+            {
+                Delete_item_estrutura(Convert.ToInt64(id10.Text));
+            }
+
         }
     }
 }

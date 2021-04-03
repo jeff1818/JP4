@@ -57,7 +57,6 @@ namespace JP4
             }
         }
 
-
         private void calcular_qtd_total_grid()
         {
             double total = Convert.ToDouble( this.text_qtd_saldo.Text);

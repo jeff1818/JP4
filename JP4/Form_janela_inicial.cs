@@ -85,7 +85,7 @@ namespace JP4
 
         private void button_cadastro_material_Click(object sender, EventArgs e)
         {
-            abrir_janelas(new Form_janela_cadastro_material());
+            abrir_janelas(new CAD01());
         }
 
         private void button_estrutura_Click(object sender, EventArgs e)

@@ -26,7 +26,9 @@
     <InstallUrl>https://1drv.ms/u/s!AnBCCWfJxas3gYdNg6vi2oCTL7xXxg%3fe=XMnrrG/</InstallUrl>
     <UpdateUrl>https://1drv.ms/u/s!AnBCCWfJxas3gYdNg6vi2oCTL7xXxg%3fe=XMnrrG/</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.1</MinimumRequiredVersion>
-    <ApplicationRevision>1</ApplicationRevision>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -187,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_apont.resx">
       <DependentUpon>Form_janela_apont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_busca_cadastro.resx">
+      <DependentUpon>Form_janela_busca_cadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_cadastro_material.resx">
       <DependentUpon>Form_janela_cadastro_material.cs</DependentUpon>

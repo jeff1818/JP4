@@ -112,6 +112,8 @@ namespace JP4
             this.text_lotes = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.text_local_aplicacao = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dt_lançamento = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.combo_empresa = new System.Windows.Forms.ComboBox();
@@ -119,6 +121,126 @@ namespace JP4
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.richText_observacao = new System.Windows.Forms.RichTextBox();
             this.status_bar_apon = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel_nome = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_status_apon = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar_apon = new System.Windows.Forms.ToolStripProgressBar();
+            this.tab_menu_apontamento = new System.Windows.Forms.TabControl();
+            this.tab_apontamento = new System.Windows.Forms.TabPage();
+            this.tab_paradas = new System.Windows.Forms.TabPage();
+            this.abaParadas_label_local_aplicacao = new System.Windows.Forms.Label();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.abaParadas_obs = new System.Windows.Forms.RichTextBox();
+            this.abaParada_button_voltar_apontamento = new System.Windows.Forms.Button();
+            this.abaParada_button_ir_mistura = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.abaParadas_label_turno = new System.Windows.Forms.Label();
+            this.abaParadas_label_operador = new System.Windows.Forms.Label();
+            this.abaParadas_label_numero_op = new System.Windows.Forms.Label();
+            this.abaParadas_label_maquina = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.abaParada_label_hr_total = new System.Windows.Forms.Label();
+            this.abaParada_combo_parada01 = new System.Windows.Forms.ComboBox();
+            this.abaParada_hr_inicio01 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_hr_fim01 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_label_hr_total08 = new System.Windows.Forms.Label();
+            this.abaParada_combo_parada02 = new System.Windows.Forms.ComboBox();
+            this.abaParada_label_hr_total07 = new System.Windows.Forms.Label();
+            this.abaParada_hr_inicio02 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_label_hr_total06 = new System.Windows.Forms.Label();
+            this.abaParada_hr_fim02 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_label_hr_total05 = new System.Windows.Forms.Label();
+            this.abaParada_combo_parada03 = new System.Windows.Forms.ComboBox();
+            this.abaParada_label_hr_total04 = new System.Windows.Forms.Label();
+            this.abaParada_hr_inicio03 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_label_hr_total03 = new System.Windows.Forms.Label();
+            this.abaParada_hr_fim03 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_label_hr_total02 = new System.Windows.Forms.Label();
+            this.abaParada_combo_parada04 = new System.Windows.Forms.ComboBox();
+            this.abaParada_label_hr_total01 = new System.Windows.Forms.Label();
+            this.abaParada_hr_inicio04 = new System.Windows.Forms.DateTimePicker();
+            this.label33 = new System.Windows.Forms.Label();
+            this.abaParada_hr_fim04 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_combo_parada05 = new System.Windows.Forms.ComboBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.abaParada_hr_inicio05 = new System.Windows.Forms.DateTimePicker();
+            this.label35 = new System.Windows.Forms.Label();
+            this.abaParada_hr_fim05 = new System.Windows.Forms.DateTimePicker();
+            this.label36 = new System.Windows.Forms.Label();
+            this.abaParada_combo_parada06 = new System.Windows.Forms.ComboBox();
+            this.abaParada_hr_fim08 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_hr_inicio06 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_hr_inicio08 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_hr_fim06 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_combo_parada08 = new System.Windows.Forms.ComboBox();
+            this.abaParada_combo_parada07 = new System.Windows.Forms.ComboBox();
+            this.abaParada_hr_fim07 = new System.Windows.Forms.DateTimePicker();
+            this.abaParada_hr_inicio07 = new System.Windows.Forms.DateTimePicker();
+            this.tab_mistura = new System.Windows.Forms.TabPage();
+            this.abaMistura_button_voltar_parada = new System.Windows.Forms.Button();
+            this.abaMistura_button_ir_consumo = new System.Windows.Forms.Button();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.AbaMistura_label_producao = new System.Windows.Forms.Label();
+            this.AbaMistura_label_turno = new System.Windows.Forms.Label();
+            this.AbaMistura_label_operador = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.AbaMistura_label_op = new System.Windows.Forms.Label();
+            this.AbaMistura_label_mq = new System.Windows.Forms.Label();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.AbaMistura_label_total_mistura = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct10 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp10 = new System.Windows.Forms.ComboBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct09 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp09 = new System.Windows.Forms.ComboBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct08 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp08 = new System.Windows.Forms.ComboBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct07 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp07 = new System.Windows.Forms.ComboBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct06 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp06 = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct05 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp05 = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct04 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp04 = new System.Windows.Forms.ComboBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct03 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp03 = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct02 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp02 = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.abaMistura_text_perct01 = new System.Windows.Forms.TextBox();
+            this.abaMistura_combo_mp01 = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.tab_consumo = new System.Windows.Forms.TabPage();
+            this.Grid_estrutura_item = new System.Windows.Forms.DataGridView();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.abaConsumo_text_descri_item = new System.Windows.Forms.TextBox();
+            this.abaConsumo_text__cod_item = new System.Windows.Forms.TextBox();
+            this.abaConsumo_text_qtd_boa = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.tab_importar_op = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -127,6 +249,20 @@ namespace JP4
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.status_bar_apon.SuspendLayout();
+            this.tab_menu_apontamento.SuspendLayout();
+            this.tab_apontamento.SuspendLayout();
+            this.tab_paradas.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.tab_mistura.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.tab_consumo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_estrutura_item)).BeginInit();
+            this.groupBox10.SuspendLayout();
+            this.tab_importar_op.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -141,7 +277,7 @@ namespace JP4
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1092, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1113, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -310,7 +446,7 @@ namespace JP4
             this.groupBox1.Controls.Add(this.label_tipo_movimento);
             this.groupBox1.Controls.Add(this.combo_ordem_prod);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(188, 27);
+            this.groupBox1.Location = new System.Drawing.Point(179, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(706, 122);
             this.groupBox1.TabIndex = 4;
@@ -451,7 +587,7 @@ namespace JP4
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.combo_maquinas);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(188, 155);
+            this.groupBox2.Location = new System.Drawing.Point(179, 139);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(706, 212);
             this.groupBox2.TabIndex = 5;
@@ -464,7 +600,7 @@ namespace JP4
             this.text_largura.Location = new System.Drawing.Point(360, 177);
             this.text_largura.Name = "text_largura";
             this.text_largura.Size = new System.Drawing.Size(79, 20);
-            this.text_largura.TabIndex = 30;
+            this.text_largura.TabIndex = 21;
             this.text_largura.Text = "0";
             this.text_largura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_largura_KeyPress);
             // 
@@ -485,7 +621,7 @@ namespace JP4
             this.text_qtd_fardos.Location = new System.Drawing.Point(121, 177);
             this.text_qtd_fardos.Name = "text_qtd_fardos";
             this.text_qtd_fardos.Size = new System.Drawing.Size(79, 20);
-            this.text_qtd_fardos.TabIndex = 28;
+            this.text_qtd_fardos.TabIndex = 20;
             this.text_qtd_fardos.Text = "0";
             this.text_qtd_fardos.TextChanged += new System.EventHandler(this.text_qtd_fardos_TextChanged);
             this.text_qtd_fardos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qtd_fardos_KeyPress);
@@ -506,7 +642,7 @@ namespace JP4
             this.text_contador.Location = new System.Drawing.Point(511, 151);
             this.text_contador.Name = "text_contador";
             this.text_contador.Size = new System.Drawing.Size(79, 20);
-            this.text_contador.TabIndex = 26;
+            this.text_contador.TabIndex = 19;
             this.text_contador.Text = "0";
             this.text_contador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_contador_KeyPress);
             // 
@@ -525,7 +661,7 @@ namespace JP4
             this.text_velocidade.Location = new System.Drawing.Point(360, 151);
             this.text_velocidade.Name = "text_velocidade";
             this.text_velocidade.Size = new System.Drawing.Size(79, 20);
-            this.text_velocidade.TabIndex = 24;
+            this.text_velocidade.TabIndex = 18;
             this.text_velocidade.Text = "0";
             this.text_velocidade.Leave += new System.EventHandler(this.text_velocidade_Leave);
             // 
@@ -544,7 +680,7 @@ namespace JP4
             this.text_bobina_fim.Location = new System.Drawing.Point(206, 151);
             this.text_bobina_fim.Name = "text_bobina_fim";
             this.text_bobina_fim.Size = new System.Drawing.Size(79, 20);
-            this.text_bobina_fim.TabIndex = 22;
+            this.text_bobina_fim.TabIndex = 17;
             this.text_bobina_fim.Text = "0";
             this.text_bobina_fim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_bobina_fim_KeyPress);
             // 
@@ -554,7 +690,7 @@ namespace JP4
             this.text_bobina_ini.Location = new System.Drawing.Point(121, 151);
             this.text_bobina_ini.Name = "text_bobina_ini";
             this.text_bobina_ini.Size = new System.Drawing.Size(79, 20);
-            this.text_bobina_ini.TabIndex = 21;
+            this.text_bobina_ini.TabIndex = 16;
             this.text_bobina_ini.Text = "0";
             this.text_bobina_ini.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_bobina_ini_KeyPress);
             // 
@@ -575,7 +711,7 @@ namespace JP4
             this.text_qtd_boa.Location = new System.Drawing.Point(121, 125);
             this.text_qtd_boa.Name = "text_qtd_boa";
             this.text_qtd_boa.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_boa.TabIndex = 19;
+            this.text_qtd_boa.TabIndex = 15;
             this.text_qtd_boa.Text = "0";
             this.text_qtd_boa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qtd_boa_KeyPress);
             // 
@@ -603,7 +739,7 @@ namespace JP4
             this.text_operacao.Location = new System.Drawing.Point(121, 99);
             this.text_operacao.Name = "text_operacao";
             this.text_operacao.Size = new System.Drawing.Size(143, 20);
-            this.text_operacao.TabIndex = 16;
+            this.text_operacao.TabIndex = 14;
             // 
             // label12
             // 
@@ -627,9 +763,9 @@ namespace JP4
             // 
             // dt_final_pro
             // 
-            this.dt_final_pro.CustomFormat = "";
+            this.dt_final_pro.CustomFormat = "dd/MM/yyyy";
             this.dt_final_pro.Enabled = false;
-            this.dt_final_pro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_final_pro.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_final_pro.Location = new System.Drawing.Point(435, 73);
             this.dt_final_pro.Name = "dt_final_pro";
             this.dt_final_pro.Size = new System.Drawing.Size(143, 20);
@@ -658,9 +794,9 @@ namespace JP4
             // 
             // dt_inicio_pro
             // 
-            this.dt_inicio_pro.CustomFormat = "";
+            this.dt_inicio_pro.CustomFormat = "dd/MM/yyyy";
             this.dt_inicio_pro.Enabled = false;
-            this.dt_inicio_pro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio_pro.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_inicio_pro.Location = new System.Drawing.Point(121, 73);
             this.dt_inicio_pro.Name = "dt_inicio_pro";
             this.dt_inicio_pro.Size = new System.Drawing.Size(143, 20);
@@ -752,7 +888,7 @@ namespace JP4
             this.groupBox3.Controls.Add(this.button_importar);
             this.groupBox3.Controls.Add(this.button_estornar);
             this.groupBox3.Controls.Add(this.button_apontamento);
-            this.groupBox3.Location = new System.Drawing.Point(12, 27);
+            this.groupBox3.Location = new System.Drawing.Point(3, 11);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(170, 288);
             this.groupBox3.TabIndex = 6;
@@ -845,7 +981,7 @@ namespace JP4
             this.groupBox4.Controls.Add(this.label22);
             this.groupBox4.Controls.Add(this.combo_local_orig);
             this.groupBox4.Controls.Add(this.label21);
-            this.groupBox4.Location = new System.Drawing.Point(188, 373);
+            this.groupBox4.Location = new System.Drawing.Point(179, 357);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(706, 66);
             this.groupBox4.TabIndex = 7;
@@ -859,7 +995,7 @@ namespace JP4
             this.combo_local_desti.Location = new System.Drawing.Point(347, 19);
             this.combo_local_desti.Name = "combo_local_desti";
             this.combo_local_desti.Size = new System.Drawing.Size(143, 21);
-            this.combo_local_desti.TabIndex = 9;
+            this.combo_local_desti.TabIndex = 23;
             // 
             // label22
             // 
@@ -877,7 +1013,7 @@ namespace JP4
             this.combo_local_orig.Location = new System.Drawing.Point(121, 19);
             this.combo_local_orig.Name = "combo_local_orig";
             this.combo_local_orig.Size = new System.Drawing.Size(143, 21);
-            this.combo_local_orig.TabIndex = 7;
+            this.combo_local_orig.TabIndex = 22;
             // 
             // label21
             // 
@@ -892,9 +1028,9 @@ namespace JP4
             // 
             this.groupBox5.Controls.Add(this.text_lotes);
             this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Location = new System.Drawing.Point(188, 445);
+            this.groupBox5.Location = new System.Drawing.Point(179, 429);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(706, 66);
+            this.groupBox5.Size = new System.Drawing.Size(706, 78);
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Informação de Ordem";
@@ -905,7 +1041,7 @@ namespace JP4
             this.text_lotes.Location = new System.Drawing.Point(121, 19);
             this.text_lotes.Name = "text_lotes";
             this.text_lotes.Size = new System.Drawing.Size(573, 20);
-            this.text_lotes.TabIndex = 7;
+            this.text_lotes.TabIndex = 24;
             // 
             // label20
             // 
@@ -918,31 +1054,50 @@ namespace JP4
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.text_local_aplicacao);
+            this.groupBox6.Controls.Add(this.label2);
             this.groupBox6.Controls.Add(this.dt_lançamento);
             this.groupBox6.Controls.Add(this.label8);
             this.groupBox6.Controls.Add(this.combo_empresa);
             this.groupBox6.Controls.Add(this.label24);
-            this.groupBox6.Location = new System.Drawing.Point(12, 321);
+            this.groupBox6.Location = new System.Drawing.Point(3, 305);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(170, 190);
+            this.groupBox6.Size = new System.Drawing.Size(170, 202);
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Informação de local";
+            // 
+            // text_local_aplicacao
+            // 
+            this.text_local_aplicacao.Location = new System.Drawing.Point(9, 164);
+            this.text_local_aplicacao.Name = "text_local_aplicacao";
+            this.text_local_aplicacao.Size = new System.Drawing.Size(140, 20);
+            this.text_local_aplicacao.TabIndex = 28;
+            this.text_local_aplicacao.TextChanged += new System.EventHandler(this.text_local_aplicacao_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 146);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Local Aplicação";
             // 
             // dt_lançamento
             // 
             this.dt_lançamento.CustomFormat = "";
             this.dt_lançamento.Enabled = false;
             this.dt_lançamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_lançamento.Location = new System.Drawing.Point(6, 107);
+            this.dt_lançamento.Location = new System.Drawing.Point(6, 98);
             this.dt_lançamento.Name = "dt_lançamento";
             this.dt_lançamento.Size = new System.Drawing.Size(143, 20);
-            this.dt_lançamento.TabIndex = 11;
+            this.dt_lançamento.TabIndex = 27;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(37, 81);
+            this.label8.Location = new System.Drawing.Point(6, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 13);
             this.label8.TabIndex = 8;
@@ -956,12 +1111,12 @@ namespace JP4
             this.combo_empresa.Location = new System.Drawing.Point(6, 38);
             this.combo_empresa.Name = "combo_empresa";
             this.combo_empresa.Size = new System.Drawing.Size(143, 21);
-            this.combo_empresa.TabIndex = 7;
+            this.combo_empresa.TabIndex = 26;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(37, 22);
+            this.label24.Location = new System.Drawing.Point(6, 22);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(48, 13);
             this.label24.TabIndex = 6;
@@ -970,9 +1125,9 @@ namespace JP4
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.richText_observacao);
-            this.groupBox7.Location = new System.Drawing.Point(900, 27);
+            this.groupBox7.Location = new System.Drawing.Point(891, 11);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(180, 484);
+            this.groupBox7.Size = new System.Drawing.Size(180, 496);
             this.groupBox7.TabIndex = 10;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Observação";
@@ -982,16 +1137,1246 @@ namespace JP4
             this.richText_observacao.Location = new System.Drawing.Point(6, 19);
             this.richText_observacao.Name = "richText_observacao";
             this.richText_observacao.Size = new System.Drawing.Size(168, 320);
-            this.richText_observacao.TabIndex = 0;
+            this.richText_observacao.TabIndex = 25;
             this.richText_observacao.Text = "";
             // 
             // status_bar_apon
             // 
-            this.status_bar_apon.Location = new System.Drawing.Point(0, 522);
+            this.status_bar_apon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_nome,
+            this.toolStripStatusLabel_status_apon,
+            this.toolStripProgressBar_apon});
+            this.status_bar_apon.Location = new System.Drawing.Point(3, 569);
             this.status_bar_apon.Name = "status_bar_apon";
-            this.status_bar_apon.Size = new System.Drawing.Size(1092, 22);
+            this.status_bar_apon.Size = new System.Drawing.Size(1077, 22);
             this.status_bar_apon.TabIndex = 11;
             this.status_bar_apon.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel_nome
+            // 
+            this.toolStripStatusLabel_nome.Name = "toolStripStatusLabel_nome";
+            this.toolStripStatusLabel_nome.Size = new System.Drawing.Size(17, 17);
+            this.toolStripStatusLabel_nome.Text = "--";
+            // 
+            // toolStripStatusLabel_status_apon
+            // 
+            this.toolStripStatusLabel_status_apon.Name = "toolStripStatusLabel_status_apon";
+            this.toolStripStatusLabel_status_apon.Size = new System.Drawing.Size(22, 17);
+            this.toolStripStatusLabel_status_apon.Text = "---";
+            // 
+            // toolStripProgressBar_apon
+            // 
+            this.toolStripProgressBar_apon.Name = "toolStripProgressBar_apon";
+            this.toolStripProgressBar_apon.Size = new System.Drawing.Size(100, 16);
+            // 
+            // tab_menu_apontamento
+            // 
+            this.tab_menu_apontamento.Controls.Add(this.tab_apontamento);
+            this.tab_menu_apontamento.Controls.Add(this.tab_paradas);
+            this.tab_menu_apontamento.Controls.Add(this.tab_mistura);
+            this.tab_menu_apontamento.Controls.Add(this.tab_consumo);
+            this.tab_menu_apontamento.Controls.Add(this.tab_importar_op);
+            this.tab_menu_apontamento.Location = new System.Drawing.Point(12, 27);
+            this.tab_menu_apontamento.Name = "tab_menu_apontamento";
+            this.tab_menu_apontamento.SelectedIndex = 0;
+            this.tab_menu_apontamento.Size = new System.Drawing.Size(1091, 620);
+            this.tab_menu_apontamento.TabIndex = 12;
+            // 
+            // tab_apontamento
+            // 
+            this.tab_apontamento.Controls.Add(this.groupBox6);
+            this.tab_apontamento.Controls.Add(this.status_bar_apon);
+            this.tab_apontamento.Controls.Add(this.groupBox3);
+            this.tab_apontamento.Controls.Add(this.groupBox7);
+            this.tab_apontamento.Controls.Add(this.groupBox5);
+            this.tab_apontamento.Controls.Add(this.groupBox4);
+            this.tab_apontamento.Controls.Add(this.groupBox2);
+            this.tab_apontamento.Controls.Add(this.groupBox1);
+            this.tab_apontamento.Location = new System.Drawing.Point(4, 22);
+            this.tab_apontamento.Name = "tab_apontamento";
+            this.tab_apontamento.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_apontamento.Size = new System.Drawing.Size(1083, 594);
+            this.tab_apontamento.TabIndex = 0;
+            this.tab_apontamento.Text = "Apontamento";
+            this.tab_apontamento.UseVisualStyleBackColor = true;
+            // 
+            // tab_paradas
+            // 
+            this.tab_paradas.Controls.Add(this.abaParadas_label_local_aplicacao);
+            this.tab_paradas.Controls.Add(this.groupBox14);
+            this.tab_paradas.Controls.Add(this.abaParada_button_voltar_apontamento);
+            this.tab_paradas.Controls.Add(this.abaParada_button_ir_mistura);
+            this.tab_paradas.Controls.Add(this.groupBox9);
+            this.tab_paradas.Controls.Add(this.groupBox8);
+            this.tab_paradas.Location = new System.Drawing.Point(4, 22);
+            this.tab_paradas.Name = "tab_paradas";
+            this.tab_paradas.Size = new System.Drawing.Size(1083, 594);
+            this.tab_paradas.TabIndex = 2;
+            this.tab_paradas.Text = "Paradas";
+            this.tab_paradas.UseVisualStyleBackColor = true;
+            // 
+            // abaParadas_label_local_aplicacao
+            // 
+            this.abaParadas_label_local_aplicacao.AutoSize = true;
+            this.abaParadas_label_local_aplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParadas_label_local_aplicacao.Location = new System.Drawing.Point(138, 128);
+            this.abaParadas_label_local_aplicacao.Name = "abaParadas_label_local_aplicacao";
+            this.abaParadas_label_local_aplicacao.Size = new System.Drawing.Size(22, 22);
+            this.abaParadas_label_local_aplicacao.TabIndex = 83;
+            this.abaParadas_label_local_aplicacao.Text = "--";
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.abaParadas_obs);
+            this.groupBox14.Location = new System.Drawing.Point(286, 407);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(572, 117);
+            this.groupBox14.TabIndex = 89;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Observação";
+            // 
+            // abaParadas_obs
+            // 
+            this.abaParadas_obs.Location = new System.Drawing.Point(9, 19);
+            this.abaParadas_obs.Name = "abaParadas_obs";
+            this.abaParadas_obs.Size = new System.Drawing.Size(557, 92);
+            this.abaParadas_obs.TabIndex = 88;
+            this.abaParadas_obs.Text = "";
+            // 
+            // abaParada_button_voltar_apontamento
+            // 
+            this.abaParada_button_voltar_apontamento.Location = new System.Drawing.Point(175, 44);
+            this.abaParada_button_voltar_apontamento.Name = "abaParada_button_voltar_apontamento";
+            this.abaParada_button_voltar_apontamento.Size = new System.Drawing.Size(105, 23);
+            this.abaParada_button_voltar_apontamento.TabIndex = 87;
+            this.abaParada_button_voltar_apontamento.Text = "<< Apontamento";
+            this.abaParada_button_voltar_apontamento.UseVisualStyleBackColor = true;
+            // 
+            // abaParada_button_ir_mistura
+            // 
+            this.abaParada_button_ir_mistura.Location = new System.Drawing.Point(864, 44);
+            this.abaParada_button_ir_mistura.Name = "abaParada_button_ir_mistura";
+            this.abaParada_button_ir_mistura.Size = new System.Drawing.Size(105, 23);
+            this.abaParada_button_ir_mistura.TabIndex = 86;
+            this.abaParada_button_ir_mistura.Text = "Mistura >>";
+            this.abaParada_button_ir_mistura.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.abaParadas_label_turno);
+            this.groupBox9.Controls.Add(this.abaParadas_label_operador);
+            this.groupBox9.Controls.Add(this.abaParadas_label_numero_op);
+            this.groupBox9.Controls.Add(this.abaParadas_label_maquina);
+            this.groupBox9.Controls.Add(this.label39);
+            this.groupBox9.Location = new System.Drawing.Point(286, 17);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(572, 108);
+            this.groupBox9.TabIndex = 85;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Informação básica";
+            // 
+            // abaParadas_label_turno
+            // 
+            this.abaParadas_label_turno.AutoSize = true;
+            this.abaParadas_label_turno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParadas_label_turno.Location = new System.Drawing.Point(6, 60);
+            this.abaParadas_label_turno.Name = "abaParadas_label_turno";
+            this.abaParadas_label_turno.Size = new System.Drawing.Size(46, 17);
+            this.abaParadas_label_turno.TabIndex = 73;
+            this.abaParadas_label_turno.Text = "Turno";
+            // 
+            // abaParadas_label_operador
+            // 
+            this.abaParadas_label_operador.AutoSize = true;
+            this.abaParadas_label_operador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParadas_label_operador.Location = new System.Drawing.Point(427, 27);
+            this.abaParadas_label_operador.Name = "abaParadas_label_operador";
+            this.abaParadas_label_operador.Size = new System.Drawing.Size(69, 17);
+            this.abaParadas_label_operador.TabIndex = 72;
+            this.abaParadas_label_operador.Text = "Operador";
+            // 
+            // abaParadas_label_numero_op
+            // 
+            this.abaParadas_label_numero_op.AutoSize = true;
+            this.abaParadas_label_numero_op.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParadas_label_numero_op.Location = new System.Drawing.Point(313, 27);
+            this.abaParadas_label_numero_op.Name = "abaParadas_label_numero_op";
+            this.abaParadas_label_numero_op.Size = new System.Drawing.Size(27, 17);
+            this.abaParadas_label_numero_op.TabIndex = 71;
+            this.abaParadas_label_numero_op.Text = "Op";
+            // 
+            // abaParadas_label_maquina
+            // 
+            this.abaParadas_label_maquina.AutoSize = true;
+            this.abaParadas_label_maquina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParadas_label_maquina.Location = new System.Drawing.Point(180, 27);
+            this.abaParadas_label_maquina.Name = "abaParadas_label_maquina";
+            this.abaParadas_label_maquina.Size = new System.Drawing.Size(27, 17);
+            this.abaParadas_label_maquina.TabIndex = 70;
+            this.abaParadas_label_maquina.Text = "Mq";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(6, 27);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(152, 17);
+            this.label39.TabIndex = 69;
+            this.label39.Text = "Informação de Parada:";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total);
+            this.groupBox8.Controls.Add(this.abaParada_combo_parada01);
+            this.groupBox8.Controls.Add(this.abaParada_hr_inicio01);
+            this.groupBox8.Controls.Add(this.abaParada_hr_fim01);
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total08);
+            this.groupBox8.Controls.Add(this.abaParada_combo_parada02);
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total07);
+            this.groupBox8.Controls.Add(this.abaParada_hr_inicio02);
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total06);
+            this.groupBox8.Controls.Add(this.abaParada_hr_fim02);
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total05);
+            this.groupBox8.Controls.Add(this.abaParada_combo_parada03);
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total04);
+            this.groupBox8.Controls.Add(this.abaParada_hr_inicio03);
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total03);
+            this.groupBox8.Controls.Add(this.abaParada_hr_fim03);
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total02);
+            this.groupBox8.Controls.Add(this.abaParada_combo_parada04);
+            this.groupBox8.Controls.Add(this.abaParada_label_hr_total01);
+            this.groupBox8.Controls.Add(this.abaParada_hr_inicio04);
+            this.groupBox8.Controls.Add(this.label33);
+            this.groupBox8.Controls.Add(this.abaParada_hr_fim04);
+            this.groupBox8.Controls.Add(this.abaParada_combo_parada05);
+            this.groupBox8.Controls.Add(this.label34);
+            this.groupBox8.Controls.Add(this.abaParada_hr_inicio05);
+            this.groupBox8.Controls.Add(this.label35);
+            this.groupBox8.Controls.Add(this.abaParada_hr_fim05);
+            this.groupBox8.Controls.Add(this.label36);
+            this.groupBox8.Controls.Add(this.abaParada_combo_parada06);
+            this.groupBox8.Controls.Add(this.abaParada_hr_fim08);
+            this.groupBox8.Controls.Add(this.abaParada_hr_inicio06);
+            this.groupBox8.Controls.Add(this.abaParada_hr_inicio08);
+            this.groupBox8.Controls.Add(this.abaParada_hr_fim06);
+            this.groupBox8.Controls.Add(this.abaParada_combo_parada08);
+            this.groupBox8.Controls.Add(this.abaParada_combo_parada07);
+            this.groupBox8.Controls.Add(this.abaParada_hr_fim07);
+            this.groupBox8.Controls.Add(this.abaParada_hr_inicio07);
+            this.groupBox8.Location = new System.Drawing.Point(286, 131);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(572, 270);
+            this.groupBox8.TabIndex = 84;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Informação de parada";
+            // 
+            // abaParada_label_hr_total
+            // 
+            this.abaParada_label_hr_total.AutoSize = true;
+            this.abaParada_label_hr_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParada_label_hr_total.Location = new System.Drawing.Point(427, 52);
+            this.abaParada_label_hr_total.Name = "abaParada_label_hr_total";
+            this.abaParada_label_hr_total.Size = new System.Drawing.Size(72, 17);
+            this.abaParada_label_hr_total.TabIndex = 81;
+            this.abaParada_label_hr_total.Text = "00:00:00";
+            // 
+            // abaParada_combo_parada01
+            // 
+            this.abaParada_combo_parada01.FormattingEnabled = true;
+            this.abaParada_combo_parada01.Location = new System.Drawing.Point(4, 49);
+            this.abaParada_combo_parada01.Name = "abaParada_combo_parada01";
+            this.abaParada_combo_parada01.Size = new System.Drawing.Size(121, 21);
+            this.abaParada_combo_parada01.TabIndex = 43;
+            // 
+            // abaParada_hr_inicio01
+            // 
+            this.abaParada_hr_inicio01.CustomFormat = "HH:mm";
+            this.abaParada_hr_inicio01.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_inicio01.Location = new System.Drawing.Point(131, 50);
+            this.abaParada_hr_inicio01.Name = "abaParada_hr_inicio01";
+            this.abaParada_hr_inicio01.ShowUpDown = true;
+            this.abaParada_hr_inicio01.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_inicio01.TabIndex = 44;
+            this.abaParada_hr_inicio01.Value = new System.DateTime(2021, 3, 29, 0, 0, 0, 0);
+            this.abaParada_hr_inicio01.ValueChanged += new System.EventHandler(this.abaParada_hr_inicio01_ValueChanged);
+            // 
+            // abaParada_hr_fim01
+            // 
+            this.abaParada_hr_fim01.CustomFormat = "HH:mm";
+            this.abaParada_hr_fim01.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_fim01.Location = new System.Drawing.Point(230, 50);
+            this.abaParada_hr_fim01.Name = "abaParada_hr_fim01";
+            this.abaParada_hr_fim01.ShowUpDown = true;
+            this.abaParada_hr_fim01.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_fim01.TabIndex = 45;
+            this.abaParada_hr_fim01.Value = new System.DateTime(2021, 3, 29, 0, 0, 0, 0);
+            this.abaParada_hr_fim01.ValueChanged += new System.EventHandler(this.abaParada_hr_fim01_ValueChanged);
+            // 
+            // abaParada_label_hr_total08
+            // 
+            this.abaParada_label_hr_total08.AutoSize = true;
+            this.abaParada_label_hr_total08.Location = new System.Drawing.Point(329, 234);
+            this.abaParada_label_hr_total08.Name = "abaParada_label_hr_total08";
+            this.abaParada_label_hr_total08.Size = new System.Drawing.Size(13, 13);
+            this.abaParada_label_hr_total08.TabIndex = 79;
+            this.abaParada_label_hr_total08.Text = "0";
+            // 
+            // abaParada_combo_parada02
+            // 
+            this.abaParada_combo_parada02.FormattingEnabled = true;
+            this.abaParada_combo_parada02.Location = new System.Drawing.Point(4, 75);
+            this.abaParada_combo_parada02.Name = "abaParada_combo_parada02";
+            this.abaParada_combo_parada02.Size = new System.Drawing.Size(121, 21);
+            this.abaParada_combo_parada02.TabIndex = 46;
+            // 
+            // abaParada_label_hr_total07
+            // 
+            this.abaParada_label_hr_total07.AutoSize = true;
+            this.abaParada_label_hr_total07.Location = new System.Drawing.Point(329, 208);
+            this.abaParada_label_hr_total07.Name = "abaParada_label_hr_total07";
+            this.abaParada_label_hr_total07.Size = new System.Drawing.Size(13, 13);
+            this.abaParada_label_hr_total07.TabIndex = 78;
+            this.abaParada_label_hr_total07.Text = "0";
+            // 
+            // abaParada_hr_inicio02
+            // 
+            this.abaParada_hr_inicio02.CustomFormat = "HH:mm";
+            this.abaParada_hr_inicio02.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_inicio02.Location = new System.Drawing.Point(131, 76);
+            this.abaParada_hr_inicio02.Name = "abaParada_hr_inicio02";
+            this.abaParada_hr_inicio02.ShowUpDown = true;
+            this.abaParada_hr_inicio02.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_inicio02.TabIndex = 47;
+            this.abaParada_hr_inicio02.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_inicio02.ValueChanged += new System.EventHandler(this.abaParada_hr_inicio02_ValueChanged);
+            // 
+            // abaParada_label_hr_total06
+            // 
+            this.abaParada_label_hr_total06.AutoSize = true;
+            this.abaParada_label_hr_total06.Location = new System.Drawing.Point(329, 182);
+            this.abaParada_label_hr_total06.Name = "abaParada_label_hr_total06";
+            this.abaParada_label_hr_total06.Size = new System.Drawing.Size(13, 13);
+            this.abaParada_label_hr_total06.TabIndex = 77;
+            this.abaParada_label_hr_total06.Text = "0";
+            // 
+            // abaParada_hr_fim02
+            // 
+            this.abaParada_hr_fim02.CustomFormat = "HH:mm";
+            this.abaParada_hr_fim02.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_fim02.Location = new System.Drawing.Point(230, 76);
+            this.abaParada_hr_fim02.Name = "abaParada_hr_fim02";
+            this.abaParada_hr_fim02.ShowUpDown = true;
+            this.abaParada_hr_fim02.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_fim02.TabIndex = 48;
+            this.abaParada_hr_fim02.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_fim02.ValueChanged += new System.EventHandler(this.abaParada_hr_fim02_ValueChanged);
+            // 
+            // abaParada_label_hr_total05
+            // 
+            this.abaParada_label_hr_total05.AutoSize = true;
+            this.abaParada_label_hr_total05.Location = new System.Drawing.Point(329, 160);
+            this.abaParada_label_hr_total05.Name = "abaParada_label_hr_total05";
+            this.abaParada_label_hr_total05.Size = new System.Drawing.Size(13, 13);
+            this.abaParada_label_hr_total05.TabIndex = 76;
+            this.abaParada_label_hr_total05.Text = "0";
+            // 
+            // abaParada_combo_parada03
+            // 
+            this.abaParada_combo_parada03.FormattingEnabled = true;
+            this.abaParada_combo_parada03.Location = new System.Drawing.Point(4, 101);
+            this.abaParada_combo_parada03.Name = "abaParada_combo_parada03";
+            this.abaParada_combo_parada03.Size = new System.Drawing.Size(121, 21);
+            this.abaParada_combo_parada03.TabIndex = 49;
+            // 
+            // abaParada_label_hr_total04
+            // 
+            this.abaParada_label_hr_total04.AutoSize = true;
+            this.abaParada_label_hr_total04.Location = new System.Drawing.Point(329, 130);
+            this.abaParada_label_hr_total04.Name = "abaParada_label_hr_total04";
+            this.abaParada_label_hr_total04.Size = new System.Drawing.Size(13, 13);
+            this.abaParada_label_hr_total04.TabIndex = 75;
+            this.abaParada_label_hr_total04.Text = "0";
+            // 
+            // abaParada_hr_inicio03
+            // 
+            this.abaParada_hr_inicio03.CustomFormat = "HH:mm";
+            this.abaParada_hr_inicio03.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_inicio03.Location = new System.Drawing.Point(131, 102);
+            this.abaParada_hr_inicio03.Name = "abaParada_hr_inicio03";
+            this.abaParada_hr_inicio03.ShowUpDown = true;
+            this.abaParada_hr_inicio03.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_inicio03.TabIndex = 50;
+            this.abaParada_hr_inicio03.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_inicio03.ValueChanged += new System.EventHandler(this.abaParada_hr_inicio03_ValueChanged);
+            // 
+            // abaParada_label_hr_total03
+            // 
+            this.abaParada_label_hr_total03.AutoSize = true;
+            this.abaParada_label_hr_total03.Location = new System.Drawing.Point(329, 104);
+            this.abaParada_label_hr_total03.Name = "abaParada_label_hr_total03";
+            this.abaParada_label_hr_total03.Size = new System.Drawing.Size(13, 13);
+            this.abaParada_label_hr_total03.TabIndex = 74;
+            this.abaParada_label_hr_total03.Text = "0";
+            // 
+            // abaParada_hr_fim03
+            // 
+            this.abaParada_hr_fim03.CustomFormat = "HH:mm";
+            this.abaParada_hr_fim03.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_fim03.Location = new System.Drawing.Point(230, 102);
+            this.abaParada_hr_fim03.Name = "abaParada_hr_fim03";
+            this.abaParada_hr_fim03.ShowUpDown = true;
+            this.abaParada_hr_fim03.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_fim03.TabIndex = 51;
+            this.abaParada_hr_fim03.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_fim03.ValueChanged += new System.EventHandler(this.abaParada_hr_fim03_ValueChanged);
+            // 
+            // abaParada_label_hr_total02
+            // 
+            this.abaParada_label_hr_total02.AutoSize = true;
+            this.abaParada_label_hr_total02.Location = new System.Drawing.Point(329, 78);
+            this.abaParada_label_hr_total02.Name = "abaParada_label_hr_total02";
+            this.abaParada_label_hr_total02.Size = new System.Drawing.Size(13, 13);
+            this.abaParada_label_hr_total02.TabIndex = 73;
+            this.abaParada_label_hr_total02.Text = "0";
+            // 
+            // abaParada_combo_parada04
+            // 
+            this.abaParada_combo_parada04.FormattingEnabled = true;
+            this.abaParada_combo_parada04.Location = new System.Drawing.Point(4, 127);
+            this.abaParada_combo_parada04.Name = "abaParada_combo_parada04";
+            this.abaParada_combo_parada04.Size = new System.Drawing.Size(121, 21);
+            this.abaParada_combo_parada04.TabIndex = 52;
+            // 
+            // abaParada_label_hr_total01
+            // 
+            this.abaParada_label_hr_total01.AutoSize = true;
+            this.abaParada_label_hr_total01.Location = new System.Drawing.Point(329, 52);
+            this.abaParada_label_hr_total01.Name = "abaParada_label_hr_total01";
+            this.abaParada_label_hr_total01.Size = new System.Drawing.Size(13, 13);
+            this.abaParada_label_hr_total01.TabIndex = 72;
+            this.abaParada_label_hr_total01.Text = "0";
+            // 
+            // abaParada_hr_inicio04
+            // 
+            this.abaParada_hr_inicio04.CustomFormat = "HH:mm";
+            this.abaParada_hr_inicio04.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_inicio04.Location = new System.Drawing.Point(131, 128);
+            this.abaParada_hr_inicio04.Name = "abaParada_hr_inicio04";
+            this.abaParada_hr_inicio04.ShowUpDown = true;
+            this.abaParada_hr_inicio04.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_inicio04.TabIndex = 53;
+            this.abaParada_hr_inicio04.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_inicio04.ValueChanged += new System.EventHandler(this.abaParada_hr_inicio04_ValueChanged);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(421, 24);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(109, 22);
+            this.label33.TabIndex = 71;
+            this.label33.Text = "Total Horas:";
+            // 
+            // abaParada_hr_fim04
+            // 
+            this.abaParada_hr_fim04.CustomFormat = "HH:mm";
+            this.abaParada_hr_fim04.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_fim04.Location = new System.Drawing.Point(230, 128);
+            this.abaParada_hr_fim04.Name = "abaParada_hr_fim04";
+            this.abaParada_hr_fim04.ShowUpDown = true;
+            this.abaParada_hr_fim04.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_fim04.TabIndex = 54;
+            this.abaParada_hr_fim04.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_fim04.ValueChanged += new System.EventHandler(this.abaParada_hr_fim04_ValueChanged);
+            // 
+            // abaParada_combo_parada05
+            // 
+            this.abaParada_combo_parada05.FormattingEnabled = true;
+            this.abaParada_combo_parada05.Location = new System.Drawing.Point(4, 153);
+            this.abaParada_combo_parada05.Name = "abaParada_combo_parada05";
+            this.abaParada_combo_parada05.Size = new System.Drawing.Size(121, 21);
+            this.abaParada_combo_parada05.TabIndex = 55;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(227, 24);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(49, 13);
+            this.label34.TabIndex = 69;
+            this.label34.Text = "Hora Fim";
+            // 
+            // abaParada_hr_inicio05
+            // 
+            this.abaParada_hr_inicio05.CustomFormat = "HH:mm";
+            this.abaParada_hr_inicio05.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_inicio05.Location = new System.Drawing.Point(131, 154);
+            this.abaParada_hr_inicio05.Name = "abaParada_hr_inicio05";
+            this.abaParada_hr_inicio05.ShowUpDown = true;
+            this.abaParada_hr_inicio05.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_inicio05.TabIndex = 56;
+            this.abaParada_hr_inicio05.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_inicio05.ValueChanged += new System.EventHandler(this.abaParada_hr_inicio05_ValueChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(129, 24);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(58, 13);
+            this.label35.TabIndex = 68;
+            this.label35.Text = "Hora Inicio";
+            // 
+            // abaParada_hr_fim05
+            // 
+            this.abaParada_hr_fim05.CustomFormat = "HH:mm";
+            this.abaParada_hr_fim05.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_fim05.Location = new System.Drawing.Point(230, 154);
+            this.abaParada_hr_fim05.Name = "abaParada_hr_fim05";
+            this.abaParada_hr_fim05.ShowUpDown = true;
+            this.abaParada_hr_fim05.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_fim05.TabIndex = 57;
+            this.abaParada_hr_fim05.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_fim05.ValueChanged += new System.EventHandler(this.abaParada_hr_fim05_ValueChanged);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(6, 24);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(95, 13);
+            this.label36.TabIndex = 67;
+            this.label36.Text = "Motivos de parada";
+            // 
+            // abaParada_combo_parada06
+            // 
+            this.abaParada_combo_parada06.FormattingEnabled = true;
+            this.abaParada_combo_parada06.Location = new System.Drawing.Point(4, 179);
+            this.abaParada_combo_parada06.Name = "abaParada_combo_parada06";
+            this.abaParada_combo_parada06.Size = new System.Drawing.Size(121, 21);
+            this.abaParada_combo_parada06.TabIndex = 58;
+            // 
+            // abaParada_hr_fim08
+            // 
+            this.abaParada_hr_fim08.CustomFormat = "HH:mm";
+            this.abaParada_hr_fim08.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_fim08.Location = new System.Drawing.Point(230, 232);
+            this.abaParada_hr_fim08.Name = "abaParada_hr_fim08";
+            this.abaParada_hr_fim08.ShowUpDown = true;
+            this.abaParada_hr_fim08.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_fim08.TabIndex = 66;
+            this.abaParada_hr_fim08.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_fim08.ValueChanged += new System.EventHandler(this.abaParada_hr_fim08_ValueChanged);
+            // 
+            // abaParada_hr_inicio06
+            // 
+            this.abaParada_hr_inicio06.CustomFormat = "HH:mm";
+            this.abaParada_hr_inicio06.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_inicio06.Location = new System.Drawing.Point(131, 180);
+            this.abaParada_hr_inicio06.Name = "abaParada_hr_inicio06";
+            this.abaParada_hr_inicio06.ShowUpDown = true;
+            this.abaParada_hr_inicio06.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_inicio06.TabIndex = 59;
+            this.abaParada_hr_inicio06.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_inicio06.ValueChanged += new System.EventHandler(this.abaParada_hr_inicio06_ValueChanged);
+            // 
+            // abaParada_hr_inicio08
+            // 
+            this.abaParada_hr_inicio08.CustomFormat = "HH:mm";
+            this.abaParada_hr_inicio08.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_inicio08.Location = new System.Drawing.Point(131, 232);
+            this.abaParada_hr_inicio08.Name = "abaParada_hr_inicio08";
+            this.abaParada_hr_inicio08.ShowUpDown = true;
+            this.abaParada_hr_inicio08.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_inicio08.TabIndex = 65;
+            this.abaParada_hr_inicio08.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_inicio08.ValueChanged += new System.EventHandler(this.abaParada_hr_inicio08_ValueChanged);
+            // 
+            // abaParada_hr_fim06
+            // 
+            this.abaParada_hr_fim06.CustomFormat = "HH:mm";
+            this.abaParada_hr_fim06.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_fim06.Location = new System.Drawing.Point(230, 180);
+            this.abaParada_hr_fim06.Name = "abaParada_hr_fim06";
+            this.abaParada_hr_fim06.ShowUpDown = true;
+            this.abaParada_hr_fim06.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_fim06.TabIndex = 60;
+            this.abaParada_hr_fim06.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_fim06.ValueChanged += new System.EventHandler(this.abaParada_hr_fim06_ValueChanged);
+            // 
+            // abaParada_combo_parada08
+            // 
+            this.abaParada_combo_parada08.FormattingEnabled = true;
+            this.abaParada_combo_parada08.Location = new System.Drawing.Point(4, 231);
+            this.abaParada_combo_parada08.Name = "abaParada_combo_parada08";
+            this.abaParada_combo_parada08.Size = new System.Drawing.Size(121, 21);
+            this.abaParada_combo_parada08.TabIndex = 64;
+            // 
+            // abaParada_combo_parada07
+            // 
+            this.abaParada_combo_parada07.FormattingEnabled = true;
+            this.abaParada_combo_parada07.Location = new System.Drawing.Point(4, 205);
+            this.abaParada_combo_parada07.Name = "abaParada_combo_parada07";
+            this.abaParada_combo_parada07.Size = new System.Drawing.Size(121, 21);
+            this.abaParada_combo_parada07.TabIndex = 61;
+            // 
+            // abaParada_hr_fim07
+            // 
+            this.abaParada_hr_fim07.CustomFormat = "HH:mm";
+            this.abaParada_hr_fim07.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_fim07.Location = new System.Drawing.Point(230, 206);
+            this.abaParada_hr_fim07.Name = "abaParada_hr_fim07";
+            this.abaParada_hr_fim07.ShowUpDown = true;
+            this.abaParada_hr_fim07.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_fim07.TabIndex = 63;
+            this.abaParada_hr_fim07.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_fim07.ValueChanged += new System.EventHandler(this.abaParada_hr_fim07_ValueChanged);
+            // 
+            // abaParada_hr_inicio07
+            // 
+            this.abaParada_hr_inicio07.CustomFormat = "HH:mm";
+            this.abaParada_hr_inicio07.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.abaParada_hr_inicio07.Location = new System.Drawing.Point(131, 206);
+            this.abaParada_hr_inicio07.Name = "abaParada_hr_inicio07";
+            this.abaParada_hr_inicio07.ShowUpDown = true;
+            this.abaParada_hr_inicio07.Size = new System.Drawing.Size(93, 20);
+            this.abaParada_hr_inicio07.TabIndex = 62;
+            this.abaParada_hr_inicio07.Value = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.abaParada_hr_inicio07.ValueChanged += new System.EventHandler(this.abaParada_hr_inicio07_ValueChanged);
+            // 
+            // tab_mistura
+            // 
+            this.tab_mistura.Controls.Add(this.abaMistura_button_voltar_parada);
+            this.tab_mistura.Controls.Add(this.abaMistura_button_ir_consumo);
+            this.tab_mistura.Controls.Add(this.groupBox12);
+            this.tab_mistura.Controls.Add(this.groupBox11);
+            this.tab_mistura.Location = new System.Drawing.Point(4, 22);
+            this.tab_mistura.Name = "tab_mistura";
+            this.tab_mistura.Size = new System.Drawing.Size(1083, 594);
+            this.tab_mistura.TabIndex = 3;
+            this.tab_mistura.Text = "Mistura";
+            this.tab_mistura.UseVisualStyleBackColor = true;
+            // 
+            // abaMistura_button_voltar_parada
+            // 
+            this.abaMistura_button_voltar_parada.Location = new System.Drawing.Point(262, 47);
+            this.abaMistura_button_voltar_parada.Name = "abaMistura_button_voltar_parada";
+            this.abaMistura_button_voltar_parada.Size = new System.Drawing.Size(106, 23);
+            this.abaMistura_button_voltar_parada.TabIndex = 88;
+            this.abaMistura_button_voltar_parada.Text = "<< Paradas";
+            this.abaMistura_button_voltar_parada.UseVisualStyleBackColor = true;
+            // 
+            // abaMistura_button_ir_consumo
+            // 
+            this.abaMistura_button_ir_consumo.Location = new System.Drawing.Point(793, 47);
+            this.abaMistura_button_ir_consumo.Name = "abaMistura_button_ir_consumo";
+            this.abaMistura_button_ir_consumo.Size = new System.Drawing.Size(106, 23);
+            this.abaMistura_button_ir_consumo.TabIndex = 87;
+            this.abaMistura_button_ir_consumo.Text = "Consumo>>";
+            this.abaMistura_button_ir_consumo.UseVisualStyleBackColor = true;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.AbaMistura_label_producao);
+            this.groupBox12.Controls.Add(this.AbaMistura_label_turno);
+            this.groupBox12.Controls.Add(this.AbaMistura_label_operador);
+            this.groupBox12.Controls.Add(this.label54);
+            this.groupBox12.Controls.Add(this.AbaMistura_label_op);
+            this.groupBox12.Controls.Add(this.AbaMistura_label_mq);
+            this.groupBox12.Location = new System.Drawing.Point(374, 3);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(413, 125);
+            this.groupBox12.TabIndex = 86;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Informação básica";
+            // 
+            // AbaMistura_label_producao
+            // 
+            this.AbaMistura_label_producao.AutoSize = true;
+            this.AbaMistura_label_producao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_producao.Location = new System.Drawing.Point(275, 50);
+            this.AbaMistura_label_producao.Name = "AbaMistura_label_producao";
+            this.AbaMistura_label_producao.Size = new System.Drawing.Size(37, 17);
+            this.AbaMistura_label_producao.TabIndex = 91;
+            this.AbaMistura_label_producao.Text = "prod";
+            // 
+            // AbaMistura_label_turno
+            // 
+            this.AbaMistura_label_turno.AutoSize = true;
+            this.AbaMistura_label_turno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_turno.Location = new System.Drawing.Point(164, 83);
+            this.AbaMistura_label_turno.Name = "AbaMistura_label_turno";
+            this.AbaMistura_label_turno.Size = new System.Drawing.Size(41, 17);
+            this.AbaMistura_label_turno.TabIndex = 90;
+            this.AbaMistura_label_turno.Text = "turno";
+            // 
+            // AbaMistura_label_operador
+            // 
+            this.AbaMistura_label_operador.AutoSize = true;
+            this.AbaMistura_label_operador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_operador.Location = new System.Drawing.Point(12, 83);
+            this.AbaMistura_label_operador.Name = "AbaMistura_label_operador";
+            this.AbaMistura_label_operador.Size = new System.Drawing.Size(69, 17);
+            this.AbaMistura_label_operador.TabIndex = 89;
+            this.AbaMistura_label_operador.Text = "Operador";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(6, 27);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(152, 17);
+            this.label54.TabIndex = 69;
+            this.label54.Text = "Informação de Parada:";
+            // 
+            // AbaMistura_label_op
+            // 
+            this.AbaMistura_label_op.AutoSize = true;
+            this.AbaMistura_label_op.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_op.Location = new System.Drawing.Point(164, 50);
+            this.AbaMistura_label_op.Name = "AbaMistura_label_op";
+            this.AbaMistura_label_op.Size = new System.Drawing.Size(27, 17);
+            this.AbaMistura_label_op.TabIndex = 88;
+            this.AbaMistura_label_op.Text = "Op";
+            // 
+            // AbaMistura_label_mq
+            // 
+            this.AbaMistura_label_mq.AutoSize = true;
+            this.AbaMistura_label_mq.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_mq.Location = new System.Drawing.Point(12, 50);
+            this.AbaMistura_label_mq.Name = "AbaMistura_label_mq";
+            this.AbaMistura_label_mq.Size = new System.Drawing.Size(27, 17);
+            this.AbaMistura_label_mq.TabIndex = 87;
+            this.AbaMistura_label_mq.Text = "Mq";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.label25);
+            this.groupBox11.Controls.Add(this.label50);
+            this.groupBox11.Controls.Add(this.label51);
+            this.groupBox11.Controls.Add(this.label52);
+            this.groupBox11.Controls.Add(this.label53);
+            this.groupBox11.Controls.Add(this.label55);
+            this.groupBox11.Controls.Add(this.label56);
+            this.groupBox11.Controls.Add(this.label57);
+            this.groupBox11.Controls.Add(this.label58);
+            this.groupBox11.Controls.Add(this.label59);
+            this.groupBox11.Controls.Add(this.label60);
+            this.groupBox11.Controls.Add(this.AbaMistura_label_total_mistura);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct10);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp10);
+            this.groupBox11.Controls.Add(this.label49);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct09);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp09);
+            this.groupBox11.Controls.Add(this.label48);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct08);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp08);
+            this.groupBox11.Controls.Add(this.label47);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct07);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp07);
+            this.groupBox11.Controls.Add(this.label46);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct06);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp06);
+            this.groupBox11.Controls.Add(this.label45);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct05);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp05);
+            this.groupBox11.Controls.Add(this.label44);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct04);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp04);
+            this.groupBox11.Controls.Add(this.label43);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct03);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp03);
+            this.groupBox11.Controls.Add(this.label42);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct02);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp02);
+            this.groupBox11.Controls.Add(this.label41);
+            this.groupBox11.Controls.Add(this.label40);
+            this.groupBox11.Controls.Add(this.abaMistura_text_perct01);
+            this.groupBox11.Controls.Add(this.abaMistura_combo_mp01);
+            this.groupBox11.Controls.Add(this.label38);
+            this.groupBox11.Location = new System.Drawing.Point(374, 134);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(413, 386);
+            this.groupBox11.TabIndex = 0;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Consumo";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(311, 31);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(96, 17);
+            this.label25.TabIndex = 91;
+            this.label25.Text = "Consumo (kg)";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(322, 309);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(19, 13);
+            this.label50.TabIndex = 41;
+            this.label50.Text = "10";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(322, 283);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(19, 13);
+            this.label51.TabIndex = 40;
+            this.label51.Text = "09";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(322, 257);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(19, 13);
+            this.label52.TabIndex = 39;
+            this.label52.Text = "08";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(322, 231);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(19, 13);
+            this.label53.TabIndex = 38;
+            this.label53.Text = "07";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(322, 205);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(19, 13);
+            this.label55.TabIndex = 37;
+            this.label55.Text = "06";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(322, 179);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(19, 13);
+            this.label56.TabIndex = 36;
+            this.label56.Text = "05";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(322, 153);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(19, 13);
+            this.label57.TabIndex = 35;
+            this.label57.Text = "04";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(322, 127);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(19, 13);
+            this.label58.TabIndex = 34;
+            this.label58.Text = "03";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(322, 101);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(19, 13);
+            this.label59.TabIndex = 33;
+            this.label59.Text = "02";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(322, 75);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(19, 13);
+            this.label60.TabIndex = 32;
+            this.label60.Text = "01";
+            // 
+            // AbaMistura_label_total_mistura
+            // 
+            this.AbaMistura_label_total_mistura.AutoSize = true;
+            this.AbaMistura_label_total_mistura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_total_mistura.Location = new System.Drawing.Point(213, 352);
+            this.AbaMistura_label_total_mistura.Name = "AbaMistura_label_total_mistura";
+            this.AbaMistura_label_total_mistura.Size = new System.Drawing.Size(21, 17);
+            this.AbaMistura_label_total_mistura.TabIndex = 31;
+            this.AbaMistura_label_total_mistura.Text = "%";
+            // 
+            // abaMistura_text_perct10
+            // 
+            this.abaMistura_text_perct10.Location = new System.Drawing.Point(216, 307);
+            this.abaMistura_text_perct10.Name = "abaMistura_text_perct10";
+            this.abaMistura_text_perct10.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct10.TabIndex = 30;
+            this.abaMistura_text_perct10.TextChanged += new System.EventHandler(this.abaMistura_text_perct10_TextChanged);
+            // 
+            // abaMistura_combo_mp10
+            // 
+            this.abaMistura_combo_mp10.FormattingEnabled = true;
+            this.abaMistura_combo_mp10.Location = new System.Drawing.Point(28, 306);
+            this.abaMistura_combo_mp10.Name = "abaMistura_combo_mp10";
+            this.abaMistura_combo_mp10.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp10.TabIndex = 29;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(3, 309);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(19, 13);
+            this.label49.TabIndex = 28;
+            this.label49.Text = "10";
+            // 
+            // abaMistura_text_perct09
+            // 
+            this.abaMistura_text_perct09.Location = new System.Drawing.Point(216, 281);
+            this.abaMistura_text_perct09.Name = "abaMistura_text_perct09";
+            this.abaMistura_text_perct09.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct09.TabIndex = 27;
+            this.abaMistura_text_perct09.TextChanged += new System.EventHandler(this.abaMistura_text_perct09_TextChanged);
+            // 
+            // abaMistura_combo_mp09
+            // 
+            this.abaMistura_combo_mp09.FormattingEnabled = true;
+            this.abaMistura_combo_mp09.Location = new System.Drawing.Point(28, 280);
+            this.abaMistura_combo_mp09.Name = "abaMistura_combo_mp09";
+            this.abaMistura_combo_mp09.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp09.TabIndex = 26;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(3, 283);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(19, 13);
+            this.label48.TabIndex = 25;
+            this.label48.Text = "09";
+            // 
+            // abaMistura_text_perct08
+            // 
+            this.abaMistura_text_perct08.Location = new System.Drawing.Point(216, 255);
+            this.abaMistura_text_perct08.Name = "abaMistura_text_perct08";
+            this.abaMistura_text_perct08.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct08.TabIndex = 24;
+            this.abaMistura_text_perct08.TextChanged += new System.EventHandler(this.abaMistura_text_perct08_TextChanged);
+            // 
+            // abaMistura_combo_mp08
+            // 
+            this.abaMistura_combo_mp08.FormattingEnabled = true;
+            this.abaMistura_combo_mp08.Location = new System.Drawing.Point(28, 254);
+            this.abaMistura_combo_mp08.Name = "abaMistura_combo_mp08";
+            this.abaMistura_combo_mp08.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp08.TabIndex = 23;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(3, 257);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(19, 13);
+            this.label47.TabIndex = 22;
+            this.label47.Text = "08";
+            // 
+            // abaMistura_text_perct07
+            // 
+            this.abaMistura_text_perct07.Location = new System.Drawing.Point(216, 229);
+            this.abaMistura_text_perct07.Name = "abaMistura_text_perct07";
+            this.abaMistura_text_perct07.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct07.TabIndex = 21;
+            this.abaMistura_text_perct07.TextChanged += new System.EventHandler(this.abaMistura_text_perct07_TextChanged);
+            // 
+            // abaMistura_combo_mp07
+            // 
+            this.abaMistura_combo_mp07.FormattingEnabled = true;
+            this.abaMistura_combo_mp07.Location = new System.Drawing.Point(28, 228);
+            this.abaMistura_combo_mp07.Name = "abaMistura_combo_mp07";
+            this.abaMistura_combo_mp07.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp07.TabIndex = 20;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(3, 231);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(19, 13);
+            this.label46.TabIndex = 19;
+            this.label46.Text = "07";
+            // 
+            // abaMistura_text_perct06
+            // 
+            this.abaMistura_text_perct06.Location = new System.Drawing.Point(216, 203);
+            this.abaMistura_text_perct06.Name = "abaMistura_text_perct06";
+            this.abaMistura_text_perct06.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct06.TabIndex = 18;
+            this.abaMistura_text_perct06.TextChanged += new System.EventHandler(this.abaMistura_text_perct06_TextChanged);
+            // 
+            // abaMistura_combo_mp06
+            // 
+            this.abaMistura_combo_mp06.FormattingEnabled = true;
+            this.abaMistura_combo_mp06.Location = new System.Drawing.Point(28, 202);
+            this.abaMistura_combo_mp06.Name = "abaMistura_combo_mp06";
+            this.abaMistura_combo_mp06.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp06.TabIndex = 17;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(3, 205);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(19, 13);
+            this.label45.TabIndex = 16;
+            this.label45.Text = "06";
+            // 
+            // abaMistura_text_perct05
+            // 
+            this.abaMistura_text_perct05.Location = new System.Drawing.Point(216, 177);
+            this.abaMistura_text_perct05.Name = "abaMistura_text_perct05";
+            this.abaMistura_text_perct05.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct05.TabIndex = 15;
+            this.abaMistura_text_perct05.TextChanged += new System.EventHandler(this.abaMistura_text_perct05_TextChanged);
+            // 
+            // abaMistura_combo_mp05
+            // 
+            this.abaMistura_combo_mp05.FormattingEnabled = true;
+            this.abaMistura_combo_mp05.Location = new System.Drawing.Point(28, 176);
+            this.abaMistura_combo_mp05.Name = "abaMistura_combo_mp05";
+            this.abaMistura_combo_mp05.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp05.TabIndex = 14;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(3, 179);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(19, 13);
+            this.label44.TabIndex = 13;
+            this.label44.Text = "05";
+            // 
+            // abaMistura_text_perct04
+            // 
+            this.abaMistura_text_perct04.Location = new System.Drawing.Point(216, 151);
+            this.abaMistura_text_perct04.Name = "abaMistura_text_perct04";
+            this.abaMistura_text_perct04.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct04.TabIndex = 12;
+            this.abaMistura_text_perct04.TextChanged += new System.EventHandler(this.abaMistura_text_perct04_TextChanged);
+            // 
+            // abaMistura_combo_mp04
+            // 
+            this.abaMistura_combo_mp04.FormattingEnabled = true;
+            this.abaMistura_combo_mp04.Location = new System.Drawing.Point(28, 150);
+            this.abaMistura_combo_mp04.Name = "abaMistura_combo_mp04";
+            this.abaMistura_combo_mp04.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp04.TabIndex = 11;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(3, 153);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(19, 13);
+            this.label43.TabIndex = 10;
+            this.label43.Text = "04";
+            // 
+            // abaMistura_text_perct03
+            // 
+            this.abaMistura_text_perct03.Location = new System.Drawing.Point(216, 125);
+            this.abaMistura_text_perct03.Name = "abaMistura_text_perct03";
+            this.abaMistura_text_perct03.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct03.TabIndex = 9;
+            this.abaMistura_text_perct03.TextChanged += new System.EventHandler(this.abaMistura_text_perct03_TextChanged);
+            // 
+            // abaMistura_combo_mp03
+            // 
+            this.abaMistura_combo_mp03.FormattingEnabled = true;
+            this.abaMistura_combo_mp03.Location = new System.Drawing.Point(28, 124);
+            this.abaMistura_combo_mp03.Name = "abaMistura_combo_mp03";
+            this.abaMistura_combo_mp03.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp03.TabIndex = 8;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(3, 127);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(19, 13);
+            this.label42.TabIndex = 7;
+            this.label42.Text = "03";
+            // 
+            // abaMistura_text_perct02
+            // 
+            this.abaMistura_text_perct02.Location = new System.Drawing.Point(216, 99);
+            this.abaMistura_text_perct02.Name = "abaMistura_text_perct02";
+            this.abaMistura_text_perct02.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct02.TabIndex = 6;
+            this.abaMistura_text_perct02.TextChanged += new System.EventHandler(this.abaMistura_text_perct02_TextChanged);
+            this.abaMistura_text_perct02.Leave += new System.EventHandler(this.abaMistura_text_perct02_Leave);
+            // 
+            // abaMistura_combo_mp02
+            // 
+            this.abaMistura_combo_mp02.FormattingEnabled = true;
+            this.abaMistura_combo_mp02.Location = new System.Drawing.Point(28, 98);
+            this.abaMistura_combo_mp02.Name = "abaMistura_combo_mp02";
+            this.abaMistura_combo_mp02.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp02.TabIndex = 5;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(3, 101);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(19, 13);
+            this.label41.TabIndex = 4;
+            this.label41.Text = "02";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(48, 31);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(207, 17);
+            this.label40.TabIndex = 3;
+            this.label40.Text = "Informação de consumo MP";
+            // 
+            // abaMistura_text_perct01
+            // 
+            this.abaMistura_text_perct01.Location = new System.Drawing.Point(216, 73);
+            this.abaMistura_text_perct01.Name = "abaMistura_text_perct01";
+            this.abaMistura_text_perct01.Size = new System.Drawing.Size(100, 20);
+            this.abaMistura_text_perct01.TabIndex = 2;
+            this.abaMistura_text_perct01.TextChanged += new System.EventHandler(this.abaMistura_text_perct01_TextChanged);
+            this.abaMistura_text_perct01.Leave += new System.EventHandler(this.abaMistura_text_perct01_Leave);
+            // 
+            // abaMistura_combo_mp01
+            // 
+            this.abaMistura_combo_mp01.FormattingEnabled = true;
+            this.abaMistura_combo_mp01.Location = new System.Drawing.Point(28, 72);
+            this.abaMistura_combo_mp01.Name = "abaMistura_combo_mp01";
+            this.abaMistura_combo_mp01.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp01.TabIndex = 1;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(3, 75);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(19, 13);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "01";
+            // 
+            // tab_consumo
+            // 
+            this.tab_consumo.Controls.Add(this.Grid_estrutura_item);
+            this.tab_consumo.Controls.Add(this.groupBox10);
+            this.tab_consumo.Location = new System.Drawing.Point(4, 22);
+            this.tab_consumo.Name = "tab_consumo";
+            this.tab_consumo.Size = new System.Drawing.Size(1083, 594);
+            this.tab_consumo.TabIndex = 4;
+            this.tab_consumo.Text = "Consumo";
+            this.tab_consumo.UseVisualStyleBackColor = true;
+            // 
+            // Grid_estrutura_item
+            // 
+            this.Grid_estrutura_item.AllowUserToAddRows = false;
+            this.Grid_estrutura_item.AllowUserToDeleteRows = false;
+            this.Grid_estrutura_item.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grid_estrutura_item.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.Grid_estrutura_item.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_estrutura_item.Location = new System.Drawing.Point(225, 124);
+            this.Grid_estrutura_item.Name = "Grid_estrutura_item";
+            this.Grid_estrutura_item.ReadOnly = true;
+            this.Grid_estrutura_item.Size = new System.Drawing.Size(703, 217);
+            this.Grid_estrutura_item.TabIndex = 9;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.abaConsumo_text_descri_item);
+            this.groupBox10.Controls.Add(this.abaConsumo_text__cod_item);
+            this.groupBox10.Controls.Add(this.abaConsumo_text_qtd_boa);
+            this.groupBox10.Controls.Add(this.label23);
+            this.groupBox10.Controls.Add(this.label37);
+            this.groupBox10.Location = new System.Drawing.Point(225, 24);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(706, 94);
+            this.groupBox10.TabIndex = 8;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Informação de Ordem";
+            // 
+            // abaConsumo_text_descri_item
+            // 
+            this.abaConsumo_text_descri_item.Location = new System.Drawing.Point(276, 22);
+            this.abaConsumo_text_descri_item.Name = "abaConsumo_text_descri_item";
+            this.abaConsumo_text_descri_item.Size = new System.Drawing.Size(341, 20);
+            this.abaConsumo_text_descri_item.TabIndex = 11;
+            // 
+            // abaConsumo_text__cod_item
+            // 
+            this.abaConsumo_text__cod_item.Location = new System.Drawing.Point(127, 22);
+            this.abaConsumo_text__cod_item.Name = "abaConsumo_text__cod_item";
+            this.abaConsumo_text__cod_item.Size = new System.Drawing.Size(143, 20);
+            this.abaConsumo_text__cod_item.TabIndex = 10;
+            // 
+            // abaConsumo_text_qtd_boa
+            // 
+            this.abaConsumo_text_qtd_boa.Location = new System.Drawing.Point(127, 51);
+            this.abaConsumo_text_qtd_boa.Name = "abaConsumo_text_qtd_boa";
+            this.abaConsumo_text_qtd_boa.Size = new System.Drawing.Size(143, 20);
+            this.abaConsumo_text_qtd_boa.TabIndex = 9;
+            this.abaConsumo_text_qtd_boa.Text = "0";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 54);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(79, 13);
+            this.label23.TabIndex = 8;
+            this.label23.Text = "Qtd, Apontada:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(55, 25);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(30, 13);
+            this.label37.TabIndex = 3;
+            this.label37.Text = "Item:";
+            // 
+            // tab_importar_op
+            // 
+            this.tab_importar_op.Controls.Add(this.groupBox13);
+            this.tab_importar_op.Location = new System.Drawing.Point(4, 22);
+            this.tab_importar_op.Name = "tab_importar_op";
+            this.tab_importar_op.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_importar_op.Size = new System.Drawing.Size(1083, 594);
+            this.tab_importar_op.TabIndex = 1;
+            this.tab_importar_op.Text = "Importar";
+            this.tab_importar_op.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Location = new System.Drawing.Point(6, 15);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(507, 352);
+            this.groupBox13.TabIndex = 0;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "groupBox13";
+            // 
+            // db_cadastro_grupo_estoqueTableAdapter1
+            // 
+            this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
             // AP01
             // 
@@ -999,15 +2384,8 @@ namespace JP4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1092, 544);
-            this.Controls.Add(this.status_bar_apon);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1113, 677);
+            this.Controls.Add(this.tab_menu_apontamento);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -1029,6 +2407,28 @@ namespace JP4
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
+            this.status_bar_apon.ResumeLayout(false);
+            this.status_bar_apon.PerformLayout();
+            this.tab_menu_apontamento.ResumeLayout(false);
+            this.tab_apontamento.ResumeLayout(false);
+            this.tab_apontamento.PerformLayout();
+            this.tab_paradas.ResumeLayout(false);
+            this.tab_paradas.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.tab_mistura.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.tab_consumo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_estrutura_item)).EndInit();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.tab_importar_op.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1125,5 +2525,127 @@ namespace JP4
         private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem repetirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_nome;
+        private System.Windows.Forms.TextBox text_local_aplicacao;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabControl tab_menu_apontamento;
+        private System.Windows.Forms.TabPage tab_apontamento;
+        private System.Windows.Forms.TabPage tab_importar_op;
+        private System.Windows.Forms.TabPage tab_paradas;
+        private System.Windows.Forms.TabPage tab_mistura;
+        private System.Windows.Forms.Label abaParadas_label_local_aplicacao;
+        private System.Windows.Forms.Label abaParada_label_hr_total08;
+        private System.Windows.Forms.Label abaParada_label_hr_total07;
+        private System.Windows.Forms.Label abaParada_label_hr_total06;
+        private System.Windows.Forms.Label abaParada_label_hr_total05;
+        private System.Windows.Forms.Label abaParada_label_hr_total04;
+        private System.Windows.Forms.Label abaParada_label_hr_total03;
+        private System.Windows.Forms.Label abaParada_label_hr_total02;
+        private System.Windows.Forms.Label abaParada_label_hr_total01;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_fim08;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_inicio08;
+        private System.Windows.Forms.ComboBox abaParada_combo_parada08;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_fim07;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_inicio07;
+        private System.Windows.Forms.ComboBox abaParada_combo_parada07;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_fim06;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_inicio06;
+        private System.Windows.Forms.ComboBox abaParada_combo_parada06;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_fim05;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_inicio05;
+        private System.Windows.Forms.ComboBox abaParada_combo_parada05;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_fim04;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_inicio04;
+        private System.Windows.Forms.ComboBox abaParada_combo_parada04;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_fim03;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_inicio03;
+        private System.Windows.Forms.ComboBox abaParada_combo_parada03;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_fim02;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_inicio02;
+        private System.Windows.Forms.ComboBox abaParada_combo_parada02;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_fim01;
+        private System.Windows.Forms.DateTimePicker abaParada_hr_inicio01;
+        private System.Windows.Forms.ComboBox abaParada_combo_parada01;
+        private System.Windows.Forms.TabPage tab_consumo;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter db_cadastro_grupo_estoqueTableAdapter1;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label abaParadas_label_operador;
+        private System.Windows.Forms.Label abaParadas_label_numero_op;
+        private System.Windows.Forms.Label abaParadas_label_maquina;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.DataGridView Grid_estrutura_item;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox abaConsumo_text_descri_item;
+        private System.Windows.Forms.TextBox abaConsumo_text__cod_item;
+        private System.Windows.Forms.TextBox abaConsumo_text_qtd_boa;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_status_apon;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label AbaMistura_label_total_mistura;
+        private System.Windows.Forms.TextBox abaMistura_text_perct10;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp10;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox abaMistura_text_perct09;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp09;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox abaMistura_text_perct08;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp08;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.TextBox abaMistura_text_perct07;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp07;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.TextBox abaMistura_text_perct06;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp06;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox abaMistura_text_perct05;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp05;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox abaMistura_text_perct04;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp04;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox abaMistura_text_perct03;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp03;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox abaMistura_text_perct02;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp02;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox abaMistura_text_perct01;
+        private System.Windows.Forms.ComboBox abaMistura_combo_mp01;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label AbaMistura_label_operador;
+        private System.Windows.Forms.Label AbaMistura_label_op;
+        private System.Windows.Forms.Label AbaMistura_label_mq;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Button abaMistura_button_ir_consumo;
+        private System.Windows.Forms.Button abaParada_button_ir_mistura;
+        private System.Windows.Forms.Button abaParada_button_voltar_apontamento;
+        private System.Windows.Forms.Button abaMistura_button_voltar_parada;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar_apon;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.RichTextBox abaParadas_obs;
+        private System.Windows.Forms.Label abaParadas_label_turno;
+        private System.Windows.Forms.Label abaParada_label_hr_total;
+        private System.Windows.Forms.Label AbaMistura_label_turno;
+        private System.Windows.Forms.Label AbaMistura_label_producao;
+        private System.Windows.Forms.Label label25;
     }
 }
