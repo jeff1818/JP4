@@ -15,6 +15,7 @@ namespace JP4
         public Form_tela_inicial()
         {
             InitializeComponent();
+            
         }
 
         #region Declaração que faz o formulário se mover com o mouse

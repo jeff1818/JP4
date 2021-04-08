@@ -51,6 +51,7 @@ namespace JP4
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
+            this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -306,6 +307,10 @@ namespace JP4
             this.db_aplicativo_kpiDataSet.DataSetName = "db_aplicativo_kpiDataSet";
             this.db_aplicativo_kpiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // db_configTableAdapter1
+            // 
+            this.db_configTableAdapter1.ClearBeforeFill = true;
+            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,6 +365,7 @@ namespace JP4
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button3;
+        private db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter db_configTableAdapter1;
     }
 }
 

@@ -53,7 +53,6 @@ namespace JP4
             this.label1 = new System.Windows.Forms.Label();
             this.text_cod_item = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label_id_cadastro = new System.Windows.Forms.Label();
             this.button_atualizar_cad = new System.Windows.Forms.Button();
             this.button_editar_cadastro = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
@@ -117,6 +116,8 @@ namespace JP4
             this.combo_descri_completa = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.combo_cod_item = new System.Windows.Forms.ComboBox();
+            this.abaCadastro_label_id_cadastro = new System.Windows.Forms.Label();
+            this.label_grupo_estoque_id = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.Item.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -207,6 +208,7 @@ namespace JP4
             // 
             // Item
             // 
+            this.Item.Controls.Add(this.label_grupo_estoque_id);
             this.Item.Controls.Add(this.text_descri_unidade);
             this.Item.Controls.Add(this.label9);
             this.Item.Controls.Add(this.combo_und_medida);
@@ -249,6 +251,7 @@ namespace JP4
             this.combo_und_medida.Name = "combo_und_medida";
             this.combo_und_medida.Size = new System.Drawing.Size(70, 21);
             this.combo_und_medida.TabIndex = 15;
+            this.combo_und_medida.SelectedIndexChanged += new System.EventHandler(this.combo_und_medida_SelectedIndexChanged);
             // 
             // dt_modificacao
             // 
@@ -270,11 +273,12 @@ namespace JP4
             // label_descri_grupo_estoque
             // 
             this.label_descri_grupo_estoque.AutoSize = true;
-            this.label_descri_grupo_estoque.Location = new System.Drawing.Point(239, 19);
+            this.label_descri_grupo_estoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_descri_grupo_estoque.Location = new System.Drawing.Point(276, 17);
             this.label_descri_grupo_estoque.Name = "label_descri_grupo_estoque";
-            this.label_descri_grupo_estoque.Size = new System.Drawing.Size(140, 13);
+            this.label_descri_grupo_estoque.Size = new System.Drawing.Size(32, 17);
             this.label_descri_grupo_estoque.TabIndex = 12;
-            this.label_descri_grupo_estoque.Text = "descrição grupo de material ";
+            this.label_descri_grupo_estoque.Text = "----";
             // 
             // label6
             // 
@@ -300,7 +304,7 @@ namespace JP4
             this.combo_grupo_material.Name = "combo_grupo_material";
             this.combo_grupo_material.Size = new System.Drawing.Size(121, 21);
             this.combo_grupo_material.TabIndex = 5;
-            //this.combo_grupo_material.SelectedIndexChanged += new System.EventHandler(this.combo_grupo_material_SelectedIndexChanged);
+            this.combo_grupo_material.SelectedIndexChanged += new System.EventHandler(this.combo_grupo_material_SelectedIndexChanged);
             this.combo_grupo_material.TextChanged += new System.EventHandler(this.combo_grupo_material_TextChanged);
             // 
             // label3
@@ -330,7 +334,6 @@ namespace JP4
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label_id_cadastro);
             this.groupBox2.Controls.Add(this.button_atualizar_cad);
             this.groupBox2.Controls.Add(this.button_editar_cadastro);
             this.groupBox2.Controls.Add(this.button_buscar);
@@ -341,15 +344,6 @@ namespace JP4
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Menu";
-            // 
-            // label_id_cadastro
-            // 
-            this.label_id_cadastro.AutoSize = true;
-            this.label_id_cadastro.Location = new System.Drawing.Point(39, 488);
-            this.label_id_cadastro.Name = "label_id_cadastro";
-            this.label_id_cadastro.Size = new System.Drawing.Size(31, 13);
-            this.label_id_cadastro.TabIndex = 4;
-            this.label_id_cadastro.Text = "0000";
             // 
             // button_atualizar_cad
             // 
@@ -782,6 +776,7 @@ namespace JP4
             // 
             // tab_cadastro_item
             // 
+            this.tab_cadastro_item.Controls.Add(this.abaCadastro_label_id_cadastro);
             this.tab_cadastro_item.Controls.Add(this.groupBox2);
             this.tab_cadastro_item.Controls.Add(this.Item);
             this.tab_cadastro_item.Controls.Add(this.groupBox1);
@@ -961,6 +956,25 @@ namespace JP4
             this.combo_cod_item.Size = new System.Drawing.Size(170, 21);
             this.combo_cod_item.TabIndex = 0;
             // 
+            // abaCadastro_label_id_cadastro
+            // 
+            this.abaCadastro_label_id_cadastro.AutoSize = true;
+            this.abaCadastro_label_id_cadastro.Location = new System.Drawing.Point(25, 442);
+            this.abaCadastro_label_id_cadastro.Name = "abaCadastro_label_id_cadastro";
+            this.abaCadastro_label_id_cadastro.Size = new System.Drawing.Size(31, 13);
+            this.abaCadastro_label_id_cadastro.TabIndex = 7;
+            this.abaCadastro_label_id_cadastro.Text = "0000";
+            // 
+            // label_grupo_estoque_id
+            // 
+            this.label_grupo_estoque_id.AutoSize = true;
+            this.label_grupo_estoque_id.Location = new System.Drawing.Point(239, 19);
+            this.label_grupo_estoque_id.Name = "label_grupo_estoque_id";
+            this.label_grupo_estoque_id.Size = new System.Drawing.Size(31, 13);
+            this.label_grupo_estoque_id.TabIndex = 18;
+            this.label_grupo_estoque_id.Text = "0000";
+            this.label_grupo_estoque_id.TextChanged += new System.EventHandler(this.label_grupo_estoque_id_TextChanged);
+            // 
             // CAD01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -979,7 +993,6 @@ namespace JP4
             this.Item.ResumeLayout(false);
             this.Item.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -990,6 +1003,7 @@ namespace JP4
             this.groupBox1.PerformLayout();
             this.tab_cadastro_material.ResumeLayout(false);
             this.tab_cadastro_item.ResumeLayout(false);
+            this.tab_cadastro_item.PerformLayout();
             this.tab_buscar_cadastro.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_cadastro)).EndInit();
@@ -1071,7 +1085,6 @@ namespace JP4
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox combo_empresa;
         private System.Windows.Forms.Button button_atualizar_cad;
-        private System.Windows.Forms.Label label_id_cadastro;
         private System.Windows.Forms.TabControl tab_cadastro_material;
         private System.Windows.Forms.TabPage tab_cadastro_item;
         private System.Windows.Forms.TabPage tab_buscar_cadastro;
@@ -1090,5 +1103,7 @@ namespace JP4
         private System.Windows.Forms.ComboBox combo_descri_completa;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ComboBox combo_cod_item;
+        private System.Windows.Forms.Label abaCadastro_label_id_cadastro;
+        private System.Windows.Forms.Label label_grupo_estoque_id;
     }
 }

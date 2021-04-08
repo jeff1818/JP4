@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace JP4
 {
@@ -28,7 +23,7 @@ namespace JP4
             //
 
             // botoes
-            bloquear_controles();
+            Bloquear_controles();
             //
 
             //
@@ -38,6 +33,8 @@ namespace JP4
             Carregar_grupo_estoque();
 
             Carregar_grid();
+
+            //Carregar_descricao_grupo_estoque("03");
 
         }
 
@@ -50,7 +47,7 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_grupo_estoque where codigo_grupo ='"+ codigo_grupo + "'";
+                string comando_sql = "select * from db_cadastro_grupo_estoque where codigo_grupo ='" + codigo_grupo + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -64,6 +61,8 @@ namespace JP4
                     label_descri_grupo_estoque.Text = myreader["nome_grupo"].ToString();
                 }
                 conexao.Close();
+
+
 
             }
             catch (Exception erro)
@@ -202,7 +201,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-              
 
         #endregion
 
@@ -315,6 +313,34 @@ namespace JP4
             }
         }
 
+        private void Carrega_descricao_undMedida(string unidade)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_unidade_medida where unidade = '" + unidade + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    text_descri_unidade.Text = myreader["descricao"].ToString();
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         private void Limpar_filtro()
         {
 
@@ -331,6 +357,9 @@ namespace JP4
         #region Botoes aba buscar
         private void button_editar_Click(object sender, EventArgs e)
         {
+            string idCliente = grid_cadastro.CurrentRow.Cells[0].Value.ToString();
+            tab_cadastro_material.SelectedTab = tab_cadastro_item;
+            Carrega_campos(idCliente);
 
         }
         private void button_limpar_filtro_Click_1(object sender, EventArgs e)
@@ -354,12 +383,13 @@ namespace JP4
         {
             Carregar_descricao_grupo(combo_grupo_estoque.Text);
         }
-        
+
         private void grid_cadastro_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             string idCliente = grid_cadastro.CurrentRow.Cells[0].Value.ToString();
             tab_cadastro_material.SelectedTab = tab_cadastro_item;
-            carrega_campos(idCliente);
+            Carrega_campos(idCliente);
+
         }
 
         #endregion
@@ -383,7 +413,7 @@ namespace JP4
                 while (myreader.Read())
                 {
                     this.combo_grupo_material.Items.Add(myreader["codigo_grupo"].ToString());
-                    
+
                 }
 
                 conexao.Close();
@@ -537,7 +567,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        
+
         private void carregar_empresa()
         {
             try
@@ -570,7 +600,7 @@ namespace JP4
         #endregion
 
         #region Metodos de salvar / modificar / exluir /  limpar/ check controles
-        private void bloquear_controles()
+        private void Bloquear_controles()
         {
             this.combo_grupo_material.Enabled = false;
             this.combo_tipo_material.Enabled = false;
@@ -599,10 +629,10 @@ namespace JP4
             this.combo_local_estoque.Enabled = false;
 
             this.combo_empresa.Enabled = false;
-            
+
         }
-        
-        private void desbloquear_controles()
+
+        private void Desbloquear_controles()
         {
             this.combo_grupo_material.Enabled = true;
             this.combo_tipo_material.Enabled = true;
@@ -635,6 +665,35 @@ namespace JP4
 
         private void limpar_campos()
         {
+            combo_grupo_material.Text = string.Empty;
+            combo_tipo_material.Text = string.Empty;
+            text_cod_item.Text = string.Empty;
+            combo_und_medida.Text = string.Empty;
+            text_descri_unidade.Text = string.Empty;
+
+            text_descr_reduzida.Text = string.Empty;
+            text_descr_completa.Text = string.Empty;
+            combo_status.Text = string.Empty;
+            text_qtd_embala.Text = string.Empty;
+            text_num_sacos.Text = string.Empty;
+            text_fator_conver.Text = string.Empty;
+            text_fator_conver.Text = string.Empty;
+            text_peso_minimo.Text = string.Empty;
+            text_peso_padrao.Text = string.Empty;
+            text_peso_maximo.Text = string.Empty;
+
+            text_altura.Text = string.Empty;
+            text_comprimento.Text = string.Empty;
+            text_largura.Text = string.Empty;
+            text_densidade.Text = string.Empty;
+            text_espessura.Text = string.Empty;
+
+            combo_local_aplicacao.Text = string.Empty;
+            combo_local_estoque.Text = string.Empty;
+
+            combo_empresa.Text = string.Empty;
+            check_estrutura_SIM.Enabled = false;
+            check_estrutura_NAO.Enabled = false;
 
         }
 
@@ -643,7 +702,7 @@ namespace JP4
 
         }
 
-        private int verifica_duplicados(string cod_item)
+        private int Verifica_duplicados(string cod_item)
         {
 
             try
@@ -673,7 +732,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
 
-            if(cod_item != "")
+            if (cod_item != "")
             {
                 return 1;
             }
@@ -682,10 +741,10 @@ namespace JP4
                 return 0;
             }
 
-            
+
         }
 
-        private void salvar_atualizar(string id_cadastro)
+        private void Atualizar_cadastro(string id_cadastro)
         {
             string codigo_item = text_cod_item.Text;
             string status_item = combo_status.Text;
@@ -765,7 +824,7 @@ namespace JP4
                     "', data_cadastro='" + data_cadastro +
                     "', tem_estrutura='" + tem_estrutura +
                     "', empresa='" + empresa +
-                    "' WHERE id_estrutura=" + Convert.ToInt64(id_cadastro) + "";
+                    "' WHERE cadastro_id=" + Convert.ToInt64(id_cadastro) + "";
 
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -779,15 +838,18 @@ namespace JP4
 
         }
 
-        private void salvar_cadastro()
+        private void Salvar_cadastro()
         {
+
+
+
             string codigo_item = text_cod_item.Text;
-            string status_item = combo_status.Text;            
+            string status_item = combo_status.Text;
             string grupo = combo_grupo_material.Text;
             string descricao_reduzida = text_descr_reduzida.Text;
             string descricao_completa = text_descr_completa.Text;
             string tipo_material = combo_tipo_material.Text;
-            
+
             double qtd_embala = Convert.ToDouble(text_qtd_embala.Text);
             double fator_multi = Convert.ToDouble(text_fator_conver.Text);
             double peso_minimo = Convert.ToDouble(text_peso_minimo.Text);
@@ -824,10 +886,10 @@ namespace JP4
 
             string empresa = combo_empresa.Text;
             //----------------------------------------------
-            
-            int restulado = verifica_duplicados(codigo_item);
 
-            if(restulado == 1)
+            int restulado = Verifica_duplicados(codigo_item);
+
+            if (restulado == 1)
             {
                 MessageBox.Show("Já existe cadastro do item");
             }
@@ -860,15 +922,12 @@ namespace JP4
         }
 
 
-        private void carrega_campos(string id_cadastro)
+        private void Carrega_campos(string id_cadastro)
         {
-
-            
-
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_material where cadastro_id ="+Convert.ToInt64(id_cadastro)+"";
+                string comando_sql = "select * from db_cadastro_material where cadastro_id =" + Convert.ToInt64(id_cadastro) + "";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -880,28 +939,28 @@ namespace JP4
                 while (myreader.Read())
                 {
 
-                   // this.combo_und_medida.Items.Add(myreader["unidade"].ToString());
-
+                    // this.combo_und_medida.Items.Add(myreader["unidade"].ToString());
+                    abaCadastro_label_id_cadastro.Text = myreader["cadastro_id"].ToString();
                     text_cod_item.Text = myreader["codigo_item"].ToString();
                     combo_status.Text = myreader["status_item"].ToString();
                     combo_grupo_material.Text = myreader["grupo"].ToString();
                     text_descr_reduzida.Text = myreader["descricao_reduzida"].ToString();
                     text_descr_completa.Text = myreader["descricao_completa"].ToString();
-                    combo_tipo_material.Text= myreader["tipo_material"].ToString();
+                    combo_tipo_material.Text = myreader["tipo_material"].ToString();
 
                     text_qtd_embala.Text = myreader["qtd_embala"].ToString();
                     text_fator_conver.Text = myreader["fator_multi"].ToString();
-                    text_peso_minimo.Text= myreader["peso_minimo"].ToString();
-                    text_peso_padrao.Text= myreader["peso_padrao"].ToString();
-                    text_peso_maximo.Text= myreader["peso_maximo"].ToString();
+                    text_peso_minimo.Text = myreader["peso_minimo"].ToString();
+                    text_peso_padrao.Text = myreader["peso_padrao"].ToString();
+                    text_peso_maximo.Text = myreader["peso_maximo"].ToString();
 
                     combo_und_medida.Text = myreader["unidade_medida"].ToString();
 
                     text_altura.Text = myreader["altura"].ToString();
                     text_comprimento.Text = myreader["comprimento"].ToString();
                     text_largura.Text = myreader["largura"].ToString();
-                    text_densidade.Text= myreader["densidade"].ToString();
-                    text_espessura.Text= myreader["espessura"].ToString();
+                    text_densidade.Text = myreader["densidade"].ToString();
+                    text_espessura.Text = myreader["espessura"].ToString();
 
                     text_num_sacos.Text = myreader["numero_sacos"].ToString();
 
@@ -912,11 +971,11 @@ namespace JP4
                     //myreader["data_cadastro"].ToString();
                     //
 
-                    if(Convert.ToInt32(myreader["tem_estrutura"].ToString()) == 1)
+                    if (Convert.ToInt32(myreader["tem_estrutura"].ToString()) == 1)
                     {
                         check_estrutura_SIM.Checked = true;
                         check_estrutura_NAO.Checked = false;
-                        
+
                     }
                     else
                     {
@@ -927,6 +986,7 @@ namespace JP4
                     combo_empresa.Text = myreader["empresa"].ToString();
                 }
 
+                Carregar_descricao_grupo_estoque(combo_grupo_material.Text);
                 conexao.Close();
 
             }
@@ -941,7 +1001,7 @@ namespace JP4
 
         private void button_cadastrar_Click(object sender, EventArgs e)
         {
-            desbloquear_controles();
+            Desbloquear_controles();
         }
 
         private void check_estrutura_SIM_CheckedChanged(object sender, EventArgs e)
@@ -956,32 +1016,60 @@ namespace JP4
 
         private void button_atualizar_cad_Click(object sender, EventArgs e)
         {
-            salvar_atualizar(this.label_id_cadastro.Text);
+            if (abaCadastro_label_id_cadastro.Text == "0000")
+            {
+                DialogResult resposta = MessageBox.Show(this, "Deseja cadastrar novo item!", "Cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resposta == DialogResult.Yes)
+                    Salvar_cadastro();
+
+            }
+
+            if (abaCadastro_label_id_cadastro.Text != "0000")
+            {
+                Atualizar_cadastro(abaCadastro_label_id_cadastro.Text);
+                MessageBox.Show("Atualizado com sucesso!");
+            }
+
         }
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
             tab_cadastro_material.SelectedTab = tab_buscar_cadastro;
-            desbloquear_controles();
-        }
-
-        private void text_ide_item_cadastro01_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
         private void button_editar_cadastro_Click(object sender, EventArgs e)
         {
-            desbloquear_controles();
+            Desbloquear_controles();
         }
 
         //private void combo_grupo_material_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void combo_grupo_material_TextChanged(object sender, EventArgs e)
         {
-            // Ainda não funciona
-            MessageBox.Show(combo_grupo_estoque.Text);
-            Carregar_descricao_grupo_estoque(combo_grupo_estoque.Text);
+
+            //label_grupo_estoque_id.Text = combo_grupo_material.Text;
+            //Carregar_descricao_grupo_estoque(combo_grupo_estoque.Text);
+
+        }
+
+        private void combo_grupo_material_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            label_grupo_estoque_id.Text = combo_grupo_material.Text;
+            //Carregar_descricao_grupo_estoque(combo_grupo_material.Text);
+        }
+
+        private void label_grupo_estoque_id_TextChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(combo_grupo_estoque.Text);
+            Carregar_descricao_grupo_estoque(label_grupo_estoque_id.Text);
+        }
+
+        private void combo_und_medida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Carrega_descricao_undMedida(combo_und_medida.Text);
         }
     }
 }

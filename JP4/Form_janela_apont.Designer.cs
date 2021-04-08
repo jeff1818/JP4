@@ -1251,6 +1251,7 @@ namespace JP4
             this.abaParada_button_voltar_apontamento.TabIndex = 87;
             this.abaParada_button_voltar_apontamento.Text = "<< Apontamento";
             this.abaParada_button_voltar_apontamento.UseVisualStyleBackColor = true;
+            this.abaParada_button_voltar_apontamento.Click += new System.EventHandler(this.abaParada_button_voltar_apontamento_Click);
             // 
             // abaParada_button_ir_mistura
             // 
@@ -1260,6 +1261,7 @@ namespace JP4
             this.abaParada_button_ir_mistura.TabIndex = 86;
             this.abaParada_button_ir_mistura.Text = "Mistura >>";
             this.abaParada_button_ir_mistura.UseVisualStyleBackColor = true;
+            this.abaParada_button_ir_mistura.Click += new System.EventHandler(this.abaParada_button_ir_mistura_Click);
             // 
             // groupBox9
             // 
@@ -1767,6 +1769,7 @@ namespace JP4
             this.abaMistura_button_voltar_parada.TabIndex = 88;
             this.abaMistura_button_voltar_parada.Text = "<< Paradas";
             this.abaMistura_button_voltar_parada.UseVisualStyleBackColor = true;
+            this.abaMistura_button_voltar_parada.Click += new System.EventHandler(this.abaMistura_button_voltar_parada_Click);
             // 
             // abaMistura_button_ir_consumo
             // 
@@ -1776,6 +1779,7 @@ namespace JP4
             this.abaMistura_button_ir_consumo.TabIndex = 87;
             this.abaMistura_button_ir_consumo.Text = "Consumo>>";
             this.abaMistura_button_ir_consumo.UseVisualStyleBackColor = true;
+            this.abaMistura_button_ir_consumo.Click += new System.EventHandler(this.abaMistura_button_ir_consumo_Click);
             // 
             // groupBox12
             // 

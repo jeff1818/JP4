@@ -17,6 +17,7 @@ namespace JP4
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form_tela_inicial());
+            //Application.Run(new Form_janela_login());
         }
     }
 }
