@@ -1363,7 +1363,7 @@ namespace JP4
             DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
             string cod_operacao = this.text_operacao.Text;
             double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
-            string ies_tip_movto = this.label_tipo_movimento.Text;
+            string ies_tip_movto = "R"; // this.label_tipo_movimento.Text;
             double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
             double qtd_real = qtd_movto * (-1); // mudou aqui
             double fardos = Convert.ToDouble(this.text_qtd_fardos.Text);
@@ -1494,7 +1494,7 @@ namespace JP4
             string num_transac = "";
             string cod_item = this.combo_cod_item.Text;
             string cod_descri_completa = this.combo_desc_completa.Text;
-            string cod_descri_reduzida = "";
+            //string cod_descri_reduzida = "";
             int mes_proces = DateTime.Now.Month;
             int mes_movto = DateTime.Now.Month;
             int ano_movto = DateTime.Now.Year;
@@ -1543,9 +1543,6 @@ namespace JP4
                 conexao.Open();
                 
                 
-                //comando_sql = "INSERT INTO estoque_trans(, , , , , , , , , , , , , , , , ,
-                //, , , , , , , , , , , , , , , , , , , , , , , observacao)
-                
                 comando_sql = "UPDATE estoque_trans SET " +
                         "cod_empresa='" + cod_empresa +
                         "', num_transac='" + num_transac +
@@ -1599,76 +1596,456 @@ namespace JP4
             }
         }
 
-        private void Atualizar_parada_mq()
+        private void Atualizar_parada_mq(string num_tran)
         {
-
-
-            try
+            
+            if (abaParada_label_hr_total.Text != "00:00:00")
             {
-                string comando_sql;
+                if (abaParada_label_hr_total01.Text != "0")
+                {
 
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                conexao.Open();
+                    //id_parada
+                    double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                    string maquina = abaParadas_label_maquina.Text;
+                    string turno = abaParadas_label_turno.Text;
+                    string operador = abaParadas_label_operador.Text;
+                    string codigo_parada = "";
+                    string descricao_parada = abaParada_combo_parada01.Text;
+                    DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    DateTime hora_final = abaParada_hr_fim01.Value;
+                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+                    double total_minutos = Convert.ToDateTime(abaParada_label_hr_total01.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total01.Text).Minute;
+                    string observacao = abaParadas_obs.Text;
+                    string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada01.Name;
+                    codigo_parada = busca_cod_parada_db(descricao_parada);
 
-                //comando_sql = "INSERT INTO estoque_trans(, , , , , , , , , , , , , , , , ,
-                //, , , , , , , , , , , , , , , , , , , , , , , observacao)
+                    try
+                    {
+                        string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                        OleDbConnection conexao = new OleDbConnection(conecta_string);
+                        conexao.Open();
 
-                comando_sql = "UPDATE estoque_trans SET " +
-                        "cod_empresa='" + cod_empresa +
-                        "', num_transac='" + num_transac +
-                        "', cod_item='" + cod_item +
-                        "', cod_descri_completa='" + cod_descri_completa +
-                        "', mes_proces='" + mes_proces +
-                        "', mes_movto='" + mes_movto +
-                        "', ano_movto='" + ano_movto +
-                        "', dat_proces='" + dat_proces +
-                        "', dat_movto='" + dat_movto +
-                        "', cod_operacao='" + cod_operacao +
-                        "', num_docum='" + num_docum +
-                        "', ies_tip_movto='" + ies_tip_movto +
-                        "', qtd_real='" + qtd_real +
-                        "', qtd_movto='" + qtd_movto +
-                        "', num_secao_requis='" + num_secao_requis +
+                        string comando_sql;
+
+                        comando_sql = "UPDATE db_paradas_mq SET " +
+                        "ordem_prod='" + ordem_prod +
+                        "', maquina='" + maquina +
+                        "', turno='" + turno +
                         "', operador='" + operador +
-                        "', secao_nome='" + secao_nome +
-                        "', cod_local_est_orig='" + cod_local_est_orig +
-                        "', cod_local_est_dest='" + cod_local_est_dest +
-                        "', num_lote_orig='" + num_lote_orig +
-                        "', num_lote_dest='" + num_lote_dest +
-                        "', ies_sit_est_orig='" + ies_sit_est_orig +
-                        "', ies_sit_est_dest='" + ies_sit_est_dest +
-                        "', cod_turno='" + cod_turno +
-                        "', nom_usuario='" + nom_usuario +
-                        "', num_prog='" + num_prog +
-                        "', largura_material='" + largura_material +
-                        "', n_bobina_inical='" + n_bobina_inical +
-                        "', n_bobina_final='" + n_bobina_final +
-                        "', velocidade='" + velocidade +
-                        "', contador='" + contador_fardos +
-                        "', fardos='" + fardos +
-                        "', peso_medio_bobina='" + peso_medio_bobina +
-                        "', peso_total_fardo='" + peso_total_fardo +
-                        "', hora_inical='" + hora_inical +
+                        "', codigo_parada='" + codigo_parada +
+                        "', descricao_parada='" + descricao_parada +
+                        "', hora_inicio='" + hora_inicio +
                         "', hora_final='" + hora_final +
-                        "', data_operac='" + data_operac +
-                        "', hor_operac='" + hor_operac +
-                        "', Tipo_material='" + Tipo_material +
+                        "', total_horas='" + total_horas +
+                        "', total_minutos='" + total_minutos +
                         "', observacao='" + observacao +
-                        "' WHERE id_estoque_trans=" + Convert.ToInt32(id_apontamento) + "";
+                        "', num_transac='" + num_transac +
+                        "', campo_marcador='" + campo_marcador +
+                        "' WHERE num_transac=" + Convert.ToInt32(num_tran) + "";                        
 
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                cmd.ExecuteNonQuery();
-                conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        MessageBox.Show(erro.Message);
+                        cod_geral_erro = 1;
+                    }
+                }
+                if (abaParada_label_hr_total02.Text != "0")
+                {
+
+                    //id_parada
+                    double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                    string maquina = abaParadas_label_maquina.Text;
+                    string turno = abaParadas_label_turno.Text;
+                    string operador = abaParadas_label_operador.Text;
+                    string codigo_parada = "";
+                    string descricao_parada = abaParada_combo_parada02.Text;
+                    DateTime hora_inicio = abaParada_hr_inicio02.Value;
+                    DateTime hora_final = abaParada_hr_fim02.Value;
+                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total02.Text);
+                    double total_minutos = Convert.ToDateTime(abaParada_label_hr_total02.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total02.Text).Minute;
+                    string observacao = abaParadas_obs.Text;
+                    string num_transac = num_tran;
+
+                    string campo_marcador = abaParada_combo_parada02.Name;
+                    codigo_parada = busca_cod_parada_db(descricao_parada);
+
+                    try
+                    {
+                        string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                        OleDbConnection conexao = new OleDbConnection(conecta_string);
+                        conexao.Open();
+
+                        string comando_sql;
+
+                        comando_sql = "UPDATE db_paradas_mq SET " +
+                        "ordem_prod='" + ordem_prod +
+                        "', maquina='" + maquina +
+                        "', turno='" + turno +
+                        "', operador='" + operador +
+                        "', codigo_parada='" + codigo_parada +
+                        "', descricao_parada='" + descricao_parada +
+                        "', hora_inicio='" + hora_inicio +
+                        "', hora_final='" + hora_final +
+                        "', total_horas='" + total_horas +
+                        "', total_minutos='" + total_minutos +
+                        "', observacao='" + observacao +
+                        "', num_transac='" + num_transac +
+                        "', campo_marcador='" + campo_marcador +
+                        "' WHERE num_transac=" + Convert.ToInt32(num_tran) + "";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        MessageBox.Show(erro.Message);
+                        cod_geral_erro = 1;
+                    }
+                }
+                if (abaParada_label_hr_total03.Text != "0")
+                {
+
+                    //id_parada
+                    double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                    string maquina = abaParadas_label_maquina.Text;
+                    string turno = abaParadas_label_turno.Text;
+                    string operador = abaParadas_label_operador.Text;
+                    string codigo_parada = "";
+                    string descricao_parada = abaParada_combo_parada03.Text;
+                    DateTime hora_inicio = abaParada_hr_inicio03.Value;
+                    DateTime hora_final = abaParada_hr_fim03.Value;
+                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total03.Text);
+                    double total_minutos = Convert.ToDateTime(abaParada_label_hr_total03.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total03.Text).Minute;
+                    string observacao = abaParadas_obs.Text;
+                    string num_transac = num_tran;
+
+                    string campo_marcador = abaParada_combo_parada03.Name;
+                    codigo_parada = busca_cod_parada_db(descricao_parada);
+
+                    try
+                    {
+                        string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                        OleDbConnection conexao = new OleDbConnection(conecta_string);
+                        conexao.Open();
+
+                        string comando_sql;
+
+                        comando_sql = "UPDATE db_paradas_mq SET " +
+                        "ordem_prod='" + ordem_prod +
+                        "', maquina='" + maquina +
+                        "', turno='" + turno +
+                        "', operador='" + operador +
+                        "', codigo_parada='" + codigo_parada +
+                        "', descricao_parada='" + descricao_parada +
+                        "', hora_inicio='" + hora_inicio +
+                        "', hora_final='" + hora_final +
+                        "', total_horas='" + total_horas +
+                        "', total_minutos='" + total_minutos +
+                        "', observacao='" + observacao +
+                        "', num_transac='" + num_transac +
+                        "', campo_marcador='" + campo_marcador +
+                        "' WHERE num_transac=" + Convert.ToInt32(num_tran) + "";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        MessageBox.Show(erro.Message);
+                        cod_geral_erro = 1;
+                    }
+                }
+                if (abaParada_label_hr_total04.Text != "0")
+                {
+
+                    //id_parada
+                    double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                    string maquina = abaParadas_label_maquina.Text;
+                    string turno = abaParadas_label_turno.Text;
+                    string operador = abaParadas_label_operador.Text;
+                    string codigo_parada = "";
+                    string descricao_parada = abaParada_combo_parada04.Text;
+                    DateTime hora_inicio = abaParada_hr_inicio04.Value;
+                    DateTime hora_final = abaParada_hr_fim04.Value;
+                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total04.Text);
+                    double total_minutos = Convert.ToDateTime(abaParada_label_hr_total04.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total04.Text).Minute;
+                    string observacao = abaParadas_obs.Text;
+                    string num_transac = num_tran;
+
+                    string campo_marcador = abaParada_combo_parada04.Name;
+                    codigo_parada = busca_cod_parada_db(descricao_parada);
+
+                    try
+                    {
+                        string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                        OleDbConnection conexao = new OleDbConnection(conecta_string);
+                        conexao.Open();
+
+                        string comando_sql;
+
+                        comando_sql = "UPDATE db_paradas_mq SET " +
+                        "ordem_prod='" + ordem_prod +
+                        "', maquina='" + maquina +
+                        "', turno='" + turno +
+                        "', operador='" + operador +
+                        "', codigo_parada='" + codigo_parada +
+                        "', descricao_parada='" + descricao_parada +
+                        "', hora_inicio='" + hora_inicio +
+                        "', hora_final='" + hora_final +
+                        "', total_horas='" + total_horas +
+                        "', total_minutos='" + total_minutos +
+                        "', observacao='" + observacao +
+                        "', num_transac='" + num_transac +
+                        "', campo_marcador='" + campo_marcador +
+                        "' WHERE num_transac=" + Convert.ToInt32(num_tran) + "";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        MessageBox.Show(erro.Message);
+                        cod_geral_erro = 1;
+                    }
+                }
+                if (abaParada_label_hr_total05.Text != "0")
+                {
+
+                    //id_parada
+                    double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                    string maquina = abaParadas_label_maquina.Text;
+                    string turno = abaParadas_label_turno.Text;
+                    string operador = abaParadas_label_operador.Text;
+                    string codigo_parada = "";
+                    string descricao_parada = abaParada_combo_parada05.Text;
+                    DateTime hora_inicio = abaParada_hr_inicio05.Value;
+                    DateTime hora_final = abaParada_hr_fim05.Value;
+                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total05.Text);
+                    double total_minutos = Convert.ToDateTime(abaParada_label_hr_total05.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total05.Text).Minute;
+                    string observacao = abaParadas_obs.Text;
+                    string num_transac = num_tran;
+
+                    string campo_marcador = abaParada_combo_parada05.Name;
+                    codigo_parada = busca_cod_parada_db(descricao_parada);
+
+                    try
+                    {
+                        string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                        OleDbConnection conexao = new OleDbConnection(conecta_string);
+                        conexao.Open();
+
+                        string comando_sql;
+
+                        comando_sql = "UPDATE db_paradas_mq SET " +
+                        "ordem_prod='" + ordem_prod +
+                        "', maquina='" + maquina +
+                        "', turno='" + turno +
+                        "', operador='" + operador +
+                        "', codigo_parada='" + codigo_parada +
+                        "', descricao_parada='" + descricao_parada +
+                        "', hora_inicio='" + hora_inicio +
+                        "', hora_final='" + hora_final +
+                        "', total_horas='" + total_horas +
+                        "', total_minutos='" + total_minutos +
+                        "', observacao='" + observacao +
+                        "', num_transac='" + num_transac +
+                        "', campo_marcador='" + campo_marcador +
+                        "' WHERE num_transac=" + Convert.ToInt32(num_tran) + "";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        MessageBox.Show(erro.Message);
+                        cod_geral_erro = 1;
+                    }
+                }
+                if (abaParada_label_hr_total06.Text != "0")
+                {
+
+                    //id_parada
+                    double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                    string maquina = abaParadas_label_maquina.Text;
+                    string turno = abaParadas_label_turno.Text;
+                    string operador = abaParadas_label_operador.Text;
+                    string codigo_parada = "";
+                    string descricao_parada = abaParada_combo_parada06.Text;
+                    DateTime hora_inicio = abaParada_hr_inicio06.Value;
+                    DateTime hora_final = abaParada_hr_fim06.Value;
+                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total06.Text);
+                    double total_minutos = Convert.ToDateTime(abaParada_label_hr_total06.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total06.Text).Minute;
+                    string observacao = abaParadas_obs.Text;
+                    string num_transac = num_tran;
+
+                    string campo_marcador = abaParada_combo_parada06.Name;
+                    codigo_parada = busca_cod_parada_db(descricao_parada);
+
+                    try
+                    {
+                        string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                        OleDbConnection conexao = new OleDbConnection(conecta_string);
+                        conexao.Open();
+
+                        string comando_sql;
+
+                        comando_sql = "UPDATE db_paradas_mq SET " +
+                        "ordem_prod='" + ordem_prod +
+                        "', maquina='" + maquina +
+                        "', turno='" + turno +
+                        "', operador='" + operador +
+                        "', codigo_parada='" + codigo_parada +
+                        "', descricao_parada='" + descricao_parada +
+                        "', hora_inicio='" + hora_inicio +
+                        "', hora_final='" + hora_final +
+                        "', total_horas='" + total_horas +
+                        "', total_minutos='" + total_minutos +
+                        "', observacao='" + observacao +
+                        "', num_transac='" + num_transac +
+                        "', campo_marcador='" + campo_marcador +
+                        "' WHERE num_transac=" + Convert.ToInt32(num_tran) + "";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        MessageBox.Show(erro.Message);
+                        cod_geral_erro = 1;
+                    }
+                }
+                if (abaParada_label_hr_total07.Text != "0")
+                {
+
+                    //id_parada
+                    double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                    string maquina = abaParadas_label_maquina.Text;
+                    string turno = abaParadas_label_turno.Text;
+                    string operador = abaParadas_label_operador.Text;
+                    string codigo_parada = "";
+                    string descricao_parada = abaParada_combo_parada07.Text;
+                    DateTime hora_inicio = abaParada_hr_inicio07.Value;
+                    DateTime hora_final = abaParada_hr_fim07.Value;
+                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total07.Text);
+                    double total_minutos = Convert.ToDateTime(abaParada_label_hr_total07.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total07.Text).Minute;
+                    string observacao = abaParadas_obs.Text;
+                    string num_transac = num_tran;
+
+                    string campo_marcador = abaParada_combo_parada07.Name;
+                    codigo_parada = busca_cod_parada_db(descricao_parada);
+
+                    try
+                    {
+                        string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                        OleDbConnection conexao = new OleDbConnection(conecta_string);
+                        conexao.Open();
+
+                        string comando_sql;
+
+                        comando_sql = "UPDATE db_paradas_mq SET " +
+                        "ordem_prod='" + ordem_prod +
+                        "', maquina='" + maquina +
+                        "', turno='" + turno +
+                        "', operador='" + operador +
+                        "', codigo_parada='" + codigo_parada +
+                        "', descricao_parada='" + descricao_parada +
+                        "', hora_inicio='" + hora_inicio +
+                        "', hora_final='" + hora_final +
+                        "', total_horas='" + total_horas +
+                        "', total_minutos='" + total_minutos +
+                        "', observacao='" + observacao +
+                        "', num_transac='" + num_transac +
+                        "', campo_marcador='" + campo_marcador +
+                        "' WHERE num_transac=" + Convert.ToInt32(num_tran) + "";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        MessageBox.Show(erro.Message);
+                        cod_geral_erro = 1;
+                    }
+                }
+                if (abaParada_label_hr_total08.Text != "0")
+                {
+
+                    //id_parada
+                    double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                    string maquina = abaParadas_label_maquina.Text;
+                    string turno = abaParadas_label_turno.Text;
+                    string operador = abaParadas_label_operador.Text;
+                    string codigo_parada = "";
+                    string descricao_parada = abaParada_combo_parada08.Text;
+                    DateTime hora_inicio = abaParada_hr_inicio08.Value;
+                    DateTime hora_final = abaParada_hr_fim08.Value;
+                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total08.Text);
+                    double total_minutos = Convert.ToDateTime(abaParada_label_hr_total08.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total08.Text).Minute;
+                    string observacao = abaParadas_obs.Text;
+                    string num_transac = num_tran;
+
+                    string campo_marcador = abaParada_combo_parada08.Name;
+                    codigo_parada = busca_cod_parada_db(descricao_parada);
+
+                    try
+                    {
+                        string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                        OleDbConnection conexao = new OleDbConnection(conecta_string);
+                        conexao.Open();
+
+                        string comando_sql;
+
+                        comando_sql = "UPDATE db_paradas_mq SET " +
+                        "ordem_prod='" + ordem_prod +
+                        "', maquina='" + maquina +
+                        "', turno='" + turno +
+                        "', operador='" + operador +
+                        "', codigo_parada='" + codigo_parada +
+                        "', descricao_parada='" + descricao_parada +
+                        "', hora_inicio='" + hora_inicio +
+                        "', hora_final='" + hora_final +
+                        "', total_horas='" + total_horas +
+                        "', total_minutos='" + total_minutos +
+                        "', observacao='" + observacao +
+                        "', num_transac='" + num_transac +
+                        "', campo_marcador='" + campo_marcador +
+                        "' WHERE num_transac=" + Convert.ToInt32(num_tran) + "";
+
+                        OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                        cmd.ExecuteNonQuery();
+                        conexao.Close();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        MessageBox.Show(erro.Message);
+                        cod_geral_erro = 1;
+                    }
+                }
             }
 
 
         }
+
 
         private void Atualizar_consumo_estrutura()
         {
@@ -2028,6 +2405,8 @@ namespace JP4
                     }
                 }
             }
+        
+        
         }
 
 
@@ -3087,11 +3466,14 @@ namespace JP4
 
         private void Carregar_grid_pesquisar()
         {
+            //Achar um jeito de carregar somente ordens com status normal
+            //excluir do filtro ordems que foram estornadas
+            //Achar um jeito de identificar ordens ja estornadas
             try
             {
                 string cod_operacao = "APON";
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real > 0 ";
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -3114,7 +3496,7 @@ namespace JP4
             {
                 string cod_operacao = "APON";
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "'";
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
