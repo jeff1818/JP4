@@ -32,10 +32,10 @@ namespace JP4
 
 
             // Aba Pesquisar
-            carregar_operador_pesquisar();
-            carregar_turno_pesquisar();
-            carregar_material_pesquisar();
-            carregar_maquina_pesquisar();
+            Carregar_operador_pesquisar();
+            Carregar_turno_pesquisar();
+            Carregar_material_pesquisar();
+            Carregar_maquina_pesquisar();
 
             #endregion
 
@@ -56,7 +56,7 @@ namespace JP4
                 this.abaConsumo_text__cod_item.Text = combo_cod_item.Text;
                 this.abaConsumo_text_descri_item.Text = combo_desc_completa.Text;
                 this.abaConsumo_text_qtd_boa.Text = Convert.ToString(text_qtd_boa.Text);
-                carregar_grid(this.combo_desc_completa.Text);
+                Carregar_grid(this.combo_desc_completa.Text);
 
             }
             if (e.KeyCode == Keys.Escape)
@@ -230,16 +230,28 @@ namespace JP4
             }
 
         }
-        #endregion
+
+        #endregion // Carregar itens excel 
+
+        //------------------------------------------------------------------------------------------
+
 
         #region Botões do menu
+
+
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        #endregion // Botões do menu
+        private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+        }
+
+
+        #endregion // Botões do menu
+        //------------------------------------------------------------------------------------------
 
         #region Metodos de preencher controles
 
@@ -515,7 +527,7 @@ namespace JP4
         }
 
         // Aba consumo
-        public void carregar_grid(string item_pai)
+        public void Carregar_grid(string item_pai)
         {
             try
             {
@@ -533,7 +545,7 @@ namespace JP4
                 dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
                 Grid_estrutura_item.DataSource = dv.ToTable();
 
-                calcular_qtd_total_grid();
+                Calcular_qtd_total_grid();
 
                 connection.Close();
             }
@@ -542,7 +554,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void calcular_qtd_total_grid()
+        private void Calcular_qtd_total_grid()
         {
             double total = Convert.ToDouble(this.abaConsumo_text_qtd_boa.Text);
 
@@ -556,10 +568,12 @@ namespace JP4
         }
 
 
-        #endregion // Metodos de preencher controles
+
+        // Metodos de preencher controles
+        //------------------------------------------------------------------------------------------
+        //Funcionalidade combobox e textbox da janela Apontamento
 
 
-        #region Funcionalidade combobox e textbox da janela Apontamento
 
         //private void text_qtd_fardos_TextChanged(object sender, EventArgs e) { }
 
@@ -781,18 +795,29 @@ namespace JP4
             Carregar_local_origem(combo_cod_item.Text);
 
         }
+        private void text_local_aplicacao_TextChanged(object sender, EventArgs e)
+        {
+            if (text_local_aplicacao.Text == "Extrusora")
+            {
+                text_contador.Enabled = false;
+                text_qtd_fardos.Enabled = false;
+            }
+            else if (text_local_aplicacao.Text == "Picotadeira")
+            {
+                text_largura.Enabled = false;
+            }
+            else
+            {
+                text_contador.Enabled = true;
+                text_qtd_fardos.Enabled = true;
+            }
+        }
+
+
         #endregion //Funcionalidade combobox e textbox da janela Apontamento
 
-
-
-
-        #region Metodos de criação/geração
-        // Aba apontamento
-        // Mistura
-        // Estrutura
-
-        #endregion
-
+        
+        //------------------------------------------------------------------------------------------
         #region Metodos de Busca
 
         // Janela Apontamento
@@ -912,9 +937,9 @@ namespace JP4
         }
 
 
-
-
         #endregion // Metodos de busta
+        //------------------------------------------------------------------------------------------
+
 
 
         #region Metodos de Calculo
@@ -1075,6 +1100,7 @@ namespace JP4
         }
 
 
+        //------------------------------------------------------------------------------------------
 
         #region Metodos Janela Apontamento
 
@@ -1300,7 +1326,6 @@ namespace JP4
 
                 myreader = cmd.ExecuteReader();
 
-
                 while (myreader.Read())
                 {
                     if (DateTime.Today >= Convert.ToDateTime(myreader["dat_validade_ini"]) & DateTime.Today <= Convert.ToDateTime(myreader["dat_validade_fim"]))
@@ -1317,7 +1342,6 @@ namespace JP4
                         cmd02.ExecuteNonQuery();
                     }
                 }
-
 
                 conexao.Close();
 
@@ -1350,7 +1374,7 @@ namespace JP4
             double fardos = Convert.ToDouble(this.text_qtd_fardos.Text);
             double num_secao_requis = 1;
             string operador = this.combo_operadores.Text;
-            string secao_nome = this.combo_maquinas.Text; 
+            string secao_nome = this.combo_maquinas.Text;
             string cod_local_est_orig = this.combo_local_orig.Text;
             string cod_local_est_dest = this.combo_local_desti.Text;
             string num_lote_orig = "";
@@ -1378,6 +1402,8 @@ namespace JP4
 
             // links para banco de dados
 
+            
+
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -1394,6 +1420,10 @@ namespace JP4
                 conexao.Close();
 
                 Consumo_estrutura(cod_descri_completa, qtd_movto); // ve se vai se comportar do jeito certo
+                Estornar_paradas(num_transac);
+                Estornar_consumo_mp(num_transac);
+
+                MessageBox.Show("Estornado Com sucesso!");
 
             }
             catch (Exception erro)
@@ -1402,8 +1432,7 @@ namespace JP4
 
             }
 
-            Estornar_paradas(num_transac);
-            Estornar_consumo_mp(num_transac);
+            
 
         }
 
@@ -1466,13 +1495,33 @@ namespace JP4
         }
 
 
+        // Metodos de atualização de lançamento
+        private void Atualizar_lancamento()
+        {
 
-        #endregion        
+        }
+
+        private void Atualizar_parada_mq()
+        {
+
+        }
+
+        private void Atualizar_consumo_estrutura()
+        {
+
+        }
+
+        private void Atualizar_mistura()
+        {
+
+        }
 
 
-        #region Metodos Janela Parada    
+        #endregion
 
-      
+        //------------------------------------------------------------------------------------------
+
+        #region Metodos Janela Parada
         private void salvar_paradas_mq(string num_tran)
         {
 
@@ -1507,7 +1556,7 @@ namespace JP4
                         string comando_sql;
 
                         comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','"+ campo_marcador + "')";
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1817,9 +1866,11 @@ namespace JP4
             }
         }
 
+
+
         #endregion //Metodos Janela Parada
 
-
+        //------------------------------------------------------------------------------------------
 
         #region Metodos Janela Mistura
 
@@ -2230,7 +2281,6 @@ namespace JP4
                 }
             }
         }
-
         private double Soma_percentual(string mp01, string mp02, string mp03, string mp04, string mp05, string mp06, string mp07, string mp08, string mp09, string mp10)
         {
             double resultado = 0;
@@ -2292,9 +2342,10 @@ namespace JP4
             return resultado;
         }
 
-        
+
         #endregion // Metodos Janela Mistura
 
+        //------------------------------------------------------------------------------------------
 
         #region Botoões do menu da direita
 
@@ -2365,6 +2416,7 @@ namespace JP4
         }
         #endregion
 
+        //------------------------------------------------------------------------------------------
 
         #region Funcionalidade Aba Mistura
         private void abaMistura_text_perct01_Leave(object sender, EventArgs e) { }
@@ -2377,81 +2429,73 @@ namespace JP4
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct01_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct02_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct04_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct05_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct06_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct07_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct08_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct09_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_text_perct10_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
-
         private void abaMistura_button_voltar_parada_Click(object sender, EventArgs e)
         {
             tab_menu_apontamento.SelectedTab = tab_paradas;
         }
-
         private void abaMistura_button_ir_consumo_Click(object sender, EventArgs e)
         {
             tab_menu_apontamento.SelectedTab = tab_consumo;
         }
 
-        #endregion
+        #endregion // Funcionalidades Mistura
+
+        //------------------------------------------------------------------------------------------
+
 
         #region Funções da aba Parada
         private void abaParada_hr_inicio01_ValueChanged(object sender, EventArgs e)
@@ -2468,56 +2512,48 @@ namespace JP4
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
-
         private void abaParada_hr_inicio02_ValueChanged(object sender, EventArgs e)
         {
             abaParada_label_hr_total02.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio02.Value), Convert.ToDateTime(abaParada_hr_fim02.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
-
         private void abaParada_hr_fim02_ValueChanged(object sender, EventArgs e)
         {
             abaParada_label_hr_total02.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio02.Value), Convert.ToDateTime(abaParada_hr_fim02.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
-
         private void abaParada_hr_inicio03_ValueChanged(object sender, EventArgs e)
         {
             abaParada_label_hr_total03.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio03.Value), Convert.ToDateTime(abaParada_hr_fim03.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
-
         private void abaParada_hr_fim03_ValueChanged(object sender, EventArgs e)
         {
             abaParada_label_hr_total03.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio03.Value), Convert.ToDateTime(abaParada_hr_fim03.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
-
         private void abaParada_hr_inicio04_ValueChanged(object sender, EventArgs e)
         {
             abaParada_label_hr_total04.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio04.Value), Convert.ToDateTime(abaParada_hr_fim04.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
-
         private void abaParada_hr_fim04_ValueChanged(object sender, EventArgs e)
         {
             abaParada_label_hr_total04.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio04.Value), Convert.ToDateTime(abaParada_hr_fim04.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
-
         private void abaParada_hr_inicio05_ValueChanged(object sender, EventArgs e)
         {
             abaParada_label_hr_total05.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio05.Value), Convert.ToDateTime(abaParada_hr_fim05.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
-
         private void abaParada_hr_fim05_ValueChanged(object sender, EventArgs e)
         {
             abaParada_label_hr_total05.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio05.Value), Convert.ToDateTime(abaParada_hr_fim05.Value)));
@@ -2578,32 +2614,16 @@ namespace JP4
         }
 
 
-        #endregion
+        #endregion //Funções da aba Parada
 
 
-        private void text_local_aplicacao_TextChanged(object sender, EventArgs e)
-        {
-            if (text_local_aplicacao.Text == "Extrusora")
-            {
-                text_contador.Enabled = false;
-                text_qtd_fardos.Enabled = false;
-            }
-            else if (text_local_aplicacao.Text == "Picotadeira")
-            {
-                text_largura.Enabled = false;
-            }
-            else
-            {
-                text_contador.Enabled = true;
-                text_qtd_fardos.Enabled = true;
-            }
-        }
 
 
+        //------------------------------------------------------------------------------------------
         #region Funcionalidades Aba Pesquisar
 
-        
-        private void carregar_operador_pesquisar()
+
+        private void Carregar_operador_pesquisar()
         {
             try
             {
@@ -2632,7 +2652,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void carregar_turno_pesquisar()
+        private void Carregar_turno_pesquisar()
         {
             try
             {
@@ -2658,7 +2678,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void carregar_material_pesquisar()
+        private void Carregar_material_pesquisar()
         {
             try
             {
@@ -2686,8 +2706,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
-        private void carregar_maquina_pesquisar()
+        private void Carregar_maquina_pesquisar()
         {
             try
             {
@@ -2716,14 +2735,14 @@ namespace JP4
             }
         }
 
-        private void carregar_campos_apontamento(string id_apontamento)
+        private void Carregar_campos_apontamento(string id_apontamento)
         {
-            string num_transac = "";
+            //string num_transac = "";
 
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from estoque_trans where id_estoque_trans =" + Convert.ToInt32(id_apontamento) +"";
+                string comando_sql = "select * from estoque_trans where id_estoque_trans =" + Convert.ToInt32(id_apontamento) + "";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -2734,18 +2753,18 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    
+
                     this.combo_empresa.Text = myreader["cod_empresa"].ToString();
                     this.abaApon_label_num_transa.Text = myreader["num_transac"].ToString();
                     this.combo_cod_item.Text = myreader["cod_item"].ToString();
                     this.combo_desc_completa.Text = myreader["cod_descri_completa"].ToString();
-                    
+
                     //cod_descri_reduzida = "" myreader["cod_descri_reduzida"].ToString();
                     //int mes_proces = DateTime.Now.Month = myreader["cod_empresa"].ToString();
                     //int mes_movto = DateTime.Now.Month;
                     //int ano_movto = DateTime.Now.Year;
                     //DateTime dat_proces = DateTime.Today;                    
-                    this.dt_final_pro.Value =  Convert.ToDateTime(myreader["dat_movto"].ToString());
+                    this.dt_final_pro.Value = Convert.ToDateTime(myreader["dat_movto"].ToString());
                     this.text_operacao.Text = myreader["cod_operacao"].ToString();
                     this.combo_ordem_prod.Text = myreader["num_docum"].ToString();
                     this.label_tipo_movimento.Text = myreader["ies_tip_movto"].ToString();
@@ -2771,19 +2790,16 @@ namespace JP4
                     this.text_contador.Text = myreader["contador_fardos"].ToString(); // pq abre msg box
                     //double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
                     //double peso_total_fardo = 0; // Fazer metodos pra calcular
-                    this.hr_inicial_prod.Value = Convert.ToDateTime( myreader["hora_inical"].ToString());
+                    this.hr_inicial_prod.Value = Convert.ToDateTime(myreader["hora_inical"].ToString());
                     this.hr_final_prod.Value = Convert.ToDateTime(myreader["hora_final"].ToString());
-                    this.dt_lançamento.Value = Convert.ToDateTime( myreader["data_operac"].ToString());
+                    this.dt_lançamento.Value = Convert.ToDateTime(myreader["data_operac"].ToString());
                     //DateTime hor_operac = Convert.ToDateTime(DateTime.Now) = myreader["hor_operac"].ToString(); 
                     this.label_tipo_material.Text = myreader["Tipo_material"].ToString();
                     this.richText_observacao.Text = myreader["observacao"].ToString();
                     //this.abaPesquisar_combo_operador.Items.Add();                   
                     abaApon_label_num_transa.Text = myreader["num_transac"].ToString();
-                    num_transac = myreader["num_transac"].ToString();
+                    //num_transac = myreader["num_transac"].ToString();
                 }
-
-
-
 
 
                 conexao.Close();
@@ -2792,7 +2808,7 @@ namespace JP4
             {
                 //MessageBox.Show("Erro Ao carregar! // " + erro.Message);
             }
-            
+
         }
 
         private void Carregar_paradas_apontamento(string num_transac)
@@ -2908,7 +2924,7 @@ namespace JP4
             {
                 string cod_operacao = "APON";
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "'";
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real > 0 ";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -2986,7 +3002,7 @@ namespace JP4
             }
 
 
-            
+
         }
 
         private void abaPesquisar_button_pesquisar_Click(object sender, EventArgs e)
@@ -2999,16 +3015,29 @@ namespace JP4
             Filtrar_grid_pesquisar(abaPesquisar_text_ordem.Text, abaPesquisar_text_dt_lanc.Text, abaPesquisar_combo_operador.Text, abaPesquisar_combo_turno.Text, abaPesquisar_combo_material.Text, abaPesquisar_combo_maq.Text);
         }
 
+
         #endregion
+        //------------------------------------------------------------------------------------------
+
+
+
+
         #endregion
 
         private void abaPesquisar_Grid_apon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string id_apontamento = abaPesquisar_Grid_apon.CurrentRow.Cells[0].Value.ToString();
             tab_menu_apontamento.SelectedTab = tab_apontamento;
-            
-            carregar_campos_apontamento(id_apontamento);
+
+            Carregar_campos_apontamento(id_apontamento);
             Carregar_paradas_apontamento(abaApon_label_num_transa.Text);
+            
+            Carregar_grid(combo_desc_completa.Text);
+            Calcular_qtd_total_grid();
+
+
+
         }
+
     }
 }
