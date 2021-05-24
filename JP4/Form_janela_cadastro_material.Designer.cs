@@ -40,6 +40,7 @@ namespace JP4
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Item = new System.Windows.Forms.GroupBox();
+            this.label_grupo_estoque_id = new System.Windows.Forms.Label();
             this.text_descri_unidade = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.combo_und_medida = new System.Windows.Forms.ComboBox();
@@ -100,6 +101,7 @@ namespace JP4
             this.label21 = new System.Windows.Forms.Label();
             this.tab_cadastro_material = new System.Windows.Forms.TabControl();
             this.tab_cadastro_item = new System.Windows.Forms.TabPage();
+            this.abaCadastro_label_id_cadastro = new System.Windows.Forms.Label();
             this.tab_buscar_cadastro = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button_limpar_filtro = new System.Windows.Forms.Button();
@@ -116,8 +118,6 @@ namespace JP4
             this.combo_descri_completa = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.combo_cod_item = new System.Windows.Forms.ComboBox();
-            this.abaCadastro_label_id_cadastro = new System.Windows.Forms.Label();
-            this.label_grupo_estoque_id = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.Item.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -227,6 +227,16 @@ namespace JP4
             this.Item.TabIndex = 1;
             this.Item.TabStop = false;
             this.Item.Text = "Item";
+            // 
+            // label_grupo_estoque_id
+            // 
+            this.label_grupo_estoque_id.AutoSize = true;
+            this.label_grupo_estoque_id.Location = new System.Drawing.Point(239, 19);
+            this.label_grupo_estoque_id.Name = "label_grupo_estoque_id";
+            this.label_grupo_estoque_id.Size = new System.Drawing.Size(31, 13);
+            this.label_grupo_estoque_id.TabIndex = 18;
+            this.label_grupo_estoque_id.Text = "0000";
+            this.label_grupo_estoque_id.TextChanged += new System.EventHandler(this.label_grupo_estoque_id_TextChanged);
             // 
             // text_descri_unidade
             // 
@@ -791,6 +801,15 @@ namespace JP4
             this.tab_cadastro_item.Text = "Cadastro";
             this.tab_cadastro_item.UseVisualStyleBackColor = true;
             // 
+            // abaCadastro_label_id_cadastro
+            // 
+            this.abaCadastro_label_id_cadastro.AutoSize = true;
+            this.abaCadastro_label_id_cadastro.Location = new System.Drawing.Point(25, 442);
+            this.abaCadastro_label_id_cadastro.Name = "abaCadastro_label_id_cadastro";
+            this.abaCadastro_label_id_cadastro.Size = new System.Drawing.Size(31, 13);
+            this.abaCadastro_label_id_cadastro.TabIndex = 7;
+            this.abaCadastro_label_id_cadastro.Text = "0000";
+            // 
             // tab_buscar_cadastro
             // 
             this.tab_buscar_cadastro.Controls.Add(this.groupBox6);
@@ -811,7 +830,7 @@ namespace JP4
             this.groupBox6.Controls.Add(this.button_filtrar);
             this.groupBox6.Location = new System.Drawing.Point(6, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(144, 515);
+            this.groupBox6.Size = new System.Drawing.Size(144, 122);
             this.groupBox6.TabIndex = 10;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Menu";
@@ -853,10 +872,10 @@ namespace JP4
             this.grid_cadastro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grid_cadastro.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grid_cadastro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_cadastro.Location = new System.Drawing.Point(156, 113);
+            this.grid_cadastro.Location = new System.Drawing.Point(6, 134);
             this.grid_cadastro.Name = "grid_cadastro";
             this.grid_cadastro.ReadOnly = true;
-            this.grid_cadastro.Size = new System.Drawing.Size(896, 408);
+            this.grid_cadastro.Size = new System.Drawing.Size(1046, 387);
             this.grid_cadastro.TabIndex = 9;
             this.grid_cadastro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_cadastro_CellDoubleClick_1);
             // 
@@ -873,7 +892,7 @@ namespace JP4
             this.groupBox7.Controls.Add(this.combo_cod_item);
             this.groupBox7.Location = new System.Drawing.Point(156, 6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(896, 101);
+            this.groupBox7.Size = new System.Drawing.Size(896, 122);
             this.groupBox7.TabIndex = 8;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Item";
@@ -955,25 +974,6 @@ namespace JP4
             this.combo_cod_item.Name = "combo_cod_item";
             this.combo_cod_item.Size = new System.Drawing.Size(170, 21);
             this.combo_cod_item.TabIndex = 0;
-            // 
-            // abaCadastro_label_id_cadastro
-            // 
-            this.abaCadastro_label_id_cadastro.AutoSize = true;
-            this.abaCadastro_label_id_cadastro.Location = new System.Drawing.Point(25, 442);
-            this.abaCadastro_label_id_cadastro.Name = "abaCadastro_label_id_cadastro";
-            this.abaCadastro_label_id_cadastro.Size = new System.Drawing.Size(31, 13);
-            this.abaCadastro_label_id_cadastro.TabIndex = 7;
-            this.abaCadastro_label_id_cadastro.Text = "0000";
-            // 
-            // label_grupo_estoque_id
-            // 
-            this.label_grupo_estoque_id.AutoSize = true;
-            this.label_grupo_estoque_id.Location = new System.Drawing.Point(239, 19);
-            this.label_grupo_estoque_id.Name = "label_grupo_estoque_id";
-            this.label_grupo_estoque_id.Size = new System.Drawing.Size(31, 13);
-            this.label_grupo_estoque_id.TabIndex = 18;
-            this.label_grupo_estoque_id.Text = "0000";
-            this.label_grupo_estoque_id.TextChanged += new System.EventHandler(this.label_grupo_estoque_id_TextChanged);
             // 
             // CAD01
             // 

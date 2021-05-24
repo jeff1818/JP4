@@ -241,6 +241,27 @@ namespace JP4
             this.tab_importar_op = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
+            this.button_pesquisar = new System.Windows.Forms.Button();
+            this.tab_consulta_apon = new System.Windows.Forms.TabPage();
+            this.abaApon_label_num_transa = new System.Windows.Forms.Label();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.abaPesquisar_Grid_apon = new System.Windows.Forms.DataGridView();
+            this.label26 = new System.Windows.Forms.Label();
+            this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.abaPesquisar_combo_operador = new System.Windows.Forms.ComboBox();
+            this.abaPesquisar_combo_material = new System.Windows.Forms.ComboBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.abaPesquisar_button_pesquisar = new System.Windows.Forms.Button();
+            this.abaPesquisar_button_editar = new System.Windows.Forms.Button();
+            this.abaPesquisar_combo_turno = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.abaPesquisar_button = new System.Windows.Forms.Button();
+            this.abaPesquisar_combo_maq = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.abaPesquisar_text_dt_lanc = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -263,6 +284,10 @@ namespace JP4
             ((System.ComponentModel.ISupportInitialize)(this.Grid_estrutura_item)).BeginInit();
             this.groupBox10.SuspendLayout();
             this.tab_importar_op.SuspendLayout();
+            this.tab_consulta_apon.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.abaPesquisar_Grid_apon)).BeginInit();
+            this.groupBox16.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -516,6 +541,7 @@ namespace JP4
             this.combo_cod_item.Name = "combo_cod_item";
             this.combo_cod_item.Size = new System.Drawing.Size(143, 21);
             this.combo_cod_item.TabIndex = 4;
+            this.combo_cod_item.TextChanged += new System.EventHandler(this.combo_cod_item_TextChanged);
             // 
             // label3
             // 
@@ -623,7 +649,6 @@ namespace JP4
             this.text_qtd_fardos.Size = new System.Drawing.Size(79, 20);
             this.text_qtd_fardos.TabIndex = 20;
             this.text_qtd_fardos.Text = "0";
-            this.text_qtd_fardos.TextChanged += new System.EventHandler(this.text_qtd_fardos_TextChanged);
             this.text_qtd_fardos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qtd_fardos_KeyPress);
             this.text_qtd_fardos.Leave += new System.EventHandler(this.text_qtd_fardos_Leave);
             // 
@@ -760,6 +785,7 @@ namespace JP4
             this.hr_final_prod.ShowUpDown = true;
             this.hr_final_prod.Size = new System.Drawing.Size(78, 20);
             this.hr_final_prod.TabIndex = 14;
+            this.hr_final_prod.Value = new System.DateTime(2021, 4, 12, 0, 0, 0, 0);
             // 
             // dt_final_pro
             // 
@@ -770,6 +796,7 @@ namespace JP4
             this.dt_final_pro.Name = "dt_final_pro";
             this.dt_final_pro.Size = new System.Drawing.Size(143, 20);
             this.dt_final_pro.TabIndex = 13;
+            this.dt_final_pro.Value = new System.DateTime(2021, 4, 12, 15, 24, 41, 0);
             // 
             // label11
             // 
@@ -791,6 +818,7 @@ namespace JP4
             this.hr_inicial_prod.ShowUpDown = true;
             this.hr_inicial_prod.Size = new System.Drawing.Size(78, 20);
             this.hr_inicial_prod.TabIndex = 11;
+            this.hr_inicial_prod.Value = new System.DateTime(2021, 4, 12, 0, 0, 0, 0);
             // 
             // dt_inicio_pro
             // 
@@ -801,7 +829,7 @@ namespace JP4
             this.dt_inicio_pro.Name = "dt_inicio_pro";
             this.dt_inicio_pro.Size = new System.Drawing.Size(143, 20);
             this.dt_inicio_pro.TabIndex = 10;
-            this.dt_inicio_pro.Value = new System.DateTime(2021, 3, 9, 8, 49, 5, 0);
+            this.dt_inicio_pro.Value = new System.DateTime(2021, 4, 12, 0, 0, 0, 0);
             // 
             // label10
             // 
@@ -880,6 +908,7 @@ namespace JP4
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button_pesquisar);
             this.groupBox3.Controls.Add(this.button_retrabalho);
             this.groupBox3.Controls.Add(this.button_mistura_mp);
             this.groupBox3.Controls.Add(this.button_obs);
@@ -1124,6 +1153,7 @@ namespace JP4
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.abaApon_label_num_transa);
             this.groupBox7.Controls.Add(this.richText_observacao);
             this.groupBox7.Location = new System.Drawing.Point(891, 11);
             this.groupBox7.Name = "groupBox7";
@@ -1176,6 +1206,7 @@ namespace JP4
             this.tab_menu_apontamento.Controls.Add(this.tab_mistura);
             this.tab_menu_apontamento.Controls.Add(this.tab_consumo);
             this.tab_menu_apontamento.Controls.Add(this.tab_importar_op);
+            this.tab_menu_apontamento.Controls.Add(this.tab_consulta_apon);
             this.tab_menu_apontamento.Location = new System.Drawing.Point(12, 27);
             this.tab_menu_apontamento.Name = "tab_menu_apontamento";
             this.tab_menu_apontamento.SelectedIndex = 0;
@@ -2382,6 +2413,213 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
+            // button_pesquisar
+            // 
+            this.button_pesquisar.Location = new System.Drawing.Point(6, 250);
+            this.button_pesquisar.Name = "button_pesquisar";
+            this.button_pesquisar.Size = new System.Drawing.Size(158, 23);
+            this.button_pesquisar.TabIndex = 8;
+            this.button_pesquisar.Text = "Pesquisar";
+            this.button_pesquisar.UseVisualStyleBackColor = true;
+            // 
+            // tab_consulta_apon
+            // 
+            this.tab_consulta_apon.Controls.Add(this.groupBox16);
+            this.tab_consulta_apon.Controls.Add(this.abaPesquisar_Grid_apon);
+            this.tab_consulta_apon.Controls.Add(this.groupBox15);
+            this.tab_consulta_apon.Location = new System.Drawing.Point(4, 22);
+            this.tab_consulta_apon.Name = "tab_consulta_apon";
+            this.tab_consulta_apon.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_consulta_apon.Size = new System.Drawing.Size(1083, 594);
+            this.tab_consulta_apon.TabIndex = 5;
+            this.tab_consulta_apon.Text = "Pesquisar";
+            this.tab_consulta_apon.UseVisualStyleBackColor = true;
+            // 
+            // abaApon_label_num_transa
+            // 
+            this.abaApon_label_num_transa.AutoSize = true;
+            this.abaApon_label_num_transa.Location = new System.Drawing.Point(81, 373);
+            this.abaApon_label_num_transa.Name = "abaApon_label_num_transa";
+            this.abaApon_label_num_transa.Size = new System.Drawing.Size(34, 13);
+            this.abaApon_label_num_transa.TabIndex = 26;
+            this.abaApon_label_num_transa.Text = "---------";
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.abaPesquisar_text_dt_lanc);
+            this.groupBox15.Controls.Add(this.abaPesquisar_combo_maq);
+            this.groupBox15.Controls.Add(this.label31);
+            this.groupBox15.Controls.Add(this.abaPesquisar_combo_turno);
+            this.groupBox15.Controls.Add(this.label30);
+            this.groupBox15.Controls.Add(this.abaPesquisar_combo_material);
+            this.groupBox15.Controls.Add(this.abaPesquisar_combo_operador);
+            this.groupBox15.Controls.Add(this.label29);
+            this.groupBox15.Controls.Add(this.label28);
+            this.groupBox15.Controls.Add(this.label27);
+            this.groupBox15.Controls.Add(this.abaPesquisar_text_ordem);
+            this.groupBox15.Controls.Add(this.label26);
+            this.groupBox15.Location = new System.Drawing.Point(176, 6);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(901, 130);
+            this.groupBox15.TabIndex = 0;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Area de busca";
+            // 
+            // abaPesquisar_Grid_apon
+            // 
+            this.abaPesquisar_Grid_apon.AllowUserToAddRows = false;
+            this.abaPesquisar_Grid_apon.AllowUserToDeleteRows = false;
+            this.abaPesquisar_Grid_apon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.abaPesquisar_Grid_apon.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.abaPesquisar_Grid_apon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.abaPesquisar_Grid_apon.Location = new System.Drawing.Point(6, 142);
+            this.abaPesquisar_Grid_apon.Name = "abaPesquisar_Grid_apon";
+            this.abaPesquisar_Grid_apon.ReadOnly = true;
+            this.abaPesquisar_Grid_apon.Size = new System.Drawing.Size(1071, 429);
+            this.abaPesquisar_Grid_apon.TabIndex = 5;
+            this.abaPesquisar_Grid_apon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.abaPesquisar_Grid_apon_CellDoubleClick);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(6, 27);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(66, 13);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Ordem Prod:";
+            // 
+            // abaPesquisar_text_ordem
+            // 
+            this.abaPesquisar_text_ordem.Location = new System.Drawing.Point(78, 24);
+            this.abaPesquisar_text_ordem.Name = "abaPesquisar_text_ordem";
+            this.abaPesquisar_text_ordem.Size = new System.Drawing.Size(100, 20);
+            this.abaPesquisar_text_ordem.TabIndex = 1;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(184, 28);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(95, 13);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "Data Lançamento:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(386, 27);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(54, 13);
+            this.label28.TabIndex = 4;
+            this.label28.Text = "Operador:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(25, 73);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(47, 13);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "Material:";
+            // 
+            // abaPesquisar_combo_operador
+            // 
+            this.abaPesquisar_combo_operador.FormattingEnabled = true;
+            this.abaPesquisar_combo_operador.Location = new System.Drawing.Point(446, 23);
+            this.abaPesquisar_combo_operador.Name = "abaPesquisar_combo_operador";
+            this.abaPesquisar_combo_operador.Size = new System.Drawing.Size(121, 21);
+            this.abaPesquisar_combo_operador.TabIndex = 3;
+            // 
+            // abaPesquisar_combo_material
+            // 
+            this.abaPesquisar_combo_material.FormattingEnabled = true;
+            this.abaPesquisar_combo_material.Location = new System.Drawing.Point(78, 70);
+            this.abaPesquisar_combo_material.Name = "abaPesquisar_combo_material";
+            this.abaPesquisar_combo_material.Size = new System.Drawing.Size(489, 21);
+            this.abaPesquisar_combo_material.TabIndex = 4;
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.abaPesquisar_button);
+            this.groupBox16.Controls.Add(this.abaPesquisar_button_editar);
+            this.groupBox16.Controls.Add(this.abaPesquisar_button_pesquisar);
+            this.groupBox16.Location = new System.Drawing.Point(6, 6);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(164, 130);
+            this.groupBox16.TabIndex = 11;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Menu";
+            // 
+            // abaPesquisar_button_pesquisar
+            // 
+            this.abaPesquisar_button_pesquisar.Location = new System.Drawing.Point(6, 27);
+            this.abaPesquisar_button_pesquisar.Name = "abaPesquisar_button_pesquisar";
+            this.abaPesquisar_button_pesquisar.Size = new System.Drawing.Size(152, 23);
+            this.abaPesquisar_button_pesquisar.TabIndex = 0;
+            this.abaPesquisar_button_pesquisar.Text = "Pesquisar";
+            this.abaPesquisar_button_pesquisar.UseVisualStyleBackColor = true;
+            this.abaPesquisar_button_pesquisar.Click += new System.EventHandler(this.abaPesquisar_button_pesquisar_Click);
+            // 
+            // abaPesquisar_button_editar
+            // 
+            this.abaPesquisar_button_editar.Location = new System.Drawing.Point(6, 56);
+            this.abaPesquisar_button_editar.Name = "abaPesquisar_button_editar";
+            this.abaPesquisar_button_editar.Size = new System.Drawing.Size(152, 23);
+            this.abaPesquisar_button_editar.TabIndex = 1;
+            this.abaPesquisar_button_editar.Text = "Editar";
+            this.abaPesquisar_button_editar.UseVisualStyleBackColor = true;
+            // 
+            // abaPesquisar_combo_turno
+            // 
+            this.abaPesquisar_combo_turno.FormattingEnabled = true;
+            this.abaPesquisar_combo_turno.Location = new System.Drawing.Point(617, 25);
+            this.abaPesquisar_combo_turno.Name = "abaPesquisar_combo_turno";
+            this.abaPesquisar_combo_turno.Size = new System.Drawing.Size(121, 21);
+            this.abaPesquisar_combo_turno.TabIndex = 7;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(573, 28);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(38, 13);
+            this.label30.TabIndex = 8;
+            this.label30.Text = "Turno:";
+            // 
+            // abaPesquisar_button
+            // 
+            this.abaPesquisar_button.Location = new System.Drawing.Point(6, 85);
+            this.abaPesquisar_button.Name = "abaPesquisar_button";
+            this.abaPesquisar_button.Size = new System.Drawing.Size(152, 23);
+            this.abaPesquisar_button.TabIndex = 2;
+            this.abaPesquisar_button.Text = "Filtrar";
+            this.abaPesquisar_button.UseVisualStyleBackColor = true;
+            this.abaPesquisar_button.Click += new System.EventHandler(this.abaPesquisar_button_Click);
+            // 
+            // abaPesquisar_combo_maq
+            // 
+            this.abaPesquisar_combo_maq.FormattingEnabled = true;
+            this.abaPesquisar_combo_maq.Location = new System.Drawing.Point(617, 70);
+            this.abaPesquisar_combo_maq.Name = "abaPesquisar_combo_maq";
+            this.abaPesquisar_combo_maq.Size = new System.Drawing.Size(121, 21);
+            this.abaPesquisar_combo_maq.TabIndex = 9;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(573, 73);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(27, 13);
+            this.label31.TabIndex = 10;
+            this.label31.Text = "MQ:";
+            // 
+            // abaPesquisar_text_dt_lanc
+            // 
+            this.abaPesquisar_text_dt_lanc.Location = new System.Drawing.Point(280, 23);
+            this.abaPesquisar_text_dt_lanc.Name = "abaPesquisar_text_dt_lanc";
+            this.abaPesquisar_text_dt_lanc.Size = new System.Drawing.Size(100, 20);
+            this.abaPesquisar_text_dt_lanc.TabIndex = 11;
+            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2411,6 +2649,7 @@ namespace JP4
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.status_bar_apon.ResumeLayout(false);
             this.status_bar_apon.PerformLayout();
             this.tab_menu_apontamento.ResumeLayout(false);
@@ -2433,6 +2672,11 @@ namespace JP4
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.tab_importar_op.ResumeLayout(false);
+            this.tab_consulta_apon.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.abaPesquisar_Grid_apon)).EndInit();
+            this.groupBox16.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2651,5 +2895,26 @@ namespace JP4
         private System.Windows.Forms.Label AbaMistura_label_turno;
         private System.Windows.Forms.Label AbaMistura_label_producao;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button button_pesquisar;
+        private System.Windows.Forms.TabPage tab_consulta_apon;
+        private System.Windows.Forms.Label abaApon_label_num_transa;
+        private System.Windows.Forms.DataGridView abaPesquisar_Grid_apon;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.Button abaPesquisar_button_editar;
+        private System.Windows.Forms.Button abaPesquisar_button_pesquisar;
+        private System.Windows.Forms.ComboBox abaPesquisar_combo_material;
+        private System.Windows.Forms.ComboBox abaPesquisar_combo_operador;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox abaPesquisar_text_ordem;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox abaPesquisar_combo_turno;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button abaPesquisar_button;
+        private System.Windows.Forms.ComboBox abaPesquisar_combo_maq;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox abaPesquisar_text_dt_lanc;
     }
 }

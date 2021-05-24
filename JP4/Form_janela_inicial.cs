@@ -101,6 +101,9 @@ namespace JP4
 
         }
 
-       
+        private void button_config_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new CONF01());
+        }
     }
 }

@@ -834,8 +834,6 @@ namespace JP4
             {
                 MessageBox.Show(erro.Message);
             }
-
-
         }
 
         private void Salvar_cadastro()

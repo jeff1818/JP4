@@ -30,6 +30,13 @@ namespace JP4
 
             //Carregar_mp_mistura();
 
+
+            // Aba Pesquisar
+            carregar_operador_pesquisar();
+            carregar_turno_pesquisar();
+            carregar_material_pesquisar();
+            carregar_maquina_pesquisar();
+
             #endregion
 
             toolStripStatusLabel_nome.Text = "AP01";
@@ -251,7 +258,7 @@ namespace JP4
             double fardos = Convert.ToDouble(this.text_qtd_fardos.Text);
             double num_secao_requis = 1;
             string operador = this.combo_operadores.Text;
-            string secao_nome = "";
+            string secao_nome = this.combo_maquinas.Text;
             string cod_local_est_orig = this.combo_local_orig.Text;
             string cod_local_est_dest = this.combo_local_desti.Text;
             string num_lote_orig = "";
@@ -305,15 +312,6 @@ namespace JP4
 
             salvar_paradas_mq(num_transac);
             Salvar_mistura(num_transac);
-
-            /*
-             * Antes de Salvar
-             *ok - 01 - Lançar primeiro a movimentação APON 
-             *ok - 02 - Buscar estrutura do item pai
-             *ok - 03 - fazer os calculos da estrutura
-             *ok - 04 - lançar componenten com a operação BACK (baixa)
-             *ok-  05 - Mostrar mensagem
-             */
 
         }
 
@@ -388,7 +386,7 @@ namespace JP4
                         cod_item = myreader["cod_item_compon"].ToString();
                         item_filho = myreader["descri_filho"].ToString();
                         qtd_movto = Convert.ToDouble(myreader["qtd_necessaria"]) * qtd_apont;
-                        qtd_real = qtd_movto *(-1);
+                        qtd_real = qtd_movto * (-1);
 
                         comando_sql02 = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao) " +
                     "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + item_filho + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "')";
@@ -411,16 +409,9 @@ namespace JP4
 
         private void Estornar_apontamento()
         {
-            Estornar_apontamento();
-            Estornar_paradas("teste");
-            Estornar_consumo_mp("teste");
-        }
-
-        private void Estornar_ordem()
-        {
             // id_estoque_trans = 
             string cod_empresa = this.combo_empresa.Text;
-            double num_transac = 0;
+            string num_transac = this.abaApon_label_num_transa.Text; // mudou aqui
             string cod_item = this.combo_cod_item.Text;
             string cod_descri_completa = this.combo_desc_completa.Text;
             string cod_descri_reduzida = "";
@@ -431,13 +422,13 @@ namespace JP4
             DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
             string cod_operacao = this.text_operacao.Text;
             double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
-            string ies_tip_movto = "R"; // this.label_tipo_movimento.Text;
+            string ies_tip_movto = this.label_tipo_movimento.Text;
             double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
-            double qtd_real = qtd_movto * (-1); //Para estornar deve ficar negativo
+            double qtd_real = qtd_movto * (-1); // mudou aqui
             double fardos = Convert.ToDouble(this.text_qtd_fardos.Text);
             double num_secao_requis = 1;
             string operador = this.combo_operadores.Text;
-            string secao_nome = "";
+            string secao_nome = this.combo_maquinas.Text; 
             string cod_local_est_orig = this.combo_local_orig.Text;
             string cod_local_est_dest = this.combo_local_desti.Text;
             string num_lote_orig = "";
@@ -461,6 +452,7 @@ namespace JP4
             string Tipo_material = this.label_tipo_material.Text;
             string observacao = this.richText_observacao.Text;
 
+            //num_transac = Gerar_num_transac(num_docum, hor_operac);
 
             // links para banco de dados
 
@@ -479,7 +471,7 @@ namespace JP4
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
-                Consumo_estrutura(cod_descri_completa, qtd_movto);
+                Consumo_estrutura(cod_descri_completa, qtd_movto); // ve se vai se comportar do jeito certo
 
             }
             catch (Exception erro)
@@ -487,6 +479,15 @@ namespace JP4
                 MessageBox.Show(erro.Message);
 
             }
+
+            Estornar_paradas(num_transac);
+            Estornar_consumo_mp(num_transac);
+
+        }
+
+        private void Buscar_apontamento()
+        {
+
         }
 
         private void Estornar_paradas(string num_transac)
@@ -506,7 +507,7 @@ namespace JP4
                 conexao.Open();
 
                 comando_sql = "DELETE FROM db_paradas_mq WHERE num_transac='" + num_transac + "'";
-                
+
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
@@ -541,8 +542,8 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        
-        
+
+
 
         #endregion
 
@@ -621,7 +622,7 @@ namespace JP4
 
         #region Metodos Carregar combobox
 
-                        
+
         #region carrega itens do arquivo de excel
 
         private void importar_ordens()
@@ -973,7 +974,34 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
+        private void Carregar_local_origem(string cod_item)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select local_estoque from db_cadastro_material where codigo_item ='" + cod_item + "'";
 
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    this.combo_local_orig.Text = myreader["local_estoque"].ToString();
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
         // Aba parada de maquina
 
         private void carregar_tipos_parada(string origem_apara)
@@ -1209,8 +1237,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac+"')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1218,6 +1246,7 @@ namespace JP4
                     }
                     catch (Exception erro)
                     {
+
                         MessageBox.Show(erro.Message);
                         cod_geral_erro = 1;
                     }
@@ -1249,7 +1278,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao) " +
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
                             "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1289,7 +1318,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao) " +
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
                             "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1329,7 +1358,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao) " +
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
                             "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1369,7 +1398,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao) " +
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
                             "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1409,7 +1438,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao) " +
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
                             "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1449,7 +1478,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao) " +
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
                             "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1489,7 +1518,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao) " +
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
                             "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1504,8 +1533,6 @@ namespace JP4
                 }
             }
         }
-
-        //
 
         // Aba misutra 
 
@@ -1613,7 +1640,7 @@ namespace JP4
         }
 
         private void Salvar_mistura(string num_tran)
-        { 
+        {
             // falta modificar esse metodo
             if (AbaMistura_label_total_mistura.Text != "%")
             {
@@ -1627,7 +1654,7 @@ namespace JP4
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp01.Text;
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct01.Text)/100;
+                    double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
                     double consumo_mp = producao * percentual;
                     int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
@@ -1644,8 +1671,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac+ "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1684,7 +1711,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1724,7 +1751,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1764,7 +1791,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1804,7 +1831,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1844,7 +1871,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1884,7 +1911,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1924,7 +1951,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1964,7 +1991,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -2004,7 +2031,7 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao) " +
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
                           "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -2033,6 +2060,7 @@ namespace JP4
 
         private void button_estornar_Click(object sender, EventArgs e)
         {
+            Estornar_apontamento();
 
         }
 
@@ -2090,14 +2118,9 @@ namespace JP4
         }
         #endregion
 
-        #region Funcionalidade combobox e textbox da janela
+        #region Funcionalidade combobox e textbox da janela Apontamento
 
-        private void text_qtd_fardos_TextChanged(object sender, EventArgs e)
-        {
-            // Não estou usando
-        }
-
-        #endregion
+        //private void text_qtd_fardos_TextChanged(object sender, EventArgs e) { }
 
         private void combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2205,6 +2228,49 @@ namespace JP4
             }
         }
 
+        private void Calculo_bobina_inicial()
+        {
+            string descricao_completa = this.combo_desc_completa.Text;
+            int qtd_bobina = 0;
+            int total = 0;
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    qtd_bobina = Convert.ToInt32(myreader["qtd_embala"].ToString());
+
+                }
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao acessar cadastro de material // " + erro.Message);
+            }
+
+            total = Convert.ToInt32(this.text_bobina_fim.Text) - (Convert.ToInt32(this.text_qtd_fardos.Text) * qtd_bobina);
+
+            if (total < 0)
+            {
+                total = (total * (-1)) + Convert.ToInt32(this.text_bobina_fim.Text);
+                this.text_bobina_ini.Text = Convert.ToString(total);
+            }
+            else
+            {
+                this.text_bobina_ini.Text = Convert.ToString(total);
+            }
+
+
+        }
+
         private void text_qtd_fardos_Leave(object sender, EventArgs e)
         {
             string descricao_completa = this.combo_desc_completa.Text;
@@ -2212,9 +2278,9 @@ namespace JP4
             int bobina_inicial = 0;
             int bobina_final = 0;
             int qtd_bobina = 0;
-            int total_bobina = 0;
+            //int total_bobina = 0;
 
-            if (descricao_completa == "")
+            if (descricao_completa == "" && this.text_bobina_fim.Text == "" && this.text_qtd_fardos.Text == "" && this.combo_maquinas.Text == "")
             {
                 //MessageBox.Show("Informar a descrição:");
                 return;
@@ -2240,36 +2306,16 @@ namespace JP4
             }
             catch (Exception erro)
             {
-
-                MessageBox.Show(erro.Message);
+                MessageBox.Show("Erro ao acessar cadastro de material // " + erro.Message);
             }
 
-            if (this.text_bobina_fim.Text == "")
-            {
-                return;
-            }
-
+            
             if (this.text_bobina_fim.Text == "")
             {
                 this.text_bobina_fim.Text = Convert.ToString(0);
             }
 
-            if (this.text_qtd_fardos.Text == "")
-            {
-                //MessageBox.Show("Fardos não deve ser vazio!");
-                return;
-                //this.text_pico_qtdFardos.Text = Convert.ToString(0);
-            }
-
-            if (this.combo_maquinas.Text == "")
-            {
-                //MessageBox.Show("Maquina não deve ser vazio!");
-                return;
-                //this.text_pico_qtdFardos.Text = Convert.ToString(0);
-            }
-
-            total_bobina = (bobina_final - bobina_inicial) + 1;
-
+            //total_bobina = (bobina_final - bobina_inicial) + 1;
 
             bobina_inicial = Convert.ToInt32(this.text_bobina_fim.Text) - (Convert.ToInt32(this.text_qtd_fardos.Text) * qtd_bobina);
 
@@ -2289,7 +2335,12 @@ namespace JP4
         {
             calculo_velocidade();
         }
+        private void combo_cod_item_TextChanged(object sender, EventArgs e)
+        {
+            Carregar_local_origem(combo_cod_item.Text);
 
+        }
+        #endregion
 
         #region Funcionalidade Aba Mistura
         private void abaMistura_text_perct01_Leave(object sender, EventArgs e) { }
@@ -2505,12 +2556,17 @@ namespace JP4
 
         #endregion
 
+
         private void text_local_aplicacao_TextChanged(object sender, EventArgs e)
         {
             if (text_local_aplicacao.Text == "Extrusora")
             {
                 text_contador.Enabled = false;
                 text_qtd_fardos.Enabled = false;
+            }
+            else if (text_local_aplicacao.Text == "Picotadeira")
+            {
+                text_largura.Enabled = false;
             }
             else
             {
@@ -2519,7 +2575,355 @@ namespace JP4
             }
         }
 
-       
-       
+
+        #region Funcionalidades Aba Pesquisar
+
+        
+        private void carregar_operador_pesquisar()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_operador"; //where equipamento = 'Picotadeira'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    this.abaPesquisar_combo_operador.Items.Add(myreader["nome"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void carregar_turno_pesquisar()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_turnos";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    this.abaPesquisar_combo_turno.Items.Add(myreader["turno"].ToString());
+                }
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void carregar_material_pesquisar()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    this.abaPesquisar_combo_material.Items.Add(myreader["descricao_completa"].ToString());
+
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void carregar_maquina_pesquisar()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_equipamento";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    this.abaPesquisar_combo_maq.Items.Add(myreader["descricao_equipamento"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void carregar_campos_apontamento(string id_apontamento)
+        {
+            string num_transac = "";
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from estoque_trans where id_estoque_trans =" + Convert.ToInt32(id_apontamento) +"";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    
+                    this.combo_empresa.Text = myreader["cod_empresa"].ToString();
+                    this.abaApon_label_num_transa.Text = myreader["num_transac"].ToString();
+                    this.combo_cod_item.Text = myreader["cod_item"].ToString();
+                    this.combo_desc_completa.Text = myreader["cod_descri_completa"].ToString();
+                    
+                    //cod_descri_reduzida = "" myreader["cod_descri_reduzida"].ToString();
+                    //int mes_proces = DateTime.Now.Month = myreader["cod_empresa"].ToString();
+                    //int mes_movto = DateTime.Now.Month;
+                    //int ano_movto = DateTime.Now.Year;
+                    //DateTime dat_proces = DateTime.Today;                    
+                    this.dt_final_pro.Value =  Convert.ToDateTime(myreader["dat_movto"].ToString());
+                    this.text_operacao.Text = myreader["cod_operacao"].ToString();
+                    this.combo_ordem_prod.Text = myreader["num_docum"].ToString();
+                    this.label_tipo_movimento.Text = myreader["ies_tip_movto"].ToString();
+                    this.text_qtd_boa.Text = myreader["qtd_movto"].ToString();
+                    //double qtd_real = qtd_movto * (-1) = myreader["num_docum"].ToString(); // mudou aqui 
+                    this.text_qtd_fardos.Text = myreader["fardos"].ToString();
+                    //double num_secao_requis = 1 = myreader["num_docum"].ToString();
+                    this.combo_operadores.Text = myreader["operador"].ToString();
+                    this.combo_maquinas.Text = myreader["secao_nome"].ToString();
+                    this.combo_local_orig.Text = myreader["cod_local_est_orig"].ToString();
+                    this.combo_local_desti.Text = myreader["cod_local_est_dest"].ToString();
+                    //string num_lote_orig = myreader["num_docum"].ToString();
+                    text_lotes.Text = myreader["num_lote_dest"].ToString();
+                    //string ies_sit_est_orig = "L";
+                    //string ies_sit_est_dest = "L";
+                    this.combo_turnos.Text = myreader["cod_turno"].ToString();
+                    //string nom_usuario = myreader["num_docum"].ToString();
+                    //string num_prog = this.Name;
+                    //double largura_material = myreader["largura_material"].ToString();
+                    this.text_bobina_ini.Text = myreader["n_bobina_inical"].ToString();
+                    this.text_bobina_fim.Text = myreader["n_bobina_final"].ToString();
+                    this.text_velocidade.Text = myreader["velocidade"].ToString();
+                    this.text_contador.Text = myreader["contador_fardos"].ToString(); // pq abre msg box
+                    //double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
+                    //double peso_total_fardo = 0; // Fazer metodos pra calcular
+                    this.hr_inicial_prod.Value = Convert.ToDateTime( myreader["hora_inical"].ToString());
+                    this.hr_final_prod.Value = Convert.ToDateTime(myreader["hora_final"].ToString());
+                    this.dt_lançamento.Value = Convert.ToDateTime( myreader["data_operac"].ToString());
+                    //DateTime hor_operac = Convert.ToDateTime(DateTime.Now) = myreader["hor_operac"].ToString(); 
+                    this.label_tipo_material.Text = myreader["Tipo_material"].ToString();
+                    this.richText_observacao.Text = myreader["observacao"].ToString();
+                    //this.abaPesquisar_combo_operador.Items.Add();                   
+                    abaApon_label_num_transa.Text = myreader["num_transac"].ToString();
+                    num_transac = myreader["num_transac"].ToString();
+                }                
+
+                Carregar_paradas_apontamento(num_transac);
+
+                conexao.Close();
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show("Erro Ao carregar! // " + erro.Message);
+            }
+            
+        }
+
+        private void Carregar_paradas_apontamento(string num_transac)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_paradas_mq where num_transac ='" + num_transac + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    abaParadas_label_maquina.Text = myreader["maquina"].ToString();
+                    abaParadas_label_numero_op.Text = myreader["ordem_prod"].ToString();
+                    abaParadas_label_operador.Text = myreader["operador"].ToString();
+                    abaParadas_label_turno.Text = myreader["turno"].ToString();
+                    
+                    //string codigo_parada = "";
+                    abaParada_combo_parada01.Text = myreader["descricao_parada"].ToString();
+                    abaParada_hr_inicio01.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                    abaParada_hr_fim01.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                    abaParada_label_hr_total01.Text = myreader["total_horas"].ToString();
+                    //double total_minutos = Convert.ToDateTime(abaParada_label_hr_total01.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total01.Text).Minute;
+                    abaParadas_obs.Text = myreader["observacao"].ToString();
+                    //string num_transac = num_tran;
+
+
+                }
+
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro Ao carregar paradas ! // " + erro.Message);
+            }
+        }
+
+        private void Carregar_consumo_mp_apontamento()
+        {
+
+        }
+
+        private void Carregar_mistura_apontamento()
+        {
+
+        }
+
+        private void Carregar_grid_pesquisar()
+        {
+            try
+            {
+                string cod_operacao = "APON";
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "'";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+                abaPesquisar_Grid_apon.DataSource = dt;
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void Filtrar_grid_pesquisar(string num_docum, string data_lancamento, string operador, string turno, string descricao_material, string maquina)
+        {
+
+            try
+            {
+                string cod_operacao = "APON";
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "'";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+
+                if (num_docum != string.Empty)
+                {
+                    dv.RowFilter = string.Format("CONVERT(num_docum, 'System.String') like '%{0}%'", num_docum);
+                    abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+                }
+
+                if (data_lancamento != string.Empty)
+                {
+                    dv.RowFilter = string.Format("CONVERT(data_operac, 'System.String') like '%{0}%'", data_lancamento.ToString());
+                    abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+                }
+
+                if (operador != string.Empty)
+                {
+                    dv.RowFilter = string.Format("operador like '%{0}%'", operador);
+                    abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+                }
+                if (turno != string.Empty)
+                {
+                    dv.RowFilter = string.Format("cod_turno like '%{0}%'", turno);
+                    abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+                }
+
+                if (descricao_material != string.Empty)
+                {
+                    dv.RowFilter = string.Format("cod_descri_completa like '%{0}%'", descricao_material);
+                    abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+                }
+
+                if (maquina != string.Empty)
+                {
+                    dv.RowFilter = string.Format("secao_nome like '%{0}%'", maquina);
+                    abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+                }
+
+                //dv.RowFilter = string.Format("codigo_item like '%{0}%', status_item like '%{1}%', grupo like '%{2}%', descricao_completa like '%{3}%' ", codigo_item, status_item, grupo_item, descri_completa);
+                //grid_cadastro.DataSource = dv.ToTable();
+
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+
+            
+        }
+
+        private void abaPesquisar_button_pesquisar_Click(object sender, EventArgs e)
+        {
+            Carregar_grid_pesquisar();
+        }
+
+        private void abaPesquisar_button_Click(object sender, EventArgs e)
+        {
+            Filtrar_grid_pesquisar(abaPesquisar_text_ordem.Text, abaPesquisar_text_dt_lanc.Text, abaPesquisar_combo_operador.Text, abaPesquisar_combo_turno.Text, abaPesquisar_combo_material.Text, abaPesquisar_combo_maq.Text);
+        }
+
+        #endregion
+
+        private void abaPesquisar_Grid_apon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string id_apontamento = abaPesquisar_Grid_apon.CurrentRow.Cells[0].Value.ToString();
+            tab_menu_apontamento.SelectedTab = tab_apontamento;
+            carregar_campos_apontamento(id_apontamento);
+        }
     }
 }

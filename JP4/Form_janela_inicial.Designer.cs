@@ -37,7 +37,7 @@ namespace JP4
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_config = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -133,7 +133,7 @@ namespace JP4
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.panel_menu_vertical.Controls.Add(this.panel6);
-            this.panel_menu_vertical.Controls.Add(this.button3);
+            this.panel_menu_vertical.Controls.Add(this.button_config);
             this.panel_menu_vertical.Controls.Add(this.panel5);
             this.panel_menu_vertical.Controls.Add(this.button1);
             this.panel_menu_vertical.Controls.Add(this.panel4);
@@ -159,18 +159,19 @@ namespace JP4
             this.panel6.Size = new System.Drawing.Size(5, 32);
             this.panel6.TabIndex = 13;
             // 
-            // button3
+            // button_config
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(14, 263);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(180, 32);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Configuração";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_config.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_config.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_config.ForeColor = System.Drawing.Color.White;
+            this.button_config.Location = new System.Drawing.Point(14, 263);
+            this.button_config.Name = "button_config";
+            this.button_config.Size = new System.Drawing.Size(180, 32);
+            this.button_config.TabIndex = 12;
+            this.button_config.Text = "Configuração";
+            this.button_config.UseVisualStyleBackColor = true;
+            this.button_config.Click += new System.EventHandler(this.button_config_Click);
             // 
             // panel5
             // 
@@ -364,7 +365,7 @@ namespace JP4
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button_config;
         private db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter db_configTableAdapter1;
     }
 }
