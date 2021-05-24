@@ -49,6 +49,8 @@ namespace JP4
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+
         #endregion
 
 

@@ -14,7 +14,7 @@ namespace JP4
             InitializeComponent();
 
             #region Chamar Metodos
-            importar_ordens();
+            Importar_ordens();
             carregar_empresa_db();
             carregar_maquina_db();
             carregar_turno_db();
@@ -87,10 +87,704 @@ namespace JP4
         }
 
 
+        #region carrega itens do arquivo de excel
+
+        private void Importar_ordens()
+        {
+
+            try
+            {
+                // adicionar uma janela para o usuário esclher a pasta e local da pasta
+                // adicionar uma opção para escolher o nome da aba dentro do arquivo
+
+                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
+                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
+                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
+                var totalLinhas = planilha.Rows().Count();
+                // primeira linha é o cabecalho
+                for (int l = 2; l <= totalLinhas; l++)
+                {
+                    if (planilha.Cell($"G{l}").Value.ToString() != "Digitada")
+                        this.combo_ordem_prod.Items.Add(planilha.Cell($"B{l}").Value.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void carregar_descricao_completa(string ordem_prod)
+        {
+            try
+            {
+                // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
+                // adicionar uma janela para o usuário esclher a pasta e local da pasta
+                // adicionar uma opção para escolher o nome da aba dentro do arquivo
+
+                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
+                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
+                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
+                var totalLinhas = planilha.Rows().Count();
+                // primeira linha é o cabecalho
+                for (int l = 2; l <= totalLinhas; l++)
+                {
+                    if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
+                    {
+                        this.combo_desc_completa.Text = planilha.Cell($"F{l}").Value.ToString();
+                        carregar_local_aplicacao(combo_desc_completa.Text);
+                        break;
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void carregar_cod_item(string ordem_prod)
+        {
+            try
+            {
+                // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
+                // adicionar uma janela para o usuário esclher a pasta e local da pasta
+                // adicionar uma opção para escolher o nome da aba dentro do arquivo
+
+                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
+                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
+                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
+                var totalLinhas = planilha.Rows().Count();
+                // primeira linha é o cabecalho
+                for (int l = 2; l <= totalLinhas; l++)
+                {
+                    if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
+                    {
+                        this.combo_cod_item.Text = planilha.Cell($"E{l}").Value.ToString();
+                        break;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void carregar_qtd_prevista(string ordem_prod)
+        {
+            try
+            {
+                // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
+                // adicionar uma janela para o usuário esclher a pasta e local da pasta
+                // adicionar uma opção para escolher o nome da aba dentro do arquivo
+
+                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
+                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
+                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
+                var totalLinhas = planilha.Rows().Count();
+                // primeira linha é o cabecalho
+                for (int l = 2; l <= totalLinhas; l++)
+                {
+                    if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
+                    {
+                        this.text_qtd_planejada.Text = planilha.Cell($"H{l}").Value.ToString();
+                        break;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void carregar_maquina_arquivo(string ordem_prod)
+        {
+            try
+            {
+                // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
+                // adicionar uma janela para o usuário esclher a pasta e local da pasta
+                // adicionar uma opção para escolher o nome da aba dentro do arquivo
+
+                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
+                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
+                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
+                var totalLinhas = planilha.Rows().Count();
+                // primeira linha é o cabecalho
+                for (int l = 2; l <= totalLinhas; l++)
+                {
+                    if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
+                    {
+                        this.combo_maquinas.Text = planilha.Cell($"A{l}").Value.ToString();
+                        break;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        #endregion
+
+        #region Botões do menu
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        #endregion // Botões do menu
+
+
+        #region Metodos de preencher controles
+
+        private void carregar_local_aplicacao(string descricao_completa)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select local_aplicacao from db_cadastro_material where descricao_completa ='" + descricao_completa + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    this.text_local_aplicacao.Text = myreader["local_aplicacao"].ToString();
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+
+
+        }
+        private void carregar_empresa_db()
+        {
+            try
+            {
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                string comando_sql = "select * from db_cadastro_empresas";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    this.combo_empresa.Items.Add(myreader["descricao"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void carregar_turno_db()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_turnos";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    this.combo_turnos.Items.Add(myreader["turno"].ToString());
+                }
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void carregar_maquina_db()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                string comando_sql = "select * from db_cadastro_equipamento";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    this.combo_maquinas.Items.Add(myreader["descricao_equipamento"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void carregar_operadores_db()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_operador"; //where equipamento = 'Picotadeira'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    this.combo_operadores.Items.Add(myreader["nome"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+        private void carregar_local_origem_db()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_local_estoque";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    this.combo_local_orig.Items.Add(myreader["local_estoque"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void carregar_local_destino_db()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_local_estoque";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    this.combo_local_desti.Items.Add(myreader["local_estoque"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Carregar_local_origem(string cod_item)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select local_estoque from db_cadastro_material where codigo_item ='" + cod_item + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    this.combo_local_orig.Text = myreader["local_estoque"].ToString();
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        // Aba parada de maquina
+        private void carregar_tipos_parada(string origem_apara)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_paradas where origem_apara ='" + origem_apara + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    this.abaParada_combo_parada01.Items.Add(myreader["descricao_parada"].ToString());
+                    this.abaParada_combo_parada02.Items.Add(myreader["descricao_parada"].ToString());
+                    this.abaParada_combo_parada03.Items.Add(myreader["descricao_parada"].ToString());
+                    this.abaParada_combo_parada04.Items.Add(myreader["descricao_parada"].ToString());
+                    this.abaParada_combo_parada05.Items.Add(myreader["descricao_parada"].ToString());
+                    this.abaParada_combo_parada06.Items.Add(myreader["descricao_parada"].ToString());
+                    this.abaParada_combo_parada07.Items.Add(myreader["descricao_parada"].ToString());
+                    this.abaParada_combo_parada08.Items.Add(myreader["descricao_parada"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        // Aba consumo
+        public void carregar_grid(string item_pai)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("db_estrutura");
+
+                myadapter.Fill(dt);
+
+                DataView dv = dt.DefaultView;
+
+                dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
+                Grid_estrutura_item.DataSource = dv.ToTable();
+
+                calcular_qtd_total_grid();
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void calcular_qtd_total_grid()
+        {
+            double total = Convert.ToDouble(this.abaConsumo_text_qtd_boa.Text);
+
+            for (int i = 0; i < Grid_estrutura_item.RowCount - 1; i++)
+            {
+                DataGridViewRow row = Grid_estrutura_item.Rows[i];
+                string valueA = row.Cells["qtd_necessaria"].Value.ToString();
+                row.Cells["Qt_total"].Value = (Convert.ToDouble(valueA) * total).ToString("0.00");
+            }
+
+        }
+
+
+        #endregion // Metodos de preencher controles
+
+
+        #region Funcionalidade combobox e textbox da janela Apontamento
+
+        //private void text_qtd_fardos_TextChanged(object sender, EventArgs e) { }
+
+        private void combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregar_descricao_completa(this.combo_ordem_prod.Text);
+            carregar_cod_item(this.combo_ordem_prod.Text);
+            carregar_qtd_prevista(this.combo_ordem_prod.Text);
+            carregar_maquina_arquivo(this.combo_ordem_prod.Text);
+        }
+
+        private void combo_turnos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // Esta aparecendo um erro e não puxar do  jeito certo 
+                // 08/03/2021 - 17:37
+                // 
+
+                var turno = this.combo_turnos.Text;
+
+                DateTime hora_inicio;
+                DateTime hora_final;
+
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                string comando_sql = "select * from db_cadastro_turnos where turno='" + turno + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    hora_inicio = Convert.ToDateTime(myreader["inicio_turno"]);
+                    hora_final = Convert.ToDateTime(myreader["fim_turno"]);
+
+                    this.label_descri_turno.Text = hora_inicio.ToString("hh:mm") + " as " + hora_final.ToString("hh;mm");
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void text_qtd_boa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && (e.KeyChar == '.'))
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_bobina_ini_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_bobina_fim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_contador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_qtd_fardos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void text_largura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                //Atribui True no Handled para cancelar o evento
+                e.Handled = true;
+            }
+        }
+
+        private void Calculo_bobina_inicial()
+        {
+            string descricao_completa = this.combo_desc_completa.Text;
+            int qtd_bobina = 0;
+            int total = 0;
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    qtd_bobina = Convert.ToInt32(myreader["qtd_embala"].ToString());
+
+                }
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao acessar cadastro de material // " + erro.Message);
+            }
+
+            total = Convert.ToInt32(this.text_bobina_fim.Text) - (Convert.ToInt32(this.text_qtd_fardos.Text) * qtd_bobina);
+
+            if (total < 0)
+            {
+                total = (total * (-1)) + Convert.ToInt32(this.text_bobina_fim.Text);
+                this.text_bobina_ini.Text = Convert.ToString(total);
+            }
+            else
+            {
+                this.text_bobina_ini.Text = Convert.ToString(total);
+            }
+
+
+        }
+
+        private void text_qtd_fardos_Leave(object sender, EventArgs e)
+        {
+            string descricao_completa = this.combo_desc_completa.Text;
+
+            int bobina_inicial = 0;
+            int bobina_final = 0;
+            int qtd_bobina = 0;
+            //int total_bobina = 0;
+
+            if (descricao_completa == "" && this.text_bobina_fim.Text == "" && this.text_qtd_fardos.Text == "" && this.combo_maquinas.Text == "")
+            {
+                //MessageBox.Show("Informar a descrição:");
+                return;
+            }
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    qtd_bobina = Convert.ToInt32(myreader["qtd_embala"].ToString());
+
+                }
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao acessar cadastro de material // " + erro.Message);
+            }
+
+
+            if (this.text_bobina_fim.Text == "")
+            {
+                this.text_bobina_fim.Text = Convert.ToString(0);
+            }
+
+            //total_bobina = (bobina_final - bobina_inicial) + 1;
+
+            bobina_inicial = Convert.ToInt32(this.text_bobina_fim.Text) - (Convert.ToInt32(this.text_qtd_fardos.Text) * qtd_bobina);
+
+            if (bobina_inicial < 0)
+            {
+                bobina_final = (bobina_inicial * (-1)) + Convert.ToInt32(this.text_bobina_fim.Text);
+                this.text_bobina_fim.Text = Convert.ToString(bobina_final);
+                this.text_bobina_ini.Text = Convert.ToString(0);
+            }
+            else
+            {
+                this.text_bobina_ini.Text = Convert.ToString(bobina_inicial);
+            }
+        }
+
+        private void text_velocidade_Leave(object sender, EventArgs e)
+        {
+            calculo_velocidade();
+        }
+        private void combo_cod_item_TextChanged(object sender, EventArgs e)
+        {
+            Carregar_local_origem(combo_cod_item.Text);
+
+        }
+        #endregion //Funcionalidade combobox e textbox da janela Apontamento
+
+
+
 
         #region Metodos de criação/geração
         // Aba apontamento
@@ -100,33 +794,8 @@ namespace JP4
         #endregion
 
         #region Metodos de Busca
-        #endregion
 
-        #region Metodos de Calculo
-        #endregion
-
-        #region Metodos de Armazenamento
-        #endregion
-
-        #region Metodos de Ediçao
-        #endregion
-
-        #region Metodos de Exclusão
-        #endregion
-
-
-
-        #region Metodos Janela Apontamento
-
-        private string Gerar_num_transac(double num_docum, DateTime hr_atual)
-        {
-            string resultado = "";
-
-            resultado = Convert.ToString(num_docum) + hr_atual.Hour + hr_atual.Minute + hr_atual.Second;
-            return resultado;
-
-        }
-
+        // Janela Apontamento
         private string Buscar_operacao(string nome_programa, string tipo_movimento)
         {
 
@@ -163,6 +832,259 @@ namespace JP4
             }
 
             return nome_operacao;
+        }
+
+        // Janela Parada de maquina
+        private string busca_cod_parada_db(string desc_parada)
+        {
+            string cod_parada = "";
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_paradas where descricao_parada = '" + desc_parada + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    cod_parada = myreader["codigo_parada"].ToString();
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+
+            return cod_parada;
+        }
+
+
+        // Janela Mistura
+        private void Carregar_mp_mistura()
+        {
+            try
+            {
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                string comando_sql = "select * from db_cadastro_material where tipo_material = 'Material prima'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    this.abaMistura_combo_mp01.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp02.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp03.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp04.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp05.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp06.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp07.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp08.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp09.Items.Add(myreader["descricao_completa"].ToString());
+                    this.abaMistura_combo_mp10.Items.Add(myreader["descricao_completa"].ToString());
+
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+
+
+
+        #endregion // Metodos de busta
+
+
+        #region Metodos de Calculo
+
+        private void calculo_velocidade()
+        {
+            double velocidade = 0;
+
+            if (this.text_velocidade.Text == "")
+            {
+                velocidade = 0;
+            }
+
+            string maquina = maquina = this.combo_maquinas.Text;
+            velocidade = Convert.ToDouble(this.text_velocidade.Text);
+
+            double velocidade_db = 0;
+            double fator = 0;
+            double veloc_total = 0;
+
+            if (maquina == "" || velocidade == 0)
+            {
+                return;
+            }
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_equipamento where descricao_equipamento = '" + maquina + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    velocidade_db = Convert.ToDouble(myreader["velocidade_padrao"].ToString());
+                    fator = Convert.ToDouble(myreader["fator"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+
+            }
+
+
+            if (velocidade_db != 0)
+            {
+                veloc_total = ((velocidade / 100) * velocidade_db) / fator;
+
+                if (veloc_total > velocidade_db)
+                {
+                    this.text_velocidade.Text = Convert.ToString(Convert.ToInt32(velocidade_db));
+                }
+                else
+                {
+                    this.text_velocidade.Text = Convert.ToString(Convert.ToInt32(veloc_total));
+                }
+            }
+        }
+
+
+
+        // Aba Parada de maquina
+        private TimeSpan calculo_hora(DateTime hora_inicio, DateTime hora_fim)
+        {
+            TimeSpan resultado;
+
+            TimeSpan horaIni = new TimeSpan(hora_inicio.Hour, hora_inicio.Minute, 0);
+            TimeSpan horaFim = new TimeSpan(hora_fim.Hour, hora_fim.Minute, 0);
+            resultado = horaFim.Subtract(horaIni);
+
+            if (horaFim < horaIni)
+            {
+                return TimeSpan.FromHours(0);
+            }
+            else
+            {
+                return resultado;
+            }
+
+        }
+
+        private TimeSpan Soma_hora()
+        {
+            TimeSpan resultado = TimeSpan.Zero;
+
+            //DateTime h01, h02, h03, h04, h05, h06, h07, h08;
+            //TimeSpan rh01, rh02, rh03, rh04, rh05, rh06, rh07, rh08;
+
+
+            if (abaParada_label_hr_total01.Text != "0")
+            {
+                DateTime h01 = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+                TimeSpan rh01 = new TimeSpan(h01.Hour, h01.Minute, 0);
+                resultado = rh01;
+            }
+
+            if (abaParada_label_hr_total02.Text != "0")
+            {
+                DateTime h02 = Convert.ToDateTime(abaParada_label_hr_total02.Text);
+                TimeSpan rh02 = new TimeSpan(h02.Hour, h02.Minute, 0);
+                resultado += rh02;
+            }
+
+            if (abaParada_label_hr_total03.Text != "0")
+            {
+                DateTime h03 = Convert.ToDateTime(abaParada_label_hr_total03.Text);
+                TimeSpan rh03 = new TimeSpan(h03.Hour, h03.Minute, 0);
+                resultado += rh03;
+            }
+
+            if (abaParada_label_hr_total04.Text != "0")
+            {
+                DateTime h04 = Convert.ToDateTime(abaParada_label_hr_total04.Text);
+                TimeSpan rh04 = new TimeSpan(h04.Hour, h04.Minute, 0);
+                resultado += rh04;
+            }
+
+            if (abaParada_label_hr_total05.Text != "0")
+            {
+                DateTime h05 = Convert.ToDateTime(abaParada_label_hr_total05.Text);
+                TimeSpan rh05 = new TimeSpan(h05.Hour, h05.Minute, 0);
+                resultado += rh05;
+            }
+
+            if (abaParada_label_hr_total06.Text != "0")
+            {
+                DateTime h06 = Convert.ToDateTime(abaParada_label_hr_total06.Text);
+                TimeSpan rh06 = new TimeSpan(h06.Hour, h06.Minute, 0);
+                resultado += rh06;
+            }
+
+            if (abaParada_label_hr_total07.Text != "0")
+            {
+                DateTime h07 = Convert.ToDateTime(abaParada_label_hr_total07.Text);
+                TimeSpan rh07 = new TimeSpan(h07.Hour, h07.Minute, 0);
+                resultado += rh07;
+            }
+
+            if (abaParada_label_hr_total08.Text != "0")
+            {
+                DateTime h08 = Convert.ToDateTime(abaParada_label_hr_total08.Text);
+                TimeSpan rh08 = new TimeSpan(h08.Hour, h08.Minute, 0);
+                resultado += rh08;
+            }
+            return resultado;
+
+        }
+
+
+
+        #region Metodos Janela Apontamento
+
+        private string Gerar_num_transac(double num_docum, DateTime hr_atual)
+        {
+            string resultado = "";
+
+            resultado = Convert.ToString(num_docum) + hr_atual.Hour + hr_atual.Minute + hr_atual.Second;
+            return resultado;
+
         }
 
         private int Verifica_campos()
@@ -545,666 +1467,12 @@ namespace JP4
 
 
 
-        #endregion
-
-
-        #region Metodos de calculo       
-        private void calculo_velocidade()
-        {
-            double velocidade = 0;
-
-            if (this.text_velocidade.Text == "")
-            {
-                velocidade = 0;
-            }
-
-            string maquina = maquina = this.combo_maquinas.Text;
-            velocidade = Convert.ToDouble(this.text_velocidade.Text);
-
-            double velocidade_db = 0;
-            double fator = 0;
-            double veloc_total = 0;
-
-            if (maquina == "" || velocidade == 0)
-            {
-                return;
-            }
-
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_equipamento where descricao_equipamento = '" + maquina + "'";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-
-                while (myreader.Read())
-                {
-                    velocidade_db = Convert.ToDouble(myreader["velocidade_padrao"].ToString());
-                    fator = Convert.ToDouble(myreader["fator"].ToString());
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-
-            }
-
-
-            if (velocidade_db != 0)
-            {
-                veloc_total = ((velocidade / 100) * velocidade_db) / fator;
-
-                if (veloc_total > velocidade_db)
-                {
-                    this.text_velocidade.Text = Convert.ToString(Convert.ToInt32(velocidade_db));
-                }
-                else
-                {
-                    this.text_velocidade.Text = Convert.ToString(Convert.ToInt32(veloc_total));
-                }
-            }
-        }
-
-
-        #endregion
-
-
-
-        #region Metodos Carregar combobox
-
-
-        #region carrega itens do arquivo de excel
-
-        private void importar_ordens()
-        {
-
-            try
-            {
-                // adicionar uma janela para o usuário esclher a pasta e local da pasta
-                // adicionar uma opção para escolher o nome da aba dentro do arquivo
-
-                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
-                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
-                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
-                var totalLinhas = planilha.Rows().Count();
-                // primeira linha é o cabecalho
-                for (int l = 2; l <= totalLinhas; l++)
-                {
-                    if (planilha.Cell($"G{l}").Value.ToString() != "Digitada")
-                        this.combo_ordem_prod.Items.Add(planilha.Cell($"B{l}").Value.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-        private void carregar_descricao_completa(string ordem_prod)
-        {
-            try
-            {
-                // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
-                // adicionar uma janela para o usuário esclher a pasta e local da pasta
-                // adicionar uma opção para escolher o nome da aba dentro do arquivo
-
-                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
-                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
-                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
-                var totalLinhas = planilha.Rows().Count();
-                // primeira linha é o cabecalho
-                for (int l = 2; l <= totalLinhas; l++)
-                {
-                    if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
-                    {
-                        this.combo_desc_completa.Text = planilha.Cell($"F{l}").Value.ToString();
-                        carregar_local_aplicacao(combo_desc_completa.Text);
-                        break;
-                    }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void carregar_cod_item(string ordem_prod)
-        {
-            try
-            {
-                // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
-                // adicionar uma janela para o usuário esclher a pasta e local da pasta
-                // adicionar uma opção para escolher o nome da aba dentro do arquivo
-
-                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
-                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
-                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
-                var totalLinhas = planilha.Rows().Count();
-                // primeira linha é o cabecalho
-                for (int l = 2; l <= totalLinhas; l++)
-                {
-                    if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
-                    {
-                        this.combo_cod_item.Text = planilha.Cell($"E{l}").Value.ToString();
-                        break;
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void carregar_qtd_prevista(string ordem_prod)
-        {
-            try
-            {
-                // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
-                // adicionar uma janela para o usuário esclher a pasta e local da pasta
-                // adicionar uma opção para escolher o nome da aba dentro do arquivo
-
-                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
-                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
-                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
-                var totalLinhas = planilha.Rows().Count();
-                // primeira linha é o cabecalho
-                for (int l = 2; l <= totalLinhas; l++)
-                {
-                    if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
-                    {
-                        this.text_qtd_planejada.Text = planilha.Cell($"H{l}").Value.ToString();
-                        break;
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void carregar_maquina_arquivo(string ordem_prod)
-        {
-            try
-            {
-                // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
-                // adicionar uma janela para o usuário esclher a pasta e local da pasta
-                // adicionar uma opção para escolher o nome da aba dentro do arquivo
-
-                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
-                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
-                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
-                var totalLinhas = planilha.Rows().Count();
-                // primeira linha é o cabecalho
-                for (int l = 2; l <= totalLinhas; l++)
-                {
-                    if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
-                    {
-                        this.combo_maquinas.Text = planilha.Cell($"A{l}").Value.ToString();
-                        break;
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-        #endregion
-
-        #region Carregar controles aba apontamento
-        private void carregar_local_aplicacao(string descricao_completa)
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select local_aplicacao from db_cadastro_material where descricao_completa ='" + descricao_completa + "'";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-                    this.text_local_aplicacao.Text = myreader["local_aplicacao"].ToString();
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-
-
-        }
-        private void carregar_empresa_db()
-        {
-            try
-            {
-
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-
-                string comando_sql = "select * from db_cadastro_empresas";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-
-                while (myreader.Read())
-                {
-                    this.combo_empresa.Items.Add(myreader["descricao"].ToString());
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-        }
-        private void carregar_turno_db()
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_turnos";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-
-                while (myreader.Read())
-                {
-                    this.combo_turnos.Items.Add(myreader["turno"].ToString());
-                }
-                conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
-        }
-        private void carregar_maquina_db()
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-
-                string comando_sql = "select * from db_cadastro_equipamento";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-
-                while (myreader.Read())
-                {
-                    this.combo_maquinas.Items.Add(myreader["descricao_equipamento"].ToString());
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-        }
-        private void carregar_operadores_db()
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_operador"; //where equipamento = 'Picotadeira'";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-
-                    this.combo_operadores.Items.Add(myreader["nome"].ToString());
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-
-        }
-        private void carregar_local_origem_db()
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_local_estoque";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-
-                    this.combo_local_orig.Items.Add(myreader["local_estoque"].ToString());
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-        }
-        private void carregar_local_destino_db()
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_local_estoque";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-
-                    this.combo_local_desti.Items.Add(myreader["local_estoque"].ToString());
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-        }
-        private void Carregar_local_origem(string cod_item)
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select local_estoque from db_cadastro_material where codigo_item ='" + cod_item + "'";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-                    this.combo_local_orig.Text = myreader["local_estoque"].ToString();
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-        }
-        // Aba parada de maquina
-
-        private void carregar_tipos_parada(string origem_apara)
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_paradas where origem_apara ='" + origem_apara + "'";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-                    this.abaParada_combo_parada01.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada02.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada03.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada04.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada05.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada06.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada07.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada08.Items.Add(myreader["descricao_parada"].ToString());
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-        }
-
-        // Aba consumo
-
-        public void carregar_grid(string item_pai)
-        {
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura";
-
-                OleDbConnection connection = new OleDbConnection(conecta_string);
-                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
-                DataTable dt = new DataTable("db_estrutura");
-
-                myadapter.Fill(dt);
-
-                DataView dv = dt.DefaultView;
-
-                dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
-                Grid_estrutura_item.DataSource = dv.ToTable();
-
-                calcular_qtd_total_grid();
-
-                connection.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
-        }
-
-        private void calcular_qtd_total_grid()
-        {
-            double total = Convert.ToDouble(this.abaConsumo_text_qtd_boa.Text);
-
-            for (int i = 0; i < Grid_estrutura_item.RowCount - 1; i++)
-            {
-                DataGridViewRow row = Grid_estrutura_item.Rows[i];
-                string valueA = row.Cells["qtd_necessaria"].Value.ToString();
-                row.Cells["Qt_total"].Value = (Convert.ToDouble(valueA) * total).ToString("0.00");
-            }
-
-        }
-
-        // Aba Parada de maquina
-
         #endregion        
 
-        private TimeSpan calculo_hora(DateTime hora_inicio, DateTime hora_fim)
-        {
-            TimeSpan resultado;
 
-            TimeSpan horaIni = new TimeSpan(hora_inicio.Hour, hora_inicio.Minute, 0);
-            TimeSpan horaFim = new TimeSpan(hora_fim.Hour, hora_fim.Minute, 0);
-            resultado = horaFim.Subtract(horaIni);
+        #region Metodos Janela Parada    
 
-            if (horaFim < horaIni)
-            {
-                return TimeSpan.FromHours(0);
-            }
-            else
-            {
-                return resultado;
-            }
-
-        }
-
-        private TimeSpan Soma_hora()
-        {
-            TimeSpan resultado = TimeSpan.Zero;
-
-            //DateTime h01, h02, h03, h04, h05, h06, h07, h08;
-            //TimeSpan rh01, rh02, rh03, rh04, rh05, rh06, rh07, rh08;
-
-
-            if (abaParada_label_hr_total01.Text != "0")
-            {
-                DateTime h01 = Convert.ToDateTime(abaParada_label_hr_total01.Text);
-                TimeSpan rh01 = new TimeSpan(h01.Hour, h01.Minute, 0);
-                resultado = rh01;
-            }
-
-            if (abaParada_label_hr_total02.Text != "0")
-            {
-                DateTime h02 = Convert.ToDateTime(abaParada_label_hr_total02.Text);
-                TimeSpan rh02 = new TimeSpan(h02.Hour, h02.Minute, 0);
-                resultado += rh02;
-            }
-
-            if (abaParada_label_hr_total03.Text != "0")
-            {
-                DateTime h03 = Convert.ToDateTime(abaParada_label_hr_total03.Text);
-                TimeSpan rh03 = new TimeSpan(h03.Hour, h03.Minute, 0);
-                resultado += rh03;
-            }
-
-            if (abaParada_label_hr_total04.Text != "0")
-            {
-                DateTime h04 = Convert.ToDateTime(abaParada_label_hr_total04.Text);
-                TimeSpan rh04 = new TimeSpan(h04.Hour, h04.Minute, 0);
-                resultado += rh04;
-            }
-
-            if (abaParada_label_hr_total05.Text != "0")
-            {
-                DateTime h05 = Convert.ToDateTime(abaParada_label_hr_total05.Text);
-                TimeSpan rh05 = new TimeSpan(h05.Hour, h05.Minute, 0);
-                resultado += rh05;
-            }
-
-            if (abaParada_label_hr_total06.Text != "0")
-            {
-                DateTime h06 = Convert.ToDateTime(abaParada_label_hr_total06.Text);
-                TimeSpan rh06 = new TimeSpan(h06.Hour, h06.Minute, 0);
-                resultado += rh06;
-            }
-
-            if (abaParada_label_hr_total07.Text != "0")
-            {
-                DateTime h07 = Convert.ToDateTime(abaParada_label_hr_total07.Text);
-                TimeSpan rh07 = new TimeSpan(h07.Hour, h07.Minute, 0);
-                resultado += rh07;
-            }
-
-            if (abaParada_label_hr_total08.Text != "0")
-            {
-                DateTime h08 = Convert.ToDateTime(abaParada_label_hr_total08.Text);
-                TimeSpan rh08 = new TimeSpan(h08.Hour, h08.Minute, 0);
-                resultado += rh08;
-            }
-            return resultado;
-
-        }
-
-        private string busca_cod_parada_db(string desc_parada)
-        {
-            string cod_parada = "";
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_paradas where descricao_parada = '" + desc_parada + "'";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-                    cod_parada = myreader["codigo_parada"].ToString();
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-
-            return cod_parada;
-        }
-
+      
         private void salvar_paradas_mq(string num_tran)
         {
 
@@ -1227,6 +1495,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada01.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
                     try
@@ -1237,8 +1506,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','"+ campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1268,6 +1537,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada02.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
                     try
@@ -1278,8 +1548,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1287,6 +1557,7 @@ namespace JP4
                     }
                     catch (Exception erro)
                     {
+
                         MessageBox.Show(erro.Message);
                         cod_geral_erro = 1;
                     }
@@ -1308,6 +1579,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada03.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
                     try
@@ -1318,8 +1590,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1327,6 +1599,7 @@ namespace JP4
                     }
                     catch (Exception erro)
                     {
+
                         MessageBox.Show(erro.Message);
                         cod_geral_erro = 1;
                     }
@@ -1348,6 +1621,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada04.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
                     try
@@ -1358,8 +1632,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1367,6 +1641,7 @@ namespace JP4
                     }
                     catch (Exception erro)
                     {
+
                         MessageBox.Show(erro.Message);
                         cod_geral_erro = 1;
                     }
@@ -1388,6 +1663,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada05.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
                     try
@@ -1398,8 +1674,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1407,6 +1683,7 @@ namespace JP4
                     }
                     catch (Exception erro)
                     {
+
                         MessageBox.Show(erro.Message);
                         cod_geral_erro = 1;
                     }
@@ -1428,6 +1705,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada06.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
                     try
@@ -1438,8 +1716,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1447,6 +1725,7 @@ namespace JP4
                     }
                     catch (Exception erro)
                     {
+
                         MessageBox.Show(erro.Message);
                         cod_geral_erro = 1;
                     }
@@ -1468,6 +1747,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada07.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
                     try
@@ -1478,8 +1758,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1487,6 +1767,7 @@ namespace JP4
                     }
                     catch (Exception erro)
                     {
+
                         MessageBox.Show(erro.Message);
                         cod_geral_erro = 1;
                     }
@@ -1508,6 +1789,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
+                    string campo_marcador = abaParada_combo_parada08.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
                     try
@@ -1518,8 +1800,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac) " +
-                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_paradas_mq(ordem_prod, maquina, turno, operador, codigo_parada, descricao_parada, hora_inicio, hora_final, total_horas, total_minutos, observacao, num_transac, campo_marcador) " +
+                            "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_parada + "','" + descricao_parada + "','" + hora_inicio + "','" + hora_final + "','" + total_horas + "','" + total_minutos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -1527,6 +1809,7 @@ namespace JP4
                     }
                     catch (Exception erro)
                     {
+
                         MessageBox.Show(erro.Message);
                         cod_geral_erro = 1;
                     }
@@ -1534,110 +1817,11 @@ namespace JP4
             }
         }
 
-        // Aba misutra 
-
-        private void Carregar_mp_mistura()
-        {
-            try
-            {
-
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-
-                string comando_sql = "select * from db_cadastro_material where tipo_material = 'Material prima'";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
+        #endregion //Metodos Janela Parada
 
 
-                while (myreader.Read())
-                {
-                    this.abaMistura_combo_mp01.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp02.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp03.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp04.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp05.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp06.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp07.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp08.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp09.Items.Add(myreader["descricao_completa"].ToString());
-                    this.abaMistura_combo_mp10.Items.Add(myreader["descricao_completa"].ToString());
 
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-        }
-
-        private double Soma_percentual(string mp01, string mp02, string mp03, string mp04, string mp05, string mp06, string mp07, string mp08, string mp09, string mp10)
-        {
-            double resultado = 0;
-
-            try
-            {
-                if (Convert.ToDouble(mp01) > 0)
-                {
-                    resultado += Convert.ToDouble(mp01);
-                }
-
-                if (Convert.ToDouble(mp02) > 0)
-                {
-                    resultado += Convert.ToDouble(mp02);
-                }
-
-                if (Convert.ToDouble(mp03) > 0)
-                {
-                    resultado += Convert.ToDouble(mp03);
-                }
-
-                if (Convert.ToDouble(mp04) > 0)
-                {
-                    resultado += Convert.ToDouble(mp04);
-                }
-
-                if (Convert.ToDouble(mp05) > 0)
-                {
-                    resultado += Convert.ToDouble(mp05);
-                }
-                if (Convert.ToDouble(mp06) > 0)
-                {
-                    resultado += Convert.ToDouble(mp06);
-                }
-
-                if (Convert.ToDouble(mp07) > 0)
-                {
-                    resultado += Convert.ToDouble(mp07);
-                }
-                if (Convert.ToDouble(mp08) > 0)
-                {
-                    resultado += Convert.ToDouble(mp08);
-                }
-
-                if (Convert.ToDouble(mp09) > 0)
-                {
-                    resultado += Convert.ToDouble(mp09);
-                }
-                if (Convert.ToDouble(mp10) > 0)
-                {
-                    resultado += Convert.ToDouble(mp10);
-                }
-            }
-            catch
-            {
-                return resultado;
-                //MessageBox.Show(erro.Message);
-            }
-            return resultado;
-        }
+        #region Metodos Janela Mistura
 
         private void Salvar_mistura(string num_tran)
         {
@@ -2046,7 +2230,70 @@ namespace JP4
                 }
             }
         }
-        #endregion
+
+        private double Soma_percentual(string mp01, string mp02, string mp03, string mp04, string mp05, string mp06, string mp07, string mp08, string mp09, string mp10)
+        {
+            double resultado = 0;
+
+            try
+            {
+                if (Convert.ToDouble(mp01) > 0)
+                {
+                    resultado += Convert.ToDouble(mp01);
+                }
+
+                if (Convert.ToDouble(mp02) > 0)
+                {
+                    resultado += Convert.ToDouble(mp02);
+                }
+
+                if (Convert.ToDouble(mp03) > 0)
+                {
+                    resultado += Convert.ToDouble(mp03);
+                }
+
+                if (Convert.ToDouble(mp04) > 0)
+                {
+                    resultado += Convert.ToDouble(mp04);
+                }
+
+                if (Convert.ToDouble(mp05) > 0)
+                {
+                    resultado += Convert.ToDouble(mp05);
+                }
+                if (Convert.ToDouble(mp06) > 0)
+                {
+                    resultado += Convert.ToDouble(mp06);
+                }
+
+                if (Convert.ToDouble(mp07) > 0)
+                {
+                    resultado += Convert.ToDouble(mp07);
+                }
+                if (Convert.ToDouble(mp08) > 0)
+                {
+                    resultado += Convert.ToDouble(mp08);
+                }
+
+                if (Convert.ToDouble(mp09) > 0)
+                {
+                    resultado += Convert.ToDouble(mp09);
+                }
+                if (Convert.ToDouble(mp10) > 0)
+                {
+                    resultado += Convert.ToDouble(mp10);
+                }
+            }
+            catch
+            {
+                return resultado;
+                //MessageBox.Show(erro.Message);
+            }
+            return resultado;
+        }
+
+        
+        #endregion // Metodos Janela Mistura
 
 
         #region Botoões do menu da direita
@@ -2066,7 +2313,7 @@ namespace JP4
 
         private void button_importar_Click(object sender, EventArgs e)
         {
-            importar_ordens();
+            Importar_ordens();
         }
 
         private void button_paradas_Click(object sender, EventArgs e)
@@ -2118,229 +2365,6 @@ namespace JP4
         }
         #endregion
 
-        #region Funcionalidade combobox e textbox da janela Apontamento
-
-        //private void text_qtd_fardos_TextChanged(object sender, EventArgs e) { }
-
-        private void combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            carregar_descricao_completa(this.combo_ordem_prod.Text);
-            carregar_cod_item(this.combo_ordem_prod.Text);
-            carregar_qtd_prevista(this.combo_ordem_prod.Text);
-            carregar_maquina_arquivo(this.combo_ordem_prod.Text);
-        }
-
-        private void combo_turnos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                // Esta aparecendo um erro e não puxar do  jeito certo 
-                // 08/03/2021 - 17:37
-                // 
-
-                var turno = this.combo_turnos.Text;
-
-                DateTime hora_inicio;
-                DateTime hora_final;
-
-
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-
-                string comando_sql = "select * from db_cadastro_turnos where turno='" + turno + "'";
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-
-                while (myreader.Read())
-                {
-                    hora_inicio = Convert.ToDateTime(myreader["inicio_turno"]);
-                    hora_final = Convert.ToDateTime(myreader["fim_turno"]);
-
-                    this.label_descri_turno.Text = hora_inicio.ToString("hh:mm") + " as " + hora_final.ToString("hh;mm");
-                }
-
-                conexao.Close();
-
-            }
-            catch (Exception erro)
-            {
-
-                MessageBox.Show(erro.Message);
-            }
-        }
-
-        private void text_qtd_boa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && (e.KeyChar == '.'))
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
-        }
-
-        private void text_bobina_ini_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
-        }
-
-        private void text_bobina_fim_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
-        }
-
-        private void text_contador_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
-        }
-
-        private void text_qtd_fardos_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
-        }
-
-        private void text_largura_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
-            {
-                //Atribui True no Handled para cancelar o evento
-                e.Handled = true;
-            }
-        }
-
-        private void Calculo_bobina_inicial()
-        {
-            string descricao_completa = this.combo_desc_completa.Text;
-            int qtd_bobina = 0;
-            int total = 0;
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-                    qtd_bobina = Convert.ToInt32(myreader["qtd_embala"].ToString());
-
-                }
-                conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro ao acessar cadastro de material // " + erro.Message);
-            }
-
-            total = Convert.ToInt32(this.text_bobina_fim.Text) - (Convert.ToInt32(this.text_qtd_fardos.Text) * qtd_bobina);
-
-            if (total < 0)
-            {
-                total = (total * (-1)) + Convert.ToInt32(this.text_bobina_fim.Text);
-                this.text_bobina_ini.Text = Convert.ToString(total);
-            }
-            else
-            {
-                this.text_bobina_ini.Text = Convert.ToString(total);
-            }
-
-
-        }
-
-        private void text_qtd_fardos_Leave(object sender, EventArgs e)
-        {
-            string descricao_completa = this.combo_desc_completa.Text;
-
-            int bobina_inicial = 0;
-            int bobina_final = 0;
-            int qtd_bobina = 0;
-            //int total_bobina = 0;
-
-            if (descricao_completa == "" && this.text_bobina_fim.Text == "" && this.text_qtd_fardos.Text == "" && this.combo_maquinas.Text == "")
-            {
-                //MessageBox.Show("Informar a descrição:");
-                return;
-            }
-
-            try
-            {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
-                conexao.Open();
-
-                myreader = cmd.ExecuteReader();
-
-                while (myreader.Read())
-                {
-                    qtd_bobina = Convert.ToInt32(myreader["qtd_embala"].ToString());
-
-                }
-                conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro ao acessar cadastro de material // " + erro.Message);
-            }
-
-            
-            if (this.text_bobina_fim.Text == "")
-            {
-                this.text_bobina_fim.Text = Convert.ToString(0);
-            }
-
-            //total_bobina = (bobina_final - bobina_inicial) + 1;
-
-            bobina_inicial = Convert.ToInt32(this.text_bobina_fim.Text) - (Convert.ToInt32(this.text_qtd_fardos.Text) * qtd_bobina);
-
-            if (bobina_inicial < 0)
-            {
-                bobina_final = (bobina_inicial * (-1)) + Convert.ToInt32(this.text_bobina_fim.Text);
-                this.text_bobina_fim.Text = Convert.ToString(bobina_final);
-                this.text_bobina_ini.Text = Convert.ToString(0);
-            }
-            else
-            {
-                this.text_bobina_ini.Text = Convert.ToString(bobina_inicial);
-            }
-        }
-
-        private void text_velocidade_Leave(object sender, EventArgs e)
-        {
-            calculo_velocidade();
-        }
-        private void combo_cod_item_TextChanged(object sender, EventArgs e)
-        {
-            Carregar_local_origem(combo_cod_item.Text);
-
-        }
-        #endregion
 
         #region Funcionalidade Aba Mistura
         private void abaMistura_text_perct01_Leave(object sender, EventArgs e) { }
@@ -2756,9 +2780,11 @@ namespace JP4
                     //this.abaPesquisar_combo_operador.Items.Add();                   
                     abaApon_label_num_transa.Text = myreader["num_transac"].ToString();
                     num_transac = myreader["num_transac"].ToString();
-                }                
+                }
 
-                Carregar_paradas_apontamento(num_transac);
+
+
+
 
                 conexao.Close();
             }
@@ -2789,16 +2815,72 @@ namespace JP4
                     abaParadas_label_numero_op.Text = myreader["ordem_prod"].ToString();
                     abaParadas_label_operador.Text = myreader["operador"].ToString();
                     abaParadas_label_turno.Text = myreader["turno"].ToString();
-                    
-                    //string codigo_parada = "";
-                    abaParada_combo_parada01.Text = myreader["descricao_parada"].ToString();
-                    abaParada_hr_inicio01.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
-                    abaParada_hr_fim01.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
-                    abaParada_label_hr_total01.Text = myreader["total_horas"].ToString();
-                    //double total_minutos = Convert.ToDateTime(abaParada_label_hr_total01.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total01.Text).Minute;
-                    abaParadas_obs.Text = myreader["observacao"].ToString();
-                    //string num_transac = num_tran;
 
+                    abaParadas_obs.Text = myreader["observacao"].ToString();
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_parada01.Name)
+                    {
+                        abaParada_combo_parada01.Text = myreader["descricao_parada"].ToString();
+                        abaParada_hr_inicio01.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                        abaParada_hr_fim01.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                        abaParada_label_hr_total01.Text = Convert.ToDateTime(myreader["total_horas"]).ToString("hh:mm");
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_parada02.Name)
+                    {
+                        abaParada_combo_parada02.Text = myreader["descricao_parada"].ToString();
+                        abaParada_hr_inicio02.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                        abaParada_hr_fim02.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                        abaParada_label_hr_total02.Text = Convert.ToDateTime(myreader["total_horas"]).ToString("hh:mm");
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_parada03.Name)
+                    {
+                        abaParada_combo_parada03.Text = myreader["descricao_parada"].ToString();
+                        abaParada_hr_inicio03.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                        abaParada_hr_fim03.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                        abaParada_label_hr_total03.Text = Convert.ToDateTime(myreader["total_horas"]).ToString("hh:mm");
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_parada04.Name)
+                    {
+                        abaParada_combo_parada04.Text = myreader["descricao_parada"].ToString();
+                        abaParada_hr_inicio04.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                        abaParada_hr_fim04.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                        abaParada_label_hr_total04.Text = Convert.ToDateTime(myreader["total_horas"]).ToString("hh:mm");
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_parada05.Name)
+                    {
+                        abaParada_combo_parada05.Text = myreader["descricao_parada"].ToString();
+                        abaParada_hr_inicio05.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                        abaParada_hr_fim05.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                        abaParada_label_hr_total05.Text = Convert.ToDateTime(myreader["total_horas"]).ToString("hh:mm");
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_parada06.Name)
+                    {
+                        abaParada_combo_parada06.Text = myreader["descricao_parada"].ToString();
+                        abaParada_hr_inicio06.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                        abaParada_hr_fim06.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                        abaParada_label_hr_total06.Text = Convert.ToDateTime(myreader["total_horas"]).ToString("hh:mm");
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_parada07.Name)
+                    {
+                        abaParada_combo_parada07.Text = myreader["descricao_parada"].ToString();
+                        abaParada_hr_inicio07.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                        abaParada_hr_fim07.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                        abaParada_label_hr_total07.Text = Convert.ToDateTime(myreader["total_horas"]).ToString("hh:mm");
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_parada08.Name)
+                    {
+                        abaParada_combo_parada08.Text = myreader["descricao_parada"].ToString();
+                        abaParada_hr_inicio08.Value = Convert.ToDateTime(myreader["hora_inicio"]).ToUniversalTime();
+                        abaParada_hr_fim08.Value = Convert.ToDateTime(myreader["hora_final"]).ToUniversalTime();
+                        abaParada_label_hr_total08.Text = Convert.ToDateTime(myreader["total_horas"]).ToString("hh:mm");
+                    }
 
                 }
 
@@ -2918,12 +3000,15 @@ namespace JP4
         }
 
         #endregion
+        #endregion
 
         private void abaPesquisar_Grid_apon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string id_apontamento = abaPesquisar_Grid_apon.CurrentRow.Cells[0].Value.ToString();
             tab_menu_apontamento.SelectedTab = tab_apontamento;
+            
             carregar_campos_apontamento(id_apontamento);
+            Carregar_paradas_apontamento(abaApon_label_num_transa.Text);
         }
     }
 }
