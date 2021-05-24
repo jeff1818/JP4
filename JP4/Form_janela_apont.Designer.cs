@@ -262,6 +262,7 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
+            this.abaApon_label_id_apont = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -494,7 +495,7 @@ namespace JP4
             this.text_qtd_saldo.Location = new System.Drawing.Point(313, 91);
             this.text_qtd_saldo.Name = "text_qtd_saldo";
             this.text_qtd_saldo.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_saldo.TabIndex = 9;
+            this.text_qtd_saldo.TabIndex = 5;
             this.text_qtd_saldo.Text = "0";
             // 
             // label5
@@ -512,7 +513,7 @@ namespace JP4
             this.text_qtd_planejada.Location = new System.Drawing.Point(121, 91);
             this.text_qtd_planejada.Name = "text_qtd_planejada";
             this.text_qtd_planejada.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_planejada.TabIndex = 7;
+            this.text_qtd_planejada.TabIndex = 4;
             this.text_qtd_planejada.Text = "0";
             this.text_qtd_planejada.WordWrap = false;
             // 
@@ -532,7 +533,7 @@ namespace JP4
             this.combo_desc_completa.Location = new System.Drawing.Point(273, 64);
             this.combo_desc_completa.Name = "combo_desc_completa";
             this.combo_desc_completa.Size = new System.Drawing.Size(421, 21);
-            this.combo_desc_completa.TabIndex = 5;
+            this.combo_desc_completa.TabIndex = 3;
             // 
             // combo_cod_item
             // 
@@ -541,7 +542,7 @@ namespace JP4
             this.combo_cod_item.Location = new System.Drawing.Point(121, 64);
             this.combo_cod_item.Name = "combo_cod_item";
             this.combo_cod_item.Size = new System.Drawing.Size(143, 21);
-            this.combo_cod_item.TabIndex = 4;
+            this.combo_cod_item.TabIndex = 2;
             this.combo_cod_item.TextChanged += new System.EventHandler(this.combo_cod_item_TextChanged);
             // 
             // label3
@@ -627,7 +628,7 @@ namespace JP4
             this.text_largura.Location = new System.Drawing.Point(360, 177);
             this.text_largura.Name = "text_largura";
             this.text_largura.Size = new System.Drawing.Size(79, 20);
-            this.text_largura.TabIndex = 21;
+            this.text_largura.TabIndex = 20;
             this.text_largura.Text = "0";
             this.text_largura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_largura_KeyPress);
             // 
@@ -648,7 +649,7 @@ namespace JP4
             this.text_qtd_fardos.Location = new System.Drawing.Point(121, 177);
             this.text_qtd_fardos.Name = "text_qtd_fardos";
             this.text_qtd_fardos.Size = new System.Drawing.Size(79, 20);
-            this.text_qtd_fardos.TabIndex = 20;
+            this.text_qtd_fardos.TabIndex = 19;
             this.text_qtd_fardos.Text = "0";
             this.text_qtd_fardos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qtd_fardos_KeyPress);
             this.text_qtd_fardos.Leave += new System.EventHandler(this.text_qtd_fardos_Leave);
@@ -668,7 +669,7 @@ namespace JP4
             this.text_contador.Location = new System.Drawing.Point(511, 151);
             this.text_contador.Name = "text_contador";
             this.text_contador.Size = new System.Drawing.Size(79, 20);
-            this.text_contador.TabIndex = 19;
+            this.text_contador.TabIndex = 18;
             this.text_contador.Text = "0";
             this.text_contador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_contador_KeyPress);
             // 
@@ -687,7 +688,7 @@ namespace JP4
             this.text_velocidade.Location = new System.Drawing.Point(360, 151);
             this.text_velocidade.Name = "text_velocidade";
             this.text_velocidade.Size = new System.Drawing.Size(79, 20);
-            this.text_velocidade.TabIndex = 18;
+            this.text_velocidade.TabIndex = 17;
             this.text_velocidade.Text = "0";
             this.text_velocidade.Leave += new System.EventHandler(this.text_velocidade_Leave);
             // 
@@ -706,7 +707,7 @@ namespace JP4
             this.text_bobina_fim.Location = new System.Drawing.Point(206, 151);
             this.text_bobina_fim.Name = "text_bobina_fim";
             this.text_bobina_fim.Size = new System.Drawing.Size(79, 20);
-            this.text_bobina_fim.TabIndex = 17;
+            this.text_bobina_fim.TabIndex = 16;
             this.text_bobina_fim.Text = "0";
             this.text_bobina_fim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_bobina_fim_KeyPress);
             // 
@@ -716,7 +717,7 @@ namespace JP4
             this.text_bobina_ini.Location = new System.Drawing.Point(121, 151);
             this.text_bobina_ini.Name = "text_bobina_ini";
             this.text_bobina_ini.Size = new System.Drawing.Size(79, 20);
-            this.text_bobina_ini.TabIndex = 16;
+            this.text_bobina_ini.TabIndex = 15;
             this.text_bobina_ini.Text = "0";
             this.text_bobina_ini.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_bobina_ini_KeyPress);
             // 
@@ -737,7 +738,7 @@ namespace JP4
             this.text_qtd_boa.Location = new System.Drawing.Point(121, 125);
             this.text_qtd_boa.Name = "text_qtd_boa";
             this.text_qtd_boa.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_boa.TabIndex = 15;
+            this.text_qtd_boa.TabIndex = 14;
             this.text_qtd_boa.Text = "0";
             this.text_qtd_boa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_qtd_boa_KeyPress);
             // 
@@ -765,7 +766,7 @@ namespace JP4
             this.text_operacao.Location = new System.Drawing.Point(121, 99);
             this.text_operacao.Name = "text_operacao";
             this.text_operacao.Size = new System.Drawing.Size(143, 20);
-            this.text_operacao.TabIndex = 14;
+            this.text_operacao.TabIndex = 13;
             // 
             // label12
             // 
@@ -785,7 +786,7 @@ namespace JP4
             this.hr_final_prod.Name = "hr_final_prod";
             this.hr_final_prod.ShowUpDown = true;
             this.hr_final_prod.Size = new System.Drawing.Size(78, 20);
-            this.hr_final_prod.TabIndex = 14;
+            this.hr_final_prod.TabIndex = 12;
             this.hr_final_prod.Value = new System.DateTime(2021, 4, 12, 0, 0, 0, 0);
             // 
             // dt_final_pro
@@ -796,7 +797,7 @@ namespace JP4
             this.dt_final_pro.Location = new System.Drawing.Point(435, 73);
             this.dt_final_pro.Name = "dt_final_pro";
             this.dt_final_pro.Size = new System.Drawing.Size(143, 20);
-            this.dt_final_pro.TabIndex = 13;
+            this.dt_final_pro.TabIndex = 11;
             this.dt_final_pro.Value = new System.DateTime(2021, 4, 12, 15, 24, 41, 0);
             // 
             // label11
@@ -818,7 +819,7 @@ namespace JP4
             this.hr_inicial_prod.Name = "hr_inicial_prod";
             this.hr_inicial_prod.ShowUpDown = true;
             this.hr_inicial_prod.Size = new System.Drawing.Size(78, 20);
-            this.hr_inicial_prod.TabIndex = 11;
+            this.hr_inicial_prod.TabIndex = 10;
             this.hr_inicial_prod.Value = new System.DateTime(2021, 4, 12, 0, 0, 0, 0);
             // 
             // dt_inicio_pro
@@ -829,7 +830,7 @@ namespace JP4
             this.dt_inicio_pro.Location = new System.Drawing.Point(121, 73);
             this.dt_inicio_pro.Name = "dt_inicio_pro";
             this.dt_inicio_pro.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio_pro.TabIndex = 10;
+            this.dt_inicio_pro.TabIndex = 9;
             this.dt_inicio_pro.Value = new System.DateTime(2021, 4, 12, 0, 0, 0, 0);
             // 
             // label10
@@ -877,7 +878,7 @@ namespace JP4
             this.combo_turnos.Location = new System.Drawing.Point(313, 19);
             this.combo_turnos.Name = "combo_turnos";
             this.combo_turnos.Size = new System.Drawing.Size(143, 21);
-            this.combo_turnos.TabIndex = 5;
+            this.combo_turnos.TabIndex = 7;
             this.combo_turnos.SelectedIndexChanged += new System.EventHandler(this.combo_turnos_SelectedIndexChanged);
             // 
             // label7
@@ -896,7 +897,7 @@ namespace JP4
             this.combo_maquinas.Location = new System.Drawing.Point(121, 19);
             this.combo_maquinas.Name = "combo_maquinas";
             this.combo_maquinas.Size = new System.Drawing.Size(143, 21);
-            this.combo_maquinas.TabIndex = 3;
+            this.combo_maquinas.TabIndex = 6;
             // 
             // label6
             // 
@@ -1034,7 +1035,7 @@ namespace JP4
             this.combo_local_desti.Location = new System.Drawing.Point(347, 19);
             this.combo_local_desti.Name = "combo_local_desti";
             this.combo_local_desti.Size = new System.Drawing.Size(143, 21);
-            this.combo_local_desti.TabIndex = 23;
+            this.combo_local_desti.TabIndex = 22;
             // 
             // label22
             // 
@@ -1052,7 +1053,7 @@ namespace JP4
             this.combo_local_orig.Location = new System.Drawing.Point(121, 19);
             this.combo_local_orig.Name = "combo_local_orig";
             this.combo_local_orig.Size = new System.Drawing.Size(143, 21);
-            this.combo_local_orig.TabIndex = 22;
+            this.combo_local_orig.TabIndex = 21;
             // 
             // label21
             // 
@@ -1080,7 +1081,7 @@ namespace JP4
             this.text_lotes.Location = new System.Drawing.Point(121, 19);
             this.text_lotes.Name = "text_lotes";
             this.text_lotes.Size = new System.Drawing.Size(573, 20);
-            this.text_lotes.TabIndex = 24;
+            this.text_lotes.TabIndex = 23;
             // 
             // label20
             // 
@@ -1150,7 +1151,7 @@ namespace JP4
             this.combo_empresa.Location = new System.Drawing.Point(6, 38);
             this.combo_empresa.Name = "combo_empresa";
             this.combo_empresa.Size = new System.Drawing.Size(143, 21);
-            this.combo_empresa.TabIndex = 26;
+            this.combo_empresa.TabIndex = 25;
             // 
             // label24
             // 
@@ -1163,6 +1164,7 @@ namespace JP4
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.abaApon_label_id_apont);
             this.groupBox7.Controls.Add(this.abaApon_label_num_transa);
             this.groupBox7.Controls.Add(this.richText_observacao);
             this.groupBox7.Location = new System.Drawing.Point(891, 11);
@@ -1175,7 +1177,7 @@ namespace JP4
             // abaApon_label_num_transa
             // 
             this.abaApon_label_num_transa.AutoSize = true;
-            this.abaApon_label_num_transa.Location = new System.Drawing.Point(81, 373);
+            this.abaApon_label_num_transa.Location = new System.Drawing.Point(6, 346);
             this.abaApon_label_num_transa.Name = "abaApon_label_num_transa";
             this.abaApon_label_num_transa.Size = new System.Drawing.Size(34, 13);
             this.abaApon_label_num_transa.TabIndex = 26;
@@ -1186,7 +1188,7 @@ namespace JP4
             this.richText_observacao.Location = new System.Drawing.Point(6, 19);
             this.richText_observacao.Name = "richText_observacao";
             this.richText_observacao.Size = new System.Drawing.Size(168, 320);
-            this.richText_observacao.TabIndex = 25;
+            this.richText_observacao.TabIndex = 24;
             this.richText_observacao.Text = "";
             // 
             // status_bar_apon
@@ -2621,6 +2623,15 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
+            // abaApon_label_id_apont
+            // 
+            this.abaApon_label_id_apont.AutoSize = true;
+            this.abaApon_label_id_apont.Location = new System.Drawing.Point(6, 365);
+            this.abaApon_label_id_apont.Name = "abaApon_label_id_apont";
+            this.abaApon_label_id_apont.Size = new System.Drawing.Size(34, 13);
+            this.abaApon_label_id_apont.TabIndex = 27;
+            this.abaApon_label_id_apont.Text = "---------";
+            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2917,5 +2928,6 @@ namespace JP4
         private System.Windows.Forms.ComboBox abaPesquisar_combo_maq;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox abaPesquisar_text_dt_lanc;
+        private System.Windows.Forms.Label abaApon_label_id_apont;
     }
 }
