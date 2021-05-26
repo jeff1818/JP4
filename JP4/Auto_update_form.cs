@@ -28,9 +28,9 @@ namespace JP4
         private string temp_zip = "tmp/Update.zip";
         private string name_of_program = "setup.exe";
         // path to Version.txt file on internet
-        private string github_version_file = "https://github.com/jeff1818/JP4/tree/master/JP4/Version.txt";
+        private string github_version_file = "https://github.com/jeff1818/JP4/tree/master/JP4/Update_files/Version.txt";
         // path to update file on internet
-        private string github_update_zip = "https://github.com/jeff1818/JP4/tree/master/JP4/Update.zip";
+        private string github_update_zip = "https://github.com/jeff1818/JP4/tree/master/JP4/Update_files/Update.zip";
 
         public Auto_update_form()
         {
