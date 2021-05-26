@@ -100,7 +100,6 @@ namespace JP4
             {
                 version_number[0] = "";
                 version_number[1] = "";
-
                 return version_number;
             }
             // Read the file line by line
