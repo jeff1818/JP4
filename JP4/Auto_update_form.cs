@@ -26,18 +26,18 @@ namespace JP4
         private string current_version_no;
         // where update file will be downloaded
         private string temp_zip = "tmp/Update.zip";
-        private string name_of_program = "TestDummy.exe";
+        private string name_of_program = "setup.exe";
         // path to Version.txt file on internet
-        private string github_version_file = "https://github.com/Stock84-dev/Auto-Updater/raw/master/Version.txt";
+        private string github_version_file = "https://github.com/jeff1818/JP4/tree/master/JP4/Version.txt";
         // path to update file on internet
-        private string github_update_zip = "https://github.com/Stock84-dev/Auto-Updater/raw/master/Update.zip";
+        private string github_update_zip = "https://github.com/jeff1818/JP4/tree/master/JP4/Update.zip";
 
         public Auto_update_form()
         {
             InitializeComponent();
             // creating Instructions.txt file
-            //Instruction.instructions.Add(new Instruction(InstructionType.delete, "TestDummy.exe"));
-            //Instruction.instructions.Add(new Instruction(InstructionType.move, "tmp/TestDummy.exe", "TestDummy.exe"));
+            //Instruction.instructions.Add(new Instruction(InstructionType.delete, "setup.exe"));
+            //Instruction.instructions.Add(new Instruction(InstructionType.move, "tmp/setup.exe", "setup.exe"));
             //// creates Instructions.txt file
             //Instruction.Save();
 
