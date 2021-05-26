@@ -35,11 +35,11 @@ namespace JP4
         public Auto_update_form()
         {
             InitializeComponent();
-            // creating Instructions.txt file
-            //Instruction.instructions.Add(new Instruction(InstructionType.delete, "setup.exe"));
-            //Instruction.instructions.Add(new Instruction(InstructionType.move, "tmp/setup.exe", "setup.exe"));
-            //// creates Instructions.txt file
-            //Instruction.Save();
+            //creating Instructions.txt file
+            Instruction.instructions.Add(new Instruction(InstructionType.delete, "setup.exe"));
+            Instruction.instructions.Add(new Instruction(InstructionType.move, "tmp/setup.exe", "setup.exe"));
+            //creates Instructions.txt file
+            Instruction.Save();
 
         }
 
