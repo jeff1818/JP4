@@ -77,7 +77,7 @@ namespace JP4
 
         private bool LookForUpdates()
         {
-            //ssssss
+            //sssssssa
             bool new_update = false;
             wc.DownloadFile(new Uri(github_version_file), "NetVersion.txt");
             // reading version numbers from each files
