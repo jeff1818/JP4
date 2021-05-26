@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.Configuration;
 using System.Data;
-using System.Drawing;
+using System.Data.OleDb;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -16,35 +12,109 @@ namespace JP4
         public CONF01()
         {
             InitializeComponent();
+
+            text_endereco.Text = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
         }
 
-        //01 - definir o caminho do banco de dados padrão
-        //02 - Definir o caminho dos arquivo exportados do sistema AC4
-        //03 - SAlvar os caminhos no campo de configuração do aplicativo
-        //04 - puxar os caminhos assim que abrir a aba de config >> CONF01
+        private void Testar_conexao()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                connection.Open();
 
-        //Extra
-        //05 - Local pra mostrar a versão do arquivo
-        //06 - Criar e mostrar a documentação de uso de cada tela do programa
-        //07 - Criar um botão de buscar atualização e baixar quando estiver disponivel ( ainda nao resolvido o servidor FTP )
+                if (connection.State == ConnectionState.Open)
+                {
+                    label_status_con.Text = "Conectado com sucesso!";
 
-        // link util >> http://www.macoratti.net/15/03/c_locarq1.htm
+                }
+                else
+                {
+                    label_status_con.Text = "Não conectado, verifique o local!";
+
+                }
+                connection.Close();
+
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(erro.Message);
+            }
+        }
+
+        private string Procurar_pasta()
+        {
+            string local_pasta = string.Empty;
+            string nome_arquivo = string.Empty;
+            string endereco_completo = string.Empty;
+            string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
+
+
+            OpenFileDialog folderBrowser = new OpenFileDialog();
+
+            folderBrowser.ValidateNames = true;
+            folderBrowser.CheckFileExists = false;
+            folderBrowser.CheckPathExists = true;
+
+            folderBrowser.FileName = "Localizar Arquivo";
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                local_pasta = Path.GetDirectoryName(folderBrowser.FileName);
+                nome_arquivo = Path.GetFileName(folderBrowser.FileName);
+
+                endereco_completo = texto_conecta + @"""" + local_pasta + @"\" + nome_arquivo + @"""";
+            }
+
+            return endereco_completo;
+        }
+
+        private void Salvar_local()
+        {
+
+            try
+            {
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
+                connectionString.ConnectionStrings["JP4.Properties.Settings.db_aplicativo_kpiConnectionString"].ConnectionString = text_endereco.Text; //"Data Source=NewSource;Initial Catalog=NewCatalog;UID=NewUser;password=NewPassword";
+                config.Save();
+                ConfigurationManager.RefreshSection("connectionStrings");
+
+                MessageBox.Show("Salvo com sucesso!");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+
+        private void Reset_aplicativo()
+        {
+            MessageBox.Show("Aplicativo deve ser reiniciado!");
+            Application.Exit();
+        }
+
 
         private void button_procurar_pasta_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
+            text_endereco.Text = Procurar_pasta();
+        }
 
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    //string[] files = Directory.GetFiles(fbd.SelectedPath);
+        private void button_salvar_endereco_Click(object sender, EventArgs e)
+        {
+            Salvar_local();
+            Testar_conexao();
+            Reset_aplicativo();
+        }
 
-                    //MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
-                    MessageBox.Show("Files found: " + fbd.SelectedPath);
-
-                }
-            }
+        private void button_janela_update_Click(object sender, EventArgs e)
+        {
+            Auto_update_form janela_update = new Auto_update_form();
+            janela_update.Show();
         }
     }
 }
+
+
