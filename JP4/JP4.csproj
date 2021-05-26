@@ -24,11 +24,11 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>https://github.com/jeff1818/JP4/raw/master/JP4/Update_files/setup.exe/</InstallUrl>
-    <UpdateUrl>http://paralelo-erp.rf.gd/</UpdateUrl>
+    <UpdateUrl>https://github.com/jeff1818/JP4/raw/master/JP4/Update_files/setup.exe/</UpdateUrl>
     <MinimumRequiredVersion>10.1.1.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>10.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
