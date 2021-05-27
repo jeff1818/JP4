@@ -246,7 +246,7 @@ namespace JP4
 
         private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
 
@@ -566,6 +566,51 @@ namespace JP4
             }
 
         }
+
+
+        // Aba defeitos de maquina
+        private void Carregar_defeitos(string origem_apara)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_apara where origem_apara ='" + origem_apara + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    this.abaParada_combo_defeito01.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito02.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito03.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito04.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito05.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito06.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito07.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito08.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito09.Items.Add(myreader["descricao_apara"].ToString());
+                    this.abaParada_combo_defeito10.Items.Add(myreader["descricao_apara"].ToString());
+
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+
+
+
 
 
 
@@ -1110,7 +1155,6 @@ namespace JP4
             return resultado;
 
         }
-
         private int Verifica_campos()
         {
             //if(!string.IsNullOrEmpty(this.combo_ordem_prod.Text))
@@ -1145,7 +1189,6 @@ namespace JP4
 
             return 0;
         }
-
         private void Desbloquear_controles()
         {
             this.text_operacao.Text = "APON";
@@ -1599,6 +1642,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
+
 
         // Metodos de atualização de lançamento
         private void Atualizar_lancamento(string id_apontamento)
@@ -2158,13 +2202,16 @@ namespace JP4
 
 
         }
-
-
         private void Atualizar_consumo_estrutura()
         {
+            string cod_descri_completa = this.combo_desc_completa.Text;
+            double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
+
+            Consumo_estrutura(cod_descri_completa, qtd_movto);
+
+
 
         }
-
         private void Atualizar_mistura()
         {
 
@@ -3011,7 +3058,6 @@ namespace JP4
             this.label_tipo_movimento.Text = "N";
 
         }
-
         private void button_estornar_Click(object sender, EventArgs e)
         {
             Estatus_estorno(abaApon_label_id_apont.Text);
@@ -3019,12 +3065,10 @@ namespace JP4
             Estornar_apontamento("R");
 
         }
-
         private void button_importar_Click(object sender, EventArgs e)
         {
             Importar_ordens();
         }
-
         private void button_paradas_Click(object sender, EventArgs e)
         {
             tab_menu_apontamento.SelectedTab = tab_paradas;
@@ -3037,17 +3081,19 @@ namespace JP4
             //janela_parada.Show();
 
         }
-
         private void button_defeitos_Click(object sender, EventArgs e)
         {
-
+            tab_menu_apontamento.SelectedTab = tab_defeitos_apon;
+            Carregar_defeitos(this.text_local_aplicacao.Text);
+            label_AbaDefeitos_ordem.Text = combo_ordem_prod.Text;
+            label_AbaDefeitos_localAplicacao.Text = text_local_aplicacao.Text;
+            label_AbaDefeitos_maq.Text = combo_maquinas.Text;
+            label_AbaDefeitos_operador.Text = combo_operadores.Text;
         }
-
         private void button_obs_Click(object sender, EventArgs e)
         {
 
         }
-
         private void button_mistura_mp_Click(object sender, EventArgs e)
         {
             if (text_local_aplicacao.Text == "Extrusora")
@@ -3067,7 +3113,6 @@ namespace JP4
             }
 
         }
-
         private void button_retrabalho_Click(object sender, EventArgs e)
         {
 
@@ -3283,7 +3328,6 @@ namespace JP4
         {
 
         }
-
         private void Carregar_operador_pesquisar()
         {
             try
