@@ -938,6 +938,43 @@ namespace JP4
         }
 
 
+        // Janela Defeitos
+
+        private string busca_cod_defeitos_db(string desc_defeitos)
+        {
+            string cod_parada = "";
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_apara where descricao_parada = '" + desc_defeitos + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    cod_parada = myreader["codigo_apara"].ToString();
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+
+            return cod_parada;
+        }
+
+
+
+
         // Janela Mistura
         private void Carregar_mp_mistura()
         {
@@ -1299,7 +1336,8 @@ namespace JP4
 
             }
 
-            salvar_paradas_mq(num_transac);
+            Salvar_paradas_mq(num_transac);
+            Salvar_defeitos_mq(num_transac);
             Salvar_mistura(num_transac);
 
         }
@@ -1461,6 +1499,7 @@ namespace JP4
                 Consumo_estrutura(cod_descri_completa, qtd_movto); // ve se vai se comportar do jeito certo
                 Estornar_paradas(num_transac);
                 Estornar_consumo_mp(num_transac);
+                Estornar_defeitos_mq(num_transac);
 
                 MessageBox.Show("Estornado Com sucesso!");
 
@@ -2220,10 +2259,438 @@ namespace JP4
 
         #endregion
 
-        //------------------------------------------------------------------------------------------
 
+        //------------------------------------------------------------------------------------------
+        #region Metodos da janela defeitos 
+
+        private void Salvar_defeitos_mq(string num_tran)
+        {
+
+            if (abaParada_text_qtd01.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito01.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd01.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito01.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+
+
+            }
+            if (abaParada_text_qtd02.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito02.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd02.Text); 
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito02.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+            if (abaParada_text_qtd03.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito03.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd03.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito03.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+            if (abaParada_text_qtd04.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito04.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd04.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito04.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+            if (abaParada_text_qtd05.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito05.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd05.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito05.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+            if (abaParada_text_qtd06.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito06.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd06.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito06.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+            if (abaParada_text_qtd07.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito07.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd07.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito07.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+            if (abaParada_text_qtd08.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito08.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd08.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito08.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+            if (abaParada_text_qtd09.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito09.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd09.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito09.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+            if (abaParada_text_qtd10.Text != "0")
+            {
+
+                //id_parada
+                double ordem_prod = Convert.ToDouble(abaParadas_label_numero_op.Text);
+                string maquina = abaParadas_label_maquina.Text;
+                string turno = abaParadas_label_turno.Text;
+                string operador = abaParadas_label_operador.Text;
+                string codigo_defeitos = "";
+                string descricao_defeitos = abaParada_combo_defeito10.Text;
+                double qtd_defeitos = Convert.ToDouble(abaParada_text_qtd10.Text);
+                string observacao = richText_label_AbaDefeitos_obs.Text;
+                string num_transac = num_tran;
+
+                string campo_marcador = abaParada_combo_defeito10.Name;
+                codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
+
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_defeitos_mq(ordem_prod, maquina, turno, operador, codigo_defeitos, descricao_defeitos, qtd_defeitos, observacao, num_transac, campo_marcador) " +
+                        "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + codigo_defeitos + "','" + descricao_defeitos + "','" + qtd_defeitos + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.Message);
+                    cod_geral_erro = 1;
+                }
+            }
+
+        }
+        
+        private void Estornar_defeitos_mq(string num_transac)
+        {
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                comando_sql = "DELETE FROM db_defeitos_mq WHERE num_transac='" + num_transac + "'";
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+
+
+        
+        #endregion // Metodo de defeitos
+
+        //------------------------------------------------------------------------------------------
         #region Metodos Janela Parada
-        private void salvar_paradas_mq(string num_tran)
+        private void Salvar_paradas_mq(string num_tran)
         {
 
             if (abaParada_label_hr_total.Text != "00:00:00")
@@ -3073,6 +3540,7 @@ namespace JP4
         {
             tab_menu_apontamento.SelectedTab = tab_paradas;
             carregar_tipos_parada(this.text_local_aplicacao.Text);
+            abaParadas_label_turno.Text = combo_turnos.Text;
             abaParadas_label_numero_op.Text = combo_ordem_prod.Text;
             abaParadas_label_local_aplicacao.Text = text_local_aplicacao.Text;
             abaParadas_label_maquina.Text = combo_maquinas.Text;
@@ -3084,6 +3552,8 @@ namespace JP4
         private void button_defeitos_Click(object sender, EventArgs e)
         {
             tab_menu_apontamento.SelectedTab = tab_defeitos_apon;
+            label_AbaDefeitos_turno.Text = combo_turnos.Text;
+
             Carregar_defeitos(this.text_local_aplicacao.Text);
             label_AbaDefeitos_ordem.Text = combo_ordem_prod.Text;
             label_AbaDefeitos_localAplicacao.Text = text_local_aplicacao.Text;

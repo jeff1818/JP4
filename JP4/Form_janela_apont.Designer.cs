@@ -129,6 +129,39 @@ namespace JP4
             this.toolStripProgressBar_apon = new System.Windows.Forms.ToolStripProgressBar();
             this.tab_menu_apontamento = new System.Windows.Forms.TabControl();
             this.tab_apontamento = new System.Windows.Forms.TabPage();
+            this.tab_defeitos_apon = new System.Windows.Forms.TabPage();
+            this.label_AbaDefeitos_localAplicacao = new System.Windows.Forms.Label();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.abaParada_text_qtd10 = new System.Windows.Forms.TextBox();
+            this.abaParada_combo_defeito10 = new System.Windows.Forms.ComboBox();
+            this.abaParada_text_qtd09 = new System.Windows.Forms.TextBox();
+            this.abaParada_combo_defeito09 = new System.Windows.Forms.ComboBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.richText_label_AbaDefeitos_obs = new System.Windows.Forms.RichTextBox();
+            this.abaParada_text_qtd08 = new System.Windows.Forms.TextBox();
+            this.abaParada_text_qtd07 = new System.Windows.Forms.TextBox();
+            this.abaParada_text_qtd06 = new System.Windows.Forms.TextBox();
+            this.abaParada_text_qtd05 = new System.Windows.Forms.TextBox();
+            this.abaParada_text_qtd04 = new System.Windows.Forms.TextBox();
+            this.abaParada_text_qtd02 = new System.Windows.Forms.TextBox();
+            this.abaParada_text_qtd03 = new System.Windows.Forms.TextBox();
+            this.abaParada_text_qtd01 = new System.Windows.Forms.TextBox();
+            this.abaParada_combo_defeito01 = new System.Windows.Forms.ComboBox();
+            this.abaParada_combo_defeito02 = new System.Windows.Forms.ComboBox();
+            this.abaParada_combo_defeito03 = new System.Windows.Forms.ComboBox();
+            this.abaParada_combo_defeito04 = new System.Windows.Forms.ComboBox();
+            this.abaParada_combo_defeito05 = new System.Windows.Forms.ComboBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.abaParada_combo_defeito06 = new System.Windows.Forms.ComboBox();
+            this.abaParada_combo_defeito08 = new System.Windows.Forms.ComboBox();
+            this.abaParada_combo_defeito07 = new System.Windows.Forms.ComboBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label_AbaDefeitos_turno = new System.Windows.Forms.Label();
+            this.label_AbaDefeitos_operador = new System.Windows.Forms.Label();
+            this.label_AbaDefeitos_ordem = new System.Windows.Forms.Label();
+            this.label_AbaDefeitos_maq = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
             this.tab_paradas = new System.Windows.Forms.TabPage();
             this.abaParadas_label_local_aplicacao = new System.Windows.Forms.Label();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
@@ -263,39 +296,6 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
-            this.tab_defeitos_apon = new System.Windows.Forms.TabPage();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.label_AbaDefeitos_turno = new System.Windows.Forms.Label();
-            this.label_AbaDefeitos_operador = new System.Windows.Forms.Label();
-            this.label_AbaDefeitos_ordem = new System.Windows.Forms.Label();
-            this.label_AbaDefeitos_maq = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.richText_label_AbaDefeitos_obs = new System.Windows.Forms.RichTextBox();
-            this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.abaParada_combo_defeito01 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito02 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito03 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito04 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito05 = new System.Windows.Forms.ComboBox();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.abaParada_combo_defeito06 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito08 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito07 = new System.Windows.Forms.ComboBox();
-            this.abaParada_text_qtd01 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd03 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd02 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd04 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd05 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd06 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd07 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd08 = new System.Windows.Forms.TextBox();
-            this.label65 = new System.Windows.Forms.Label();
-            this.abaParada_text_qtd09 = new System.Windows.Forms.TextBox();
-            this.abaParada_combo_defeito09 = new System.Windows.Forms.ComboBox();
-            this.abaParada_text_qtd10 = new System.Windows.Forms.TextBox();
-            this.abaParada_combo_defeito10 = new System.Windows.Forms.ComboBox();
-            this.label_AbaDefeitos_localAplicacao = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -307,6 +307,9 @@ namespace JP4
             this.status_bar_apon.SuspendLayout();
             this.tab_menu_apontamento.SuspendLayout();
             this.tab_apontamento.SuspendLayout();
+            this.tab_defeitos_apon.SuspendLayout();
+            this.groupBox19.SuspendLayout();
+            this.groupBox17.SuspendLayout();
             this.tab_paradas.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -322,9 +325,6 @@ namespace JP4
             this.groupBox16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.abaPesquisar_Grid_apon)).BeginInit();
             this.groupBox15.SuspendLayout();
-            this.tab_defeitos_apon.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.groupBox19.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1298,9 +1298,323 @@ namespace JP4
             this.tab_apontamento.Text = "Apontamento";
             this.tab_apontamento.UseVisualStyleBackColor = true;
             // 
+            // tab_defeitos_apon
+            // 
+            this.tab_defeitos_apon.Controls.Add(this.groupBox19);
+            this.tab_defeitos_apon.Controls.Add(this.groupBox17);
+            this.tab_defeitos_apon.Location = new System.Drawing.Point(4, 22);
+            this.tab_defeitos_apon.Name = "tab_defeitos_apon";
+            this.tab_defeitos_apon.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_defeitos_apon.Size = new System.Drawing.Size(1083, 594);
+            this.tab_defeitos_apon.TabIndex = 6;
+            this.tab_defeitos_apon.Text = "Defeitos / Aparas";
+            this.tab_defeitos_apon.UseVisualStyleBackColor = true;
+            // 
+            // label_AbaDefeitos_localAplicacao
+            // 
+            this.label_AbaDefeitos_localAplicacao.AutoSize = true;
+            this.label_AbaDefeitos_localAplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AbaDefeitos_localAplicacao.Location = new System.Drawing.Point(426, 55);
+            this.label_AbaDefeitos_localAplicacao.Name = "label_AbaDefeitos_localAplicacao";
+            this.label_AbaDefeitos_localAplicacao.Size = new System.Drawing.Size(22, 22);
+            this.label_AbaDefeitos_localAplicacao.TabIndex = 91;
+            this.label_AbaDefeitos_localAplicacao.Text = "--";
+            // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd10);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito10);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd09);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito09);
+            this.groupBox19.Controls.Add(this.label65);
+            this.groupBox19.Controls.Add(this.richText_label_AbaDefeitos_obs);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd08);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd07);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd06);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd05);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd04);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd02);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd03);
+            this.groupBox19.Controls.Add(this.abaParada_text_qtd01);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito01);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito02);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito03);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito04);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito05);
+            this.groupBox19.Controls.Add(this.label76);
+            this.groupBox19.Controls.Add(this.label77);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito06);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito08);
+            this.groupBox19.Controls.Add(this.abaParada_combo_defeito07);
+            this.groupBox19.Location = new System.Drawing.Point(236, 120);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(572, 325);
+            this.groupBox19.TabIndex = 90;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "Informação de parada";
+            // 
+            // abaParada_text_qtd10
+            // 
+            this.abaParada_text_qtd10.Location = new System.Drawing.Point(164, 285);
+            this.abaParada_text_qtd10.Name = "abaParada_text_qtd10";
+            this.abaParada_text_qtd10.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd10.TabIndex = 20;
+            this.abaParada_text_qtd10.Text = "0";
+            // 
+            // abaParada_combo_defeito10
+            // 
+            this.abaParada_combo_defeito10.FormattingEnabled = true;
+            this.abaParada_combo_defeito10.Location = new System.Drawing.Point(4, 285);
+            this.abaParada_combo_defeito10.Name = "abaParada_combo_defeito10";
+            this.abaParada_combo_defeito10.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito10.TabIndex = 19;
+            // 
+            // abaParada_text_qtd09
+            // 
+            this.abaParada_text_qtd09.Location = new System.Drawing.Point(164, 258);
+            this.abaParada_text_qtd09.Name = "abaParada_text_qtd09";
+            this.abaParada_text_qtd09.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd09.TabIndex = 18;
+            this.abaParada_text_qtd09.Text = "0";
+            // 
+            // abaParada_combo_defeito09
+            // 
+            this.abaParada_combo_defeito09.FormattingEnabled = true;
+            this.abaParada_combo_defeito09.Location = new System.Drawing.Point(4, 258);
+            this.abaParada_combo_defeito09.Name = "abaParada_combo_defeito09";
+            this.abaParada_combo_defeito09.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito09.TabIndex = 17;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(313, 24);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(65, 13);
+            this.label65.TabIndex = 89;
+            this.label65.Text = "Observação";
+            // 
+            // richText_label_AbaDefeitos_obs
+            // 
+            this.richText_label_AbaDefeitos_obs.Location = new System.Drawing.Point(300, 49);
+            this.richText_label_AbaDefeitos_obs.Name = "richText_label_AbaDefeitos_obs";
+            this.richText_label_AbaDefeitos_obs.Size = new System.Drawing.Size(258, 257);
+            this.richText_label_AbaDefeitos_obs.TabIndex = 88;
+            this.richText_label_AbaDefeitos_obs.Text = "";
+            // 
+            // abaParada_text_qtd08
+            // 
+            this.abaParada_text_qtd08.Location = new System.Drawing.Point(164, 231);
+            this.abaParada_text_qtd08.Name = "abaParada_text_qtd08";
+            this.abaParada_text_qtd08.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd08.TabIndex = 16;
+            this.abaParada_text_qtd08.Text = "0";
+            // 
+            // abaParada_text_qtd07
+            // 
+            this.abaParada_text_qtd07.Location = new System.Drawing.Point(164, 206);
+            this.abaParada_text_qtd07.Name = "abaParada_text_qtd07";
+            this.abaParada_text_qtd07.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd07.TabIndex = 14;
+            this.abaParada_text_qtd07.Text = "0";
+            // 
+            // abaParada_text_qtd06
+            // 
+            this.abaParada_text_qtd06.Location = new System.Drawing.Point(164, 180);
+            this.abaParada_text_qtd06.Name = "abaParada_text_qtd06";
+            this.abaParada_text_qtd06.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd06.TabIndex = 12;
+            this.abaParada_text_qtd06.Text = "0";
+            // 
+            // abaParada_text_qtd05
+            // 
+            this.abaParada_text_qtd05.Location = new System.Drawing.Point(164, 153);
+            this.abaParada_text_qtd05.Name = "abaParada_text_qtd05";
+            this.abaParada_text_qtd05.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd05.TabIndex = 10;
+            this.abaParada_text_qtd05.Text = "0";
+            // 
+            // abaParada_text_qtd04
+            // 
+            this.abaParada_text_qtd04.Location = new System.Drawing.Point(164, 128);
+            this.abaParada_text_qtd04.Name = "abaParada_text_qtd04";
+            this.abaParada_text_qtd04.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd04.TabIndex = 8;
+            this.abaParada_text_qtd04.Text = "0";
+            // 
+            // abaParada_text_qtd02
+            // 
+            this.abaParada_text_qtd02.Location = new System.Drawing.Point(164, 76);
+            this.abaParada_text_qtd02.Name = "abaParada_text_qtd02";
+            this.abaParada_text_qtd02.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd02.TabIndex = 4;
+            this.abaParada_text_qtd02.Text = "0";
+            // 
+            // abaParada_text_qtd03
+            // 
+            this.abaParada_text_qtd03.Location = new System.Drawing.Point(164, 102);
+            this.abaParada_text_qtd03.Name = "abaParada_text_qtd03";
+            this.abaParada_text_qtd03.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd03.TabIndex = 6;
+            this.abaParada_text_qtd03.Text = "0";
+            // 
+            // abaParada_text_qtd01
+            // 
+            this.abaParada_text_qtd01.Location = new System.Drawing.Point(164, 50);
+            this.abaParada_text_qtd01.Name = "abaParada_text_qtd01";
+            this.abaParada_text_qtd01.Size = new System.Drawing.Size(130, 20);
+            this.abaParada_text_qtd01.TabIndex = 2;
+            this.abaParada_text_qtd01.Text = "0";
+            // 
+            // abaParada_combo_defeito01
+            // 
+            this.abaParada_combo_defeito01.FormattingEnabled = true;
+            this.abaParada_combo_defeito01.Location = new System.Drawing.Point(4, 49);
+            this.abaParada_combo_defeito01.Name = "abaParada_combo_defeito01";
+            this.abaParada_combo_defeito01.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito01.TabIndex = 1;
+            // 
+            // abaParada_combo_defeito02
+            // 
+            this.abaParada_combo_defeito02.FormattingEnabled = true;
+            this.abaParada_combo_defeito02.Location = new System.Drawing.Point(4, 75);
+            this.abaParada_combo_defeito02.Name = "abaParada_combo_defeito02";
+            this.abaParada_combo_defeito02.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito02.TabIndex = 3;
+            // 
+            // abaParada_combo_defeito03
+            // 
+            this.abaParada_combo_defeito03.FormattingEnabled = true;
+            this.abaParada_combo_defeito03.Location = new System.Drawing.Point(4, 101);
+            this.abaParada_combo_defeito03.Name = "abaParada_combo_defeito03";
+            this.abaParada_combo_defeito03.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito03.TabIndex = 5;
+            // 
+            // abaParada_combo_defeito04
+            // 
+            this.abaParada_combo_defeito04.FormattingEnabled = true;
+            this.abaParada_combo_defeito04.Location = new System.Drawing.Point(4, 127);
+            this.abaParada_combo_defeito04.Name = "abaParada_combo_defeito04";
+            this.abaParada_combo_defeito04.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito04.TabIndex = 7;
+            // 
+            // abaParada_combo_defeito05
+            // 
+            this.abaParada_combo_defeito05.FormattingEnabled = true;
+            this.abaParada_combo_defeito05.Location = new System.Drawing.Point(4, 153);
+            this.abaParada_combo_defeito05.Name = "abaParada_combo_defeito05";
+            this.abaParada_combo_defeito05.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito05.TabIndex = 9;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(161, 24);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(62, 13);
+            this.label76.TabIndex = 68;
+            this.label76.Text = "Quantidade";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(6, 24);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(46, 13);
+            this.label77.TabIndex = 67;
+            this.label77.Text = "Defeitos";
+            // 
+            // abaParada_combo_defeito06
+            // 
+            this.abaParada_combo_defeito06.FormattingEnabled = true;
+            this.abaParada_combo_defeito06.Location = new System.Drawing.Point(4, 179);
+            this.abaParada_combo_defeito06.Name = "abaParada_combo_defeito06";
+            this.abaParada_combo_defeito06.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito06.TabIndex = 11;
+            // 
+            // abaParada_combo_defeito08
+            // 
+            this.abaParada_combo_defeito08.FormattingEnabled = true;
+            this.abaParada_combo_defeito08.Location = new System.Drawing.Point(4, 231);
+            this.abaParada_combo_defeito08.Name = "abaParada_combo_defeito08";
+            this.abaParada_combo_defeito08.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito08.TabIndex = 15;
+            // 
+            // abaParada_combo_defeito07
+            // 
+            this.abaParada_combo_defeito07.FormattingEnabled = true;
+            this.abaParada_combo_defeito07.Location = new System.Drawing.Point(4, 205);
+            this.abaParada_combo_defeito07.Name = "abaParada_combo_defeito07";
+            this.abaParada_combo_defeito07.Size = new System.Drawing.Size(154, 21);
+            this.abaParada_combo_defeito07.TabIndex = 13;
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.label_AbaDefeitos_localAplicacao);
+            this.groupBox17.Controls.Add(this.label_AbaDefeitos_turno);
+            this.groupBox17.Controls.Add(this.label_AbaDefeitos_operador);
+            this.groupBox17.Controls.Add(this.label_AbaDefeitos_ordem);
+            this.groupBox17.Controls.Add(this.label_AbaDefeitos_maq);
+            this.groupBox17.Controls.Add(this.label64);
+            this.groupBox17.Location = new System.Drawing.Point(236, 6);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(572, 108);
+            this.groupBox17.TabIndex = 86;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Informação básica";
+            // 
+            // label_AbaDefeitos_turno
+            // 
+            this.label_AbaDefeitos_turno.AutoSize = true;
+            this.label_AbaDefeitos_turno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AbaDefeitos_turno.Location = new System.Drawing.Point(6, 60);
+            this.label_AbaDefeitos_turno.Name = "label_AbaDefeitos_turno";
+            this.label_AbaDefeitos_turno.Size = new System.Drawing.Size(46, 17);
+            this.label_AbaDefeitos_turno.TabIndex = 73;
+            this.label_AbaDefeitos_turno.Text = "Turno";
+            // 
+            // label_AbaDefeitos_operador
+            // 
+            this.label_AbaDefeitos_operador.AutoSize = true;
+            this.label_AbaDefeitos_operador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AbaDefeitos_operador.Location = new System.Drawing.Point(427, 27);
+            this.label_AbaDefeitos_operador.Name = "label_AbaDefeitos_operador";
+            this.label_AbaDefeitos_operador.Size = new System.Drawing.Size(69, 17);
+            this.label_AbaDefeitos_operador.TabIndex = 72;
+            this.label_AbaDefeitos_operador.Text = "Operador";
+            // 
+            // label_AbaDefeitos_ordem
+            // 
+            this.label_AbaDefeitos_ordem.AutoSize = true;
+            this.label_AbaDefeitos_ordem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AbaDefeitos_ordem.Location = new System.Drawing.Point(313, 27);
+            this.label_AbaDefeitos_ordem.Name = "label_AbaDefeitos_ordem";
+            this.label_AbaDefeitos_ordem.Size = new System.Drawing.Size(27, 17);
+            this.label_AbaDefeitos_ordem.TabIndex = 71;
+            this.label_AbaDefeitos_ordem.Text = "Op";
+            // 
+            // label_AbaDefeitos_maq
+            // 
+            this.label_AbaDefeitos_maq.AutoSize = true;
+            this.label_AbaDefeitos_maq.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AbaDefeitos_maq.Location = new System.Drawing.Point(180, 27);
+            this.label_AbaDefeitos_maq.Name = "label_AbaDefeitos_maq";
+            this.label_AbaDefeitos_maq.Size = new System.Drawing.Size(27, 17);
+            this.label_AbaDefeitos_maq.TabIndex = 70;
+            this.label_AbaDefeitos_maq.Text = "Mq";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label64.Location = new System.Drawing.Point(6, 27);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(152, 17);
+            this.label64.TabIndex = 69;
+            this.label64.Text = "Informação de Parada:";
+            // 
             // tab_paradas
             // 
-            this.tab_paradas.Controls.Add(this.abaParadas_label_local_aplicacao);
             this.tab_paradas.Controls.Add(this.groupBox14);
             this.tab_paradas.Controls.Add(this.abaParada_button_voltar_apontamento);
             this.tab_paradas.Controls.Add(this.abaParada_button_ir_mistura);
@@ -1317,7 +1631,7 @@ namespace JP4
             // 
             this.abaParadas_label_local_aplicacao.AutoSize = true;
             this.abaParadas_label_local_aplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abaParadas_label_local_aplicacao.Location = new System.Drawing.Point(138, 128);
+            this.abaParadas_label_local_aplicacao.Location = new System.Drawing.Point(426, 60);
             this.abaParadas_label_local_aplicacao.Name = "abaParadas_label_local_aplicacao";
             this.abaParadas_label_local_aplicacao.Size = new System.Drawing.Size(22, 22);
             this.abaParadas_label_local_aplicacao.TabIndex = 83;
@@ -1363,6 +1677,7 @@ namespace JP4
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.abaParadas_label_local_aplicacao);
             this.groupBox9.Controls.Add(this.abaParadas_label_turno);
             this.groupBox9.Controls.Add(this.abaParadas_label_operador);
             this.groupBox9.Controls.Add(this.abaParadas_label_numero_op);
@@ -2669,321 +2984,6 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
-            // tab_defeitos_apon
-            // 
-            this.tab_defeitos_apon.Controls.Add(this.label_AbaDefeitos_localAplicacao);
-            this.tab_defeitos_apon.Controls.Add(this.groupBox19);
-            this.tab_defeitos_apon.Controls.Add(this.groupBox17);
-            this.tab_defeitos_apon.Location = new System.Drawing.Point(4, 22);
-            this.tab_defeitos_apon.Name = "tab_defeitos_apon";
-            this.tab_defeitos_apon.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_defeitos_apon.Size = new System.Drawing.Size(1083, 594);
-            this.tab_defeitos_apon.TabIndex = 6;
-            this.tab_defeitos_apon.Text = "Defeitos / Aparas";
-            this.tab_defeitos_apon.UseVisualStyleBackColor = true;
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.label_AbaDefeitos_turno);
-            this.groupBox17.Controls.Add(this.label_AbaDefeitos_operador);
-            this.groupBox17.Controls.Add(this.label_AbaDefeitos_ordem);
-            this.groupBox17.Controls.Add(this.label_AbaDefeitos_maq);
-            this.groupBox17.Controls.Add(this.label64);
-            this.groupBox17.Location = new System.Drawing.Point(236, 6);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(572, 108);
-            this.groupBox17.TabIndex = 86;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Informação básica";
-            // 
-            // label_AbaDefeitos_turno
-            // 
-            this.label_AbaDefeitos_turno.AutoSize = true;
-            this.label_AbaDefeitos_turno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_AbaDefeitos_turno.Location = new System.Drawing.Point(6, 60);
-            this.label_AbaDefeitos_turno.Name = "label_AbaDefeitos_turno";
-            this.label_AbaDefeitos_turno.Size = new System.Drawing.Size(46, 17);
-            this.label_AbaDefeitos_turno.TabIndex = 73;
-            this.label_AbaDefeitos_turno.Text = "Turno";
-            // 
-            // label_AbaDefeitos_operador
-            // 
-            this.label_AbaDefeitos_operador.AutoSize = true;
-            this.label_AbaDefeitos_operador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_AbaDefeitos_operador.Location = new System.Drawing.Point(427, 27);
-            this.label_AbaDefeitos_operador.Name = "label_AbaDefeitos_operador";
-            this.label_AbaDefeitos_operador.Size = new System.Drawing.Size(69, 17);
-            this.label_AbaDefeitos_operador.TabIndex = 72;
-            this.label_AbaDefeitos_operador.Text = "Operador";
-            // 
-            // label_AbaDefeitos_ordem
-            // 
-            this.label_AbaDefeitos_ordem.AutoSize = true;
-            this.label_AbaDefeitos_ordem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_AbaDefeitos_ordem.Location = new System.Drawing.Point(313, 27);
-            this.label_AbaDefeitos_ordem.Name = "label_AbaDefeitos_ordem";
-            this.label_AbaDefeitos_ordem.Size = new System.Drawing.Size(27, 17);
-            this.label_AbaDefeitos_ordem.TabIndex = 71;
-            this.label_AbaDefeitos_ordem.Text = "Op";
-            // 
-            // label_AbaDefeitos_maq
-            // 
-            this.label_AbaDefeitos_maq.AutoSize = true;
-            this.label_AbaDefeitos_maq.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_AbaDefeitos_maq.Location = new System.Drawing.Point(180, 27);
-            this.label_AbaDefeitos_maq.Name = "label_AbaDefeitos_maq";
-            this.label_AbaDefeitos_maq.Size = new System.Drawing.Size(27, 17);
-            this.label_AbaDefeitos_maq.TabIndex = 70;
-            this.label_AbaDefeitos_maq.Text = "Mq";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.Location = new System.Drawing.Point(6, 27);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(152, 17);
-            this.label64.TabIndex = 69;
-            this.label64.Text = "Informação de Parada:";
-            // 
-            // richText_label_AbaDefeitos_obs
-            // 
-            this.richText_label_AbaDefeitos_obs.Location = new System.Drawing.Point(300, 49);
-            this.richText_label_AbaDefeitos_obs.Name = "richText_label_AbaDefeitos_obs";
-            this.richText_label_AbaDefeitos_obs.Size = new System.Drawing.Size(258, 257);
-            this.richText_label_AbaDefeitos_obs.TabIndex = 88;
-            this.richText_label_AbaDefeitos_obs.Text = "";
-            // 
-            // groupBox19
-            // 
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd10);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito10);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd09);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito09);
-            this.groupBox19.Controls.Add(this.label65);
-            this.groupBox19.Controls.Add(this.richText_label_AbaDefeitos_obs);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd08);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd07);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd06);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd05);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd04);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd02);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd03);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd01);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito01);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito02);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito03);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito04);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito05);
-            this.groupBox19.Controls.Add(this.label76);
-            this.groupBox19.Controls.Add(this.label77);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito06);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito08);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito07);
-            this.groupBox19.Location = new System.Drawing.Point(236, 120);
-            this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(572, 325);
-            this.groupBox19.TabIndex = 90;
-            this.groupBox19.TabStop = false;
-            this.groupBox19.Text = "Informação de parada";
-            // 
-            // abaParada_combo_defeito01
-            // 
-            this.abaParada_combo_defeito01.FormattingEnabled = true;
-            this.abaParada_combo_defeito01.Location = new System.Drawing.Point(4, 49);
-            this.abaParada_combo_defeito01.Name = "abaParada_combo_defeito01";
-            this.abaParada_combo_defeito01.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito01.TabIndex = 1;
-            // 
-            // abaParada_combo_defeito02
-            // 
-            this.abaParada_combo_defeito02.FormattingEnabled = true;
-            this.abaParada_combo_defeito02.Location = new System.Drawing.Point(4, 75);
-            this.abaParada_combo_defeito02.Name = "abaParada_combo_defeito02";
-            this.abaParada_combo_defeito02.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito02.TabIndex = 3;
-            // 
-            // abaParada_combo_defeito03
-            // 
-            this.abaParada_combo_defeito03.FormattingEnabled = true;
-            this.abaParada_combo_defeito03.Location = new System.Drawing.Point(4, 101);
-            this.abaParada_combo_defeito03.Name = "abaParada_combo_defeito03";
-            this.abaParada_combo_defeito03.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito03.TabIndex = 5;
-            // 
-            // abaParada_combo_defeito04
-            // 
-            this.abaParada_combo_defeito04.FormattingEnabled = true;
-            this.abaParada_combo_defeito04.Location = new System.Drawing.Point(4, 127);
-            this.abaParada_combo_defeito04.Name = "abaParada_combo_defeito04";
-            this.abaParada_combo_defeito04.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito04.TabIndex = 7;
-            // 
-            // abaParada_combo_defeito05
-            // 
-            this.abaParada_combo_defeito05.FormattingEnabled = true;
-            this.abaParada_combo_defeito05.Location = new System.Drawing.Point(4, 153);
-            this.abaParada_combo_defeito05.Name = "abaParada_combo_defeito05";
-            this.abaParada_combo_defeito05.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito05.TabIndex = 9;
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(161, 24);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(62, 13);
-            this.label76.TabIndex = 68;
-            this.label76.Text = "Quantidade";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(6, 24);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(46, 13);
-            this.label77.TabIndex = 67;
-            this.label77.Text = "Defeitos";
-            // 
-            // abaParada_combo_defeito06
-            // 
-            this.abaParada_combo_defeito06.FormattingEnabled = true;
-            this.abaParada_combo_defeito06.Location = new System.Drawing.Point(4, 179);
-            this.abaParada_combo_defeito06.Name = "abaParada_combo_defeito06";
-            this.abaParada_combo_defeito06.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito06.TabIndex = 11;
-            // 
-            // abaParada_combo_defeito08
-            // 
-            this.abaParada_combo_defeito08.FormattingEnabled = true;
-            this.abaParada_combo_defeito08.Location = new System.Drawing.Point(4, 231);
-            this.abaParada_combo_defeito08.Name = "abaParada_combo_defeito08";
-            this.abaParada_combo_defeito08.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito08.TabIndex = 15;
-            // 
-            // abaParada_combo_defeito07
-            // 
-            this.abaParada_combo_defeito07.FormattingEnabled = true;
-            this.abaParada_combo_defeito07.Location = new System.Drawing.Point(4, 205);
-            this.abaParada_combo_defeito07.Name = "abaParada_combo_defeito07";
-            this.abaParada_combo_defeito07.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito07.TabIndex = 13;
-            // 
-            // abaParada_text_qtd01
-            // 
-            this.abaParada_text_qtd01.Location = new System.Drawing.Point(164, 50);
-            this.abaParada_text_qtd01.Name = "abaParada_text_qtd01";
-            this.abaParada_text_qtd01.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd01.TabIndex = 2;
-            this.abaParada_text_qtd01.Text = "0";
-            // 
-            // abaParada_text_qtd03
-            // 
-            this.abaParada_text_qtd03.Location = new System.Drawing.Point(164, 102);
-            this.abaParada_text_qtd03.Name = "abaParada_text_qtd03";
-            this.abaParada_text_qtd03.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd03.TabIndex = 6;
-            this.abaParada_text_qtd03.Text = "0";
-            // 
-            // abaParada_text_qtd02
-            // 
-            this.abaParada_text_qtd02.Location = new System.Drawing.Point(164, 76);
-            this.abaParada_text_qtd02.Name = "abaParada_text_qtd02";
-            this.abaParada_text_qtd02.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd02.TabIndex = 4;
-            this.abaParada_text_qtd02.Text = "0";
-            // 
-            // abaParada_text_qtd04
-            // 
-            this.abaParada_text_qtd04.Location = new System.Drawing.Point(164, 128);
-            this.abaParada_text_qtd04.Name = "abaParada_text_qtd04";
-            this.abaParada_text_qtd04.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd04.TabIndex = 8;
-            this.abaParada_text_qtd04.Text = "0";
-            // 
-            // abaParada_text_qtd05
-            // 
-            this.abaParada_text_qtd05.Location = new System.Drawing.Point(164, 153);
-            this.abaParada_text_qtd05.Name = "abaParada_text_qtd05";
-            this.abaParada_text_qtd05.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd05.TabIndex = 10;
-            this.abaParada_text_qtd05.Text = "0";
-            // 
-            // abaParada_text_qtd06
-            // 
-            this.abaParada_text_qtd06.Location = new System.Drawing.Point(164, 180);
-            this.abaParada_text_qtd06.Name = "abaParada_text_qtd06";
-            this.abaParada_text_qtd06.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd06.TabIndex = 12;
-            this.abaParada_text_qtd06.Text = "0";
-            // 
-            // abaParada_text_qtd07
-            // 
-            this.abaParada_text_qtd07.Location = new System.Drawing.Point(164, 206);
-            this.abaParada_text_qtd07.Name = "abaParada_text_qtd07";
-            this.abaParada_text_qtd07.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd07.TabIndex = 14;
-            this.abaParada_text_qtd07.Text = "0";
-            // 
-            // abaParada_text_qtd08
-            // 
-            this.abaParada_text_qtd08.Location = new System.Drawing.Point(164, 231);
-            this.abaParada_text_qtd08.Name = "abaParada_text_qtd08";
-            this.abaParada_text_qtd08.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd08.TabIndex = 16;
-            this.abaParada_text_qtd08.Text = "0";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(313, 24);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(65, 13);
-            this.label65.TabIndex = 89;
-            this.label65.Text = "Observação";
-            // 
-            // abaParada_text_qtd09
-            // 
-            this.abaParada_text_qtd09.Location = new System.Drawing.Point(164, 258);
-            this.abaParada_text_qtd09.Name = "abaParada_text_qtd09";
-            this.abaParada_text_qtd09.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd09.TabIndex = 18;
-            this.abaParada_text_qtd09.Text = "0";
-            // 
-            // abaParada_combo_defeito09
-            // 
-            this.abaParada_combo_defeito09.FormattingEnabled = true;
-            this.abaParada_combo_defeito09.Location = new System.Drawing.Point(4, 258);
-            this.abaParada_combo_defeito09.Name = "abaParada_combo_defeito09";
-            this.abaParada_combo_defeito09.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito09.TabIndex = 17;
-            // 
-            // abaParada_text_qtd10
-            // 
-            this.abaParada_text_qtd10.Location = new System.Drawing.Point(164, 285);
-            this.abaParada_text_qtd10.Name = "abaParada_text_qtd10";
-            this.abaParada_text_qtd10.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd10.TabIndex = 20;
-            this.abaParada_text_qtd10.Text = "0";
-            // 
-            // abaParada_combo_defeito10
-            // 
-            this.abaParada_combo_defeito10.FormattingEnabled = true;
-            this.abaParada_combo_defeito10.Location = new System.Drawing.Point(4, 285);
-            this.abaParada_combo_defeito10.Name = "abaParada_combo_defeito10";
-            this.abaParada_combo_defeito10.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito10.TabIndex = 19;
-            // 
-            // label_AbaDefeitos_localAplicacao
-            // 
-            this.label_AbaDefeitos_localAplicacao.AutoSize = true;
-            this.label_AbaDefeitos_localAplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_AbaDefeitos_localAplicacao.Location = new System.Drawing.Point(133, 120);
-            this.label_AbaDefeitos_localAplicacao.Name = "label_AbaDefeitos_localAplicacao";
-            this.label_AbaDefeitos_localAplicacao.Size = new System.Drawing.Size(22, 22);
-            this.label_AbaDefeitos_localAplicacao.TabIndex = 91;
-            this.label_AbaDefeitos_localAplicacao.Text = "--";
-            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3019,8 +3019,12 @@ namespace JP4
             this.tab_menu_apontamento.ResumeLayout(false);
             this.tab_apontamento.ResumeLayout(false);
             this.tab_apontamento.PerformLayout();
+            this.tab_defeitos_apon.ResumeLayout(false);
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
             this.tab_paradas.ResumeLayout(false);
-            this.tab_paradas.PerformLayout();
             this.groupBox14.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -3041,12 +3045,6 @@ namespace JP4
             ((System.ComponentModel.ISupportInitialize)(this.abaPesquisar_Grid_apon)).EndInit();
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
-            this.tab_defeitos_apon.ResumeLayout(false);
-            this.tab_defeitos_apon.PerformLayout();
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
-            this.groupBox19.ResumeLayout(false);
-            this.groupBox19.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
