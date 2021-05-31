@@ -130,7 +130,6 @@ namespace JP4
             this.tab_menu_apontamento = new System.Windows.Forms.TabControl();
             this.tab_apontamento = new System.Windows.Forms.TabPage();
             this.tab_defeitos_apon = new System.Windows.Forms.TabPage();
-            this.label_AbaDefeitos_localAplicacao = new System.Windows.Forms.Label();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.abaParada_text_qtd10 = new System.Windows.Forms.TextBox();
             this.abaParada_combo_defeito10 = new System.Windows.Forms.ComboBox();
@@ -157,18 +156,19 @@ namespace JP4
             this.abaParada_combo_defeito08 = new System.Windows.Forms.ComboBox();
             this.abaParada_combo_defeito07 = new System.Windows.Forms.ComboBox();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label_AbaDefeitos_localAplicacao = new System.Windows.Forms.Label();
             this.label_AbaDefeitos_turno = new System.Windows.Forms.Label();
             this.label_AbaDefeitos_operador = new System.Windows.Forms.Label();
             this.label_AbaDefeitos_ordem = new System.Windows.Forms.Label();
             this.label_AbaDefeitos_maq = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.tab_paradas = new System.Windows.Forms.TabPage();
-            this.abaParadas_label_local_aplicacao = new System.Windows.Forms.Label();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.abaParadas_obs = new System.Windows.Forms.RichTextBox();
             this.abaParada_button_voltar_apontamento = new System.Windows.Forms.Button();
             this.abaParada_button_ir_mistura = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.abaParadas_label_local_aplicacao = new System.Windows.Forms.Label();
             this.abaParadas_label_turno = new System.Windows.Forms.Label();
             this.abaParadas_label_operador = new System.Windows.Forms.Label();
             this.abaParadas_label_numero_op = new System.Windows.Forms.Label();
@@ -296,6 +296,8 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
+            this.label_AbaDefeitos_data = new System.Windows.Forms.Label();
+            this.abaParadas_label_data = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -867,7 +869,7 @@ namespace JP4
             this.dt_inicio_pro.Name = "dt_inicio_pro";
             this.dt_inicio_pro.Size = new System.Drawing.Size(143, 20);
             this.dt_inicio_pro.TabIndex = 9;
-            this.dt_inicio_pro.Value = new System.DateTime(2021, 4, 12, 0, 0, 0, 0);
+            this.dt_inicio_pro.Value = new System.DateTime(2021, 5, 31, 0, 0, 0, 0);
             // 
             // label10
             // 
@@ -1310,16 +1312,6 @@ namespace JP4
             this.tab_defeitos_apon.Text = "Defeitos / Aparas";
             this.tab_defeitos_apon.UseVisualStyleBackColor = true;
             // 
-            // label_AbaDefeitos_localAplicacao
-            // 
-            this.label_AbaDefeitos_localAplicacao.AutoSize = true;
-            this.label_AbaDefeitos_localAplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_AbaDefeitos_localAplicacao.Location = new System.Drawing.Point(426, 55);
-            this.label_AbaDefeitos_localAplicacao.Name = "label_AbaDefeitos_localAplicacao";
-            this.label_AbaDefeitos_localAplicacao.Size = new System.Drawing.Size(22, 22);
-            this.label_AbaDefeitos_localAplicacao.TabIndex = 91;
-            this.label_AbaDefeitos_localAplicacao.Text = "--";
-            // 
             // groupBox19
             // 
             this.groupBox19.Controls.Add(this.abaParada_text_qtd10);
@@ -1550,6 +1542,7 @@ namespace JP4
             // 
             // groupBox17
             // 
+            this.groupBox17.Controls.Add(this.label_AbaDefeitos_data);
             this.groupBox17.Controls.Add(this.label_AbaDefeitos_localAplicacao);
             this.groupBox17.Controls.Add(this.label_AbaDefeitos_turno);
             this.groupBox17.Controls.Add(this.label_AbaDefeitos_operador);
@@ -1562,6 +1555,16 @@ namespace JP4
             this.groupBox17.TabIndex = 86;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Informação básica";
+            // 
+            // label_AbaDefeitos_localAplicacao
+            // 
+            this.label_AbaDefeitos_localAplicacao.AutoSize = true;
+            this.label_AbaDefeitos_localAplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AbaDefeitos_localAplicacao.Location = new System.Drawing.Point(426, 55);
+            this.label_AbaDefeitos_localAplicacao.Name = "label_AbaDefeitos_localAplicacao";
+            this.label_AbaDefeitos_localAplicacao.Size = new System.Drawing.Size(22, 22);
+            this.label_AbaDefeitos_localAplicacao.TabIndex = 91;
+            this.label_AbaDefeitos_localAplicacao.Text = "--";
             // 
             // label_AbaDefeitos_turno
             // 
@@ -1627,16 +1630,6 @@ namespace JP4
             this.tab_paradas.Text = "Paradas";
             this.tab_paradas.UseVisualStyleBackColor = true;
             // 
-            // abaParadas_label_local_aplicacao
-            // 
-            this.abaParadas_label_local_aplicacao.AutoSize = true;
-            this.abaParadas_label_local_aplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abaParadas_label_local_aplicacao.Location = new System.Drawing.Point(426, 60);
-            this.abaParadas_label_local_aplicacao.Name = "abaParadas_label_local_aplicacao";
-            this.abaParadas_label_local_aplicacao.Size = new System.Drawing.Size(22, 22);
-            this.abaParadas_label_local_aplicacao.TabIndex = 83;
-            this.abaParadas_label_local_aplicacao.Text = "--";
-            // 
             // groupBox14
             // 
             this.groupBox14.Controls.Add(this.abaParadas_obs);
@@ -1677,6 +1670,7 @@ namespace JP4
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.abaParadas_label_data);
             this.groupBox9.Controls.Add(this.abaParadas_label_local_aplicacao);
             this.groupBox9.Controls.Add(this.abaParadas_label_turno);
             this.groupBox9.Controls.Add(this.abaParadas_label_operador);
@@ -1689,6 +1683,16 @@ namespace JP4
             this.groupBox9.TabIndex = 85;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Informação básica";
+            // 
+            // abaParadas_label_local_aplicacao
+            // 
+            this.abaParadas_label_local_aplicacao.AutoSize = true;
+            this.abaParadas_label_local_aplicacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParadas_label_local_aplicacao.Location = new System.Drawing.Point(426, 60);
+            this.abaParadas_label_local_aplicacao.Name = "abaParadas_label_local_aplicacao";
+            this.abaParadas_label_local_aplicacao.Size = new System.Drawing.Size(22, 22);
+            this.abaParadas_label_local_aplicacao.TabIndex = 83;
+            this.abaParadas_label_local_aplicacao.Text = "--";
             // 
             // abaParadas_label_turno
             // 
@@ -2984,6 +2988,26 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
+            // label_AbaDefeitos_data
+            // 
+            this.label_AbaDefeitos_data.AutoSize = true;
+            this.label_AbaDefeitos_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AbaDefeitos_data.Location = new System.Drawing.Point(180, 69);
+            this.label_AbaDefeitos_data.Name = "label_AbaDefeitos_data";
+            this.label_AbaDefeitos_data.Size = new System.Drawing.Size(38, 17);
+            this.label_AbaDefeitos_data.TabIndex = 92;
+            this.label_AbaDefeitos_data.Text = "Data";
+            // 
+            // abaParadas_label_data
+            // 
+            this.abaParadas_label_data.AutoSize = true;
+            this.abaParadas_label_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParadas_label_data.Location = new System.Drawing.Point(180, 60);
+            this.abaParadas_label_data.Name = "abaParadas_label_data";
+            this.abaParadas_label_data.Size = new System.Drawing.Size(38, 17);
+            this.abaParadas_label_data.TabIndex = 84;
+            this.abaParadas_label_data.Text = "Data";
+            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3318,5 +3342,7 @@ namespace JP4
         private System.Windows.Forms.TextBox abaParada_text_qtd09;
         private System.Windows.Forms.ComboBox abaParada_combo_defeito09;
         private System.Windows.Forms.Label label_AbaDefeitos_localAplicacao;
+        private System.Windows.Forms.Label label_AbaDefeitos_data;
+        private System.Windows.Forms.Label abaParadas_label_data;
     }
 }

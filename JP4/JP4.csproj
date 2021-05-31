@@ -15,20 +15,19 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\Users\Jeferson\OneDrive\Visual - basic c#\Aplicativo\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
+    <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\185.27.134.11\htdocs\</InstallUrl>
-    <UpdateUrl>\\185.27.134.11\htdocs\</UpdateUrl>
+    <UpdateUrl>\\108.167.151.58\Aplicativo\JM4\</UpdateUrl>
     <MinimumRequiredVersion>10.1.1.1</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>10.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -279,19 +278,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="db_aplicativo_kpi.mdb">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Update_files\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
