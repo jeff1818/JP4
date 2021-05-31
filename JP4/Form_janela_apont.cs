@@ -1509,7 +1509,7 @@ namespace JP4
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show(erro.Message + "// Erro no metodo Estornar //");
 
             }
 
@@ -1684,7 +1684,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
 
         // Metodos de atualização de lançamento
         private void Atualizar_lancamento(string id_apontamento)
@@ -2728,10 +2727,8 @@ namespace JP4
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total01.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total01.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
-
                     string campo_marcador = abaParada_combo_parada01.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
-
                     DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
 
                     try
@@ -3059,8 +3056,6 @@ namespace JP4
                     }
                 }
             }
-
-
         }
 
 
@@ -3819,8 +3814,16 @@ namespace JP4
         }
 
 
+
         #endregion //Funções da aba Parada
 
+        #region Funções da aba Defeitos
+        private void AbaDefeitos_button_voltar_apon_Click(object sender, EventArgs e)
+        {
+            tab_menu_apontamento.SelectedTab = tab_apontamento;
+        }
+
+        #endregion // aba defeitos
 
 
         //------------------------------------------------------------------------------------------
@@ -4023,6 +4026,7 @@ namespace JP4
         }
         private void Carregar_paradas_apontamento(string num_transac)
         {
+
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -4116,6 +4120,103 @@ namespace JP4
             {
                 MessageBox.Show("Erro Ao carregar paradas ! // " + erro.Message);
             }
+        
+        }
+
+        private void Carregar_defeitos_apontamento(string num_transac)
+        {
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_defeitos_mq where num_transac ='" + num_transac + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    label_AbaDefeitos_maq.Text = myreader["maquina"].ToString();
+                    label_AbaDefeitos_ordem.Text = myreader["ordem_prod"].ToString();
+                    label_AbaDefeitos_operador.Text = myreader["operador"].ToString();
+                    label_AbaDefeitos_turno.Text = myreader["turno"].ToString();
+                    label_AbaDefeitos_data.Text = myreader["data_lanc"].ToString();
+
+                    richText_label_AbaDefeitos_obs.Text = myreader["observacao"].ToString();
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito01.Name)
+                    {
+                        abaParada_combo_defeito01.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd01.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito02.Name)
+                    {
+                        abaParada_combo_defeito02.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd02.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito03.Name)
+                    {
+                        abaParada_combo_defeito03.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd03.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito04.Name)
+                    {
+                        abaParada_combo_defeito04.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd04.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito05.Name)
+                    {
+                        abaParada_combo_defeito05.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd05.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito06.Name)
+                    {
+                        abaParada_combo_defeito06.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd06.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito07.Name)
+                    {
+                        abaParada_combo_defeito07.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd07.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito08.Name)
+                    {
+                        abaParada_combo_defeito08.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd08.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito09.Name)
+                    {
+                        abaParada_combo_defeito09.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd09.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                    if (myreader["campo_marcador"].ToString() == abaParada_combo_defeito10.Name)
+                    {
+                        abaParada_combo_defeito10.Text = myreader["descricao_defeitos"].ToString();
+                        abaParada_text_qtd10.Text = myreader["qtd_defeitos"].ToString();
+                    }
+
+                }
+
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro Ao carregar paradas ! // " + erro.Message);
+            }
+
         }
 
         private void Carregar_consumo_mp_apontamento()
@@ -4248,6 +4349,7 @@ namespace JP4
 
             Carregar_campos_apontamento(id_apontamento);
             Carregar_paradas_apontamento(abaApon_label_num_transa.Text);
+            Carregar_defeitos_apontamento(abaApon_label_num_transa.Text);
 
             Carregar_grid(combo_desc_completa.Text);
             Calcular_qtd_total_grid();
@@ -4256,5 +4358,6 @@ namespace JP4
 
         }
 
+        
     }
 }

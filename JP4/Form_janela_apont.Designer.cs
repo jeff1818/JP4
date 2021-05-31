@@ -298,6 +298,7 @@ namespace JP4
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
             this.label_AbaDefeitos_data = new System.Windows.Forms.Label();
             this.abaParadas_label_data = new System.Windows.Forms.Label();
+            this.AbaDefeitos_button_voltar_apon = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1302,6 +1303,7 @@ namespace JP4
             // 
             // tab_defeitos_apon
             // 
+            this.tab_defeitos_apon.Controls.Add(this.AbaDefeitos_button_voltar_apon);
             this.tab_defeitos_apon.Controls.Add(this.groupBox19);
             this.tab_defeitos_apon.Controls.Add(this.groupBox17);
             this.tab_defeitos_apon.Location = new System.Drawing.Point(4, 22);
@@ -3008,6 +3010,16 @@ namespace JP4
             this.abaParadas_label_data.TabIndex = 84;
             this.abaParadas_label_data.Text = "Data";
             // 
+            // AbaDefeitos_button_voltar_apon
+            // 
+            this.AbaDefeitos_button_voltar_apon.Location = new System.Drawing.Point(125, 66);
+            this.AbaDefeitos_button_voltar_apon.Name = "AbaDefeitos_button_voltar_apon";
+            this.AbaDefeitos_button_voltar_apon.Size = new System.Drawing.Size(105, 23);
+            this.AbaDefeitos_button_voltar_apon.TabIndex = 91;
+            this.AbaDefeitos_button_voltar_apon.Text = "<< Apontamento";
+            this.AbaDefeitos_button_voltar_apon.UseVisualStyleBackColor = true;
+            this.AbaDefeitos_button_voltar_apon.Click += new System.EventHandler(this.AbaDefeitos_button_voltar_apon_Click);
+            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3344,5 +3356,6 @@ namespace JP4
         private System.Windows.Forms.Label label_AbaDefeitos_localAplicacao;
         private System.Windows.Forms.Label label_AbaDefeitos_data;
         private System.Windows.Forms.Label abaParadas_label_data;
+        private System.Windows.Forms.Button AbaDefeitos_button_voltar_apon;
     }
 }
