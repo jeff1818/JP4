@@ -53,6 +53,8 @@ namespace JP4
             this.paradasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.combo_cliente_esto = new System.Windows.Forms.ComboBox();
             this.label_tipo_material = new System.Windows.Forms.Label();
             this.text_qtd_saldo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -130,32 +132,34 @@ namespace JP4
             this.tab_menu_apontamento = new System.Windows.Forms.TabControl();
             this.tab_apontamento = new System.Windows.Forms.TabPage();
             this.tab_defeitos_apon = new System.Windows.Forms.TabPage();
+            this.AbaDefeitos_button_voltar_apon = new System.Windows.Forms.Button();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.abaParada_text_qtd10 = new System.Windows.Forms.TextBox();
-            this.abaParada_combo_defeito10 = new System.Windows.Forms.ComboBox();
-            this.abaParada_text_qtd09 = new System.Windows.Forms.TextBox();
-            this.abaParada_combo_defeito09 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_text_qtd10 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_combo_defeito10 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_text_qtd09 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_combo_defeito09 = new System.Windows.Forms.ComboBox();
             this.label65 = new System.Windows.Forms.Label();
             this.richText_label_AbaDefeitos_obs = new System.Windows.Forms.RichTextBox();
-            this.abaParada_text_qtd08 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd07 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd06 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd05 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd04 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd02 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd03 = new System.Windows.Forms.TextBox();
-            this.abaParada_text_qtd01 = new System.Windows.Forms.TextBox();
-            this.abaParada_combo_defeito01 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito02 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito03 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito04 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito05 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_text_qtd08 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_text_qtd07 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_text_qtd06 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_text_qtd05 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_text_qtd04 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_text_qtd02 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_text_qtd03 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_text_qtd01 = new System.Windows.Forms.TextBox();
+            this.AbaDefeito_combo_defeito01 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_combo_defeito02 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_combo_defeito03 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_combo_defeito04 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_combo_defeito05 = new System.Windows.Forms.ComboBox();
             this.label76 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
-            this.abaParada_combo_defeito06 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito08 = new System.Windows.Forms.ComboBox();
-            this.abaParada_combo_defeito07 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_combo_defeito06 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_combo_defeito08 = new System.Windows.Forms.ComboBox();
+            this.AbaDefeito_combo_defeito07 = new System.Windows.Forms.ComboBox();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label_AbaDefeitos_data = new System.Windows.Forms.Label();
             this.label_AbaDefeitos_localAplicacao = new System.Windows.Forms.Label();
             this.label_AbaDefeitos_turno = new System.Windows.Forms.Label();
             this.label_AbaDefeitos_operador = new System.Windows.Forms.Label();
@@ -168,6 +172,7 @@ namespace JP4
             this.abaParada_button_voltar_apontamento = new System.Windows.Forms.Button();
             this.abaParada_button_ir_mistura = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.abaParadas_label_data = new System.Windows.Forms.Label();
             this.abaParadas_label_local_aplicacao = new System.Windows.Forms.Label();
             this.abaParadas_label_turno = new System.Windows.Forms.Label();
             this.abaParadas_label_operador = new System.Windows.Forms.Label();
@@ -296,9 +301,8 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
-            this.label_AbaDefeitos_data = new System.Windows.Forms.Label();
-            this.abaParadas_label_data = new System.Windows.Forms.Label();
-            this.AbaDefeitos_button_voltar_apon = new System.Windows.Forms.Button();
+            this.AbaMistura_label_data_lanc = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -501,6 +505,8 @@ namespace JP4
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label32);
+            this.groupBox1.Controls.Add(this.combo_cliente_esto);
             this.groupBox1.Controls.Add(this.label_tipo_material);
             this.groupBox1.Controls.Add(this.text_qtd_saldo);
             this.groupBox1.Controls.Add(this.label5);
@@ -518,6 +524,27 @@ namespace JP4
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação de Ordem";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(468, 94);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(42, 13);
+            this.label32.TabIndex = 12;
+            this.label32.Text = "Cliente:";
+            // 
+            // combo_cliente_esto
+            // 
+            this.combo_cliente_esto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.combo_cliente_esto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.combo_cliente_esto.BackColor = System.Drawing.Color.LightGray;
+            this.combo_cliente_esto.Enabled = false;
+            this.combo_cliente_esto.FormattingEnabled = true;
+            this.combo_cliente_esto.Location = new System.Drawing.Point(528, 91);
+            this.combo_cliente_esto.Name = "combo_cliente_esto";
+            this.combo_cliente_esto.Size = new System.Drawing.Size(166, 21);
+            this.combo_cliente_esto.TabIndex = 11;
             // 
             // label_tipo_material
             // 
@@ -1314,32 +1341,42 @@ namespace JP4
             this.tab_defeitos_apon.Text = "Defeitos / Aparas";
             this.tab_defeitos_apon.UseVisualStyleBackColor = true;
             // 
+            // AbaDefeitos_button_voltar_apon
+            // 
+            this.AbaDefeitos_button_voltar_apon.Location = new System.Drawing.Point(125, 66);
+            this.AbaDefeitos_button_voltar_apon.Name = "AbaDefeitos_button_voltar_apon";
+            this.AbaDefeitos_button_voltar_apon.Size = new System.Drawing.Size(105, 23);
+            this.AbaDefeitos_button_voltar_apon.TabIndex = 91;
+            this.AbaDefeitos_button_voltar_apon.Text = "<< Apontamento";
+            this.AbaDefeitos_button_voltar_apon.UseVisualStyleBackColor = true;
+            this.AbaDefeitos_button_voltar_apon.Click += new System.EventHandler(this.AbaDefeitos_button_voltar_apon_Click);
+            // 
             // groupBox19
             // 
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd10);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito10);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd09);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito09);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd10);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito10);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd09);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito09);
             this.groupBox19.Controls.Add(this.label65);
             this.groupBox19.Controls.Add(this.richText_label_AbaDefeitos_obs);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd08);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd07);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd06);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd05);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd04);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd02);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd03);
-            this.groupBox19.Controls.Add(this.abaParada_text_qtd01);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito01);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito02);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito03);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito04);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito05);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd08);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd07);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd06);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd05);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd04);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd02);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd03);
+            this.groupBox19.Controls.Add(this.AbaDefeito_text_qtd01);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito01);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito02);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito03);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito04);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito05);
             this.groupBox19.Controls.Add(this.label76);
             this.groupBox19.Controls.Add(this.label77);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito06);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito08);
-            this.groupBox19.Controls.Add(this.abaParada_combo_defeito07);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito06);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito08);
+            this.groupBox19.Controls.Add(this.AbaDefeito_combo_defeito07);
             this.groupBox19.Location = new System.Drawing.Point(236, 120);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Size = new System.Drawing.Size(572, 325);
@@ -1347,37 +1384,41 @@ namespace JP4
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Informação de parada";
             // 
-            // abaParada_text_qtd10
+            // AbaDefeito_text_qtd10
             // 
-            this.abaParada_text_qtd10.Location = new System.Drawing.Point(164, 285);
-            this.abaParada_text_qtd10.Name = "abaParada_text_qtd10";
-            this.abaParada_text_qtd10.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd10.TabIndex = 20;
-            this.abaParada_text_qtd10.Text = "0";
+            this.AbaDefeito_text_qtd10.Location = new System.Drawing.Point(164, 285);
+            this.AbaDefeito_text_qtd10.Name = "AbaDefeito_text_qtd10";
+            this.AbaDefeito_text_qtd10.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd10.TabIndex = 20;
+            this.AbaDefeito_text_qtd10.Text = "0";
             // 
-            // abaParada_combo_defeito10
+            // AbaDefeito_combo_defeito10
             // 
-            this.abaParada_combo_defeito10.FormattingEnabled = true;
-            this.abaParada_combo_defeito10.Location = new System.Drawing.Point(4, 285);
-            this.abaParada_combo_defeito10.Name = "abaParada_combo_defeito10";
-            this.abaParada_combo_defeito10.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito10.TabIndex = 19;
+            this.AbaDefeito_combo_defeito10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito10.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito10.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito10.Location = new System.Drawing.Point(4, 285);
+            this.AbaDefeito_combo_defeito10.Name = "AbaDefeito_combo_defeito10";
+            this.AbaDefeito_combo_defeito10.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito10.TabIndex = 19;
             // 
-            // abaParada_text_qtd09
+            // AbaDefeito_text_qtd09
             // 
-            this.abaParada_text_qtd09.Location = new System.Drawing.Point(164, 258);
-            this.abaParada_text_qtd09.Name = "abaParada_text_qtd09";
-            this.abaParada_text_qtd09.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd09.TabIndex = 18;
-            this.abaParada_text_qtd09.Text = "0";
+            this.AbaDefeito_text_qtd09.Location = new System.Drawing.Point(164, 258);
+            this.AbaDefeito_text_qtd09.Name = "AbaDefeito_text_qtd09";
+            this.AbaDefeito_text_qtd09.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd09.TabIndex = 18;
+            this.AbaDefeito_text_qtd09.Text = "0";
             // 
-            // abaParada_combo_defeito09
+            // AbaDefeito_combo_defeito09
             // 
-            this.abaParada_combo_defeito09.FormattingEnabled = true;
-            this.abaParada_combo_defeito09.Location = new System.Drawing.Point(4, 258);
-            this.abaParada_combo_defeito09.Name = "abaParada_combo_defeito09";
-            this.abaParada_combo_defeito09.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito09.TabIndex = 17;
+            this.AbaDefeito_combo_defeito09.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito09.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito09.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito09.Location = new System.Drawing.Point(4, 258);
+            this.AbaDefeito_combo_defeito09.Name = "AbaDefeito_combo_defeito09";
+            this.AbaDefeito_combo_defeito09.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito09.TabIndex = 17;
             // 
             // label65
             // 
@@ -1396,109 +1437,119 @@ namespace JP4
             this.richText_label_AbaDefeitos_obs.TabIndex = 88;
             this.richText_label_AbaDefeitos_obs.Text = "";
             // 
-            // abaParada_text_qtd08
+            // AbaDefeito_text_qtd08
             // 
-            this.abaParada_text_qtd08.Location = new System.Drawing.Point(164, 231);
-            this.abaParada_text_qtd08.Name = "abaParada_text_qtd08";
-            this.abaParada_text_qtd08.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd08.TabIndex = 16;
-            this.abaParada_text_qtd08.Text = "0";
+            this.AbaDefeito_text_qtd08.Location = new System.Drawing.Point(164, 231);
+            this.AbaDefeito_text_qtd08.Name = "AbaDefeito_text_qtd08";
+            this.AbaDefeito_text_qtd08.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd08.TabIndex = 16;
+            this.AbaDefeito_text_qtd08.Text = "0";
             // 
-            // abaParada_text_qtd07
+            // AbaDefeito_text_qtd07
             // 
-            this.abaParada_text_qtd07.Location = new System.Drawing.Point(164, 206);
-            this.abaParada_text_qtd07.Name = "abaParada_text_qtd07";
-            this.abaParada_text_qtd07.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd07.TabIndex = 14;
-            this.abaParada_text_qtd07.Text = "0";
+            this.AbaDefeito_text_qtd07.Location = new System.Drawing.Point(164, 206);
+            this.AbaDefeito_text_qtd07.Name = "AbaDefeito_text_qtd07";
+            this.AbaDefeito_text_qtd07.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd07.TabIndex = 14;
+            this.AbaDefeito_text_qtd07.Text = "0";
             // 
-            // abaParada_text_qtd06
+            // AbaDefeito_text_qtd06
             // 
-            this.abaParada_text_qtd06.Location = new System.Drawing.Point(164, 180);
-            this.abaParada_text_qtd06.Name = "abaParada_text_qtd06";
-            this.abaParada_text_qtd06.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd06.TabIndex = 12;
-            this.abaParada_text_qtd06.Text = "0";
+            this.AbaDefeito_text_qtd06.Location = new System.Drawing.Point(164, 180);
+            this.AbaDefeito_text_qtd06.Name = "AbaDefeito_text_qtd06";
+            this.AbaDefeito_text_qtd06.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd06.TabIndex = 12;
+            this.AbaDefeito_text_qtd06.Text = "0";
             // 
-            // abaParada_text_qtd05
+            // AbaDefeito_text_qtd05
             // 
-            this.abaParada_text_qtd05.Location = new System.Drawing.Point(164, 153);
-            this.abaParada_text_qtd05.Name = "abaParada_text_qtd05";
-            this.abaParada_text_qtd05.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd05.TabIndex = 10;
-            this.abaParada_text_qtd05.Text = "0";
+            this.AbaDefeito_text_qtd05.Location = new System.Drawing.Point(164, 153);
+            this.AbaDefeito_text_qtd05.Name = "AbaDefeito_text_qtd05";
+            this.AbaDefeito_text_qtd05.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd05.TabIndex = 10;
+            this.AbaDefeito_text_qtd05.Text = "0";
             // 
-            // abaParada_text_qtd04
+            // AbaDefeito_text_qtd04
             // 
-            this.abaParada_text_qtd04.Location = new System.Drawing.Point(164, 128);
-            this.abaParada_text_qtd04.Name = "abaParada_text_qtd04";
-            this.abaParada_text_qtd04.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd04.TabIndex = 8;
-            this.abaParada_text_qtd04.Text = "0";
+            this.AbaDefeito_text_qtd04.Location = new System.Drawing.Point(164, 128);
+            this.AbaDefeito_text_qtd04.Name = "AbaDefeito_text_qtd04";
+            this.AbaDefeito_text_qtd04.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd04.TabIndex = 8;
+            this.AbaDefeito_text_qtd04.Text = "0";
             // 
-            // abaParada_text_qtd02
+            // AbaDefeito_text_qtd02
             // 
-            this.abaParada_text_qtd02.Location = new System.Drawing.Point(164, 76);
-            this.abaParada_text_qtd02.Name = "abaParada_text_qtd02";
-            this.abaParada_text_qtd02.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd02.TabIndex = 4;
-            this.abaParada_text_qtd02.Text = "0";
+            this.AbaDefeito_text_qtd02.Location = new System.Drawing.Point(164, 76);
+            this.AbaDefeito_text_qtd02.Name = "AbaDefeito_text_qtd02";
+            this.AbaDefeito_text_qtd02.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd02.TabIndex = 4;
+            this.AbaDefeito_text_qtd02.Text = "0";
             // 
-            // abaParada_text_qtd03
+            // AbaDefeito_text_qtd03
             // 
-            this.abaParada_text_qtd03.Location = new System.Drawing.Point(164, 102);
-            this.abaParada_text_qtd03.Name = "abaParada_text_qtd03";
-            this.abaParada_text_qtd03.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd03.TabIndex = 6;
-            this.abaParada_text_qtd03.Text = "0";
+            this.AbaDefeito_text_qtd03.Location = new System.Drawing.Point(164, 102);
+            this.AbaDefeito_text_qtd03.Name = "AbaDefeito_text_qtd03";
+            this.AbaDefeito_text_qtd03.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd03.TabIndex = 6;
+            this.AbaDefeito_text_qtd03.Text = "0";
             // 
-            // abaParada_text_qtd01
+            // AbaDefeito_text_qtd01
             // 
-            this.abaParada_text_qtd01.Location = new System.Drawing.Point(164, 50);
-            this.abaParada_text_qtd01.Name = "abaParada_text_qtd01";
-            this.abaParada_text_qtd01.Size = new System.Drawing.Size(130, 20);
-            this.abaParada_text_qtd01.TabIndex = 2;
-            this.abaParada_text_qtd01.Text = "0";
+            this.AbaDefeito_text_qtd01.Location = new System.Drawing.Point(164, 50);
+            this.AbaDefeito_text_qtd01.Name = "AbaDefeito_text_qtd01";
+            this.AbaDefeito_text_qtd01.Size = new System.Drawing.Size(130, 20);
+            this.AbaDefeito_text_qtd01.TabIndex = 2;
+            this.AbaDefeito_text_qtd01.Text = "0";
             // 
-            // abaParada_combo_defeito01
+            // AbaDefeito_combo_defeito01
             // 
-            this.abaParada_combo_defeito01.FormattingEnabled = true;
-            this.abaParada_combo_defeito01.Location = new System.Drawing.Point(4, 49);
-            this.abaParada_combo_defeito01.Name = "abaParada_combo_defeito01";
-            this.abaParada_combo_defeito01.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito01.TabIndex = 1;
+            this.AbaDefeito_combo_defeito01.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito01.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito01.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito01.Location = new System.Drawing.Point(4, 49);
+            this.AbaDefeito_combo_defeito01.Name = "AbaDefeito_combo_defeito01";
+            this.AbaDefeito_combo_defeito01.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito01.TabIndex = 1;
             // 
-            // abaParada_combo_defeito02
+            // AbaDefeito_combo_defeito02
             // 
-            this.abaParada_combo_defeito02.FormattingEnabled = true;
-            this.abaParada_combo_defeito02.Location = new System.Drawing.Point(4, 75);
-            this.abaParada_combo_defeito02.Name = "abaParada_combo_defeito02";
-            this.abaParada_combo_defeito02.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito02.TabIndex = 3;
+            this.AbaDefeito_combo_defeito02.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito02.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito02.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito02.Location = new System.Drawing.Point(4, 75);
+            this.AbaDefeito_combo_defeito02.Name = "AbaDefeito_combo_defeito02";
+            this.AbaDefeito_combo_defeito02.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito02.TabIndex = 3;
             // 
-            // abaParada_combo_defeito03
+            // AbaDefeito_combo_defeito03
             // 
-            this.abaParada_combo_defeito03.FormattingEnabled = true;
-            this.abaParada_combo_defeito03.Location = new System.Drawing.Point(4, 101);
-            this.abaParada_combo_defeito03.Name = "abaParada_combo_defeito03";
-            this.abaParada_combo_defeito03.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito03.TabIndex = 5;
+            this.AbaDefeito_combo_defeito03.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito03.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito03.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito03.Location = new System.Drawing.Point(4, 101);
+            this.AbaDefeito_combo_defeito03.Name = "AbaDefeito_combo_defeito03";
+            this.AbaDefeito_combo_defeito03.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito03.TabIndex = 5;
             // 
-            // abaParada_combo_defeito04
+            // AbaDefeito_combo_defeito04
             // 
-            this.abaParada_combo_defeito04.FormattingEnabled = true;
-            this.abaParada_combo_defeito04.Location = new System.Drawing.Point(4, 127);
-            this.abaParada_combo_defeito04.Name = "abaParada_combo_defeito04";
-            this.abaParada_combo_defeito04.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito04.TabIndex = 7;
+            this.AbaDefeito_combo_defeito04.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito04.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito04.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito04.Location = new System.Drawing.Point(4, 127);
+            this.AbaDefeito_combo_defeito04.Name = "AbaDefeito_combo_defeito04";
+            this.AbaDefeito_combo_defeito04.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito04.TabIndex = 7;
             // 
-            // abaParada_combo_defeito05
+            // AbaDefeito_combo_defeito05
             // 
-            this.abaParada_combo_defeito05.FormattingEnabled = true;
-            this.abaParada_combo_defeito05.Location = new System.Drawing.Point(4, 153);
-            this.abaParada_combo_defeito05.Name = "abaParada_combo_defeito05";
-            this.abaParada_combo_defeito05.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito05.TabIndex = 9;
+            this.AbaDefeito_combo_defeito05.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito05.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito05.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito05.Location = new System.Drawing.Point(4, 153);
+            this.AbaDefeito_combo_defeito05.Name = "AbaDefeito_combo_defeito05";
+            this.AbaDefeito_combo_defeito05.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito05.TabIndex = 9;
             // 
             // label76
             // 
@@ -1518,29 +1569,35 @@ namespace JP4
             this.label77.TabIndex = 67;
             this.label77.Text = "Defeitos";
             // 
-            // abaParada_combo_defeito06
+            // AbaDefeito_combo_defeito06
             // 
-            this.abaParada_combo_defeito06.FormattingEnabled = true;
-            this.abaParada_combo_defeito06.Location = new System.Drawing.Point(4, 179);
-            this.abaParada_combo_defeito06.Name = "abaParada_combo_defeito06";
-            this.abaParada_combo_defeito06.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito06.TabIndex = 11;
+            this.AbaDefeito_combo_defeito06.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito06.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito06.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito06.Location = new System.Drawing.Point(4, 179);
+            this.AbaDefeito_combo_defeito06.Name = "AbaDefeito_combo_defeito06";
+            this.AbaDefeito_combo_defeito06.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito06.TabIndex = 11;
             // 
-            // abaParada_combo_defeito08
+            // AbaDefeito_combo_defeito08
             // 
-            this.abaParada_combo_defeito08.FormattingEnabled = true;
-            this.abaParada_combo_defeito08.Location = new System.Drawing.Point(4, 231);
-            this.abaParada_combo_defeito08.Name = "abaParada_combo_defeito08";
-            this.abaParada_combo_defeito08.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito08.TabIndex = 15;
+            this.AbaDefeito_combo_defeito08.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito08.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito08.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito08.Location = new System.Drawing.Point(4, 231);
+            this.AbaDefeito_combo_defeito08.Name = "AbaDefeito_combo_defeito08";
+            this.AbaDefeito_combo_defeito08.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito08.TabIndex = 15;
             // 
-            // abaParada_combo_defeito07
+            // AbaDefeito_combo_defeito07
             // 
-            this.abaParada_combo_defeito07.FormattingEnabled = true;
-            this.abaParada_combo_defeito07.Location = new System.Drawing.Point(4, 205);
-            this.abaParada_combo_defeito07.Name = "abaParada_combo_defeito07";
-            this.abaParada_combo_defeito07.Size = new System.Drawing.Size(154, 21);
-            this.abaParada_combo_defeito07.TabIndex = 13;
+            this.AbaDefeito_combo_defeito07.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.AbaDefeito_combo_defeito07.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.AbaDefeito_combo_defeito07.FormattingEnabled = true;
+            this.AbaDefeito_combo_defeito07.Location = new System.Drawing.Point(4, 205);
+            this.AbaDefeito_combo_defeito07.Name = "AbaDefeito_combo_defeito07";
+            this.AbaDefeito_combo_defeito07.Size = new System.Drawing.Size(154, 21);
+            this.AbaDefeito_combo_defeito07.TabIndex = 13;
             // 
             // groupBox17
             // 
@@ -1557,6 +1614,16 @@ namespace JP4
             this.groupBox17.TabIndex = 86;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Informação básica";
+            // 
+            // label_AbaDefeitos_data
+            // 
+            this.label_AbaDefeitos_data.AutoSize = true;
+            this.label_AbaDefeitos_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_AbaDefeitos_data.Location = new System.Drawing.Point(180, 69);
+            this.label_AbaDefeitos_data.Name = "label_AbaDefeitos_data";
+            this.label_AbaDefeitos_data.Size = new System.Drawing.Size(38, 17);
+            this.label_AbaDefeitos_data.TabIndex = 92;
+            this.label_AbaDefeitos_data.Text = "Data";
             // 
             // label_AbaDefeitos_localAplicacao
             // 
@@ -1686,6 +1753,16 @@ namespace JP4
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Informação básica";
             // 
+            // abaParadas_label_data
+            // 
+            this.abaParadas_label_data.AutoSize = true;
+            this.abaParadas_label_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.abaParadas_label_data.Location = new System.Drawing.Point(180, 60);
+            this.abaParadas_label_data.Name = "abaParadas_label_data";
+            this.abaParadas_label_data.Size = new System.Drawing.Size(38, 17);
+            this.abaParadas_label_data.TabIndex = 84;
+            this.abaParadas_label_data.Text = "Data";
+            // 
             // abaParadas_label_local_aplicacao
             // 
             this.abaParadas_label_local_aplicacao.AutoSize = true;
@@ -1804,6 +1881,8 @@ namespace JP4
             // 
             // abaParada_combo_parada01
             // 
+            this.abaParada_combo_parada01.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada01.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada01.FormattingEnabled = true;
             this.abaParada_combo_parada01.Location = new System.Drawing.Point(4, 49);
             this.abaParada_combo_parada01.Name = "abaParada_combo_parada01";
@@ -1845,6 +1924,8 @@ namespace JP4
             // 
             // abaParada_combo_parada02
             // 
+            this.abaParada_combo_parada02.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada02.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada02.FormattingEnabled = true;
             this.abaParada_combo_parada02.Location = new System.Drawing.Point(4, 75);
             this.abaParada_combo_parada02.Name = "abaParada_combo_parada02";
@@ -1904,6 +1985,8 @@ namespace JP4
             // 
             // abaParada_combo_parada03
             // 
+            this.abaParada_combo_parada03.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada03.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada03.FormattingEnabled = true;
             this.abaParada_combo_parada03.Location = new System.Drawing.Point(4, 101);
             this.abaParada_combo_parada03.Name = "abaParada_combo_parada03";
@@ -1963,6 +2046,8 @@ namespace JP4
             // 
             // abaParada_combo_parada04
             // 
+            this.abaParada_combo_parada04.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada04.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada04.FormattingEnabled = true;
             this.abaParada_combo_parada04.Location = new System.Drawing.Point(4, 127);
             this.abaParada_combo_parada04.Name = "abaParada_combo_parada04";
@@ -2014,6 +2099,8 @@ namespace JP4
             // 
             // abaParada_combo_parada05
             // 
+            this.abaParada_combo_parada05.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada05.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada05.FormattingEnabled = true;
             this.abaParada_combo_parada05.Location = new System.Drawing.Point(4, 153);
             this.abaParada_combo_parada05.Name = "abaParada_combo_parada05";
@@ -2073,6 +2160,8 @@ namespace JP4
             // 
             // abaParada_combo_parada06
             // 
+            this.abaParada_combo_parada06.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada06.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada06.FormattingEnabled = true;
             this.abaParada_combo_parada06.Location = new System.Drawing.Point(4, 179);
             this.abaParada_combo_parada06.Name = "abaParada_combo_parada06";
@@ -2129,6 +2218,8 @@ namespace JP4
             // 
             // abaParada_combo_parada08
             // 
+            this.abaParada_combo_parada08.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada08.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada08.FormattingEnabled = true;
             this.abaParada_combo_parada08.Location = new System.Drawing.Point(4, 231);
             this.abaParada_combo_parada08.Name = "abaParada_combo_parada08";
@@ -2137,6 +2228,8 @@ namespace JP4
             // 
             // abaParada_combo_parada07
             // 
+            this.abaParada_combo_parada07.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada07.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada07.FormattingEnabled = true;
             this.abaParada_combo_parada07.Location = new System.Drawing.Point(4, 205);
             this.abaParada_combo_parada07.Name = "abaParada_combo_parada07";
@@ -2169,6 +2262,7 @@ namespace JP4
             // 
             // tab_mistura
             // 
+            this.tab_mistura.Controls.Add(this.label61);
             this.tab_mistura.Controls.Add(this.abaMistura_button_voltar_parada);
             this.tab_mistura.Controls.Add(this.abaMistura_button_ir_consumo);
             this.tab_mistura.Controls.Add(this.groupBox12);
@@ -2202,6 +2296,7 @@ namespace JP4
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.AbaMistura_label_data_lanc);
             this.groupBox12.Controls.Add(this.AbaMistura_label_producao);
             this.groupBox12.Controls.Add(this.AbaMistura_label_turno);
             this.groupBox12.Controls.Add(this.AbaMistura_label_operador);
@@ -2447,6 +2542,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp10
             // 
+            this.abaMistura_combo_mp10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp10.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp10.FormattingEnabled = true;
             this.abaMistura_combo_mp10.Location = new System.Drawing.Point(28, 306);
             this.abaMistura_combo_mp10.Name = "abaMistura_combo_mp10";
@@ -2472,6 +2569,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp09
             // 
+            this.abaMistura_combo_mp09.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp09.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp09.FormattingEnabled = true;
             this.abaMistura_combo_mp09.Location = new System.Drawing.Point(28, 280);
             this.abaMistura_combo_mp09.Name = "abaMistura_combo_mp09";
@@ -2497,6 +2596,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp08
             // 
+            this.abaMistura_combo_mp08.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp08.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp08.FormattingEnabled = true;
             this.abaMistura_combo_mp08.Location = new System.Drawing.Point(28, 254);
             this.abaMistura_combo_mp08.Name = "abaMistura_combo_mp08";
@@ -2522,6 +2623,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp07
             // 
+            this.abaMistura_combo_mp07.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp07.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp07.FormattingEnabled = true;
             this.abaMistura_combo_mp07.Location = new System.Drawing.Point(28, 228);
             this.abaMistura_combo_mp07.Name = "abaMistura_combo_mp07";
@@ -2547,6 +2650,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp06
             // 
+            this.abaMistura_combo_mp06.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp06.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp06.FormattingEnabled = true;
             this.abaMistura_combo_mp06.Location = new System.Drawing.Point(28, 202);
             this.abaMistura_combo_mp06.Name = "abaMistura_combo_mp06";
@@ -2572,6 +2677,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp05
             // 
+            this.abaMistura_combo_mp05.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp05.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp05.FormattingEnabled = true;
             this.abaMistura_combo_mp05.Location = new System.Drawing.Point(28, 176);
             this.abaMistura_combo_mp05.Name = "abaMistura_combo_mp05";
@@ -2597,6 +2704,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp04
             // 
+            this.abaMistura_combo_mp04.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp04.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp04.FormattingEnabled = true;
             this.abaMistura_combo_mp04.Location = new System.Drawing.Point(28, 150);
             this.abaMistura_combo_mp04.Name = "abaMistura_combo_mp04";
@@ -2622,6 +2731,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp03
             // 
+            this.abaMistura_combo_mp03.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp03.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp03.FormattingEnabled = true;
             this.abaMistura_combo_mp03.Location = new System.Drawing.Point(28, 124);
             this.abaMistura_combo_mp03.Name = "abaMistura_combo_mp03";
@@ -2648,6 +2759,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp02
             // 
+            this.abaMistura_combo_mp02.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp02.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp02.FormattingEnabled = true;
             this.abaMistura_combo_mp02.Location = new System.Drawing.Point(28, 98);
             this.abaMistura_combo_mp02.Name = "abaMistura_combo_mp02";
@@ -2684,6 +2797,8 @@ namespace JP4
             // 
             // abaMistura_combo_mp01
             // 
+            this.abaMistura_combo_mp01.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp01.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp01.FormattingEnabled = true;
             this.abaMistura_combo_mp01.Location = new System.Drawing.Point(28, 72);
             this.abaMistura_combo_mp01.Name = "abaMistura_combo_mp01";
@@ -2792,7 +2907,7 @@ namespace JP4
             // 
             this.groupBox13.Location = new System.Drawing.Point(6, 15);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(507, 352);
+            this.groupBox13.Size = new System.Drawing.Size(1071, 239);
             this.groupBox13.TabIndex = 0;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "groupBox13";
@@ -2990,35 +3105,25 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
-            // label_AbaDefeitos_data
+            // AbaMistura_label_data_lanc
             // 
-            this.label_AbaDefeitos_data.AutoSize = true;
-            this.label_AbaDefeitos_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_AbaDefeitos_data.Location = new System.Drawing.Point(180, 69);
-            this.label_AbaDefeitos_data.Name = "label_AbaDefeitos_data";
-            this.label_AbaDefeitos_data.Size = new System.Drawing.Size(38, 17);
-            this.label_AbaDefeitos_data.TabIndex = 92;
-            this.label_AbaDefeitos_data.Text = "Data";
+            this.AbaMistura_label_data_lanc.AutoSize = true;
+            this.AbaMistura_label_data_lanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_data_lanc.Location = new System.Drawing.Point(278, 83);
+            this.AbaMistura_label_data_lanc.Name = "AbaMistura_label_data_lanc";
+            this.AbaMistura_label_data_lanc.Size = new System.Drawing.Size(38, 17);
+            this.AbaMistura_label_data_lanc.TabIndex = 92;
+            this.AbaMistura_label_data_lanc.Text = "Data";
             // 
-            // abaParadas_label_data
+            // label61
             // 
-            this.abaParadas_label_data.AutoSize = true;
-            this.abaParadas_label_data.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abaParadas_label_data.Location = new System.Drawing.Point(180, 60);
-            this.abaParadas_label_data.Name = "abaParadas_label_data";
-            this.abaParadas_label_data.Size = new System.Drawing.Size(38, 17);
-            this.abaParadas_label_data.TabIndex = 84;
-            this.abaParadas_label_data.Text = "Data";
-            // 
-            // AbaDefeitos_button_voltar_apon
-            // 
-            this.AbaDefeitos_button_voltar_apon.Location = new System.Drawing.Point(125, 66);
-            this.AbaDefeitos_button_voltar_apon.Name = "AbaDefeitos_button_voltar_apon";
-            this.AbaDefeitos_button_voltar_apon.Size = new System.Drawing.Size(105, 23);
-            this.AbaDefeitos_button_voltar_apon.TabIndex = 91;
-            this.AbaDefeitos_button_voltar_apon.Text = "<< Apontamento";
-            this.AbaDefeitos_button_voltar_apon.UseVisualStyleBackColor = true;
-            this.AbaDefeitos_button_voltar_apon.Click += new System.EventHandler(this.AbaDefeitos_button_voltar_apon_Click);
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(52, 287);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(21, 17);
+            this.label61.TabIndex = 89;
+            this.label61.Text = "%";
             // 
             // AP01
             // 
@@ -3067,6 +3172,7 @@ namespace JP4
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.tab_mistura.ResumeLayout(false);
+            this.tab_mistura.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox11.ResumeLayout(false);
@@ -3325,37 +3431,41 @@ namespace JP4
         private System.Windows.Forms.GroupBox groupBox19;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.RichTextBox richText_label_AbaDefeitos_obs;
-        private System.Windows.Forms.TextBox abaParada_text_qtd08;
-        private System.Windows.Forms.TextBox abaParada_text_qtd07;
-        private System.Windows.Forms.TextBox abaParada_text_qtd06;
-        private System.Windows.Forms.TextBox abaParada_text_qtd05;
-        private System.Windows.Forms.TextBox abaParada_text_qtd04;
-        private System.Windows.Forms.TextBox abaParada_text_qtd02;
-        private System.Windows.Forms.TextBox abaParada_text_qtd03;
-        private System.Windows.Forms.TextBox abaParada_text_qtd01;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito01;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito02;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito03;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito04;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito05;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd08;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd07;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd06;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd05;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd04;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd02;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd03;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd01;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito01;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito02;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito03;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito04;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito05;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito06;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito08;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito07;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito06;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito08;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito07;
         private System.Windows.Forms.GroupBox groupBox17;
         private System.Windows.Forms.Label label_AbaDefeitos_turno;
         private System.Windows.Forms.Label label_AbaDefeitos_operador;
         private System.Windows.Forms.Label label_AbaDefeitos_ordem;
         private System.Windows.Forms.Label label_AbaDefeitos_maq;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.TextBox abaParada_text_qtd10;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito10;
-        private System.Windows.Forms.TextBox abaParada_text_qtd09;
-        private System.Windows.Forms.ComboBox abaParada_combo_defeito09;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd10;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito10;
+        private System.Windows.Forms.TextBox AbaDefeito_text_qtd09;
+        private System.Windows.Forms.ComboBox AbaDefeito_combo_defeito09;
         private System.Windows.Forms.Label label_AbaDefeitos_localAplicacao;
         private System.Windows.Forms.Label label_AbaDefeitos_data;
         private System.Windows.Forms.Label abaParadas_label_data;
         private System.Windows.Forms.Button AbaDefeitos_button_voltar_apon;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox combo_cliente_esto;
+        private System.Windows.Forms.Label AbaMistura_label_data_lanc;
+        private System.Windows.Forms.Label label61;
     }
 }

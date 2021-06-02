@@ -52,6 +52,8 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label_inicio_versao_prog = new System.Windows.Forms.Label();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -132,6 +134,8 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.label_inicio_versao_prog);
+            this.panel_menu_vertical.Controls.Add(this.label1);
             this.panel_menu_vertical.Controls.Add(this.panel6);
             this.panel_menu_vertical.Controls.Add(this.button_config);
             this.panel_menu_vertical.Controls.Add(this.panel5);
@@ -312,6 +316,24 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 667);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Versão >>";
+            // 
+            // label_inicio_versao_prog
+            // 
+            this.label_inicio_versao_prog.AutoSize = true;
+            this.label_inicio_versao_prog.Location = new System.Drawing.Point(99, 667);
+            this.label_inicio_versao_prog.Name = "label_inicio_versao_prog";
+            this.label_inicio_versao_prog.Size = new System.Drawing.Size(13, 13);
+            this.label_inicio_versao_prog.TabIndex = 14;
+            this.label_inicio_versao_prog.Text = "..";
+            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,6 +358,7 @@ namespace JP4
             ((System.ComponentModel.ISupportInitialize)(this.botao_maxm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_fechar)).EndInit();
             this.panel_menu_vertical.ResumeLayout(false);
+            this.panel_menu_vertical.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_aplicativo_kpiDataSet)).EndInit();
             this.ResumeLayout(false);
@@ -367,6 +390,8 @@ namespace JP4
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button_config;
         private db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter db_configTableAdapter1;
+        private System.Windows.Forms.Label label_inicio_versao_prog;
+        private System.Windows.Forms.Label label1;
     }
 }
 

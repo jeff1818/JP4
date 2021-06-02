@@ -23,11 +23,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\108.167.151.58\Aplicativo\JM4\</UpdateUrl>
+    <UpdateUrl>\\108.167.151.58\Aplicativo\</UpdateUrl>
+    <PublisherName>Gestão de Produção</PublisherName>
     <MinimumRequiredVersion>10.1.1.1</MinimumRequiredVersion>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>16</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>10.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -273,6 +274,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="42498factory_99134.ico" />
+    <Content Include="ChangeLog.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ClientConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="db_aplicativo_kpi.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,1 +1,0 @@
-[{"iType":1,"src":"setup.exe","dest":""},{"iType":3,"src":"tmp/setup.exe","dest":"setup.exe"}]

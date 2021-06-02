@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<ClientConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ClientPathType>ftp</ClientPathType>
+  <ClientPath>ftp.casacriativa.top</ClientPath>
+  <ClientAnonymous>false</ClientAnonymous>
+  <ClientUserName>aplicatio.db@casacriativa.top</ClientUserName>
+  <ClientPassword>aDRjazNydGNobzEyMw==</ClientPassword>
+  <AutoUpdate>true</AutoUpdate>
+  <PassiveMode>false</PassiveMode>
+</ClientConfig>

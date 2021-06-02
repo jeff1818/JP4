@@ -15,7 +15,10 @@ namespace JP4
         public Form_tela_inicial()
         {
             InitializeComponent();
-            
+            label_inicio_versao_prog.Text = Application.ProductVersion;
+
+
+            //ll
         }
 
         #region Declaração que faz o formulário se mover com o mouse
