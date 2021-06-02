@@ -14,6 +14,7 @@ namespace JP4
             InitializeComponent();
 
             text_endereco.Text = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+            text_local_arquivo_ordem.Text = Properties.Settings.Default.local_arquivo_excel;
 
         }
 
@@ -44,6 +45,13 @@ namespace JP4
             }
         }
 
+        private void Verificar_padrao_arquivo()
+        {
+
+        }
+
+
+        // Busca local do Banco de dados
         private string Procurar_pasta()
         {
             string local_pasta = string.Empty;
@@ -69,7 +77,6 @@ namespace JP4
 
             return endereco_completo;
         }
-
         private void Salvar_local()
         {
 
@@ -89,6 +96,57 @@ namespace JP4
             }
 
         }
+        
+
+        // Buscar local de import de ordem de produção
+        private string Procurar_pasta_os()
+        {
+            string local_pasta = string.Empty;
+            string nome_arquivo = string.Empty;
+            string endereco_completo = string.Empty;
+            
+
+
+            OpenFileDialog folderBrowser = new OpenFileDialog();
+
+            folderBrowser.ValidateNames = true;
+            folderBrowser.CheckFileExists = false;
+            folderBrowser.CheckPathExists = true;
+
+            folderBrowser.FileName = "Localizar Arquivo";
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                local_pasta = Path.GetDirectoryName(folderBrowser.FileName);
+                nome_arquivo = Path.GetFileName(folderBrowser.FileName);
+
+                endereco_completo = @"""" + local_pasta + @"\" + nome_arquivo + @"""";
+            }
+
+            return endereco_completo;
+        }
+        private void Salvar_local_os()
+        {
+
+            try
+            {
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
+                connectionString.ConnectionStrings["JP4.Properties.Settings.local_arquivo_excel"].ConnectionString = text_endereco.Text; //"Data Source=NewSource;Initial Catalog=NewCatalog;UID=NewUser;password=NewPassword";
+                config.Save();
+                ConfigurationManager.RefreshSection("connectionStrings");
+
+                MessageBox.Show("Salvo com sucesso!");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+
+
+
+
 
         private void Reset_aplicativo()
         {
@@ -96,6 +154,9 @@ namespace JP4
             Application.Exit();
         }
 
+
+
+        // Area de botão 
 
         private void button_procurar_pasta_Click(object sender, EventArgs e)
         {
@@ -109,10 +170,23 @@ namespace JP4
             Reset_aplicativo();
         }
 
+
+
         private void button_janela_update_Click(object sender, EventArgs e)
         {
-            Auto_update_form janela_update = new Auto_update_form();
-            janela_update.Show();
+            //Auto_update_form janela_update = new Auto_update_form();
+            //janela_update.Show();
+        }
+
+        private void button_busca_loca_arquivo_os_Click(object sender, EventArgs e)
+        {
+            text_local_arquivo_ordem.Text = Procurar_pasta_os();
+        }
+
+        private void button_salva_local_os_Click(object sender, EventArgs e)
+        {
+            Salvar_local_os();
+            Reset_aplicativo();
         }
     }
 }
