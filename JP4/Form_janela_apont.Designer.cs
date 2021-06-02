@@ -218,9 +218,10 @@ namespace JP4
             this.abaParada_hr_fim07 = new System.Windows.Forms.DateTimePicker();
             this.abaParada_hr_inicio07 = new System.Windows.Forms.DateTimePicker();
             this.tab_mistura = new System.Windows.Forms.TabPage();
+            this.label61 = new System.Windows.Forms.Label();
             this.abaMistura_button_voltar_parada = new System.Windows.Forms.Button();
-            this.abaMistura_button_ir_consumo = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.AbaMistura_label_data_lanc = new System.Windows.Forms.Label();
             this.AbaMistura_label_producao = new System.Windows.Forms.Label();
             this.AbaMistura_label_turno = new System.Windows.Forms.Label();
             this.AbaMistura_label_operador = new System.Windows.Forms.Label();
@@ -279,8 +280,6 @@ namespace JP4
             this.abaConsumo_text_qtd_boa = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.tab_importar_op = new System.Windows.Forms.TabPage();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.tab_consulta_apon = new System.Windows.Forms.TabPage();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.abaPesquisar_button = new System.Windows.Forms.Button();
@@ -301,8 +300,6 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
-            this.AbaMistura_label_data_lanc = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -327,7 +324,6 @@ namespace JP4
             this.tab_consumo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_estrutura_item)).BeginInit();
             this.groupBox10.SuspendLayout();
-            this.tab_importar_op.SuspendLayout();
             this.tab_consulta_apon.SuspendLayout();
             this.groupBox16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.abaPesquisar_Grid_apon)).BeginInit();
@@ -994,7 +990,7 @@ namespace JP4
             // 
             // button_pesquisar
             // 
-            this.button_pesquisar.Location = new System.Drawing.Point(6, 250);
+            this.button_pesquisar.Location = new System.Drawing.Point(6, 193);
             this.button_pesquisar.Name = "button_pesquisar";
             this.button_pesquisar.Size = new System.Drawing.Size(158, 23);
             this.button_pesquisar.TabIndex = 8;
@@ -1003,7 +999,7 @@ namespace JP4
             // 
             // button_retrabalho
             // 
-            this.button_retrabalho.Location = new System.Drawing.Point(6, 222);
+            this.button_retrabalho.Location = new System.Drawing.Point(6, 164);
             this.button_retrabalho.Name = "button_retrabalho";
             this.button_retrabalho.Size = new System.Drawing.Size(158, 23);
             this.button_retrabalho.TabIndex = 7;
@@ -1013,7 +1009,7 @@ namespace JP4
             // 
             // button_mistura_mp
             // 
-            this.button_mistura_mp.Location = new System.Drawing.Point(6, 193);
+            this.button_mistura_mp.Location = new System.Drawing.Point(6, 135);
             this.button_mistura_mp.Name = "button_mistura_mp";
             this.button_mistura_mp.Size = new System.Drawing.Size(158, 23);
             this.button_mistura_mp.TabIndex = 6;
@@ -1023,7 +1019,7 @@ namespace JP4
             // 
             // button_obs
             // 
-            this.button_obs.Location = new System.Drawing.Point(6, 164);
+            this.button_obs.Location = new System.Drawing.Point(6, 222);
             this.button_obs.Name = "button_obs";
             this.button_obs.Size = new System.Drawing.Size(158, 23);
             this.button_obs.TabIndex = 5;
@@ -1033,7 +1029,7 @@ namespace JP4
             // 
             // button_defeitos
             // 
-            this.button_defeitos.Location = new System.Drawing.Point(6, 135);
+            this.button_defeitos.Location = new System.Drawing.Point(6, 106);
             this.button_defeitos.Name = "button_defeitos";
             this.button_defeitos.Size = new System.Drawing.Size(158, 23);
             this.button_defeitos.TabIndex = 4;
@@ -1043,7 +1039,7 @@ namespace JP4
             // 
             // button_paradas
             // 
-            this.button_paradas.Location = new System.Drawing.Point(6, 106);
+            this.button_paradas.Location = new System.Drawing.Point(6, 77);
             this.button_paradas.Name = "button_paradas";
             this.button_paradas.Size = new System.Drawing.Size(158, 23);
             this.button_paradas.TabIndex = 3;
@@ -1053,7 +1049,7 @@ namespace JP4
             // 
             // button_importar
             // 
-            this.button_importar.Location = new System.Drawing.Point(6, 77);
+            this.button_importar.Location = new System.Drawing.Point(6, 251);
             this.button_importar.Name = "button_importar";
             this.button_importar.Size = new System.Drawing.Size(158, 23);
             this.button_importar.TabIndex = 2;
@@ -1268,13 +1264,14 @@ namespace JP4
             // 
             // status_bar_apon
             // 
+            this.status_bar_apon.Dock = System.Windows.Forms.DockStyle.None;
             this.status_bar_apon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_nome,
             this.toolStripStatusLabel_status_apon,
             this.toolStripProgressBar_apon});
-            this.status_bar_apon.Location = new System.Drawing.Point(3, 569);
+            this.status_bar_apon.Location = new System.Drawing.Point(12, 650);
             this.status_bar_apon.Name = "status_bar_apon";
-            this.status_bar_apon.Size = new System.Drawing.Size(1077, 22);
+            this.status_bar_apon.Size = new System.Drawing.Size(158, 22);
             this.status_bar_apon.TabIndex = 11;
             this.status_bar_apon.Text = "statusStrip1";
             // 
@@ -1302,7 +1299,6 @@ namespace JP4
             this.tab_menu_apontamento.Controls.Add(this.tab_paradas);
             this.tab_menu_apontamento.Controls.Add(this.tab_mistura);
             this.tab_menu_apontamento.Controls.Add(this.tab_consumo);
-            this.tab_menu_apontamento.Controls.Add(this.tab_importar_op);
             this.tab_menu_apontamento.Controls.Add(this.tab_consulta_apon);
             this.tab_menu_apontamento.Location = new System.Drawing.Point(12, 27);
             this.tab_menu_apontamento.Name = "tab_menu_apontamento";
@@ -1313,7 +1309,6 @@ namespace JP4
             // tab_apontamento
             // 
             this.tab_apontamento.Controls.Add(this.groupBox6);
-            this.tab_apontamento.Controls.Add(this.status_bar_apon);
             this.tab_apontamento.Controls.Add(this.groupBox3);
             this.tab_apontamento.Controls.Add(this.groupBox7);
             this.tab_apontamento.Controls.Add(this.groupBox5);
@@ -2264,7 +2259,6 @@ namespace JP4
             // 
             this.tab_mistura.Controls.Add(this.label61);
             this.tab_mistura.Controls.Add(this.abaMistura_button_voltar_parada);
-            this.tab_mistura.Controls.Add(this.abaMistura_button_ir_consumo);
             this.tab_mistura.Controls.Add(this.groupBox12);
             this.tab_mistura.Controls.Add(this.groupBox11);
             this.tab_mistura.Location = new System.Drawing.Point(4, 22);
@@ -2274,25 +2268,25 @@ namespace JP4
             this.tab_mistura.Text = "Mistura";
             this.tab_mistura.UseVisualStyleBackColor = true;
             // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(52, 287);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(21, 17);
+            this.label61.TabIndex = 89;
+            this.label61.Text = "%";
+            // 
             // abaMistura_button_voltar_parada
             // 
             this.abaMistura_button_voltar_parada.Location = new System.Drawing.Point(262, 47);
             this.abaMistura_button_voltar_parada.Name = "abaMistura_button_voltar_parada";
             this.abaMistura_button_voltar_parada.Size = new System.Drawing.Size(106, 23);
             this.abaMistura_button_voltar_parada.TabIndex = 88;
-            this.abaMistura_button_voltar_parada.Text = "<< Paradas";
+            this.abaMistura_button_voltar_parada.Text = "<< Apontamento";
             this.abaMistura_button_voltar_parada.UseVisualStyleBackColor = true;
             this.abaMistura_button_voltar_parada.Click += new System.EventHandler(this.abaMistura_button_voltar_parada_Click);
-            // 
-            // abaMistura_button_ir_consumo
-            // 
-            this.abaMistura_button_ir_consumo.Location = new System.Drawing.Point(793, 47);
-            this.abaMistura_button_ir_consumo.Name = "abaMistura_button_ir_consumo";
-            this.abaMistura_button_ir_consumo.Size = new System.Drawing.Size(106, 23);
-            this.abaMistura_button_ir_consumo.TabIndex = 87;
-            this.abaMistura_button_ir_consumo.Text = "Consumo>>";
-            this.abaMistura_button_ir_consumo.UseVisualStyleBackColor = true;
-            this.abaMistura_button_ir_consumo.Click += new System.EventHandler(this.abaMistura_button_ir_consumo_Click);
             // 
             // groupBox12
             // 
@@ -2309,6 +2303,16 @@ namespace JP4
             this.groupBox12.TabIndex = 86;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Informação básica";
+            // 
+            // AbaMistura_label_data_lanc
+            // 
+            this.AbaMistura_label_data_lanc.AutoSize = true;
+            this.AbaMistura_label_data_lanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_data_lanc.Location = new System.Drawing.Point(278, 83);
+            this.AbaMistura_label_data_lanc.Name = "AbaMistura_label_data_lanc";
+            this.AbaMistura_label_data_lanc.Size = new System.Drawing.Size(38, 17);
+            this.AbaMistura_label_data_lanc.TabIndex = 92;
+            this.AbaMistura_label_data_lanc.Text = "Data";
             // 
             // AbaMistura_label_producao
             // 
@@ -2892,26 +2896,6 @@ namespace JP4
             this.label37.TabIndex = 3;
             this.label37.Text = "Item:";
             // 
-            // tab_importar_op
-            // 
-            this.tab_importar_op.Controls.Add(this.groupBox13);
-            this.tab_importar_op.Location = new System.Drawing.Point(4, 22);
-            this.tab_importar_op.Name = "tab_importar_op";
-            this.tab_importar_op.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_importar_op.Size = new System.Drawing.Size(1083, 594);
-            this.tab_importar_op.TabIndex = 1;
-            this.tab_importar_op.Text = "Importar";
-            this.tab_importar_op.UseVisualStyleBackColor = true;
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Location = new System.Drawing.Point(6, 15);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(1071, 239);
-            this.groupBox13.TabIndex = 0;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "groupBox13";
-            // 
             // tab_consulta_apon
             // 
             this.tab_consulta_apon.Controls.Add(this.groupBox16);
@@ -3105,26 +3089,6 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
-            // AbaMistura_label_data_lanc
-            // 
-            this.AbaMistura_label_data_lanc.AutoSize = true;
-            this.AbaMistura_label_data_lanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AbaMistura_label_data_lanc.Location = new System.Drawing.Point(278, 83);
-            this.AbaMistura_label_data_lanc.Name = "AbaMistura_label_data_lanc";
-            this.AbaMistura_label_data_lanc.Size = new System.Drawing.Size(38, 17);
-            this.AbaMistura_label_data_lanc.TabIndex = 92;
-            this.AbaMistura_label_data_lanc.Text = "Data";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(52, 287);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(21, 17);
-            this.label61.TabIndex = 89;
-            this.label61.Text = "%";
-            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3133,6 +3097,7 @@ namespace JP4
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1113, 677);
             this.Controls.Add(this.tab_menu_apontamento);
+            this.Controls.Add(this.status_bar_apon);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -3159,7 +3124,6 @@ namespace JP4
             this.status_bar_apon.PerformLayout();
             this.tab_menu_apontamento.ResumeLayout(false);
             this.tab_apontamento.ResumeLayout(false);
-            this.tab_apontamento.PerformLayout();
             this.tab_defeitos_apon.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
@@ -3181,7 +3145,6 @@ namespace JP4
             ((System.ComponentModel.ISupportInitialize)(this.Grid_estrutura_item)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            this.tab_importar_op.ResumeLayout(false);
             this.tab_consulta_apon.ResumeLayout(false);
             this.groupBox16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.abaPesquisar_Grid_apon)).EndInit();
@@ -3288,7 +3251,6 @@ namespace JP4
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tab_menu_apontamento;
         private System.Windows.Forms.TabPage tab_apontamento;
-        private System.Windows.Forms.TabPage tab_importar_op;
         private System.Windows.Forms.TabPage tab_paradas;
         private System.Windows.Forms.TabPage tab_mistura;
         private System.Windows.Forms.Label abaParadas_label_local_aplicacao;
@@ -3392,12 +3354,10 @@ namespace JP4
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Button abaMistura_button_ir_consumo;
         private System.Windows.Forms.Button abaParada_button_ir_mistura;
         private System.Windows.Forms.Button abaParada_button_voltar_apontamento;
         private System.Windows.Forms.Button abaMistura_button_voltar_parada;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar_apon;
-        private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.RichTextBox abaParadas_obs;
         private System.Windows.Forms.Label abaParadas_label_turno;

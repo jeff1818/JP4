@@ -19,12 +19,12 @@ namespace JP4
 
             #region Chamar Metodos
             Importar_ordens();
-            carregar_empresa_db();
-            carregar_maquina_db();
-            carregar_turno_db();
-            carregar_operadores_db();
-            carregar_local_destino_db();
-            carregar_local_origem_db();
+            Carregar_empresa_db();
+            Carregar_maquina_db();
+            Carregar_turno_db();
+            Carregar_operadores_db();
+            Carregar_local_destino_db();
+            Carregar_local_origem_db();
 
             // Aba de parada
 
@@ -138,7 +138,8 @@ namespace JP4
                     if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
                     {
                         this.combo_desc_completa.Text = planilha.Cell($"F{l}").Value.ToString();
-                        carregar_local_aplicacao(combo_desc_completa.Text);
+                        Carregar_local_aplicacao(combo_desc_completa.Text);
+                        
                         break;
                     }
 
@@ -260,7 +261,9 @@ namespace JP4
 
         #region Metodos de preencher controles
 
-        private void carregar_local_aplicacao(string descricao_completa)
+
+        // Carregar Local e Empresa
+        private void Carregar_local_aplicacao(string descricao_completa)
         {
             try
             {
@@ -277,6 +280,7 @@ namespace JP4
                 while (myreader.Read())
                 {
                     this.text_local_aplicacao.Text = myreader["local_aplicacao"].ToString();
+                    this.combo_empresa.Text = myreader["empresa"].ToString();
                 }
 
                 conexao.Close();
@@ -290,7 +294,7 @@ namespace JP4
 
 
         }
-        private void carregar_empresa_db()
+        private void Carregar_empresa_db()
         {
             try
             {
@@ -321,7 +325,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void carregar_turno_db()
+        private void Carregar_turno_db()
         {
             try
             {
@@ -347,7 +351,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void carregar_maquina_db()
+        private void Carregar_maquina_db()
         {
             try
             {
@@ -377,7 +381,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void carregar_operadores_db()
+        private void Carregar_operadores_db()
         {
             try
             {
@@ -407,7 +411,7 @@ namespace JP4
             }
 
         }
-        private void carregar_local_origem_db()
+        private void Carregar_local_origem_db()
         {
             try
             {
@@ -436,7 +440,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void carregar_local_destino_db()
+        private void Carregar_local_destino_db()
         {
             try
             {
@@ -613,9 +617,6 @@ namespace JP4
             }
 
         }
-
-
-
 
 
 
@@ -852,6 +853,24 @@ namespace JP4
             // Substituir os termos por algo mais dinamico
 
 
+
+            //if (Buscar_grupo_estoque(combo_desc_completa.Text) == "02") // Estrusora
+            //{
+            //    text_contador.Enabled = false;
+            //    text_qtd_fardos.Enabled = false;
+            //}
+            //else if(Buscar_grupo_estoque(combo_desc_completa.Text) == "01") // Picotadeira
+            //{
+            //    text_largura.Enabled = false;
+            //}
+            //else
+            //{
+            //    text_contador.Enabled = true;
+            //    text_qtd_fardos.Enabled = true;
+            //}
+
+
+
             if (text_local_aplicacao.Text == "Extrusora")
             {
                 text_contador.Enabled = false;
@@ -866,6 +885,8 @@ namespace JP4
                 text_contador.Enabled = true;
                 text_qtd_fardos.Enabled = true;
             }
+
+
         }
 
 
@@ -913,6 +934,75 @@ namespace JP4
 
             return nome_operacao;
         }
+
+
+        private string Buscar_grupo_estoque(string descricao_completa)
+        {
+            string grupo_estoque = "";
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    grupo_estoque = myreader["grupo"].ToString();
+                    
+                }
+
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao buscar Grupo de Estoque!  |  " + erro.Message);
+            }
+
+            return grupo_estoque;
+        }
+        private string Buscar_descricao_grupo(string codigo_grupo)
+        {
+            string nome_grupo = "";
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_grupo_estoque where codigo_grupo = '" + codigo_grupo + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    nome_grupo = myreader["nome_grupo"].ToString();
+
+                }
+
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao buscar Grupo de Estoque!  |  " + erro.Message);
+            }
+
+            return nome_grupo;
+        }
+
 
         // Janela Parada de maquina
         private string busca_cod_parada_db(string desc_parada)
@@ -1639,57 +1729,8 @@ namespace JP4
         {
 
         }
-        private void Estornar_paradas(string num_transac)
-        {
-            // num_transac = id + OP
-
-            // 01 - buscar numero da transação
-            // 02 - comparar na base o numero
-            // 03 - escluir o registro no banco
-
-            try
-            {
-                string comando_sql;
-
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                conexao.Open();
-
-                comando_sql = "DELETE FROM db_paradas_mq WHERE num_transac='" + num_transac + "'";
-
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                cmd.ExecuteNonQuery();
-                conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
-
-
-
-        }
-        private void Estornar_consumo_mp(string num_transac)
-        {
-            try
-            {
-                string comando_sql;
-
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                conexao.Open();
-
-                comando_sql = "DELETE FROM db_mp_apon WHERE num_transac='" + num_transac + "'";
-
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                cmd.ExecuteNonQuery();
-                conexao.Close();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(erro.Message);
-            }
-        }
+        
+        
 
         // Metodos de atualização de lançamento
         private void Atualizar_lancamento(string id_apontamento)
@@ -2672,7 +2713,6 @@ namespace JP4
                 }
             }
         }
-
         private void Estornar_defeitos_mq(string num_transac)
         {
             try
@@ -3051,7 +3091,36 @@ namespace JP4
                 }
             }
         }
+        private void Estornar_paradas(string num_transac)
+        {
+            // num_transac = id + OP
 
+            // 01 - buscar numero da transação
+            // 02 - comparar na base o numero
+            // 03 - escluir o registro no banco
+
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                comando_sql = "DELETE FROM db_paradas_mq WHERE num_transac='" + num_transac + "'";
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+
+
+        }
 
 
         #endregion //Metodos Janela Parada
@@ -3476,6 +3545,30 @@ namespace JP4
                 }
             }
         }
+
+        private void Estornar_consumo_mp(string num_transac)
+        {
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                comando_sql = "DELETE FROM db_mp_apon WHERE num_transac='" + num_transac + "'";
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+                
+
         private double Soma_percentual(string mp01, string mp02, string mp03, string mp04, string mp05, string mp06, string mp07, string mp08, string mp09, string mp10)
         {
             double resultado = 0;
@@ -3536,6 +3629,7 @@ namespace JP4
             }
             return resultado;
         }
+
 
 
         #endregion // Metodos Janela Mistura
@@ -3624,9 +3718,7 @@ namespace JP4
 
         #region Funcionalidade Aba Mistura
         private void abaMistura_text_perct01_Leave(object sender, EventArgs e) { }
-
         private void abaMistura_text_perct02_Leave(object sender, EventArgs e) { }
-
         private void abaMistura_text_perct03_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;
@@ -3689,7 +3781,7 @@ namespace JP4
         }
         private void abaMistura_button_voltar_parada_Click(object sender, EventArgs e)
         {
-            tab_menu_apontamento.SelectedTab = tab_paradas;
+            tab_menu_apontamento.SelectedTab = tab_consumo;
         }
         private void abaMistura_button_ir_consumo_Click(object sender, EventArgs e)
         {
@@ -4118,7 +4210,6 @@ namespace JP4
             }
 
         }
-
         private void Carregar_defeitos_apontamento(string num_transac)
         {
 
@@ -4214,7 +4305,6 @@ namespace JP4
             }
 
         }
-
         private void Carregar_consumo_mp_apontamento()
         {
             // ll
@@ -4247,61 +4337,61 @@ namespace JP4
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp01.Name)
                     {
-                        abaMistura_combo_mp01.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp01.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct01.Text =  Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp02.Name)
                     {
-                        abaMistura_combo_mp02.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp02.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct02.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp03.Name)
                     {
-                        abaMistura_combo_mp03.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp03.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct03.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp04.Name)
                     {
-                        abaMistura_combo_mp04.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp04.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct04.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp05.Name)
                     {
-                        abaMistura_combo_mp05.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp05.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct05.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp06.Name)
                     {
-                        abaMistura_combo_mp06.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp06.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct06.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp07.Name)
                     {
-                        abaMistura_combo_mp07.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp07.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct07.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp08.Name)
                     {
-                        abaMistura_combo_mp08.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp08.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct08.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp09.Name)
                     {
-                        abaMistura_combo_mp09.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp09.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct09.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
                     if (myreader["campo_marcador"].ToString() == abaMistura_combo_mp10.Name)
                     {
-                        abaMistura_combo_mp10.Text = myreader["consumo_mp"].ToString();
+                        abaMistura_combo_mp10.Text = myreader["materia_prima"].ToString();
                         abaMistura_text_perct10.Text = Convert.ToString(Convert.ToDouble(myreader["percentual"]) * 100);
                     }
 
@@ -4316,7 +4406,6 @@ namespace JP4
             }
 
         }
-
         private void Carregar_grid_pesquisar()
         {
             //Achar um jeito de carregar somente ordens com status normal
@@ -4345,7 +4434,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Filtrar_grid_pesquisar(string num_docum, string data_lancamento, string operador, string turno, string descricao_material, string maquina)
         {
 
@@ -4410,7 +4498,6 @@ namespace JP4
 
 
         }
-
         private void abaPesquisar_button_pesquisar_Click(object sender, EventArgs e)
         {
             Carregar_grid_pesquisar();
