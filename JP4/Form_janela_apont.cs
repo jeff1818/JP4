@@ -25,7 +25,7 @@ namespace JP4
             Carregar_operadores_db();
             Carregar_local_destino_db();
             Carregar_local_origem_db();
-
+            Carregar_clientes_db();
             // Aba de parada
 
 
@@ -268,7 +268,7 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select local_aplicacao from db_cadastro_material where descricao_completa ='" + descricao_completa + "'";
+                string comando_sql = "select local_aplicacao, empresa from db_cadastro_material where descricao_completa ='" + descricao_completa + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -281,6 +281,7 @@ namespace JP4
                 {
                     this.text_local_aplicacao.Text = myreader["local_aplicacao"].ToString();
                     this.combo_empresa.Text = myreader["empresa"].ToString();
+                    //combo_empresa
                 }
 
                 conexao.Close();
@@ -498,6 +499,33 @@ namespace JP4
             }
         }
 
+        private void Carregar_clientes_db()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_clientes";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    this.combo_cliente_esto.Items.Add(myreader["cliente_nome"].ToString());
+                }
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         // Aba parada de maquina
         private void carregar_tipos_parada(string origem_apara)
         {
@@ -632,8 +660,22 @@ namespace JP4
         {
             carregar_descricao_completa(this.combo_ordem_prod.Text);
             carregar_cod_item(this.combo_ordem_prod.Text);
-            carregar_qtd_prevista(this.combo_ordem_prod.Text);
+            carregar_qtd_prevista(this.combo_ordem_prod.Text);            
+            Soma_saldo_op(Convert.ToDouble(combo_ordem_prod.Text));
             carregar_maquina_arquivo(this.combo_ordem_prod.Text);
+
+            try
+            {
+                text_qtd_saldo.Text = Convert.ToString(Convert.ToDouble(text_qtd_planejada.Text) - Convert.ToDouble(text_qtd_saldo.Text));
+            }
+            catch (Exception)
+            {
+                               
+            }
+
+
+
+
         }
 
         private void combo_turnos_SelectedIndexChanged(object sender, EventArgs e)
@@ -667,7 +709,7 @@ namespace JP4
                     hora_inicio = Convert.ToDateTime(myreader["inicio_turno"]);
                     hora_final = Convert.ToDateTime(myreader["fim_turno"]);
 
-                    this.label_descri_turno.Text = hora_inicio.ToString("hh:mm") + " as " + hora_final.ToString("hh;mm");
+                    this.label_descri_turno.Text = hora_inicio.ToString("HH:mm") + " as " + hora_final.ToString("HH;mm");
                 }
 
                 conexao.Close();
@@ -853,24 +895,6 @@ namespace JP4
             // Substituir os termos por algo mais dinamico
 
 
-
-            //if (Buscar_grupo_estoque(combo_desc_completa.Text) == "02") // Estrusora
-            //{
-            //    text_contador.Enabled = false;
-            //    text_qtd_fardos.Enabled = false;
-            //}
-            //else if(Buscar_grupo_estoque(combo_desc_completa.Text) == "01") // Picotadeira
-            //{
-            //    text_largura.Enabled = false;
-            //}
-            //else
-            //{
-            //    text_contador.Enabled = true;
-            //    text_qtd_fardos.Enabled = true;
-            //}
-
-
-
             if (text_local_aplicacao.Text == "Extrusora")
             {
                 text_contador.Enabled = false;
@@ -934,7 +958,6 @@ namespace JP4
 
             return nome_operacao;
         }
-
 
         private string Buscar_grupo_estoque(string descricao_completa)
         {
@@ -1002,6 +1025,8 @@ namespace JP4
 
             return nome_grupo;
         }
+
+
 
 
         // Janela Parada de maquina
@@ -1125,6 +1150,39 @@ namespace JP4
 
 
         #region Metodos de Calculo
+
+        private void Soma_saldo_op(double num_docum)
+        {
+            // Ainda falta fazer o calculo de Qtd_boa - soma =  Saldo 
+
+            try
+            {
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                string comando_sql = "SELECT SUM(qtd_real) AS Total FROM estoque_trans WHERE num_docum=" + num_docum + " AND cod_operacao='APON'";
+                // SELECT NOME, SUM(PONTOS) AS total FROM tabela
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    text_qtd_saldo.Text = myreader["Total"].ToString();
+                }
+
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
 
         private void calculo_velocidade()
         {
@@ -1357,6 +1415,7 @@ namespace JP4
             this.text_lotes.Enabled = true;
             this.combo_empresa.Enabled = true;
             this.dt_lançamento.Enabled = true;
+            this.combo_cliente_esto.Enabled = true;
 
 
 

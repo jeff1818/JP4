@@ -119,7 +119,7 @@ namespace JP4
                 local_pasta = Path.GetDirectoryName(folderBrowser.FileName);
                 nome_arquivo = Path.GetFileName(folderBrowser.FileName);
 
-                endereco_completo = @"""" + local_pasta + @"\" + nome_arquivo + @"""";
+                endereco_completo = local_pasta + @"\" + nome_arquivo ;
             }
 
             return endereco_completo;
@@ -131,7 +131,7 @@ namespace JP4
             {
                 var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                connectionString.ConnectionStrings["JP4.Properties.Settings.local_arquivo_excel"].ConnectionString = text_endereco.Text; //"Data Source=NewSource;Initial Catalog=NewCatalog;UID=NewUser;password=NewPassword";
+                connectionString.ConnectionStrings["JP4.Properties.Settings.local_arquivo_excel"].ConnectionString = text_local_arquivo_ordem.Text;
                 config.Save();
                 ConfigurationManager.RefreshSection("connectionStrings");
 
@@ -143,9 +143,6 @@ namespace JP4
             }
 
         }
-
-
-
 
 
         private void Reset_aplicativo()

@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Net;
+using System.Diagnostics;
+
+
 namespace JP4
 {
     public partial class Form_tela_inicial : Form
@@ -15,11 +19,36 @@ namespace JP4
         public Form_tela_inicial()
         {
             InitializeComponent();
+
             label_inicio_versao_prog.Text = Application.ProductVersion;
+            //update_file(label_inicio_versao_prog.Text);
 
-
-            //ll
         }
+
+        private void update_file(string version_app)
+        {
+            WebClient webClient = new WebClient();
+
+            try
+            {
+                if (!webClient.DownloadString("https://pastebin.com/raw/Hc22rGGZ").Contains(version_app))
+                {
+                    if (MessageBox.Show("Uma nova verstão esta disponivel! Gostaria de baixar?", "JP4", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        using (var client = new WebClient())
+                        {
+                            Process.Start("Update_JM4.exe");
+                            this.Close();
+                        }
+                }
+            }
+            catch
+            {
+
+            }
+
+        }
+
+
 
         #region Declaração que faz o formulário se mover com o mouse
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")] private extern static void ReleaseCapture();
