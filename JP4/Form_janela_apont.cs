@@ -53,6 +53,7 @@ namespace JP4
 
         private void Form_janela_apont_KeyDown(object sender, KeyEventArgs e)
         {
+            Verifica_campos();
 
             if (e.KeyCode == Keys.Escape)
             {
@@ -498,7 +499,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Carregar_clientes_db()
         {
             try
@@ -1350,39 +1350,20 @@ namespace JP4
             return resultado;
 
         }
-        private int Verifica_campos()
+        private void Verifica_campos()
         {
-            //if(!string.IsNullOrEmpty(this.combo_ordem_prod.Text))
 
+            if(combo_ordem_prod.Text == string.Empty || combo_cod_item.Text == string.Empty || combo_cliente_esto.Text == string.Empty)
+            {
+                MessageBox.Show("Verifique os campos | Ordem | Codigo | Cliente");
+                cod_geral_erro = 1;
+            }
 
-
-            this.combo_maquinas.Enabled = true;
-            this.combo_cod_item.Enabled = true;
-            this.combo_desc_completa.Enabled = true;
-            this.text_qtd_planejada.Enabled = true;
-            this.text_qtd_saldo.Enabled = true;
-            this.combo_maquinas.Enabled = true;
-            this.combo_turnos.Enabled = true;
-            this.combo_operadores.Enabled = true;
-            this.dt_inicio_pro.Enabled = true;
-            this.hr_inicial_prod.Enabled = true;
-            this.dt_final_pro.Enabled = true;
-            this.hr_final_prod.Enabled = true;
-            this.text_operacao.Enabled = true;
-            this.text_qtd_boa.Enabled = true;
-            this.text_bobina_ini.Enabled = true;
-            this.text_bobina_fim.Enabled = true;
-            this.text_velocidade.Enabled = true;
-            this.text_contador.Enabled = true;
-            this.text_qtd_fardos.Enabled = true;
-            this.text_largura.Enabled = true;
-            this.combo_local_orig.Enabled = true;
-            this.combo_local_desti.Enabled = true;
-            this.text_lotes.Enabled = true;
-            this.combo_empresa.Enabled = true;
-            this.dt_lançamento.Enabled = true;
-
-            return 0;
+            if(combo_local_orig.Text == string.Empty || combo_local_desti.Text == string.Empty || combo_operadores.Text == string.Empty || combo_turnos.Text == string.Empty)
+            {
+                MessageBox.Show("Verifique os campos | Local de origem e destino | Operadores | Turnos");
+                cod_geral_erro = 1;
+            }
         }
         private void Desbloquear_controles()
         {
@@ -1466,6 +1447,7 @@ namespace JP4
             string Tipo_material = this.label_tipo_material.Text;
             string observacao = this.richText_observacao.Text;
             int status_estorno = 0;
+            string cliente_apon = this.combo_cliente_esto.Text;
 
             num_transac = Gerar_num_transac(num_docum, hor_operac);
 
@@ -1479,8 +1461,8 @@ namespace JP4
 
                 string comando_sql;
 
-                comando_sql = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao, status_estorno) " +
-                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "','" + status_estorno + "')";
+                comando_sql = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao, status_estorno, cliente_apon) " +
+                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "','" + status_estorno +"','" + cliente_apon + "')";
 
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -1784,11 +1766,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void Buscar_apontamento()
-        {
-
-        }
-        
+        private void Buscar_apontamento(){}       
         
 
         // Metodos de atualização de lançamento
@@ -4156,7 +4134,7 @@ namespace JP4
                     this.richText_observacao.Text = myreader["observacao"].ToString();
                     //this.abaPesquisar_combo_operador.Items.Add();                   
                     abaApon_label_num_transa.Text = myreader["num_transac"].ToString();
-
+                    this.combo_cliente_esto.Text = myreader["cliente_apon"].ToString();
                     //num_transac = myreader["num_transac"].ToString();
                 }
 

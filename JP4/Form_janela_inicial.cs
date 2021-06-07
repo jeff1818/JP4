@@ -139,5 +139,15 @@ namespace JP4
         {
             abrir_janelas(new CONF01());
         }
+
+        private void button_cadastro_defeitos_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_defeitos());
+        }
+
+        private void button_cad_grupo_estoque_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_grupo_estoque());
+        }
     }
 }

@@ -150,6 +150,24 @@
     <Compile Include="Form_janela_cadastro_material.Designer.cs">
       <DependentUpon>Form_janela_cadastro_material.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_janela_cad_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_cad_clientes.Designer.cs">
+      <DependentUpon>Form_janela_cad_clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_janela_cad_defeitos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_cad_defeitos.Designer.cs">
+      <DependentUpon>Form_janela_cad_defeitos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_janela_cad_grupo_estoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_cad_grupo_estoque.Designer.cs">
+      <DependentUpon>Form_janela_cad_grupo_estoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_janela_config.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +224,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_cadastro_material.resx">
       <DependentUpon>Form_janela_cadastro_material.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_clientes.resx">
+      <DependentUpon>Form_janela_cad_clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_defeitos.resx">
+      <DependentUpon>Form_janela_cad_defeitos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_grupo_estoque.resx">
+      <DependentUpon>Form_janela_cad_grupo_estoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_config.resx">
       <DependentUpon>Form_janela_config.cs</DependentUpon>
