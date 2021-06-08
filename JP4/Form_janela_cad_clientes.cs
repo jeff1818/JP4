@@ -12,7 +12,7 @@ namespace JP4
             InitializeComponent();
 
             Carregar_grid_clientes();
-
+            date_modificacao.Value = DateTime.Today;
         }
 
 
@@ -49,6 +49,43 @@ namespace JP4
             }
         }
 
+        private void Carregar_controles(string cliente_id)
+        {
+            
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_clientes where cliente_id= " + cliente_id;
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    combo_status_cliente.Text = myreader["status"].ToString();
+                    text_cod_cliente.Text = myreader["codigo_cliente"].ToString();
+                    text_nome_reduzido.Text = myreader["cliente_nome"].ToString();
+                    text_razao_social.Text = myreader["razao_social"].ToString();
+                    text_nome_fantasia.Text = myreader["nome_fantasia"].ToString();
+                    date_cadastro.Value = Convert.ToDateTime(myreader["data_cadastro"].ToString());
+                    date_modificacao.Value = Convert.ToDateTime(myreader["ultima_modificao"].ToString());
+                    richText_observacao.Text = myreader["observacao"].ToString();
+
+
+                }
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
 
         #endregion
 
@@ -88,7 +125,7 @@ namespace JP4
 
             }
         }
-        private void Atualizar_grupo_estoque(string cliente_id)
+        private void Atualizar_cliente(string cliente_id)
         {
             string status = combo_status_cliente.Text;
             string codigo_cliente = text_cod_cliente.Text;
@@ -131,7 +168,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void Deletar_grupo_estoque(string cliente_id)
+        private void Deletar_cliente(string cliente_id)
         {
             try
             {
@@ -181,23 +218,37 @@ namespace JP4
 
         private void button_salvar_Click(object sender, EventArgs e)
         {
+            Salvar_clientes();
+            Limpar_controles();
+            Carregar_grid_clientes();
 
         }
 
         private void button_atualizar_Click(object sender, EventArgs e)
         {
-
+            Atualizar_cliente(label_id_clientes.Text);
+            Limpar_controles();
+            Carregar_grid_clientes();
         }
 
         private void button_deletar_Click(object sender, EventArgs e)
         {
-
+            Deletar_cliente(label_id_clientes.Text);
+            Limpar_controles();
+            Carregar_grid_clientes();
         }
 
         private void button_limpar_controles_Click(object sender, EventArgs e)
         {
-
+            Limpar_controles();
         }
         #endregion
+
+        private void grid_cad_clientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string cliente_id = grid_cad_clientes.CurrentRow.Cells[0].Value.ToString();
+            label_id_clientes.Text = cliente_id;
+            Carregar_controles(cliente_id);
+        }
     }
 }
