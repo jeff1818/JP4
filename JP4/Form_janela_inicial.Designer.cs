@@ -36,6 +36,8 @@ namespace JP4
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button_cad_clientes = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button_cad_grupo_estoque = new System.Windows.Forms.Button();
             this.label_inicio_versao_prog = new System.Windows.Forms.Label();
@@ -56,8 +58,10 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.button_cad_clientes = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.button_cad_local_aplica = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.button_cad_local_estoque = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -138,6 +142,10 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.panel10);
+            this.panel_menu_vertical.Controls.Add(this.button_cad_local_estoque);
+            this.panel_menu_vertical.Controls.Add(this.panel9);
+            this.panel_menu_vertical.Controls.Add(this.button_cad_local_aplica);
             this.panel_menu_vertical.Controls.Add(this.panel8);
             this.panel_menu_vertical.Controls.Add(this.button_cad_clientes);
             this.panel_menu_vertical.Controls.Add(this.panel7);
@@ -162,6 +170,29 @@ namespace JP4
             this.panel_menu_vertical.Name = "panel_menu_vertical";
             this.panel_menu_vertical.Size = new System.Drawing.Size(200, 689);
             this.panel_menu_vertical.TabIndex = 4;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Black;
+            this.panel8.Location = new System.Drawing.Point(3, 377);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(5, 32);
+            this.panel8.TabIndex = 18;
+            // 
+            // button_cad_clientes
+            // 
+            this.button_cad_clientes.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cad_clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cad_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cad_clientes.ForeColor = System.Drawing.Color.White;
+            this.button_cad_clientes.Location = new System.Drawing.Point(14, 377);
+            this.button_cad_clientes.Name = "button_cad_clientes";
+            this.button_cad_clientes.Size = new System.Drawing.Size(180, 32);
+            this.button_cad_clientes.TabIndex = 17;
+            this.button_cad_clientes.Text = "Cadastro Clientes";
+            this.button_cad_clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cad_clientes.UseVisualStyleBackColor = true;
+            this.button_cad_clientes.Click += new System.EventHandler(this.button_cad_clientes_Click);
             // 
             // panel7
             // 
@@ -372,28 +403,51 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
-            // panel8
+            // panel9
             // 
-            this.panel8.BackColor = System.Drawing.Color.Black;
-            this.panel8.Location = new System.Drawing.Point(3, 377);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(5, 32);
-            this.panel8.TabIndex = 18;
+            this.panel9.BackColor = System.Drawing.Color.Black;
+            this.panel9.Location = new System.Drawing.Point(3, 415);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(5, 32);
+            this.panel9.TabIndex = 20;
             // 
-            // button_cad_clientes
+            // button_cad_local_aplica
             // 
-            this.button_cad_clientes.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_cad_clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button_cad_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cad_clientes.ForeColor = System.Drawing.Color.White;
-            this.button_cad_clientes.Location = new System.Drawing.Point(14, 377);
-            this.button_cad_clientes.Name = "button_cad_clientes";
-            this.button_cad_clientes.Size = new System.Drawing.Size(180, 32);
-            this.button_cad_clientes.TabIndex = 17;
-            this.button_cad_clientes.Text = "Cadastro Clientes";
-            this.button_cad_clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_cad_clientes.UseVisualStyleBackColor = true;
-            this.button_cad_clientes.Click += new System.EventHandler(this.button_cad_clientes_Click);
+            this.button_cad_local_aplica.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cad_local_aplica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cad_local_aplica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cad_local_aplica.ForeColor = System.Drawing.Color.White;
+            this.button_cad_local_aplica.Location = new System.Drawing.Point(14, 415);
+            this.button_cad_local_aplica.Name = "button_cad_local_aplica";
+            this.button_cad_local_aplica.Size = new System.Drawing.Size(180, 32);
+            this.button_cad_local_aplica.TabIndex = 19;
+            this.button_cad_local_aplica.Text = "Cadastro Lcal Aplicação";
+            this.button_cad_local_aplica.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cad_local_aplica.UseVisualStyleBackColor = true;
+            this.button_cad_local_aplica.Click += new System.EventHandler(this.button_cad_local_aplica_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Black;
+            this.panel10.Location = new System.Drawing.Point(3, 453);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(5, 32);
+            this.panel10.TabIndex = 22;
+            // 
+            // button_cad_local_estoque
+            // 
+            this.button_cad_local_estoque.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cad_local_estoque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cad_local_estoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cad_local_estoque.ForeColor = System.Drawing.Color.White;
+            this.button_cad_local_estoque.Location = new System.Drawing.Point(14, 453);
+            this.button_cad_local_estoque.Name = "button_cad_local_estoque";
+            this.button_cad_local_estoque.Size = new System.Drawing.Size(180, 32);
+            this.button_cad_local_estoque.TabIndex = 21;
+            this.button_cad_local_estoque.Text = "Cadastro Lcal Estoque";
+            this.button_cad_local_estoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cad_local_estoque.UseVisualStyleBackColor = true;
+            this.button_cad_local_estoque.Click += new System.EventHandler(this.button_cad_local_estoque_Click);
             // 
             // Form_tela_inicial
             // 
@@ -457,6 +511,10 @@ namespace JP4
         private System.Windows.Forms.Button button_cad_grupo_estoque;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button button_cad_clientes;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button button_cad_local_aplica;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button button_cad_local_estoque;
     }
 }
 
