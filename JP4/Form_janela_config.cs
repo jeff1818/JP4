@@ -171,8 +171,8 @@ namespace JP4
 
         private void button_janela_update_Click(object sender, EventArgs e)
         {
-            //Auto_update_form janela_update = new Auto_update_form();
-            //janela_update.Show();
+            Form_janela_update janela_update = new Form_janela_update();
+            janela_update.Show();
         }
 
         private void button_busca_loca_arquivo_os_Click(object sender, EventArgs e)

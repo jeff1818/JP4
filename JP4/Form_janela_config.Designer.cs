@@ -33,7 +33,6 @@ namespace JP4
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_janela_update = new System.Windows.Forms.Button();
             this.text_endereco = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_salvar_endereco = new System.Windows.Forms.Button();
@@ -45,6 +44,7 @@ namespace JP4
             this.label2 = new System.Windows.Forms.Label();
             this.button_salva_local_os = new System.Windows.Forms.Button();
             this.button_busca_loca_arquivo_os = new System.Windows.Forms.Button();
+            this.button_janela_update = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -81,16 +81,6 @@ namespace JP4
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
-            // 
-            // button_janela_update
-            // 
-            this.button_janela_update.Location = new System.Drawing.Point(640, 89);
-            this.button_janela_update.Name = "button_janela_update";
-            this.button_janela_update.Size = new System.Drawing.Size(75, 23);
-            this.button_janela_update.TabIndex = 6;
-            this.button_janela_update.Text = "Verificar atualização";
-            this.button_janela_update.UseVisualStyleBackColor = true;
-            this.button_janela_update.Click += new System.EventHandler(this.button_janela_update_Click);
             // 
             // text_endereco
             // 
@@ -195,6 +185,16 @@ namespace JP4
             this.button_busca_loca_arquivo_os.UseVisualStyleBackColor = true;
             this.button_busca_loca_arquivo_os.Click += new System.EventHandler(this.button_busca_loca_arquivo_os_Click);
             // 
+            // button_janela_update
+            // 
+            this.button_janela_update.Location = new System.Drawing.Point(640, 89);
+            this.button_janela_update.Name = "button_janela_update";
+            this.button_janela_update.Size = new System.Drawing.Size(75, 23);
+            this.button_janela_update.TabIndex = 6;
+            this.button_janela_update.Text = "Verificar atualização";
+            this.button_janela_update.UseVisualStyleBackColor = true;
+            this.button_janela_update.Click += new System.EventHandler(this.button_janela_update_Click);
+            // 
             // CONF01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,12 +229,12 @@ namespace JP4
         private System.Windows.Forms.Button button_salvar_endereco;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel label_status_con;
-        private System.Windows.Forms.Button button_janela_update;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button_mostrar_modelo;
         private System.Windows.Forms.TextBox text_local_arquivo_ordem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_salva_local_os;
         private System.Windows.Forms.Button button_busca_loca_arquivo_os;
+        private System.Windows.Forms.Button button_janela_update;
     }
 }
