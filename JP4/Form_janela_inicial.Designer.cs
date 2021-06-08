@@ -56,6 +56,8 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button_cad_clientes = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -136,6 +138,8 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.panel8);
+            this.panel_menu_vertical.Controls.Add(this.button_cad_clientes);
             this.panel_menu_vertical.Controls.Add(this.panel7);
             this.panel_menu_vertical.Controls.Add(this.button_cad_grupo_estoque);
             this.panel_menu_vertical.Controls.Add(this.label_inicio_versao_prog);
@@ -368,6 +372,29 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Black;
+            this.panel8.Location = new System.Drawing.Point(3, 377);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(5, 32);
+            this.panel8.TabIndex = 18;
+            // 
+            // button_cad_clientes
+            // 
+            this.button_cad_clientes.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cad_clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cad_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cad_clientes.ForeColor = System.Drawing.Color.White;
+            this.button_cad_clientes.Location = new System.Drawing.Point(14, 377);
+            this.button_cad_clientes.Name = "button_cad_clientes";
+            this.button_cad_clientes.Size = new System.Drawing.Size(180, 32);
+            this.button_cad_clientes.TabIndex = 17;
+            this.button_cad_clientes.Text = "Cadastro Clientes";
+            this.button_cad_clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cad_clientes.UseVisualStyleBackColor = true;
+            this.button_cad_clientes.Click += new System.EventHandler(this.button_cad_clientes_Click);
+            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,6 +455,8 @@ namespace JP4
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button_cad_grupo_estoque;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button button_cad_clientes;
     }
 }
 

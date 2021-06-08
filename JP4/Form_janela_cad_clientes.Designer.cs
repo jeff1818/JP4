@@ -41,7 +41,7 @@ namespace JP4
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.date_cadastro = new System.Windows.Forms.DateTimePicker();
             this.combo_status_cliente = new System.Windows.Forms.ComboBox();
             this.text_cod_cliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@ namespace JP4
             this.text_razao_social = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.text_nome_fantasia = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.date_modificacao = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.richText_observacao = new System.Windows.Forms.RichTextBox();
@@ -82,6 +82,7 @@ namespace JP4
             this.button_limpar_controles.TabIndex = 11;
             this.button_limpar_controles.Text = "Limpar Controles";
             this.button_limpar_controles.UseVisualStyleBackColor = true;
+            this.button_limpar_controles.Click += new System.EventHandler(this.button_limpar_controles_Click);
             // 
             // button_atualizar
             // 
@@ -91,6 +92,7 @@ namespace JP4
             this.button_atualizar.TabIndex = 10;
             this.button_atualizar.Text = "Atualizar";
             this.button_atualizar.UseVisualStyleBackColor = true;
+            this.button_atualizar.Click += new System.EventHandler(this.button_atualizar_Click);
             // 
             // button_filtrar
             // 
@@ -109,6 +111,7 @@ namespace JP4
             this.button_salvar.TabIndex = 7;
             this.button_salvar.Text = "Salvar";
             this.button_salvar.UseVisualStyleBackColor = true;
+            this.button_salvar.Click += new System.EventHandler(this.button_salvar_Click);
             // 
             // button_deletar
             // 
@@ -118,6 +121,7 @@ namespace JP4
             this.button_deletar.TabIndex = 8;
             this.button_deletar.Text = "Excluir";
             this.button_deletar.UseVisualStyleBackColor = true;
+            this.button_deletar.Click += new System.EventHandler(this.button_deletar_Click);
             // 
             // grid_cad_clientes
             // 
@@ -137,7 +141,7 @@ namespace JP4
             // 
             this.groupBox1.Controls.Add(this.richText_observacao);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.date_modificacao);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.text_nome_fantasia);
             this.groupBox1.Controls.Add(this.label6);
@@ -147,7 +151,7 @@ namespace JP4
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.text_cod_cliente);
             this.groupBox1.Controls.Add(this.combo_status_cliente);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.date_cadastro);
             this.groupBox1.Controls.Add(this.label_id_grupo_estoque);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -196,18 +200,21 @@ namespace JP4
             this.label1.TabIndex = 0;
             this.label1.Text = "Status";
             // 
-            // dateTimePicker1
+            // date_cadastro
             // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(96, 76);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(106, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.date_cadastro.Enabled = false;
+            this.date_cadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_cadastro.Location = new System.Drawing.Point(96, 76);
+            this.date_cadastro.Name = "date_cadastro";
+            this.date_cadastro.Size = new System.Drawing.Size(106, 20);
+            this.date_cadastro.TabIndex = 9;
             // 
             // combo_status_cliente
             // 
             this.combo_status_cliente.FormattingEnabled = true;
+            this.combo_status_cliente.Items.AddRange(new object[] {
+            "Ativo",
+            "Desativado"});
             this.combo_status_cliente.Location = new System.Drawing.Point(96, 23);
             this.combo_status_cliente.Name = "combo_status_cliente";
             this.combo_status_cliente.Size = new System.Drawing.Size(121, 21);
@@ -268,14 +275,14 @@ namespace JP4
             this.text_nome_fantasia.Size = new System.Drawing.Size(348, 20);
             this.text_nome_fantasia.TabIndex = 5;
             // 
-            // dateTimePicker2
+            // date_modificacao
             // 
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(96, 101);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(106, 20);
-            this.dateTimePicker2.TabIndex = 19;
+            this.date_modificacao.Enabled = false;
+            this.date_modificacao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_modificacao.Location = new System.Drawing.Point(96, 101);
+            this.date_modificacao.Name = "date_modificacao";
+            this.date_modificacao.Size = new System.Drawing.Size(106, 20);
+            this.date_modificacao.TabIndex = 19;
             // 
             // label7
             // 
@@ -336,8 +343,8 @@ namespace JP4
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker date_cadastro;
+        private System.Windows.Forms.DateTimePicker date_modificacao;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox text_nome_fantasia;
         private System.Windows.Forms.Label label6;

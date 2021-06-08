@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace JP4
@@ -15,6 +10,194 @@ namespace JP4
         public Form_janela_cad_clientes()
         {
             InitializeComponent();
+
+            Carregar_grid_clientes();
+
         }
+
+
+        #region Metodos Carregar
+
+        private void Carregar_status()
+        {
+            //combo_status_cliente.Items.Add = "{Ativado, Desativado}";
+        }
+
+        private void Carregar_grid_clientes()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_clientes";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("db_cadastro_clientes");
+
+                myadapter.Fill(dt);
+
+                DataView dv = dt.DefaultView;
+
+                //dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
+                grid_cad_clientes.DataSource = dv.ToTable();
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+
+        #endregion
+
+
+        //----------------------------------------------------------------------------------------
+        #region Salvar / Atualizar / Deletar
+
+        private void Salvar_clientes()
+        {
+            string status = combo_status_cliente.Text;
+            string codigo_cliente = text_cod_cliente.Text;
+            string cliente_nome = text_nome_reduzido.Text;
+            string razao_social = text_razao_social.Text;
+            string nome_fantasia = text_nome_fantasia.Text;
+            DateTime data_cadastro = date_cadastro.Value;
+            DateTime ultima_modificao = date_modificacao.Value;
+            string observacao = richText_observacao.Text;
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                string comando_sql;
+
+                comando_sql = "INSERT INTO db_cadastro_clientes(status, codigo_cliente, cliente_nome, razao_social,nome_fantasia, data_cadastro , ultima_modificao, observacao) " +
+                    "VALUES('" + status + "','" + codigo_cliente + "','" + cliente_nome + "','" + razao_social + "','" + nome_fantasia + "','" + data_cadastro + "','" + ultima_modificao + "','" + observacao + "')";
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+
+            }
+        }
+        private void Atualizar_grupo_estoque(string cliente_id)
+        {
+            string status = combo_status_cliente.Text;
+            string codigo_cliente = text_cod_cliente.Text;
+            string cliente_nome = text_nome_reduzido.Text;
+            string razao_social = text_razao_social.Text;
+            string nome_fantasia = text_nome_fantasia.Text;
+            DateTime data_cadastro = date_cadastro.Value;
+            DateTime ultima_modificao = date_modificacao.Value;
+            string observacao = richText_observacao.Text;
+
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                comando_sql = "UPDATE db_cadastro_clientes SET " +
+                        "status='" + status +
+                        "', codigo_cliente='" + codigo_cliente +
+                        "', cliente_nome='" + cliente_nome +
+                        "', razao_social='" + razao_social +
+                        "', nome_fantasia='" + nome_fantasia +
+                        "', data_cadastro='" + data_cadastro +
+                        "', ultima_modificao='" + ultima_modificao +
+                        "', observacao='" + observacao +
+                        "' WHERE cliente_id=" + cliente_id;
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Atualizado com sucesso!");
+
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Deletar_grupo_estoque(string cliente_id)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                string comando_sql;
+
+                comando_sql = "DELETE FROM db_cadastro_clientes WHERE cliente_id = " + cliente_id;
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Deletado com sucesso!");
+
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Limpar_controles()
+        {
+            combo_status_cliente.Text = string.Empty;
+            text_cod_cliente.Text = string.Empty;
+            text_nome_reduzido.Text = string.Empty;
+            text_razao_social.Text = string.Empty;
+            text_nome_fantasia.Text = string.Empty;
+            //date_cadastro.Value;
+            //date_modificacao.Value;
+            richText_observacao.Text = string.Empty;
+        }
+
+
+        #endregion
+
+
+
+
+
+
+
+        #region Botões de comando
+
+        private void button_salvar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_atualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_deletar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_limpar_controles_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

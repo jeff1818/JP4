@@ -149,5 +149,10 @@ namespace JP4
         {
             abrir_janelas(new Form_janela_cad_grupo_estoque());
         }
+
+        private void button_cad_clientes_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_clientes());
+        }
     }
 }
