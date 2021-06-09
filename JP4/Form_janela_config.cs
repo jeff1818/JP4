@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.OleDb;
 using System.IO;
 using System.Windows.Forms;
+using System.Net;
+using System.Diagnostics;
 
 namespace JP4
 {
@@ -17,6 +19,41 @@ namespace JP4
             text_local_arquivo_ordem.Text = Properties.Settings.Default.local_arquivo_excel;
 
         }
+
+
+        //------------------------------------------------------------------------------------------------
+        public void Check_update()
+        {
+            // Gloria ao pai
+
+            WebClient webClient = new WebClient();
+
+            try
+            {
+                if (!webClient.DownloadString("https://pastebin.com/raw/Hc22rGGZ").Contains(Application.ProductVersion))
+                {
+                    if (MessageBox.Show("Nova versão dispinivel! Deseja fazer o download?", "Gestão de produção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        using (var client = new WebClient())
+                        {
+                            Process.Start("Update_JM4.exe");
+                            Close();
+                        }
+                }
+                else
+                {
+                    
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        //------------------------------------------------------------------------------------------------
+
+
 
         private void Testar_conexao()
         {
@@ -58,7 +95,7 @@ namespace JP4
             string nome_arquivo = string.Empty;
             string endereco_completo = string.Empty;
             string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
-
+            
 
             OpenFileDialog folderBrowser = new OpenFileDialog();
 
@@ -72,7 +109,8 @@ namespace JP4
                 local_pasta = Path.GetDirectoryName(folderBrowser.FileName);
                 nome_arquivo = Path.GetFileName(folderBrowser.FileName);
 
-                endereco_completo = texto_conecta + @"""" + local_pasta + @"\" + nome_arquivo + @"""";
+                // endereco_completo = texto_conecta + @"""" + local_pasta + @"\" + nome_arquivo + @"""";
+                endereco_completo = texto_conecta + '\u0022' + local_pasta + @"\" + nome_arquivo + '\u0022'; //"; providerName =" + '\u0022' + "System.Data.OleDb"+'\u0022';
             }
 
             return endereco_completo;
@@ -92,7 +130,7 @@ namespace JP4
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show("Erro ao salvar o local do banco! || " + erro.Message);
             }
 
         }
@@ -139,7 +177,7 @@ namespace JP4
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show("Erro ao salvar o dados importados! || " + erro.Message);
             }
 
         }
@@ -148,7 +186,7 @@ namespace JP4
         private void Reset_aplicativo()
         {
             MessageBox.Show("Aplicativo deve ser reiniciado!");
-            Application.Exit();
+            Application.Restart();
         }
 
 
@@ -171,8 +209,11 @@ namespace JP4
 
         private void button_janela_update_Click(object sender, EventArgs e)
         {
-            Form_janela_update janela_update = new Form_janela_update();
-            janela_update.Show();
+            //Form_janela_update janela_update = new Form_janela_update();
+            //janela_update.Show();
+
+            Check_update();
+
         }
 
         private void button_busca_loca_arquivo_os_Click(object sender, EventArgs e)

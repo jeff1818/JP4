@@ -23,6 +23,9 @@ namespace JP4
             label_inicio_versao_prog.Text = Application.ProductVersion;
             //update_file(label_inicio_versao_prog.Text);
 
+            CONF01 config_update = new CONF01();
+            config_update.Check_update();
+
         }
 
         private void update_file(string version_app)

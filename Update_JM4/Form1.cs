@@ -20,10 +20,14 @@ namespace Update_JM4
         public Form1()
         {
             InitializeComponent();
-
             Auto_update();
             
         }
+
+        //Funciona muito bem com o servidor 00host
+        // Testar com o servidor HostGator 
+        // Criar setup do programa
+        //Finalizar testes
 
 
         private void Auto_update()
@@ -33,21 +37,23 @@ namespace Update_JM4
 
             try
             {
-                System.Threading.Thread.Sleep(10);
-                File.Delete(@".\JM4.exe");
-                client.DownloadFile("https://br1048.hostgator.com.br:2083/cpsess8499595130/download?skipencode=1&file=%2fhome1%2fcasacr53%2fcasacriativa.top%2faplicatio.db%2fJM4%2fJP4.zip", @"JM4.zip");
-                string zipPath = @".\JM4.zip";
+                System.Threading.Thread.Sleep(5000);
+                File.Delete(@".\JP4.exe");
+                client.DownloadFile("https://jm418.000webhostapp.com/JP4.zip", @"JP4.zip"); // https://br1048.hostgator.com.br:2083/cpsess9498766292/download?skipencode=1&file=%2fhome1%2fcasacr53%2fpublic_html%2fAplicativo%2fJM4%2fJP4.zip
+                string zipPath = @".\JP4.zip";
                 string extractPath = @".\";
                 ZipFile.ExtractToDirectory(zipPath, extractPath);
-                File.Delete(@".\JM4.zip");
-                Process.Start(@".\JM4.exe");
+                File.Delete(@".\JP4.zip");
+                Process.Start(@".\JP4.exe");
                 this.Close();
             }
             catch
             {
-                Process.Start("JM4.exe");
+                Process.Start("JP4.exe");
                 this.Close();
             }
+
+
         }
 
 

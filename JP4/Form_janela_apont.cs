@@ -4571,6 +4571,49 @@ namespace JP4
 
         }
 
+        private void cadItensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void maquinasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void turnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void operadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void operaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void defeitosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void paradasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void etruturaDoItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -11,12 +11,8 @@ namespace JP4
             InitializeComponent();
 
             label_versao_app.Text = Application.ProductVersion;
-            
-            
             check_update();
         }
-
-
 
         //
 
@@ -26,19 +22,19 @@ namespace JP4
 
             try
             {
-                if (!webClient.DownloadString("yourpastebinlink").Contains(label_versao_app.Text))
+                if (!webClient.DownloadString("https://pastebin.com/raw/Hc22rGGZ").Contains(label_versao_app.Text))
                 {
                     if (MessageBox.Show("Nova versão dispinivel! Deseja fazer o download?", "Gestão de produção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         using (var client = new WebClient())
                         {
-                            Process.Start("UpdaterDemo.exe");
+                            Process.Start("Update_JM4.exe");
                             this.Close();
                         }
                 }
             }
             catch
             {
-
+                
             }
         }
         //
