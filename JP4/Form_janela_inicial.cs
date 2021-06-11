@@ -167,5 +167,15 @@ namespace JP4
         {
             abrir_janelas(new Form_janela_cad_local_estoque());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_empresas());
+        }
+
+        private void button_cad_equipamento_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_equipamentos());
+        }
     }
 }

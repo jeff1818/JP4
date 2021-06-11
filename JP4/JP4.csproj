@@ -150,6 +150,12 @@
     <Compile Include="Form_janela_cad_empresas.Designer.cs">
       <DependentUpon>Form_janela_cad_empresas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_janela_cad_equipamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_cad_equipamentos.Designer.cs">
+      <DependentUpon>Form_janela_cad_equipamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_janela_cad_material.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_apont.resx">
       <DependentUpon>Form_janela_apont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_empresas.resx">
+      <DependentUpon>Form_janela_cad_empresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_equipamentos.resx">
+      <DependentUpon>Form_janela_cad_equipamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_cad_material.resx">
       <DependentUpon>Form_janela_cad_material.cs</DependentUpon>

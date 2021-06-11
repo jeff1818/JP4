@@ -36,6 +36,8 @@ namespace JP4
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.button_cad_local_estoque = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -62,6 +64,9 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.button_cad_equipamento = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -142,6 +147,11 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.panel13);
+            this.panel_menu_vertical.Controls.Add(this.panel12);
+            this.panel_menu_vertical.Controls.Add(this.button_cad_equipamento);
+            this.panel_menu_vertical.Controls.Add(this.panel11);
+            this.panel_menu_vertical.Controls.Add(this.button1);
             this.panel_menu_vertical.Controls.Add(this.panel10);
             this.panel_menu_vertical.Controls.Add(this.button_cad_local_estoque);
             this.panel_menu_vertical.Controls.Add(this.panel9);
@@ -170,6 +180,29 @@ namespace JP4
             this.panel_menu_vertical.Name = "panel_menu_vertical";
             this.panel_menu_vertical.Size = new System.Drawing.Size(200, 689);
             this.panel_menu_vertical.TabIndex = 4;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.Black;
+            this.panel11.Location = new System.Drawing.Point(3, 491);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(5, 32);
+            this.panel11.TabIndex = 24;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(14, 491);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(180, 32);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Cadastro Empresa";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel10
             // 
@@ -449,6 +482,36 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Black;
+            this.panel12.Location = new System.Drawing.Point(1, 529);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(5, 32);
+            this.panel12.TabIndex = 26;
+            // 
+            // button_cad_equipamento
+            // 
+            this.button_cad_equipamento.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cad_equipamento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cad_equipamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cad_equipamento.ForeColor = System.Drawing.Color.White;
+            this.button_cad_equipamento.Location = new System.Drawing.Point(12, 529);
+            this.button_cad_equipamento.Name = "button_cad_equipamento";
+            this.button_cad_equipamento.Size = new System.Drawing.Size(180, 32);
+            this.button_cad_equipamento.TabIndex = 25;
+            this.button_cad_equipamento.Text = "Cadastro Equipamento";
+            this.button_cad_equipamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cad_equipamento.UseVisualStyleBackColor = true;
+            this.button_cad_equipamento.Click += new System.EventHandler(this.button_cad_equipamento_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.Location = new System.Drawing.Point(33, 564);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(159, 100);
+            this.panel13.TabIndex = 27;
+            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,6 +578,11 @@ namespace JP4
         private System.Windows.Forms.Button button_cad_local_aplica;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button button_cad_local_estoque;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button button_cad_equipamento;
+        private System.Windows.Forms.Panel panel13;
     }
 }
 
