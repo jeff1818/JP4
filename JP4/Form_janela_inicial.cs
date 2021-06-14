@@ -177,5 +177,29 @@ namespace JP4
         {
             abrir_janelas(new Form_janela_cad_equipamentos());
         }
+
+        private void button_cad_origem_apara_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_origem_apara());
+        }
+
+        private void button_area_cadastro_Click(object sender, EventArgs e)
+        {
+            if(panel_sub_menu_cadastro.Visible == true)
+            {
+                panel_sub_menu_cadastro.Visible = false;
+            }
+            else
+            {
+                panel_sub_menu_cadastro.Visible = true;
+            }
+        }
+
+        private void panel_menu_vertical_Click(object sender, EventArgs e)
+        {
+            panel_sub_menu_cadastro.Visible = false;
+        }
+
+        
     }
 }

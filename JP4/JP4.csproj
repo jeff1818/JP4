@@ -192,6 +192,12 @@
     <Compile Include="Form_janela_cad_local_estoque.Designer.cs">
       <DependentUpon>Form_janela_cad_local_estoque.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_janela_cad_origem_apara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_cad_origem_apara.Designer.cs">
+      <DependentUpon>Form_janela_cad_origem_apara.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_janela_config.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_cad_local_estoque.resx">
       <DependentUpon>Form_janela_cad_local_estoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_origem_apara.resx">
+      <DependentUpon>Form_janela_cad_origem_apara.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_config.resx">
       <DependentUpon>Form_janela_config.cs</DependentUpon>

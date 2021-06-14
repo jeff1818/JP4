@@ -18,7 +18,7 @@ namespace JP4
             InitializeComponent();
 
             Carregar_grid_equipamento();
-
+            Carregar_empresa_db();
         }
 
 
@@ -91,6 +91,37 @@ namespace JP4
             }
         }
 
+        private void Carregar_empresa_db()
+        {
+            try
+            {
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                string comando_sql = "select * from db_cadastro_empresas";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    combo_eq_empresa.Items.Add(myreader["descricao"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
 
         //-------------------------------------------------------------------------------------------
         //Salvar // Atualizar // Deletar
