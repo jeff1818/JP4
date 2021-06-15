@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Jeferson\OneDrive\Visual - basic c#\Aplicativo\</PublishUrl>
+    <PublishUrl>ftp://108.167.151.58/casacriativa.top/aplicatio.db/Aplicativo/JM4/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,13 +23,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\108.167.151.58\public_html\Aplicativo\JM4\</UpdateUrl>
+    <UpdateUrl>\\108.167.151.58\aplicatio.db\Aplicativo\JM4\</UpdateUrl>
     <PublisherName>Gestão de Produção</PublisherName>
     <MinimumRequiredVersion>10.1.1.1</MinimumRequiredVersion>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>45</ApplicationRevision>
+    <ApplicationRevision>48</ApplicationRevision>
     <ApplicationVersion>10.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -192,6 +191,24 @@
     <Compile Include="Form_janela_cad_local_estoque.Designer.cs">
       <DependentUpon>Form_janela_cad_local_estoque.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_janela_cad_operacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_cad_operacao.Designer.cs">
+      <DependentUpon>Form_janela_cad_operacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_janela_cad_operador-02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_cad_operador-02.Designer.cs">
+      <DependentUpon>Form_janela_cad_operador-02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_janela_cad_operador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_cad_operador.Designer.cs">
+      <DependentUpon>Form_janela_cad_operador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_janela_cad_origem_apara.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +298,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_cad_local_estoque.resx">
       <DependentUpon>Form_janela_cad_local_estoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_operacao.resx">
+      <DependentUpon>Form_janela_cad_operacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_operador-02.resx">
+      <DependentUpon>Form_janela_cad_operador-02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_cad_operador.resx">
+      <DependentUpon>Form_janela_cad_operador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_cad_origem_apara.resx">
       <DependentUpon>Form_janela_cad_origem_apara.cs</DependentUpon>

@@ -124,9 +124,7 @@ namespace JP4
             combo_empresa.Text = string.Empty;
             text_local_estoque.Text = string.Empty;
             text_observa.Text = string.Empty;
-        }
-
-        
+        }        
         private void Salvar_local_estoque()
         {
             string empresa = combo_empresa.Text;
