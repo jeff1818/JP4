@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JP4", "JP4\JP4.csproj", "{C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Update_JM4", "Update_JM4\Update_JM4.csproj", "{9E3481B5-FE17-4454-861B-7FF49BACB74F}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_JP4", "Setup_JP4\Setup_JP4.vdproj", "{D7B35FD4-FDA4-43F4-BF70-6559DD91CAB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{9E3481B5-FE17-4454-861B-7FF49BACB74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E3481B5-FE17-4454-861B-7FF49BACB74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E3481B5-FE17-4454-861B-7FF49BACB74F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B35FD4-FDA4-43F4-BF70-6559DD91CAB5}.Debug|Any CPU.ActiveCfg = Debug
+		{D7B35FD4-FDA4-43F4-BF70-6559DD91CAB5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
