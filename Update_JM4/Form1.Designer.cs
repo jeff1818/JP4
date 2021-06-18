@@ -29,25 +29,25 @@ namespace Update_JM4
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_status = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // label_status
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Atualizando....";
+            this.label_status.AutoSize = true;
+            this.label_status.Location = new System.Drawing.Point(38, 26);
+            this.label_status.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label_status.Name = "label_status";
+            this.label_status.Size = new System.Drawing.Size(232, 39);
+            this.label_status.TabIndex = 0;
+            this.label_status.Text = "Atualizando....";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 38F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 91);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_status);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
@@ -61,7 +61,7 @@ namespace Update_JM4
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_status;
     }
 }
 

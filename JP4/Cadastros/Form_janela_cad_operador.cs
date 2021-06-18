@@ -20,7 +20,6 @@ namespace JP4
             Carregar_grid_operador();
             Carregar_turno();
             Carregar_equipamentos();
-
         }
 
 
@@ -111,7 +110,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Carregar_controles(string id_operador)
         {
             // id_operador
@@ -152,29 +150,134 @@ namespace JP4
 
         //----------------------------------------------------------------------------------------------------------------
         // Salvar / Atualizar / Deletar /
-        
+        private void limpar_controles()
+        {
+            text_nome_operador.Text = string.Empty;
+            combo_turno.Text = string.Empty;
+            text_funcao.Text = string.Empty;
+            combo_equipamento.Text = string.Empty;
+            label_descri_turno.Text = "....";
+        }
+        private void Salvar_operador()
+        {
+            string nome = text_nome_operador.Text;
+            string turno = combo_turno.Text;
+            string funcao = text_funcao.Text;
+            string equipamento = combo_equipamento.Text;
 
+
+            // id_operador
+            // nome
+            // turno
+            // funcao
+            // equipamento
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                string comando_sql;
+
+                comando_sql = "INSERT INTO db_cadastro_operador(nome, turno, funcao, equipamento) " +
+                    "VALUES('" + nome + "','" + turno + "','" + funcao + "','"+ equipamento + "')";
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+
+            }
+        }
+        private void Atualizar_operador(string id_operador)
+        {
+            string nome = text_nome_operador.Text;
+            string turno = combo_turno.Text;
+            string funcao = text_funcao.Text;
+            string equipamento = combo_equipamento.Text;
+
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                comando_sql = "UPDATE db_cadastro_operador SET " +
+                        "nome='" + nome +
+                        "', turno='" + turno +
+                        "', funcao='" + funcao +
+                        "', equipamento='" + equipamento +
+                        "' WHERE id_operador=" + id_operador;
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Atualizado com sucesso!");
+
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Deletar_operador(string id_operador)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                string comando_sql;
+
+                comando_sql = "DELETE FROM db_cadastro_operador WHERE id_operador = " + id_operador;
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Deletado com sucesso!");
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
 
         //----------------------------------------------------------------------------------------------------------------
 
         private void button_salvar_Click(object sender, EventArgs e)
         {
-
+            Salvar_operador();
+            Carregar_grid_operador();
+            limpar_controles();
         }
 
         private void button_atualizar_Click(object sender, EventArgs e)
         {
-
+            Atualizar_operador(label_id_cad_operador.Text);
+            Carregar_grid_operador();
+            limpar_controles();
         }
 
         private void button_deletar_Click(object sender, EventArgs e)
         {
-
+            Deletar_operador(label_id_cad_operador.Text);
+            Carregar_grid_operador();
+            limpar_controles();
         }
 
         private void button_limpar_controles_Click(object sender, EventArgs e)
         {
-
+            limpar_controles();
         }
 
         private void text_funcao_MouseHover(object sender, EventArgs e)
@@ -189,20 +292,14 @@ namespace JP4
         {
             try
             {
-                // Esta aparecendo um erro e não puxar do  jeito certo 
-                // 08/03/2021 - 17:37
-                // 
-
+                
                 var turno = combo_turno.Text;
-
                 DateTime hora_inicio;
                 DateTime hora_final;
 
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-
                 string comando_sql = "select * from db_cadastro_turnos where turno='" + turno + "'";
-
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                 OleDbDataReader myreader;
@@ -210,12 +307,10 @@ namespace JP4
 
                 myreader = cmd.ExecuteReader();
 
-
                 while (myreader.Read())
                 {
                     hora_inicio = Convert.ToDateTime(myreader["inicio_turno"]);
                     hora_final = Convert.ToDateTime(myreader["fim_turno"]);
-
                     label_descri_turno.Text = hora_inicio.ToString("HH:mm") + " as " + hora_final.ToString("HH;mm");
                 }
 

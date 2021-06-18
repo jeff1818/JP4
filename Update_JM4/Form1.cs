@@ -11,7 +11,7 @@ using System.Net;
 using System.IO;
 using System.Diagnostics;
 using System.IO.Compression;
-
+using Dropbox.Api;
 
 namespace Update_JM4
 {
@@ -21,7 +21,8 @@ namespace Update_JM4
         {
             InitializeComponent();
             Auto_update();
-            
+
+            //Download();
         }
 
         //Funciona muito bem com o servidor 00host
@@ -38,26 +39,22 @@ namespace Update_JM4
             try
             {
                 System.Threading.Thread.Sleep(5000);
-                File.Delete(@".\JP4.exe");
-                client.DownloadFile("https://jm418.000webhostapp.com/JP4.zip", @"JP4.zip"); // https://br1048.hostgator.com.br:2083/cpsess9498766292/download?skipencode=1&file=%2fhome1%2fcasacr53%2fpublic_html%2fAplicativo%2fJM4%2fJP4.zip
-                string zipPath = @".\JP4.zip";
+                File.Delete(@".\setup.zip");
+                client.DownloadFile(new Uri("https://jm418.000webhostapp.com/Aplicativo/JM4/setup.zip"), @"setup.zip");
+                string zipPath = @".\setup.zip";
                 string extractPath = @".\";
                 ZipFile.ExtractToDirectory(zipPath, extractPath);
-                File.Delete(@".\JP4.zip");
-                Process.Start(@".\JP4.exe");
+                File.Delete(@".\setup.zip");
+                Process.Start(@".\setup.zip");
                 this.Close();
+
             }
             catch
             {
-                Process.Start("JP4.exe");
+                Process.Start("setup.exe");
                 this.Close();
             }
-
-
-        }
-
-
-
+        }      
 
 
     }

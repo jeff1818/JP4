@@ -2,10 +2,10 @@
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
-using System.IO;
-using System.Windows.Forms;
-using System.Net;
 using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Windows.Forms;
 
 namespace JP4
 {
@@ -22,26 +22,32 @@ namespace JP4
 
 
         //------------------------------------------------------------------------------------------------
+
+
+
         public void Check_update()
         {
             // Gloria ao pai
 
             WebClient webClient = new WebClient();
-
             try
             {
                 if (!webClient.DownloadString("https://pastebin.com/raw/Hc22rGGZ").Contains(Application.ProductVersion))
                 {
-                    if (MessageBox.Show("Nova versão dispinivel! Deseja fazer o download?", "Gestão de produção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Nova versão dispinivel! no link abaixo?", "Gestão de produção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         using (var client = new WebClient())
                         {
-                            Process.Start("Update_JM4.exe");
-                            Close();
+                            //Process.Start("Update_JM4.exe");
+
+                            //   Process.Start("https://jm418.000webhostapp.com/Aplicativo/JM4/setup.zip");
+                            Process.Start("https://1drv.ms/u/s!AnBCCWfJxas3gc5S4Y8kqFwM9EgZow?e=HQ4PQy");
+                            //Auto_update();
+                            //Close();
                         }
                 }
                 else
                 {
-                    
+
                 }
 
             }
@@ -49,7 +55,51 @@ namespace JP4
             {
 
             }
+
         }
+
+        //private void Auto_update()
+        //{
+        //    WebClient webClient = new WebClient();
+        //    var client = new WebClient();
+
+        //    try
+        //    {
+        //        System.Threading.Thread.Sleep(5000);
+        //        File.Delete(@".\setup.zip");
+        //        client.DownloadFile(new Uri("https://jm418.000webhostapp.com/Aplicativo/JM4/setup.zip"), @"setup.zip");
+        //        string zipPath = @".\setup.zip";
+        //        string extractPath = @".\";
+        //        ZipFile.ExtractToDirectory(zipPath, extractPath);
+        //        File.Delete(@".\setup.zip");
+        //        Process.Start(@".\setup.zip");
+        //        this.Close();
+
+        //    }
+        //    catch
+        //    {
+        //        Process.Start("setup.exe");
+        //        this.Close();
+        //    }
+        //}
+
+
+
+        //public void Download_app()
+        //{
+        //    string localFilePath;
+        //    DropboxClient client2 = new DropboxClient("cU5M-asdgfsdfsdfds3434435dfgfgvXoAMCFyOXH");
+        //    string folder = "MyFolder";
+        //    string file = "Test PDF.pdf";
+        //    using (var response = await Client.Files.DownloadAsync("/" + folder + "/" + file))
+        //    {
+        //        using (var fileStream = File.Create(localFilePath))
+        //        {
+        //            (await response.GetContentAsStreamAsync()).CopyTo(fileStream);
+        //        }
+        //    }
+        //}
+
 
         //------------------------------------------------------------------------------------------------
 
@@ -95,7 +145,7 @@ namespace JP4
             string nome_arquivo = string.Empty;
             string endereco_completo = string.Empty;
             string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
-            
+
 
             OpenFileDialog folderBrowser = new OpenFileDialog();
 
@@ -134,7 +184,7 @@ namespace JP4
             }
 
         }
-        
+
 
         // Buscar local de import de ordem de produção
         private string Procurar_pasta_os()
@@ -142,7 +192,7 @@ namespace JP4
             string local_pasta = string.Empty;
             string nome_arquivo = string.Empty;
             string endereco_completo = string.Empty;
-            
+
 
 
             OpenFileDialog folderBrowser = new OpenFileDialog();
@@ -157,7 +207,7 @@ namespace JP4
                 local_pasta = Path.GetDirectoryName(folderBrowser.FileName);
                 nome_arquivo = Path.GetFileName(folderBrowser.FileName);
 
-                endereco_completo = local_pasta + @"\" + nome_arquivo ;
+                endereco_completo = local_pasta + @"\" + nome_arquivo;
             }
 
             return endereco_completo;
