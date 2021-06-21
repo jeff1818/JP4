@@ -18,7 +18,8 @@ namespace JP4
             dt_final_pro.Value = DateTime.Now;
 
             #region Chamar Metodos
-            Importar_ordens();
+            // Importar_ordens();
+
             Carregar_empresa_db();
             Carregar_maquina_db();
             Carregar_turno_db();
@@ -53,7 +54,7 @@ namespace JP4
 
         private void Form_janela_apont_KeyDown(object sender, KeyEventArgs e)
         {
-            Verifica_campos();
+            //Verifica_campos();
 
             if (e.KeyCode == Keys.Escape)
             {
@@ -112,8 +113,15 @@ namespace JP4
                 {
                     if (planilha.Cell($"G{l}").Value.ToString() != "Digitada")
                         this.combo_ordem_prod.Items.Add(planilha.Cell($"B{l}").Value.ToString());
+                        
                 }
+
+
+                MessageBox.Show("Dados importados com sucesso!");
             }
+
+            
+
             catch (Exception ex)
             {
 
@@ -599,7 +607,7 @@ namespace JP4
             {
                 DataGridViewRow row = Grid_estrutura_item.Rows[i];
                 string valueA = row.Cells["qtd_necessaria"].Value.ToString();
-                row.Cells["Qt_total"].Value = (Convert.ToDouble(valueA) * total).ToString("0.00");
+                row.Cells["Qt_total"].Value = (Convert.ToDouble(valueA) * total).ToString("0.00000");
             }
 
         }
@@ -3691,6 +3699,7 @@ namespace JP4
         private void button_importar_Click(object sender, EventArgs e)
         {
             Importar_ordens();
+            
         }
         private void button_paradas_Click(object sender, EventArgs e)
         {

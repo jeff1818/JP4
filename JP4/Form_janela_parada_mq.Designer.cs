@@ -1,7 +1,7 @@
 ﻿
 namespace JP4
 {
-    partial class AP02
+    partial class OP01
     {
         /// <summary>
         /// Required designer variable.

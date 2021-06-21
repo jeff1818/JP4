@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace JP4
 {
-    public partial class AP02 : Form
+    public partial class OP01 : Form
     {
-        public AP02()
+        public OP01()
         {
             InitializeComponent();
         }
 
-        public AP02(string ordem_producao, string local_aplicacao) : this()
+        public OP01(string ordem_producao, string local_aplicacao) : this()
         {
             this.label_numero_op.Text = ordem_producao;
             this.label_local_aplicacao.Text = local_aplicacao;

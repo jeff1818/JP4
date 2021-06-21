@@ -135,7 +135,7 @@ namespace JP4
 
         private void button_abrir_op_Click(object sender, EventArgs e)
         {
-
+            abrir_janelas(new OP001());
         }
 
         private void button_config_Click(object sender, EventArgs e)

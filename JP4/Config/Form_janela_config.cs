@@ -40,7 +40,7 @@ namespace JP4
                             //Process.Start("Update_JM4.exe");
 
                             //   Process.Start("https://jm418.000webhostapp.com/Aplicativo/JM4/setup.zip");
-                            Process.Start("https://1drv.ms/u/s!AnBCCWfJxas3gc5S4Y8kqFwM9EgZow?e=HQ4PQy");
+                            Process.Start("https://1drv.ms/u/s!AnBCCWfJxas3gc5U5IO5nMI2dKIl_Q?e=Xay3JN");
                             //Auto_update();
                             //Close();
                         }
