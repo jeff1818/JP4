@@ -86,6 +86,8 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button_mov_estoque = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -167,8 +169,10 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.panel_menu_vertical.Controls.Add(this.tree_menu_lateral);
             this.panel_menu_vertical.Controls.Add(this.panel_sub_menu_cadastro);
+            this.panel_menu_vertical.Controls.Add(this.panel5);
+            this.panel_menu_vertical.Controls.Add(this.button_mov_estoque);
+            this.panel_menu_vertical.Controls.Add(this.tree_menu_lateral);
             this.panel_menu_vertical.Controls.Add(this.panel14);
             this.panel_menu_vertical.Controls.Add(this.button_area_cadastro);
             this.panel_menu_vertical.Controls.Add(this.label_inicio_versao_prog);
@@ -240,7 +244,7 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_aplica);
             this.panel_sub_menu_cadastro.Controls.Add(this.button1);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
-            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(54, 111);
+            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(92, 111);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 386);
             this.panel_sub_menu_cadastro.TabIndex = 27;
@@ -450,7 +454,7 @@ namespace JP4
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(3, 301);
+            this.panel6.Location = new System.Drawing.Point(3, 339);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(5, 32);
             this.panel6.TabIndex = 13;
@@ -461,7 +465,7 @@ namespace JP4
             this.button_config.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.button_config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_config.ForeColor = System.Drawing.Color.White;
-            this.button_config.Location = new System.Drawing.Point(14, 301);
+            this.button_config.Location = new System.Drawing.Point(14, 339);
             this.button_config.Name = "button_config";
             this.button_config.Size = new System.Drawing.Size(180, 32);
             this.button_config.TabIndex = 12;
@@ -496,7 +500,7 @@ namespace JP4
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(3, 263);
+            this.panel3.Location = new System.Drawing.Point(3, 301);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(5, 32);
             this.panel3.TabIndex = 7;
@@ -507,7 +511,7 @@ namespace JP4
             this.button_estrutura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.button_estrutura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_estrutura.ForeColor = System.Drawing.Color.White;
-            this.button_estrutura.Location = new System.Drawing.Point(14, 263);
+            this.button_estrutura.Location = new System.Drawing.Point(14, 301);
             this.button_estrutura.Name = "button_estrutura";
             this.button_estrutura.Size = new System.Drawing.Size(180, 32);
             this.button_estrutura.TabIndex = 6;
@@ -519,7 +523,7 @@ namespace JP4
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(3, 225);
+            this.panel2.Location = new System.Drawing.Point(3, 263);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(5, 32);
             this.panel2.TabIndex = 5;
@@ -530,7 +534,7 @@ namespace JP4
             this.button_cadastro_material.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.button_cadastro_material.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_cadastro_material.ForeColor = System.Drawing.Color.White;
-            this.button_cadastro_material.Location = new System.Drawing.Point(14, 225);
+            this.button_cadastro_material.Location = new System.Drawing.Point(14, 263);
             this.button_cadastro_material.Name = "button_cadastro_material";
             this.button_cadastro_material.Size = new System.Drawing.Size(180, 32);
             this.button_cadastro_material.TabIndex = 4;
@@ -591,6 +595,29 @@ namespace JP4
             // db_configTableAdapter1
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Black;
+            this.panel5.Location = new System.Drawing.Point(3, 225);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(5, 32);
+            this.panel5.TabIndex = 30;
+            // 
+            // button_mov_estoque
+            // 
+            this.button_mov_estoque.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_mov_estoque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_mov_estoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_mov_estoque.ForeColor = System.Drawing.Color.White;
+            this.button_mov_estoque.Location = new System.Drawing.Point(14, 225);
+            this.button_mov_estoque.Name = "button_mov_estoque";
+            this.button_mov_estoque.Size = new System.Drawing.Size(180, 32);
+            this.button_mov_estoque.TabIndex = 29;
+            this.button_mov_estoque.Text = "Movimenta Estoque";
+            this.button_mov_estoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_mov_estoque.UseVisualStyleBackColor = true;
+            this.button_mov_estoque.Click += new System.EventHandler(this.button_mov_estoque_Click);
             // 
             // Form_tela_inicial
             // 
@@ -663,6 +690,8 @@ namespace JP4
         private System.Windows.Forms.Button button_cad_operacao;
         private System.Windows.Forms.TreeView tree_menu_lateral;
         private System.Windows.Forms.Button button_cad_operador;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button_mov_estoque;
     }
 }
 

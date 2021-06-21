@@ -704,10 +704,9 @@ namespace JP4
 
         private int Verifica_duplicados(string cod_item)
         {
-
+            string codigo_item01 = "";
             try
-            {
-                string codigo_item01 = "";
+            {                
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 string comando_sql = "select * from db_cadastro_material where codigo_item ='" + cod_item + "'";
 
@@ -722,7 +721,8 @@ namespace JP4
                 {
                     codigo_item01 = myreader["codigo_item"].ToString();
 
-                }
+                }             
+
 
                 conexao.Close();
 
@@ -732,7 +732,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
 
-            if (cod_item != "")
+            if (codigo_item01 == cod_item)
             {
                 return 1;
             }
@@ -740,6 +740,7 @@ namespace JP4
             {
                 return 0;
             }
+
 
 
         }

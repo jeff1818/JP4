@@ -27,7 +27,7 @@
     <PublisherName>Gestão de Produção</PublisherName>
     <MinimumRequiredVersion>10.1.1.1</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>60</ApplicationRevision>
+    <ApplicationRevision>61</ApplicationRevision>
     <ApplicationVersion>10.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -285,6 +285,12 @@
     <Compile Include="Form_janela_login.Designer.cs">
       <DependentUpon>Form_janela_login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_janela_mov_estoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_mov_estoque.Designer.cs">
+      <DependentUpon>Form_janela_mov_estoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_janela_stoque_trans.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_login.resx">
       <DependentUpon>Form_janela_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_mov_estoque.resx">
+      <DependentUpon>Form_janela_mov_estoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_stoque_trans.resx">
       <DependentUpon>Form_janela_stoque_trans.cs</DependentUpon>

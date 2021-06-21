@@ -192,6 +192,11 @@ namespace JP4
         {
             abrir_janelas(new Form_janela_cad_operador());
         }
+        private void button_mov_estoque_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new STOQ01());
+        }
+
 
         private void button_area_cadastro_Click(object sender, EventArgs e)
         {
@@ -210,6 +215,5 @@ namespace JP4
             panel_sub_menu_cadastro.Visible = false;
         }
 
-       
     }
 }

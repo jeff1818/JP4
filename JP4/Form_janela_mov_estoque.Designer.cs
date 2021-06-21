@@ -1,0 +1,534 @@
+﻿
+namespace JP4
+{
+    partial class STOQ01
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_buscar = new System.Windows.Forms.Button();
+            this.button_estornar = new System.Windows.Forms.Button();
+            this.button_salvar = new System.Windows.Forms.Button();
+            this.button_iniciar = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label_id_stoque_trans = new System.Windows.Forms.Label();
+            this.rich_observa = new System.Windows.Forms.RichTextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.combo_local_destino = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.combo_local_orig = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.text_qtd_movt = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.text_tipo_mov = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.combo_secao_maquina = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.text_num_documento = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dt_movt = new System.Windows.Forms.DateTimePicker();
+            this.dt_lancamento = new System.Windows.Forms.DateTimePicker();
+            this.combo_operacao = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.combo_descri_completa = new System.Windows.Forms.ComboBox();
+            this.combo_cod_item = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
+            this.combo_empresa = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadOperaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadMaquinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadLocaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadEmpresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_mov_estoque)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button_buscar);
+            this.groupBox1.Controls.Add(this.button_estornar);
+            this.groupBox1.Controls.Add(this.button_salvar);
+            this.groupBox1.Controls.Add(this.button_iniciar);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Location = new System.Drawing.Point(0, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(128, 521);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Menu";
+            // 
+            // button_buscar
+            // 
+            this.button_buscar.Location = new System.Drawing.Point(6, 105);
+            this.button_buscar.Name = "button_buscar";
+            this.button_buscar.Size = new System.Drawing.Size(116, 23);
+            this.button_buscar.TabIndex = 3;
+            this.button_buscar.Text = "Buscar";
+            this.button_buscar.UseVisualStyleBackColor = true;
+            this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
+            // 
+            // button_estornar
+            // 
+            this.button_estornar.Location = new System.Drawing.Point(6, 76);
+            this.button_estornar.Name = "button_estornar";
+            this.button_estornar.Size = new System.Drawing.Size(116, 23);
+            this.button_estornar.TabIndex = 2;
+            this.button_estornar.Text = "Estornar";
+            this.button_estornar.UseVisualStyleBackColor = true;
+            this.button_estornar.Click += new System.EventHandler(this.button_estornar_Click);
+            // 
+            // button_salvar
+            // 
+            this.button_salvar.Location = new System.Drawing.Point(6, 47);
+            this.button_salvar.Name = "button_salvar";
+            this.button_salvar.Size = new System.Drawing.Size(116, 23);
+            this.button_salvar.TabIndex = 1;
+            this.button_salvar.Text = "Salvar";
+            this.button_salvar.UseVisualStyleBackColor = true;
+            this.button_salvar.Click += new System.EventHandler(this.button_salvar_Click);
+            // 
+            // button_iniciar
+            // 
+            this.button_iniciar.Location = new System.Drawing.Point(6, 19);
+            this.button_iniciar.Name = "button_iniciar";
+            this.button_iniciar.Size = new System.Drawing.Size(116, 23);
+            this.button_iniciar.TabIndex = 0;
+            this.button_iniciar.Text = "Iniciar";
+            this.button_iniciar.UseVisualStyleBackColor = true;
+            this.button_iniciar.Click += new System.EventHandler(this.button_iniciar_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1010, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.combo_empresa);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label_id_stoque_trans);
+            this.groupBox2.Controls.Add(this.rich_observa);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.combo_local_destino);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.combo_local_orig);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.text_qtd_movt);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.text_tipo_mov);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.combo_secao_maquina);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.text_num_documento);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.dt_movt);
+            this.groupBox2.Controls.Add(this.dt_lancamento);
+            this.groupBox2.Controls.Add(this.combo_operacao);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.combo_descri_completa);
+            this.groupBox2.Controls.Add(this.combo_cod_item);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(128, 24);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(882, 234);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "...";
+            // 
+            // label_id_stoque_trans
+            // 
+            this.label_id_stoque_trans.AutoSize = true;
+            this.label_id_stoque_trans.Location = new System.Drawing.Point(727, 203);
+            this.label_id_stoque_trans.Name = "label_id_stoque_trans";
+            this.label_id_stoque_trans.Size = new System.Drawing.Size(19, 13);
+            this.label_id_stoque_trans.TabIndex = 25;
+            this.label_id_stoque_trans.Text = "....";
+            // 
+            // rich_observa
+            // 
+            this.rich_observa.Location = new System.Drawing.Point(85, 152);
+            this.rich_observa.Name = "rich_observa";
+            this.rich_observa.Size = new System.Drawing.Size(602, 64);
+            this.rich_observa.TabIndex = 24;
+            this.rich_observa.Text = "";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(11, 175);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(68, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Observação:";
+            // 
+            // combo_local_destino
+            // 
+            this.combo_local_destino.FormattingEnabled = true;
+            this.combo_local_destino.Location = new System.Drawing.Point(291, 125);
+            this.combo_local_destino.Name = "combo_local_destino";
+            this.combo_local_destino.Size = new System.Drawing.Size(128, 21);
+            this.combo_local_destino.TabIndex = 22;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(213, 128);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Local Destino:";
+            // 
+            // combo_local_orig
+            // 
+            this.combo_local_orig.FormattingEnabled = true;
+            this.combo_local_orig.Location = new System.Drawing.Point(85, 125);
+            this.combo_local_orig.Name = "combo_local_orig";
+            this.combo_local_orig.Size = new System.Drawing.Size(128, 21);
+            this.combo_local_orig.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 128);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Local Origem:";
+            // 
+            // text_qtd_movt
+            // 
+            this.text_qtd_movt.Location = new System.Drawing.Point(85, 99);
+            this.text_qtd_movt.Name = "text_qtd_movt";
+            this.text_qtd_movt.Size = new System.Drawing.Size(128, 20);
+            this.text_qtd_movt.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(22, 102);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Qtd. Movt.";
+            // 
+            // text_tipo_mov
+            // 
+            this.text_tipo_mov.Location = new System.Drawing.Point(489, 74);
+            this.text_tipo_mov.Name = "text_tipo_mov";
+            this.text_tipo_mov.Size = new System.Drawing.Size(44, 20);
+            this.text_tipo_mov.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(425, 76);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Tipo Movt.";
+            // 
+            // combo_secao_maquina
+            // 
+            this.combo_secao_maquina.FormattingEnabled = true;
+            this.combo_secao_maquina.Location = new System.Drawing.Point(291, 73);
+            this.combo_secao_maquina.Name = "combo_secao_maquina";
+            this.combo_secao_maquina.Size = new System.Drawing.Size(128, 21);
+            this.combo_secao_maquina.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(219, 76);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Seção / MQ";
+            // 
+            // text_num_documento
+            // 
+            this.text_num_documento.Location = new System.Drawing.Point(85, 73);
+            this.text_num_documento.Name = "text_num_documento";
+            this.text_num_documento.Size = new System.Drawing.Size(128, 20);
+            this.text_num_documento.TabIndex = 12;
+            this.text_num_documento.MouseHover += new System.EventHandler(this.text_num_documento_MouseHover);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 76);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Documento:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(727, 66);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Dt. Lançamento";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(727, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Dt. Mov";
+            // 
+            // dt_movt
+            // 
+            this.dt_movt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_movt.Location = new System.Drawing.Point(730, 38);
+            this.dt_movt.Name = "dt_movt";
+            this.dt_movt.Size = new System.Drawing.Size(128, 20);
+            this.dt_movt.TabIndex = 8;
+            // 
+            // dt_lancamento
+            // 
+            this.dt_lancamento.Enabled = false;
+            this.dt_lancamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_lancamento.Location = new System.Drawing.Point(730, 82);
+            this.dt_lancamento.Name = "dt_lancamento";
+            this.dt_lancamento.Size = new System.Drawing.Size(128, 20);
+            this.dt_lancamento.TabIndex = 7;
+            // 
+            // combo_operacao
+            // 
+            this.combo_operacao.FormattingEnabled = true;
+            this.combo_operacao.Location = new System.Drawing.Point(85, 46);
+            this.combo_operacao.Name = "combo_operacao";
+            this.combo_operacao.Size = new System.Drawing.Size(128, 21);
+            this.combo_operacao.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Operação:";
+            // 
+            // combo_descri_completa
+            // 
+            this.combo_descri_completa.FormattingEnabled = true;
+            this.combo_descri_completa.Location = new System.Drawing.Point(291, 19);
+            this.combo_descri_completa.Name = "combo_descri_completa";
+            this.combo_descri_completa.Size = new System.Drawing.Size(392, 21);
+            this.combo_descri_completa.TabIndex = 4;
+            // 
+            // combo_cod_item
+            // 
+            this.combo_cod_item.FormattingEnabled = true;
+            this.combo_cod_item.Location = new System.Drawing.Point(85, 19);
+            this.combo_cod_item.Name = "combo_cod_item";
+            this.combo_cod_item.Size = new System.Drawing.Size(128, 21);
+            this.combo_cod_item.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(219, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Descrição:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(49, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Item:";
+            // 
+            // grid_mov_estoque
+            // 
+            this.grid_mov_estoque.AllowUserToAddRows = false;
+            this.grid_mov_estoque.AllowUserToDeleteRows = false;
+            this.grid_mov_estoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_mov_estoque.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.grid_mov_estoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_mov_estoque.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_mov_estoque.Location = new System.Drawing.Point(128, 258);
+            this.grid_mov_estoque.Name = "grid_mov_estoque";
+            this.grid_mov_estoque.ReadOnly = true;
+            this.grid_mov_estoque.Size = new System.Drawing.Size(882, 287);
+            this.grid_mov_estoque.TabIndex = 7;
+            this.grid_mov_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_mov_estoque_CellDoubleClick);
+            // 
+            // combo_empresa
+            // 
+            this.combo_empresa.FormattingEnabled = true;
+            this.combo_empresa.Location = new System.Drawing.Point(730, 139);
+            this.combo_empresa.Name = "combo_empresa";
+            this.combo_empresa.Size = new System.Drawing.Size(128, 21);
+            this.combo_empresa.TabIndex = 27;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(727, 123);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "Empresa";
+            // 
+            // cadastroToolStripMenuItem
+            // 
+            this.cadastroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadMaterialToolStripMenuItem,
+            this.cadOperaçãoToolStripMenuItem,
+            this.cadMaquinaToolStripMenuItem,
+            this.cadLocaisToolStripMenuItem,
+            this.cadEmpresasToolStripMenuItem});
+            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.cadastroToolStripMenuItem.Text = "Cadastro";
+            // 
+            // cadMaterialToolStripMenuItem
+            // 
+            this.cadMaterialToolStripMenuItem.Name = "cadMaterialToolStripMenuItem";
+            this.cadMaterialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadMaterialToolStripMenuItem.Text = "Cad. Material";
+            // 
+            // cadOperaçãoToolStripMenuItem
+            // 
+            this.cadOperaçãoToolStripMenuItem.Name = "cadOperaçãoToolStripMenuItem";
+            this.cadOperaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadOperaçãoToolStripMenuItem.Text = "Cad. Operação";
+            // 
+            // cadMaquinaToolStripMenuItem
+            // 
+            this.cadMaquinaToolStripMenuItem.Name = "cadMaquinaToolStripMenuItem";
+            this.cadMaquinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadMaquinaToolStripMenuItem.Text = "Cad. Maquina";
+            // 
+            // cadLocaisToolStripMenuItem
+            // 
+            this.cadLocaisToolStripMenuItem.Name = "cadLocaisToolStripMenuItem";
+            this.cadLocaisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadLocaisToolStripMenuItem.Text = "Cad. Locais";
+            // 
+            // cadEmpresasToolStripMenuItem
+            // 
+            this.cadEmpresasToolStripMenuItem.Name = "cadEmpresasToolStripMenuItem";
+            this.cadEmpresasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadEmpresasToolStripMenuItem.Text = "Cad. Empresas";
+            // 
+            // STOQ01
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1010, 545);
+            this.Controls.Add(this.grid_mov_estoque);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "STOQ01";
+            this.Text = "Form_janela_mov_estoque";
+            this.groupBox1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_mov_estoque)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox combo_descri_completa;
+        private System.Windows.Forms.ComboBox combo_cod_item;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dt_movt;
+        private System.Windows.Forms.DateTimePicker dt_lancamento;
+        private System.Windows.Forms.ComboBox combo_operacao;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox combo_secao_maquina;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox text_qtd_movt;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox text_tipo_mov;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RichTextBox rich_observa;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox combo_local_destino;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox combo_local_orig;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView grid_mov_estoque;
+        private System.Windows.Forms.Button button_estornar;
+        private System.Windows.Forms.Button button_salvar;
+        private System.Windows.Forms.Button button_iniciar;
+        private System.Windows.Forms.Button button_buscar;
+        private System.Windows.Forms.Label label_id_stoque_trans;
+        private System.Windows.Forms.TextBox text_num_documento;
+        private System.Windows.Forms.ComboBox combo_empresa;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadMaterialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadOperaçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadMaquinaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadLocaisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadEmpresasToolStripMenuItem;
+    }
+}
