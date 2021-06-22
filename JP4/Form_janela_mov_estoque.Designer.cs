@@ -35,7 +35,15 @@ namespace JP4
             this.button_salvar = new System.Windows.Forms.Button();
             this.button_iniciar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadOperaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadMaquinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadLocaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadEmpresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.combo_empresa = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label_id_stoque_trans = new System.Windows.Forms.Label();
             this.rich_observa = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -62,14 +70,7 @@ namespace JP4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
-            this.combo_empresa = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadOperaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadMaquinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadLocaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadEmpresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label_descricao_operacao = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -140,8 +141,51 @@ namespace JP4
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // cadastroToolStripMenuItem
+            // 
+            this.cadastroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadMaterialToolStripMenuItem,
+            this.cadOperaçãoToolStripMenuItem,
+            this.cadMaquinaToolStripMenuItem,
+            this.cadLocaisToolStripMenuItem,
+            this.cadEmpresasToolStripMenuItem});
+            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.cadastroToolStripMenuItem.Text = "Cadastro";
+            // 
+            // cadMaterialToolStripMenuItem
+            // 
+            this.cadMaterialToolStripMenuItem.Name = "cadMaterialToolStripMenuItem";
+            this.cadMaterialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cadMaterialToolStripMenuItem.Text = "Cad. Material";
+            // 
+            // cadOperaçãoToolStripMenuItem
+            // 
+            this.cadOperaçãoToolStripMenuItem.Name = "cadOperaçãoToolStripMenuItem";
+            this.cadOperaçãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cadOperaçãoToolStripMenuItem.Text = "Cad. Operação";
+            // 
+            // cadMaquinaToolStripMenuItem
+            // 
+            this.cadMaquinaToolStripMenuItem.Name = "cadMaquinaToolStripMenuItem";
+            this.cadMaquinaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cadMaquinaToolStripMenuItem.Text = "Cad. Maquina";
+            // 
+            // cadLocaisToolStripMenuItem
+            // 
+            this.cadLocaisToolStripMenuItem.Name = "cadLocaisToolStripMenuItem";
+            this.cadLocaisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cadLocaisToolStripMenuItem.Text = "Cad. Locais";
+            // 
+            // cadEmpresasToolStripMenuItem
+            // 
+            this.cadEmpresasToolStripMenuItem.Name = "cadEmpresasToolStripMenuItem";
+            this.cadEmpresasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cadEmpresasToolStripMenuItem.Text = "Cad. Empresas";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label_descricao_operacao);
             this.groupBox2.Controls.Add(this.combo_empresa);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label_id_stoque_trans);
@@ -177,6 +221,23 @@ namespace JP4
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "...";
             // 
+            // combo_empresa
+            // 
+            this.combo_empresa.FormattingEnabled = true;
+            this.combo_empresa.Location = new System.Drawing.Point(730, 139);
+            this.combo_empresa.Name = "combo_empresa";
+            this.combo_empresa.Size = new System.Drawing.Size(128, 21);
+            this.combo_empresa.TabIndex = 27;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(727, 123);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "Empresa";
+            // 
             // label_id_stoque_trans
             // 
             this.label_id_stoque_trans.AutoSize = true;
@@ -191,7 +252,7 @@ namespace JP4
             this.rich_observa.Location = new System.Drawing.Point(85, 152);
             this.rich_observa.Name = "rich_observa";
             this.rich_observa.Size = new System.Drawing.Size(602, 64);
-            this.rich_observa.TabIndex = 24;
+            this.rich_observa.TabIndex = 10;
             this.rich_observa.Text = "";
             // 
             // label12
@@ -205,11 +266,13 @@ namespace JP4
             // 
             // combo_local_destino
             // 
+            this.combo_local_destino.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.combo_local_destino.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_local_destino.FormattingEnabled = true;
             this.combo_local_destino.Location = new System.Drawing.Point(291, 125);
             this.combo_local_destino.Name = "combo_local_destino";
             this.combo_local_destino.Size = new System.Drawing.Size(128, 21);
-            this.combo_local_destino.TabIndex = 22;
+            this.combo_local_destino.TabIndex = 8;
             // 
             // label11
             // 
@@ -222,11 +285,13 @@ namespace JP4
             // 
             // combo_local_orig
             // 
+            this.combo_local_orig.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.combo_local_orig.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_local_orig.FormattingEnabled = true;
             this.combo_local_orig.Location = new System.Drawing.Point(85, 125);
             this.combo_local_orig.Name = "combo_local_orig";
             this.combo_local_orig.Size = new System.Drawing.Size(128, 21);
-            this.combo_local_orig.TabIndex = 20;
+            this.combo_local_orig.TabIndex = 7;
             // 
             // label10
             // 
@@ -242,7 +307,7 @@ namespace JP4
             this.text_qtd_movt.Location = new System.Drawing.Point(85, 99);
             this.text_qtd_movt.Name = "text_qtd_movt";
             this.text_qtd_movt.Size = new System.Drawing.Size(128, 20);
-            this.text_qtd_movt.TabIndex = 18;
+            this.text_qtd_movt.TabIndex = 6;
             // 
             // label9
             // 
@@ -255,6 +320,7 @@ namespace JP4
             // 
             // text_tipo_mov
             // 
+            this.text_tipo_mov.Enabled = false;
             this.text_tipo_mov.Location = new System.Drawing.Point(489, 74);
             this.text_tipo_mov.Name = "text_tipo_mov";
             this.text_tipo_mov.Size = new System.Drawing.Size(44, 20);
@@ -271,11 +337,13 @@ namespace JP4
             // 
             // combo_secao_maquina
             // 
+            this.combo_secao_maquina.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.combo_secao_maquina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_secao_maquina.FormattingEnabled = true;
             this.combo_secao_maquina.Location = new System.Drawing.Point(291, 73);
             this.combo_secao_maquina.Name = "combo_secao_maquina";
             this.combo_secao_maquina.Size = new System.Drawing.Size(128, 21);
-            this.combo_secao_maquina.TabIndex = 14;
+            this.combo_secao_maquina.TabIndex = 5;
             // 
             // label7
             // 
@@ -291,7 +359,7 @@ namespace JP4
             this.text_num_documento.Location = new System.Drawing.Point(85, 73);
             this.text_num_documento.Name = "text_num_documento";
             this.text_num_documento.Size = new System.Drawing.Size(128, 20);
-            this.text_num_documento.TabIndex = 12;
+            this.text_num_documento.TabIndex = 4;
             this.text_num_documento.MouseHover += new System.EventHandler(this.text_num_documento_MouseHover);
             // 
             // label6
@@ -327,7 +395,7 @@ namespace JP4
             this.dt_movt.Location = new System.Drawing.Point(730, 38);
             this.dt_movt.Name = "dt_movt";
             this.dt_movt.Size = new System.Drawing.Size(128, 20);
-            this.dt_movt.TabIndex = 8;
+            this.dt_movt.TabIndex = 9;
             // 
             // dt_lancamento
             // 
@@ -340,11 +408,14 @@ namespace JP4
             // 
             // combo_operacao
             // 
+            this.combo_operacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.combo_operacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_operacao.FormattingEnabled = true;
             this.combo_operacao.Location = new System.Drawing.Point(85, 46);
             this.combo_operacao.Name = "combo_operacao";
             this.combo_operacao.Size = new System.Drawing.Size(128, 21);
-            this.combo_operacao.TabIndex = 6;
+            this.combo_operacao.TabIndex = 3;
+            this.combo_operacao.SelectedIndexChanged += new System.EventHandler(this.combo_operacao_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -357,19 +428,25 @@ namespace JP4
             // 
             // combo_descri_completa
             // 
+            this.combo_descri_completa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.combo_descri_completa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_descri_completa.FormattingEnabled = true;
             this.combo_descri_completa.Location = new System.Drawing.Point(291, 19);
             this.combo_descri_completa.Name = "combo_descri_completa";
             this.combo_descri_completa.Size = new System.Drawing.Size(392, 21);
-            this.combo_descri_completa.TabIndex = 4;
+            this.combo_descri_completa.TabIndex = 2;
+            this.combo_descri_completa.Leave += new System.EventHandler(this.combo_descri_completa_Leave);
             // 
             // combo_cod_item
             // 
+            this.combo_cod_item.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.combo_cod_item.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_cod_item.FormattingEnabled = true;
             this.combo_cod_item.Location = new System.Drawing.Point(85, 19);
             this.combo_cod_item.Name = "combo_cod_item";
             this.combo_cod_item.Size = new System.Drawing.Size(128, 21);
-            this.combo_cod_item.TabIndex = 3;
+            this.combo_cod_item.TabIndex = 1;
+            this.combo_cod_item.Leave += new System.EventHandler(this.combo_cod_item_Leave);
             // 
             // label2
             // 
@@ -404,64 +481,15 @@ namespace JP4
             this.grid_mov_estoque.TabIndex = 7;
             this.grid_mov_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_mov_estoque_CellDoubleClick);
             // 
-            // combo_empresa
+            // label_descricao_operacao
             // 
-            this.combo_empresa.FormattingEnabled = true;
-            this.combo_empresa.Location = new System.Drawing.Point(730, 139);
-            this.combo_empresa.Name = "combo_empresa";
-            this.combo_empresa.Size = new System.Drawing.Size(128, 21);
-            this.combo_empresa.TabIndex = 27;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(727, 123);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 13);
-            this.label13.TabIndex = 26;
-            this.label13.Text = "Empresa";
-            // 
-            // cadastroToolStripMenuItem
-            // 
-            this.cadastroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadMaterialToolStripMenuItem,
-            this.cadOperaçãoToolStripMenuItem,
-            this.cadMaquinaToolStripMenuItem,
-            this.cadLocaisToolStripMenuItem,
-            this.cadEmpresasToolStripMenuItem});
-            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.cadastroToolStripMenuItem.Text = "Cadastro";
-            // 
-            // cadMaterialToolStripMenuItem
-            // 
-            this.cadMaterialToolStripMenuItem.Name = "cadMaterialToolStripMenuItem";
-            this.cadMaterialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadMaterialToolStripMenuItem.Text = "Cad. Material";
-            // 
-            // cadOperaçãoToolStripMenuItem
-            // 
-            this.cadOperaçãoToolStripMenuItem.Name = "cadOperaçãoToolStripMenuItem";
-            this.cadOperaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadOperaçãoToolStripMenuItem.Text = "Cad. Operação";
-            // 
-            // cadMaquinaToolStripMenuItem
-            // 
-            this.cadMaquinaToolStripMenuItem.Name = "cadMaquinaToolStripMenuItem";
-            this.cadMaquinaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadMaquinaToolStripMenuItem.Text = "Cad. Maquina";
-            // 
-            // cadLocaisToolStripMenuItem
-            // 
-            this.cadLocaisToolStripMenuItem.Name = "cadLocaisToolStripMenuItem";
-            this.cadLocaisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadLocaisToolStripMenuItem.Text = "Cad. Locais";
-            // 
-            // cadEmpresasToolStripMenuItem
-            // 
-            this.cadEmpresasToolStripMenuItem.Name = "cadEmpresasToolStripMenuItem";
-            this.cadEmpresasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadEmpresasToolStripMenuItem.Text = "Cad. Empresas";
+            this.label_descricao_operacao.AutoSize = true;
+            this.label_descricao_operacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_descricao_operacao.Location = new System.Drawing.Point(220, 49);
+            this.label_descricao_operacao.Name = "label_descricao_operacao";
+            this.label_descricao_operacao.Size = new System.Drawing.Size(47, 13);
+            this.label_descricao_operacao.TabIndex = 28;
+            this.label_descricao_operacao.Text = "..........";
             // 
             // STOQ01
             // 
@@ -530,5 +558,6 @@ namespace JP4
         private System.Windows.Forms.ToolStripMenuItem cadMaquinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadLocaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadEmpresasToolStripMenuItem;
+        private System.Windows.Forms.Label label_descricao_operacao;
     }
 }

@@ -141,6 +141,10 @@ namespace JP4
             this.text_dt_inicio01 = new System.Windows.Forms.TextBox();
             this.text_dt_validade01 = new System.Windows.Forms.TextBox();
             this.button_delete = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.combo_cliente = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -178,6 +182,10 @@ namespace JP4
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.combo_cliente);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.combo_empresa);
             this.groupBox1.Controls.Add(this.button_pesquisar);
             this.groupBox1.Controls.Add(this.combo_descricao_item);
@@ -185,7 +193,7 @@ namespace JP4
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(962, 52);
+            this.groupBox1.Size = new System.Drawing.Size(962, 84);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "--";
@@ -193,14 +201,14 @@ namespace JP4
             // combo_empresa
             // 
             this.combo_empresa.FormattingEnabled = true;
-            this.combo_empresa.Location = new System.Drawing.Point(775, 18);
+            this.combo_empresa.Location = new System.Drawing.Point(96, 45);
             this.combo_empresa.Name = "combo_empresa";
-            this.combo_empresa.Size = new System.Drawing.Size(171, 21);
+            this.combo_empresa.Size = new System.Drawing.Size(143, 21);
             this.combo_empresa.TabIndex = 13;
             // 
             // button_pesquisar
             // 
-            this.button_pesquisar.Location = new System.Drawing.Point(612, 13);
+            this.button_pesquisar.Location = new System.Drawing.Point(756, 12);
             this.button_pesquisar.Name = "button_pesquisar";
             this.button_pesquisar.Size = new System.Drawing.Size(118, 30);
             this.button_pesquisar.TabIndex = 3;
@@ -211,7 +219,7 @@ namespace JP4
             // combo_descricao_item
             // 
             this.combo_descricao_item.FormattingEnabled = true;
-            this.combo_descricao_item.Location = new System.Drawing.Point(194, 19);
+            this.combo_descricao_item.Location = new System.Drawing.Point(338, 18);
             this.combo_descricao_item.Name = "combo_descricao_item";
             this.combo_descricao_item.Size = new System.Drawing.Size(412, 21);
             this.combo_descricao_item.TabIndex = 1;
@@ -219,7 +227,7 @@ namespace JP4
             // 
             // text_cod_item
             // 
-            this.text_cod_item.Location = new System.Drawing.Point(45, 19);
+            this.text_cod_item.Location = new System.Drawing.Point(96, 19);
             this.text_cod_item.Name = "text_cod_item";
             this.text_cod_item.Size = new System.Drawing.Size(143, 20);
             this.text_cod_item.TabIndex = 0;
@@ -227,7 +235,7 @@ namespace JP4
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 22);
+            this.label3.Location = new System.Drawing.Point(38, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 12;
@@ -236,7 +244,7 @@ namespace JP4
             // button_salvar
             // 
             this.button_salvar.BackColor = System.Drawing.Color.Chartreuse;
-            this.button_salvar.Location = new System.Drawing.Point(754, 404);
+            this.button_salvar.Location = new System.Drawing.Point(729, 453);
             this.button_salvar.Name = "button_salvar";
             this.button_salvar.Size = new System.Drawing.Size(79, 30);
             this.button_salvar.TabIndex = 3;
@@ -246,7 +254,7 @@ namespace JP4
             // 
             // button_proximo
             // 
-            this.button_proximo.Location = new System.Drawing.Point(219, 404);
+            this.button_proximo.Location = new System.Drawing.Point(194, 453);
             this.button_proximo.Name = "button_proximo";
             this.button_proximo.Size = new System.Drawing.Size(79, 30);
             this.button_proximo.TabIndex = 1;
@@ -255,7 +263,7 @@ namespace JP4
             // 
             // button_anterior
             // 
-            this.button_anterior.Location = new System.Drawing.Point(95, 404);
+            this.button_anterior.Location = new System.Drawing.Point(70, 453);
             this.button_anterior.Name = "button_anterior";
             this.button_anterior.Size = new System.Drawing.Size(79, 30);
             this.button_anterior.TabIndex = 0;
@@ -264,7 +272,7 @@ namespace JP4
             // 
             // button_editar
             // 
-            this.button_editar.Location = new System.Drawing.Point(669, 404);
+            this.button_editar.Location = new System.Drawing.Point(644, 453);
             this.button_editar.Name = "button_editar";
             this.button_editar.Size = new System.Drawing.Size(79, 30);
             this.button_editar.TabIndex = 2;
@@ -392,7 +400,7 @@ namespace JP4
             this.groupBox2.Controls.Add(this.combo_componente01);
             this.groupBox2.Controls.Add(this.text_qtd_necess01);
             this.groupBox2.Controls.Add(this.text_percentual_refugo01);
-            this.groupBox2.Location = new System.Drawing.Point(12, 85);
+            this.groupBox2.Location = new System.Drawing.Point(11, 117);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(962, 313);
             this.groupBox2.TabIndex = 18;
@@ -1200,7 +1208,7 @@ namespace JP4
             // 
             // button_delete
             // 
-            this.button_delete.Location = new System.Drawing.Point(915, 404);
+            this.button_delete.Location = new System.Drawing.Point(890, 453);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(58, 30);
             this.button_delete.TabIndex = 19;
@@ -1208,11 +1216,46 @@ namespace JP4
             this.button_delete.UseVisualStyleBackColor = true;
             this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(20, 48);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(48, 13);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "Empresa";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(273, 49);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 13);
+            this.label19.TabIndex = 15;
+            this.label19.Text = "Cliente:";
+            // 
+            // combo_cliente
+            // 
+            this.combo_cliente.FormattingEnabled = true;
+            this.combo_cliente.Location = new System.Drawing.Point(338, 46);
+            this.combo_cliente.Name = "combo_cliente";
+            this.combo_cliente.Size = new System.Drawing.Size(143, 21);
+            this.combo_cliente.TabIndex = 16;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(257, 21);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(58, 13);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "Descrição:";
+            // 
             // ST01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 452);
+            this.ClientSize = new System.Drawing.Size(985, 507);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button_editar);
@@ -1350,5 +1393,9 @@ namespace JP4
         private System.Windows.Forms.TextBox text_dt_validade01;
         private System.Windows.Forms.TextBox text_dt_inicio10;
         private System.Windows.Forms.TextBox text_dt_validade10;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox combo_cliente;
     }
 }

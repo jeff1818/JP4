@@ -18,7 +18,7 @@ namespace JP4
             dt_final_pro.Value = DateTime.Now;
 
             #region Chamar Metodos
-            // Importar_ordens();
+            Importar_ordens();
 
             Carregar_empresa_db();
             Carregar_maquina_db();
@@ -117,7 +117,7 @@ namespace JP4
                 }
 
 
-                MessageBox.Show("Dados importados com sucesso!");
+                
             }
 
             
@@ -3699,7 +3699,8 @@ namespace JP4
         private void button_importar_Click(object sender, EventArgs e)
         {
             Importar_ordens();
-            
+            MessageBox.Show("Dados importados com sucesso!");
+
         }
         private void button_paradas_Click(object sender, EventArgs e)
         {

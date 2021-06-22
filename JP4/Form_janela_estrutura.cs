@@ -20,8 +20,8 @@ namespace JP4
             Carregar_descricao_completa();
             Carregar_descricao_componente();
             Carregar_empresa();
-
             Bloquear_controles();
+            Carregar_clientes();
 
             this.combo_empresa.Text = "Picoflex";
 
@@ -127,7 +127,6 @@ namespace JP4
 
 
         }
-
         public void Carregar_estrutura(string item_pai)
         {
             try
@@ -156,6 +155,7 @@ namespace JP4
                         this.text_dt_inicio01.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade01.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id01.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if(contagem == 1)
                     {
@@ -165,6 +165,7 @@ namespace JP4
                         this.text_dt_inicio02.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade02.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id02.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if (contagem == 2)
                     {
@@ -174,6 +175,7 @@ namespace JP4
                         this.text_dt_inicio03.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade03.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id03.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if (contagem == 3)
                     {
@@ -183,6 +185,7 @@ namespace JP4
                         this.text_dt_inicio04.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade04.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id04.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if (contagem == 4)
                     {
@@ -192,6 +195,7 @@ namespace JP4
                         this.text_dt_inicio05.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade05.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id05.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if (contagem == 5)
                     {
@@ -201,6 +205,7 @@ namespace JP4
                         this.text_dt_inicio06.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade06.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id06.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if (contagem == 6)
                     {
@@ -210,6 +215,7 @@ namespace JP4
                         this.text_dt_inicio07.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade07.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id07.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if (contagem == 7)
                     {
@@ -219,6 +225,7 @@ namespace JP4
                         this.text_dt_inicio08.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade08.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id08.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if (contagem == 8)
                     {
@@ -228,6 +235,7 @@ namespace JP4
                         this.text_dt_inicio09.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade09.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id09.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }
                     if (contagem == 9)
                     {
@@ -237,6 +245,7 @@ namespace JP4
                         this.text_dt_inicio10.Text = Convert.ToDateTime(myreader["dat_validade_ini"]).ToString("dd/MM/yyyy");
                         this.text_dt_validade10.Text = Convert.ToDateTime(myreader["dat_validade_fim"]).ToString("dd/MM/yyyy");
                         this.id10.Text = myreader["id_estrutura"].ToString();
+                        this.combo_cliente.Text = myreader["cliente"].ToString();
                     }                   
 
                     contagem++;
@@ -252,7 +261,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Carregar_descricao_componente()
         {
             try
@@ -291,7 +299,6 @@ namespace JP4
 
 
         }
-
         private void Carregar_descricao_completa()
         {
             try
@@ -321,7 +328,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Carregar_empresa()
         {
             try
@@ -349,6 +355,34 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
+
+        private void Carregar_clientes()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_clientes";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    combo_cliente.Items.Add(myreader["cliente_nome"].ToString());
+                }
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
 
         private void Bloquear_controles()
         {
@@ -520,8 +554,8 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio01.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade01.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "')";
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','"+combo_cliente+ "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -553,8 +587,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio02.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade02.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente02.Text + "','" + text_qtd_necess02.Text + "','" + text_percentual_refugo02.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -586,8 +622,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio03.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade03.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente03.Text + "','" + text_qtd_necess03.Text + "','" + text_percentual_refugo03.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -619,8 +657,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio04.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade04.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente04.Text + "','" + text_qtd_necess04.Text + "','" + text_percentual_refugo04.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -652,8 +692,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio05.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade05.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente05.Text + "','" + text_qtd_necess05.Text + "','" + text_percentual_refugo05.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -685,8 +727,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio06.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade06.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente06.Text + "','" + text_qtd_necess06.Text + "','" + text_percentual_refugo06.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -718,8 +762,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio07.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade07.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente07.Text + "','" + text_qtd_necess07.Text + "','" + text_percentual_refugo07.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -751,8 +797,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio08.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade08.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente08.Text + "','" + text_qtd_necess08.Text + "','" + text_percentual_refugo08.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -784,8 +832,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio09.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade09.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente09.Text + "','" + text_qtd_necess09.Text + "','" + text_percentual_refugo09.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -817,8 +867,10 @@ namespace JP4
                         DateTime data_inicio = Convert.ToDateTime(this.text_dt_inicio10.Text);
                         DateTime data_validade = Convert.ToDateTime(this.text_dt_validade10.Text);
 
-                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim) " +
-                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente10.Text + "','" + text_qtd_necess10.Text + "','" + text_percentual_refugo10.Text + "','" + data_inicio + "','" + data_validade + "')";
+
+                        comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, descri_filho, qtd_necessaria, pct_refug, dat_validade_ini, dat_validade_fim, cliente) " +
+                        "VALUES('" + combo_empresa.Text + "','" + text_cod_item.Text + "','" + combo_descricao_item.Text + "','" + combo_componente01.Text + "','" + text_qtd_necess01.Text + "','" + text_percentual_refugo01.Text + "','" + data_inicio + "','" + data_validade + "','" + combo_cliente + "')";
+
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
