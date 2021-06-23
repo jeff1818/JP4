@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Net;
 using System.Diagnostics;
-
+using System.Threading;
 
 namespace JP4
 {
@@ -21,34 +21,9 @@ namespace JP4
             InitializeComponent();
 
             label_inicio_versao_prog.Text = Application.ProductVersion;
-            //update_file(label_inicio_versao_prog.Text);
 
-            CONF01 config_update = new CONF01();
-            config_update.Check_update();
-
-        }
-
-        private void update_file(string version_app)
-        {
-            WebClient webClient = new WebClient();
-
-            try
-            {
-                if (!webClient.DownloadString("https://pastebin.com/raw/Hc22rGGZ").Contains(version_app))
-                {
-                    if (MessageBox.Show("Uma nova verstão esta disponivel! Gostaria de baixar?", "JP4", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        using (var client = new WebClient())
-                        {
-                            Process.Start("Update_JM4.exe");
-                            this.Close();
-                        }
-                }
-            }
-            catch
-            {
-
-            }
-
+            Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
+            janela_up.Check_update();
         }
 
 
@@ -200,7 +175,7 @@ namespace JP4
 
         private void button_area_cadastro_Click(object sender, EventArgs e)
         {
-            if(panel_sub_menu_cadastro.Visible == true)
+            if (panel_sub_menu_cadastro.Visible == true)
             {
                 panel_sub_menu_cadastro.Visible = false;
             }
@@ -215,5 +190,14 @@ namespace JP4
             panel_sub_menu_cadastro.Visible = false;
         }
 
+        private void button_area_cadastro_MouseHover(object sender, EventArgs e)
+        {
+            panel_sub_menu_cadastro.Visible = true;
+        }
+
+        private void button_area_cadastro_MouseLeave(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

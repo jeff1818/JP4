@@ -2,9 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
-using System.Diagnostics;
 using System.IO;
-using System.Net;
 using System.Windows.Forms;
 
 namespace JP4
@@ -20,90 +18,59 @@ namespace JP4
 
         }
 
+        #region Fazer backup do banco de dados Acess
 
-        //------------------------------------------------------------------------------------------------
-
-
-
-        public void Check_update()
+        private void backup_db()
         {
-            // Gloria ao pai
+            string fileName = "db_aplicativo_kpi.mdb";
+            string sourcePath = "bk_" + Properties.Settings.Default.local_arquivo_excel; //@"C:\Users\Public\TestFolder";
+            string targetPath = Properties.Settings.Default.local_arquivo_excel + "/bkbanco"; //@"C:\Users\Public\TestFolder\SubDir";
 
-            WebClient webClient = new WebClient();
-            try
+            // Use Path class to manipulate file and directory paths.
+            string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+            string destFile = System.IO.Path.Combine(targetPath, fileName);
+
+            // To copy a folder's contents to a new location:
+            // Create a new target folder.
+            // If the directory already exists, this method does not create a new directory.
+            System.IO.Directory.CreateDirectory(targetPath);
+
+            // To copy a file to another location and
+            // overwrite the destination file if it already exists.
+            System.IO.File.Copy(sourceFile, destFile, true);
+
+            // To copy all the files in one directory to another directory.
+            // Get the files in the source folder. (To recursively iterate through
+            // all subfolders under the current directory, see
+            // "How to: Iterate Through a Directory Tree.")
+            // Note: Check for target path was performed previously
+            //       in this code example.
+            if (System.IO.Directory.Exists(sourcePath))
             {
-                if (!webClient.DownloadString("https://pastebin.com/raw/Hc22rGGZ").Contains(Application.ProductVersion))
+                string[] files = System.IO.Directory.GetFiles(sourcePath);
+
+                // Copy the files and overwrite destination files if they already exist.
+                foreach (string s in files)
                 {
-                    if (MessageBox.Show("Nova versão dispinivel! no link abaixo?", "Gestão de produção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        using (var client = new WebClient())
-                        {
-                            //Process.Start("Update_JM4.exe");
-
-                            //   Process.Start("https://jm418.000webhostapp.com/Aplicativo/JM4/setup.zip");
-                            Process.Start("https://1drv.ms/u/s!AnBCCWfJxas3gc5U5IO5nMI2dKIl_Q?e=Xay3JN");
-                            //Auto_update();
-                            //Close();
-                        }
+                    // Use static Path methods to extract only the file name from the path.
+                    fileName = System.IO.Path.GetFileName(s);
+                    destFile = System.IO.Path.Combine(targetPath, fileName);
+                    System.IO.File.Copy(s, destFile, true);
                 }
-                else
-                {
-
-                }
-
             }
-            catch
+            else
             {
-
+                Console.WriteLine("Source path does not exist!");
             }
 
+            // Keep console window open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
         }
 
-        //private void Auto_update()
-        //{
-        //    WebClient webClient = new WebClient();
-        //    var client = new WebClient();
-
-        //    try
-        //    {
-        //        System.Threading.Thread.Sleep(5000);
-        //        File.Delete(@".\setup.zip");
-        //        client.DownloadFile(new Uri("https://jm418.000webhostapp.com/Aplicativo/JM4/setup.zip"), @"setup.zip");
-        //        string zipPath = @".\setup.zip";
-        //        string extractPath = @".\";
-        //        ZipFile.ExtractToDirectory(zipPath, extractPath);
-        //        File.Delete(@".\setup.zip");
-        //        Process.Start(@".\setup.zip");
-        //        this.Close();
-
-        //    }
-        //    catch
-        //    {
-        //        Process.Start("setup.exe");
-        //        this.Close();
-        //    }
-        //}
 
 
-
-        //public void Download_app()
-        //{
-        //    string localFilePath;
-        //    DropboxClient client2 = new DropboxClient("cU5M-asdgfsdfsdfds3434435dfgfgvXoAMCFyOXH");
-        //    string folder = "MyFolder";
-        //    string file = "Test PDF.pdf";
-        //    using (var response = await Client.Files.DownloadAsync("/" + folder + "/" + file))
-        //    {
-        //        using (var fileStream = File.Create(localFilePath))
-        //        {
-        //            (await response.GetContentAsStreamAsync()).CopyTo(fileStream);
-        //        }
-        //    }
-        //}
-
-
-        //------------------------------------------------------------------------------------------------
-
-
+        #endregion
 
         private void Testar_conexao()
         {
@@ -132,17 +99,13 @@ namespace JP4
             }
         }
 
-        private void Verificar_padrao_arquivo()
-        {
-
-        }
 
 
         // Busca local do Banco de dados
         private string Procurar_pasta()
         {
-            string local_pasta = string.Empty;
-            string nome_arquivo = string.Empty;
+            string local_pasta;
+            string nome_arquivo;
             string endereco_completo = string.Empty;
             string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
 
@@ -189,8 +152,8 @@ namespace JP4
         // Buscar local de import de ordem de produção
         private string Procurar_pasta_os()
         {
-            string local_pasta = string.Empty;
-            string nome_arquivo = string.Empty;
+            string local_pasta;
+            string nome_arquivo;
             string endereco_completo = string.Empty;
 
 
@@ -260,9 +223,7 @@ namespace JP4
         private void button_janela_update_Click(object sender, EventArgs e)
         {
             //Form_janela_update janela_update = new Form_janela_update();
-            //janela_update.Show();
-
-            Check_update();
+            //janela_update.Show();           
 
         }
 
@@ -275,6 +236,12 @@ namespace JP4
         {
             Salvar_local_os();
             Reset_aplicativo();
+        }
+
+        private void verificarAtualizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
+            janela_up.ShowDialog();
         }
     }
 }

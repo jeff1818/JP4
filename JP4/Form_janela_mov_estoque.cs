@@ -26,8 +26,6 @@ namespace JP4
             text_tipo_mov.Text = "N";
             combo_local_orig.Text = "ALMOXARIF";
             combo_local_destino.Text = "PRODUCAO";
-
-
         }
 
 
@@ -51,7 +49,7 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    resultado_descri_operacao= myreader["descricao"].ToString();
+                    resultado_descri_operacao = myreader["descricao"].ToString();
                 }
 
                 conexao.Close();
@@ -106,7 +104,7 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_material where codigo_item ='"+ codigo_item + "'";
+                string comando_sql = "select * from db_cadastro_material where codigo_item ='" + codigo_item + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -206,7 +204,7 @@ namespace JP4
 
         #endregion
 
-        #region Metodos Limpeza
+        #region Metodos Limpeza // bloqueio
         private void Desbloquear_controles()
         {
             combo_cod_item.Enabled = true;
@@ -502,8 +500,6 @@ namespace JP4
 
         #region Metodos  Salvar // Estornar // Buscar
 
-       
-
         private void Salvar_lancamento()
         {
 
@@ -587,7 +583,128 @@ namespace JP4
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
-                
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+        private void Atualizar_lancamento(string id_apontamento)
+        {
+
+            string cod_item = this.combo_cod_item.Text;
+            string cod_descri_completa = combo_descri_completa.Text;
+            string cod_operacao = combo_operacao.Text;
+            double num_docum = Convert.ToDouble(text_num_documento.Text);
+            string secao_nome = combo_secao_maquina.Text;
+            string ies_tip_movto = text_tipo_mov.Text;
+
+            double qtd_movto = Convert.ToDouble(text_qtd_movt.Text);
+            double qtd_real = qtd_movto;
+
+            string cod_local_est_orig = combo_local_orig.Text;
+            string cod_local_est_dest = combo_local_destino.Text;
+
+            string observacao = rich_observa.Text;
+
+            int mes_proces = DateTime.Now.Month;
+            int mes_movto = DateTime.Now.Month;
+            int ano_movto = DateTime.Now.Year;
+            DateTime dat_proces = DateTime.Today;
+            DateTime dat_movto = Convert.ToDateTime(dt_movt.Value);
+
+            string cod_empresa = combo_empresa.Text;
+            string num_transac;
+
+            // Não aproveita 
+
+            string cod_descri_reduzida;
+            double fardos = 0;
+            double num_secao_requis = 1;
+            string operador = "";
+            string num_lote_orig = "";
+            string num_lote_dest = "";
+            string ies_sit_est_orig = "L";
+            string ies_sit_est_dest = "L";
+            string cod_turno = "";
+            string nom_usuario = "";
+            string num_prog = this.Name;
+            double largura_material = 0;
+            double n_bobina_inical = 0;
+            double n_bobina_final = 0;
+            double velocidade = 0;
+            double contador_fardos = 0;
+            double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
+            double peso_total_fardo = 0; // Fazer metodos pra calcular
+            DateTime hora_inical = DateTime.Now;
+            DateTime hora_final = DateTime.Now;
+            DateTime data_operac = Convert.ToDateTime(dt_lancamento.Value);
+            DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
+            string Tipo_material = Buscar_tipo_material(combo_descri_completa.Text);
+            int status_estorno;
+            string cliente_apon;
+
+            num_transac = Gerar_num_transac(num_docum, hor_operac);
+
+
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+
+                comando_sql = "UPDATE estoque_trans SET " +
+                        "cod_empresa='" + cod_empresa +
+                        "', num_transac='" + num_transac +
+                        "', cod_item='" + cod_item +
+                        "', cod_descri_completa='" + cod_descri_completa +
+                        "', mes_proces='" + mes_proces +
+                        "', mes_movto='" + mes_movto +
+                        "', ano_movto='" + ano_movto +
+                        "', dat_proces='" + dat_proces +
+                        "', dat_movto='" + dat_movto +
+                        "', cod_operacao='" + cod_operacao +
+                        "', num_docum='" + num_docum +
+                        "', ies_tip_movto='" + ies_tip_movto +
+                        "', qtd_real='" + qtd_real +
+                        "', qtd_movto='" + qtd_movto +
+                        "', num_secao_requis='" + num_secao_requis +
+                        "', operador='" + operador +
+                        "', secao_nome='" + secao_nome +
+                        "', cod_local_est_orig='" + cod_local_est_orig +
+                        "', cod_local_est_dest='" + cod_local_est_dest +
+                        "', num_lote_orig='" + num_lote_orig +
+                        "', num_lote_dest='" + num_lote_dest +
+                        "', ies_sit_est_orig='" + ies_sit_est_orig +
+                        "', ies_sit_est_dest='" + ies_sit_est_dest +
+                        "', cod_turno='" + cod_turno +
+                        "', nom_usuario='" + nom_usuario +
+                        "', num_prog='" + num_prog +
+                        "', largura_material='" + largura_material +
+                        "', n_bobina_inical='" + n_bobina_inical +
+                        "', n_bobina_final='" + n_bobina_final +
+                        "', velocidade='" + velocidade +
+                        "', contador='" + contador_fardos +
+                        "', fardos='" + fardos +
+                        "', peso_medio_bobina='" + peso_medio_bobina +
+                        "', peso_total_fardo='" + peso_total_fardo +
+                        "', hora_inical='" + hora_inical +
+                        "', hora_final='" + hora_final +
+                        "', data_operac='" + data_operac +
+                        "', hor_operac='" + hor_operac +
+                        "', Tipo_material='" + Tipo_material +
+                        "', observacao='" + observacao +
+                        "' WHERE id_estoque_trans=" + Convert.ToInt32(id_apontamento) + "";
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Atualizado com sucesso");
 
             }
             catch (Exception erro)
@@ -596,7 +713,31 @@ namespace JP4
             }
 
         }
+        private void Deletar_movimento(string id_apontamento)
+        {
 
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                string comando_sql;
+
+                comando_sql = "DELETE FROM estoque_trans WHERE id_estoque_trans=" + Convert.ToInt32(id_apontamento);
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Estornado com sucesso!");
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
 
 
         #endregion
@@ -604,7 +745,7 @@ namespace JP4
         private void grid_mov_estoque_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string id_estoque_trans = grid_mov_estoque.CurrentRow.Cells[0].Value.ToString();
-            label_id_stoque_trans.Text = id_estoque_trans;            
+            label_id_stoque_trans.Text = id_estoque_trans;
             Carregar_controles(id_estoque_trans);
 
         }
@@ -623,15 +764,27 @@ namespace JP4
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Atualizar_lancamento(label_id_stoque_trans.Text);
+            Limpar_controles();
+            Carrega_grid();
+
+        }
+
         private void button_estornar_Click(object sender, EventArgs e)
         {
-
+            Deletar_movimento(label_id_stoque_trans.Text);
+            Limpar_controles();
+            Carrega_grid();
         }
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
 
         }
+
+
 
         private void text_num_documento_MouseHover(object sender, EventArgs e)
         {
@@ -642,7 +795,7 @@ namespace JP4
 
         private void combo_cod_item_Leave(object sender, EventArgs e)
         {
-            combo_descri_completa.Text =  Buscar_descri(combo_cod_item.Text);
+            combo_descri_completa.Text = Buscar_descri(combo_cod_item.Text);
         }
 
         private void combo_descri_completa_Leave(object sender, EventArgs e)
@@ -656,6 +809,6 @@ namespace JP4
 
         }
 
-        
+     
     }
 }

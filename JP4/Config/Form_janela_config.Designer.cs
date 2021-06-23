@@ -30,7 +30,6 @@ namespace JP4
         private void InitializeComponent()
         {
             this.button_buscar_local = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.text_endereco = new System.Windows.Forms.TextBox();
@@ -44,10 +43,17 @@ namespace JP4
             this.label2 = new System.Windows.Forms.Label();
             this.button_salva_local_os = new System.Windows.Forms.Button();
             this.button_busca_loca_arquivo_os = new System.Windows.Forms.Button();
-            this.button_janela_update = new System.Windows.Forms.Button();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.verificarAtualizaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage_config_local = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage_config_local.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_buscar_local
@@ -60,22 +66,13 @@ namespace JP4
             this.button_buscar_local.UseVisualStyleBackColor = true;
             this.button_buscar_local.Click += new System.EventHandler(this.button_procurar_pasta_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button_janela_update);
             this.groupBox1.Controls.Add(this.text_endereco);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button_salvar_endereco);
             this.groupBox1.Controls.Add(this.button_buscar_local);
-            this.groupBox1.Location = new System.Drawing.Point(11, 12);
+            this.groupBox1.Location = new System.Drawing.Point(7, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(721, 130);
             this.groupBox1.TabIndex = 2;
@@ -113,9 +110,9 @@ namespace JP4
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.label_status_con});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 292);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 436);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(744, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(872, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -132,7 +129,7 @@ namespace JP4
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.button_salva_local_os);
             this.groupBox2.Controls.Add(this.button_busca_loca_arquivo_os);
-            this.groupBox2.Location = new System.Drawing.Point(11, 148);
+            this.groupBox2.Location = new System.Drawing.Point(7, 147);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(721, 130);
             this.groupBox2.TabIndex = 4;
@@ -185,27 +182,64 @@ namespace JP4
             this.button_busca_loca_arquivo_os.UseVisualStyleBackColor = true;
             this.button_busca_loca_arquivo_os.Click += new System.EventHandler(this.button_busca_loca_arquivo_os_Click);
             // 
-            // button_janela_update
+            // menuStrip2
             // 
-            this.button_janela_update.Location = new System.Drawing.Point(640, 89);
-            this.button_janela_update.Name = "button_janela_update";
-            this.button_janela_update.Size = new System.Drawing.Size(75, 23);
-            this.button_janela_update.TabIndex = 6;
-            this.button_janela_update.Text = "Verificar atualização";
-            this.button_janela_update.UseVisualStyleBackColor = true;
-            this.button_janela_update.Click += new System.EventHandler(this.button_janela_update_Click);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verificarAtualizaçãoToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(872, 24);
+            this.menuStrip2.TabIndex = 5;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // verificarAtualizaçãoToolStripMenuItem
+            // 
+            this.verificarAtualizaçãoToolStripMenuItem.Name = "verificarAtualizaçãoToolStripMenuItem";
+            this.verificarAtualizaçãoToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
+            this.verificarAtualizaçãoToolStripMenuItem.Text = "Verificar Atualização";
+            this.verificarAtualizaçãoToolStripMenuItem.Click += new System.EventHandler(this.verificarAtualizaçãoToolStripMenuItem_Click);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage_config_local);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 27);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(848, 371);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // tabPage_config_local
+            // 
+            this.tabPage_config_local.Controls.Add(this.groupBox1);
+            this.tabPage_config_local.Controls.Add(this.groupBox2);
+            this.tabPage_config_local.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_config_local.Name = "tabPage_config_local";
+            this.tabPage_config_local.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_config_local.Size = new System.Drawing.Size(840, 345);
+            this.tabPage_config_local.TabIndex = 0;
+            this.tabPage_config_local.Text = "Config. Locais";
+            this.tabPage_config_local.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(840, 345);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // CONF01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 314);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(872, 458);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "CONF01";
             this.Text = "Form_janela_config";
             this.groupBox1.ResumeLayout(false);
@@ -214,13 +248,16 @@ namespace JP4
             this.statusStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage_config_local.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button button_buscar_local;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -235,6 +272,10 @@ namespace JP4
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_salva_local_os;
         private System.Windows.Forms.Button button_busca_loca_arquivo_os;
-        private System.Windows.Forms.Button button_janela_update;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem verificarAtualizaçãoToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage_config_local;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

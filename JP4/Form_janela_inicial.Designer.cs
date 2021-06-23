@@ -30,33 +30,12 @@ namespace JP4
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_tela_inicial));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Cadastro Defeitos");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cadastro Grupo de Estoque");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Cadastro Cliente");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Cadastro local Aplicação");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Cadastro local Estoque");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Cadastro Empresa");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Cadastro Equipamento");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Cadastro Origem Apara");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Cadastro Operação");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Area Cadastro", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Abrir Janela");
             this.panel_titulo_menu = new System.Windows.Forms.Panel();
             this.botao_restor = new System.Windows.Forms.PictureBox();
             this.botao_mini = new System.Windows.Forms.PictureBox();
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
-            this.tree_menu_lateral = new System.Windows.Forms.TreeView();
             this.panel_sub_menu_cadastro = new System.Windows.Forms.Panel();
             this.button_cad_operador = new System.Windows.Forms.Button();
             this.button_cad_operacao = new System.Windows.Forms.Button();
@@ -68,6 +47,8 @@ namespace JP4
             this.button_cad_local_aplica = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button_cad_local_estoque = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button_mov_estoque = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.button_area_cadastro = new System.Windows.Forms.Button();
             this.label_inicio_versao_prog = new System.Windows.Forms.Label();
@@ -86,8 +67,6 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button_mov_estoque = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -172,7 +151,6 @@ namespace JP4
             this.panel_menu_vertical.Controls.Add(this.panel_sub_menu_cadastro);
             this.panel_menu_vertical.Controls.Add(this.panel5);
             this.panel_menu_vertical.Controls.Add(this.button_mov_estoque);
-            this.panel_menu_vertical.Controls.Add(this.tree_menu_lateral);
             this.panel_menu_vertical.Controls.Add(this.panel14);
             this.panel_menu_vertical.Controls.Add(this.button_area_cadastro);
             this.panel_menu_vertical.Controls.Add(this.label_inicio_versao_prog);
@@ -195,42 +173,6 @@ namespace JP4
             this.panel_menu_vertical.TabIndex = 4;
             this.panel_menu_vertical.Click += new System.EventHandler(this.panel_menu_vertical_Click);
             // 
-            // tree_menu_lateral
-            // 
-            this.tree_menu_lateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.tree_menu_lateral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tree_menu_lateral.ItemHeight = 18;
-            this.tree_menu_lateral.Location = new System.Drawing.Point(0, 585);
-            this.tree_menu_lateral.Name = "tree_menu_lateral";
-            treeNode1.Name = "Nó1";
-            treeNode1.Text = "Cadastro Defeitos";
-            treeNode2.Name = "Nó3";
-            treeNode2.Text = "Cadastro Grupo de Estoque";
-            treeNode3.Name = "Nó4";
-            treeNode3.Text = "Cadastro Cliente";
-            treeNode4.Name = "Nó5";
-            treeNode4.Text = "Cadastro local Aplicação";
-            treeNode5.Name = "Nó6";
-            treeNode5.Text = "Cadastro local Estoque";
-            treeNode6.Name = "Nó7";
-            treeNode6.Text = "Cadastro Empresa";
-            treeNode7.Name = "Nó8";
-            treeNode7.Text = "Cadastro Equipamento";
-            treeNode8.Name = "Nó9";
-            treeNode8.Text = "Cadastro Origem Apara";
-            treeNode9.Name = "Nó10";
-            treeNode9.Text = "Cadastro Operação";
-            treeNode10.Name = "area_cadastro";
-            treeNode10.Text = "Area Cadastro";
-            treeNode10.ToolTipText = "Area de cadastro e parametros";
-            treeNode11.Name = "Nó11";
-            treeNode11.Text = "Abrir Janela";
-            this.tree_menu_lateral.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode11});
-            this.tree_menu_lateral.Size = new System.Drawing.Size(194, 63);
-            this.tree_menu_lateral.TabIndex = 0;
-            // 
             // panel_sub_menu_cadastro
             // 
             this.panel_sub_menu_cadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(205)))));
@@ -244,7 +186,7 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_aplica);
             this.panel_sub_menu_cadastro.Controls.Add(this.button1);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
-            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(92, 111);
+            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(48, 134);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 386);
             this.panel_sub_menu_cadastro.TabIndex = 27;
@@ -410,6 +352,29 @@ namespace JP4
             this.button_cad_local_estoque.UseVisualStyleBackColor = false;
             this.button_cad_local_estoque.Click += new System.EventHandler(this.button_cad_local_estoque_Click);
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Black;
+            this.panel5.Location = new System.Drawing.Point(3, 225);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(5, 32);
+            this.panel5.TabIndex = 30;
+            // 
+            // button_mov_estoque
+            // 
+            this.button_mov_estoque.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_mov_estoque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_mov_estoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_mov_estoque.ForeColor = System.Drawing.Color.White;
+            this.button_mov_estoque.Location = new System.Drawing.Point(14, 225);
+            this.button_mov_estoque.Name = "button_mov_estoque";
+            this.button_mov_estoque.Size = new System.Drawing.Size(180, 32);
+            this.button_mov_estoque.TabIndex = 29;
+            this.button_mov_estoque.Text = "Movimenta Estoque";
+            this.button_mov_estoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_mov_estoque.UseVisualStyleBackColor = true;
+            this.button_mov_estoque.Click += new System.EventHandler(this.button_mov_estoque_Click);
+            // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.Black;
@@ -432,6 +397,8 @@ namespace JP4
             this.button_area_cadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_area_cadastro.UseVisualStyleBackColor = true;
             this.button_area_cadastro.Click += new System.EventHandler(this.button_area_cadastro_Click);
+            this.button_area_cadastro.MouseLeave += new System.EventHandler(this.button_area_cadastro_MouseLeave);
+            this.button_area_cadastro.MouseHover += new System.EventHandler(this.button_area_cadastro_MouseHover);
             // 
             // label_inicio_versao_prog
             // 
@@ -596,29 +563,6 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(3, 225);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(5, 32);
-            this.panel5.TabIndex = 30;
-            // 
-            // button_mov_estoque
-            // 
-            this.button_mov_estoque.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_mov_estoque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button_mov_estoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_mov_estoque.ForeColor = System.Drawing.Color.White;
-            this.button_mov_estoque.Location = new System.Drawing.Point(14, 225);
-            this.button_mov_estoque.Name = "button_mov_estoque";
-            this.button_mov_estoque.Size = new System.Drawing.Size(180, 32);
-            this.button_mov_estoque.TabIndex = 29;
-            this.button_mov_estoque.Text = "Movimenta Estoque";
-            this.button_mov_estoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_mov_estoque.UseVisualStyleBackColor = true;
-            this.button_mov_estoque.Click += new System.EventHandler(this.button_mov_estoque_Click);
-            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,7 +632,6 @@ namespace JP4
         private System.Windows.Forms.Button button_area_cadastro;
         private System.Windows.Forms.Button button_cad_origem_apara;
         private System.Windows.Forms.Button button_cad_operacao;
-        private System.Windows.Forms.TreeView tree_menu_lateral;
         private System.Windows.Forms.Button button_cad_operador;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button_mov_estoque;

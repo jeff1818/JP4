@@ -42,6 +42,7 @@ namespace JP4
             this.cadLocaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadEmpresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label_descricao_operacao = new System.Windows.Forms.Label();
             this.combo_empresa = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label_id_stoque_trans = new System.Windows.Forms.Label();
@@ -70,7 +71,7 @@ namespace JP4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
-            this.label_descricao_operacao = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -79,6 +80,7 @@ namespace JP4
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button_buscar);
             this.groupBox1.Controls.Add(this.button_estornar);
             this.groupBox1.Controls.Add(this.button_salvar);
@@ -93,7 +95,7 @@ namespace JP4
             // 
             // button_buscar
             // 
-            this.button_buscar.Location = new System.Drawing.Point(6, 105);
+            this.button_buscar.Location = new System.Drawing.Point(6, 134);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(116, 23);
             this.button_buscar.TabIndex = 3;
@@ -103,7 +105,7 @@ namespace JP4
             // 
             // button_estornar
             // 
-            this.button_estornar.Location = new System.Drawing.Point(6, 76);
+            this.button_estornar.Location = new System.Drawing.Point(6, 105);
             this.button_estornar.Name = "button_estornar";
             this.button_estornar.Size = new System.Drawing.Size(116, 23);
             this.button_estornar.TabIndex = 2;
@@ -220,6 +222,16 @@ namespace JP4
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "...";
+            // 
+            // label_descricao_operacao
+            // 
+            this.label_descricao_operacao.AutoSize = true;
+            this.label_descricao_operacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_descricao_operacao.Location = new System.Drawing.Point(220, 49);
+            this.label_descricao_operacao.Name = "label_descricao_operacao";
+            this.label_descricao_operacao.Size = new System.Drawing.Size(47, 13);
+            this.label_descricao_operacao.TabIndex = 28;
+            this.label_descricao_operacao.Text = "..........";
             // 
             // combo_empresa
             // 
@@ -481,15 +493,15 @@ namespace JP4
             this.grid_mov_estoque.TabIndex = 7;
             this.grid_mov_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_mov_estoque_CellDoubleClick);
             // 
-            // label_descricao_operacao
+            // button1
             // 
-            this.label_descricao_operacao.AutoSize = true;
-            this.label_descricao_operacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_descricao_operacao.Location = new System.Drawing.Point(220, 49);
-            this.label_descricao_operacao.Name = "label_descricao_operacao";
-            this.label_descricao_operacao.Size = new System.Drawing.Size(47, 13);
-            this.label_descricao_operacao.TabIndex = 28;
-            this.label_descricao_operacao.Text = "..........";
+            this.button1.Location = new System.Drawing.Point(6, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Atualizar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // STOQ01
             // 
@@ -559,5 +571,6 @@ namespace JP4
         private System.Windows.Forms.ToolStripMenuItem cadLocaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadEmpresasToolStripMenuItem;
         private System.Windows.Forms.Label label_descricao_operacao;
+        private System.Windows.Forms.Button button1;
     }
 }
