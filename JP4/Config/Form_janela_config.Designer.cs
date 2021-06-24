@@ -206,7 +206,7 @@ namespace JP4
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(848, 371);
+            this.tabControl1.Size = new System.Drawing.Size(848, 406);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage_config_local
@@ -216,7 +216,7 @@ namespace JP4
             this.tabPage_config_local.Location = new System.Drawing.Point(4, 22);
             this.tabPage_config_local.Name = "tabPage_config_local";
             this.tabPage_config_local.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_config_local.Size = new System.Drawing.Size(840, 345);
+            this.tabPage_config_local.Size = new System.Drawing.Size(840, 380);
             this.tabPage_config_local.TabIndex = 0;
             this.tabPage_config_local.Text = "Config. Locais";
             this.tabPage_config_local.UseVisualStyleBackColor = true;

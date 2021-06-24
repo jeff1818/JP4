@@ -22,6 +22,7 @@ namespace JP4
 
         private void backup_db()
         {
+
             string fileName = "db_aplicativo_kpi.mdb";
             string sourcePath = "bk_" + Properties.Settings.Default.local_arquivo_excel; //@"C:\Users\Public\TestFolder";
             string targetPath = Properties.Settings.Default.local_arquivo_excel + "/bkbanco"; //@"C:\Users\Public\TestFolder\SubDir";
@@ -66,6 +67,8 @@ namespace JP4
             // Keep console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
+                                   
+
         }
 
 
@@ -148,7 +151,6 @@ namespace JP4
 
         }
 
-
         // Buscar local de import de ordem de produção
         private string Procurar_pasta_os()
         {
@@ -194,8 +196,6 @@ namespace JP4
             }
 
         }
-
-
         private void Reset_aplicativo()
         {
             MessageBox.Show("Aplicativo deve ser reiniciado!");

@@ -22,8 +22,8 @@ namespace JP4
 
             label_inicio_versao_prog.Text = Application.ProductVersion;
 
-            Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
-            janela_up.Check_update();
+            //Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
+            //janela_up.Show();
         }
 
 

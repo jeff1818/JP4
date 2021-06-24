@@ -11,7 +11,6 @@ namespace JP4
         {
             InitializeComponent();
 
-
             Bloquear_controles();
             Carregar_empresa_db();
             Carrega_secao_maquina();

@@ -440,7 +440,7 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    this.combo_tipo_material.Items.Add(myreader["codigo_material"].ToString());
+                    this.combo_tipo_material.Items.Add(myreader["tipo_material"].ToString());
 
                 }
 
@@ -662,7 +662,6 @@ namespace JP4
 
             this.combo_empresa.Enabled = true;
         }
-
         private void limpar_campos()
         {
             combo_grupo_material.Text = string.Empty;
@@ -696,7 +695,6 @@ namespace JP4
             check_estrutura_NAO.Enabled = false;
 
         }
-
         private void verifica_campos()
         {
 
@@ -706,7 +704,7 @@ namespace JP4
         {
             string codigo_item01 = "";
             try
-            {                
+            {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 string comando_sql = "select * from db_cadastro_material where codigo_item ='" + cod_item + "'";
 
@@ -721,7 +719,7 @@ namespace JP4
                 {
                     codigo_item01 = myreader["codigo_item"].ToString();
 
-                }             
+                }
 
 
                 conexao.Close();

@@ -51,25 +51,29 @@ namespace JP4
         public int cod_geral_erro = 0;
 
         CultureInfo cultures = new CultureInfo("pt-BR");
-
         private void Form_janela_apont_KeyDown(object sender, KeyEventArgs e)
         {
-            //Verifica_campos();
+            
 
             if (e.KeyCode == Keys.Escape)
             {
-
-                tab_menu_apontamento.SelectedTab = tab_consumo;
-                this.abaConsumo_text__cod_item.Text = combo_cod_item.Text;
-                this.abaConsumo_text_descri_item.Text = combo_desc_completa.Text;
-                this.abaConsumo_text_qtd_boa.Text = Convert.ToString(text_qtd_boa.Text);
-                Carregar_grid(this.combo_desc_completa.Text);
+                //tab_menu_apontamento.SelectedTab = tab_consumo;
+                //this.abaConsumo_text__cod_item.Text = combo_cod_item.Text;
+                //this.abaConsumo_text_descri_item.Text = combo_desc_completa.Text;
+                //this.abaConsumo_text_qtd_boa.Text = Convert.ToString(text_qtd_boa.Text);
+                //Carregar_grid(this.combo_desc_completa.Text);
 
             }
             if (e.KeyCode == Keys.Escape)
             {
-                if (cod_geral_erro == 0)
+                if (Verifica_campos() == 0)
                 {
+                    tab_menu_apontamento.SelectedTab = tab_consumo;
+                    this.abaConsumo_text__cod_item.Text = combo_cod_item.Text;
+                    this.abaConsumo_text_descri_item.Text = combo_desc_completa.Text;
+                    this.abaConsumo_text_qtd_boa.Text = Convert.ToString(text_qtd_boa.Text);
+                    Carregar_grid(this.combo_desc_completa.Text);
+
                     if (tab_menu_apontamento.SelectedTab == tab_consumo)
                     {
                         DialogResult resposta = MessageBox.Show(this, "Deseja salvar lançamento!", "Apontamento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -83,6 +87,8 @@ namespace JP4
                             MessageBox.Show("Salvo com Sucesso!!");
                             tab_menu_apontamento.SelectedTab = tab_apontamento;
                             toolStripStatusLabel_status_apon.Text = "Apontamento feito com Sucesso!";
+                            Limpar_campos();
+
                         }
                         else if (resposta == DialogResult.No)
                         {
@@ -685,7 +691,6 @@ namespace JP4
 
 
         }
-
         private void combo_turnos_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -729,7 +734,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void text_qtd_boa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && (e.KeyChar == '.'))
@@ -738,7 +742,6 @@ namespace JP4
                 e.Handled = true;
             }
         }
-
         private void text_bobina_ini_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
@@ -747,7 +750,6 @@ namespace JP4
                 e.Handled = true;
             }
         }
-
         private void text_bobina_fim_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
@@ -756,7 +758,6 @@ namespace JP4
                 e.Handled = true;
             }
         }
-
         private void text_contador_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
@@ -765,7 +766,6 @@ namespace JP4
                 e.Handled = true;
             }
         }
-
         private void text_qtd_fardos_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
@@ -774,7 +774,6 @@ namespace JP4
                 e.Handled = true;
             }
         }
-
         private void text_largura_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
@@ -831,8 +830,8 @@ namespace JP4
         {
             string descricao_completa = this.combo_desc_completa.Text;
 
-            int bobina_inicial = 0;
-            int bobina_final = 0;
+            int bobina_inicial;
+            int bobina_final;
             int qtd_bobina = 0;
             //int total_bobina = 0;
 
@@ -886,7 +885,6 @@ namespace JP4
                 this.text_bobina_ini.Text = Convert.ToString(bobina_inicial);
             }
         }
-
         private void text_velocidade_Leave(object sender, EventArgs e)
         {
             calculo_velocidade();
@@ -1116,7 +1114,7 @@ namespace JP4
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
 
-                string comando_sql = "select * from db_cadastro_material where tipo_material = 'Material prima'";
+                string comando_sql = "select * from db_cadastro_material where grupo = '05'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1190,8 +1188,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
-
         private void calculo_velocidade()
         {
             double velocidade = 0;
@@ -1277,7 +1273,6 @@ namespace JP4
             }
 
         }
-
         private TimeSpan Soma_hora()
         {
             TimeSpan resultado = TimeSpan.Zero;
@@ -1349,7 +1344,43 @@ namespace JP4
         //------------------------------------------------------------------------------------------
 
         #region Metodos Janela Apontamento
+        private void Limpar_campos()
+        {
+            combo_ordem_prod.Text = string.Empty;
+            combo_maquinas.Text = string.Empty;
+            combo_cod_item.Text = string.Empty;
+            combo_desc_completa.Text = string.Empty;
 
+            //this.text_qtd_planejada.Enabled = true;
+            //this.text_qtd_saldo.Enabled = true;            
+            combo_maquinas.Text = string.Empty;
+            combo_turnos.Text = string.Empty;
+            combo_operadores.Text = string.Empty;
+
+            //this.dt_inicio_pro.Enabled = true;
+            //this.hr_inicial_prod.Enabled = true;
+            // this.dt_final_pro.Enabled = true;
+            //this.hr_final_prod.Enabled = true;
+            //text_operacao.Enabled = true;
+
+            text_qtd_boa.Text = "0";
+            text_bobina_ini.Text = "0";
+            text_bobina_fim.Text = "0";
+            text_velocidade.Text = "0";
+            text_contador.Text = "0";
+            text_qtd_fardos.Text = "0";
+            text_largura.Text = "0";
+
+            //combo_local_orig.Enabled = true;
+            //this.combo_local_desti.Enabled = true;
+
+            text_lotes.Text = string.Empty;
+
+            //this.combo_empresa.Enabled = true;
+            //this.dt_lançamento.Enabled = true;
+            combo_cliente_esto.Text = string.Empty;
+
+        }
         private string Gerar_num_transac(double num_docum, DateTime hr_atual)
         {
             string resultado = "";
@@ -1358,20 +1389,59 @@ namespace JP4
             return resultado;
 
         }
-        private void Verifica_campos()
+        private int Verifica_campos()
         {
-
-            if(combo_ordem_prod.Text == string.Empty || combo_cod_item.Text == string.Empty || combo_cliente_esto.Text == string.Empty)
+            int cod_geral_erro = 0;
+            if (combo_ordem_prod.Text == string.Empty) 
             {
-                MessageBox.Show("Verifique os campos | Ordem | Codigo | Cliente");
+                MessageBox.Show("Verifique os campo Ordem");
                 cod_geral_erro = 1;
+                return cod_geral_erro;
+
+
+            }
+            if (combo_cod_item.Text == string.Empty)
+            {
+                MessageBox.Show("Verifique os campo Codigo");
+                cod_geral_erro = 1;
+                return cod_geral_erro;
+            }
+            if(combo_cliente_esto.Text == string.Empty)
+            {
+                MessageBox.Show("Verifique os campo Cliente");
+                cod_geral_erro = 1;
+                return cod_geral_erro;
             }
 
-            if(combo_local_orig.Text == string.Empty || combo_local_desti.Text == string.Empty || combo_operadores.Text == string.Empty || combo_turnos.Text == string.Empty)
+            if(combo_local_orig.Text == string.Empty)
             {
-                MessageBox.Show("Verifique os campos | Local de origem e destino | Operadores | Turnos");
+                MessageBox.Show("Verifique os campo Local de origem");
                 cod_geral_erro = 1;
+                return cod_geral_erro;
             }
+
+            if (combo_local_desti.Text == string.Empty)
+            {
+                MessageBox.Show("Verifique os campo origem e destino");
+                cod_geral_erro = 1;
+                return cod_geral_erro;
+            }
+
+            if (combo_operadores.Text == string.Empty)
+            {
+                MessageBox.Show("Verifique os campo Operadores");
+                cod_geral_erro = 1;
+                return cod_geral_erro;
+            }
+
+            if (combo_turnos.Text == string.Empty)
+            {
+                MessageBox.Show("Verifique os campo Turnos");
+                cod_geral_erro = 1;
+                return cod_geral_erro;
+            }
+
+            return cod_geral_erro;
         }
         private void Desbloquear_controles()
         {
@@ -2368,7 +2438,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito01.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd01.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2409,7 +2479,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito02.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd02.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2450,7 +2520,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito01.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd03.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2490,7 +2560,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito04.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd04.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2529,7 +2599,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito05.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd05.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2568,7 +2638,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito06.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd06.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2607,7 +2677,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito07.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd07.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2646,7 +2716,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito08.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd08.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2685,7 +2755,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito09.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd09.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -2724,7 +2794,7 @@ namespace JP4
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
                 string operador = label_AbaDefeitos_turno.Text;
-                string codigo_defeitos = "";
+                string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito10.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd10.Text, cultures);
                 string observacao = richText_label_AbaDefeitos_obs.Text;
@@ -3590,7 +3660,6 @@ namespace JP4
                 }
             }
         }
-
         private void Estornar_consumo_mp(string num_transac)
         {
             try
@@ -3611,9 +3680,7 @@ namespace JP4
             {
                 MessageBox.Show(erro.Message);
             }
-        }
-                
-
+        }                
         private double Soma_percentual(string mp01, string mp02, string mp03, string mp04, string mp05, string mp06, string mp07, string mp08, string mp09, string mp10)
         {
             double resultado = 0;
