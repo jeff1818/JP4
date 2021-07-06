@@ -11,6 +11,8 @@ using System.Runtime.InteropServices;
 using System.Net;
 using System.Diagnostics;
 using System.Threading;
+using System.IO.Compression;
+using System.IO;
 
 namespace JP4
 {
@@ -22,9 +24,70 @@ namespace JP4
 
             label_inicio_versao_prog.Text = Application.ProductVersion;
 
-            //Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
-            //janela_up.Show();
+            label_status.Visible = false;
+            linkLabel_baixar_nova.Visible = false;
+            Check_update();
+
         }
+
+        // ------------------------------------------------------------------------------------------------------
+        public void Check_update()
+        {
+            WebClient webClient = new WebClient();
+            try
+            {
+                if (!webClient.DownloadString("https://pastebin.com/raw/Hc22rGGZ").Contains(Application.ProductVersion))
+                {
+                    //DialogResult resultado = MessageBox.Show("Uma nova versão do sistema esta disponivel, deseja baixar ?","Nova Versão!", MessageBoxButtons.YesNo);                    
+                    //label_status.Text = "Nova versão disponivel!";
+                    //label_status.Visible = true;
+                    linkLabel_baixar_nova.Visible = true;
+
+                    LinkLabel.Link link = new LinkLabel.Link();
+                    link.LinkData = "https://casacriativa.top/";
+                    linkLabel_baixar_nova.Links.Add(link);
+                }
+                else
+                {
+                    label_status.Text = "O JP4 Já esta atualizado!";
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+
+
+        public void DownloadFile()
+        {
+            WebClient webClient = new WebClient();
+            var client = new WebClient();
+
+            MessageBox.Show("Atualizando...");
+
+            try
+            {
+                System.Threading.Thread.Sleep(5000);
+                File.Delete(@"c:\temp\setup.exe");
+                client.DownloadFile("https://casacriativa.top/aplicativo_update/Aplicativo/setup.zip", @"c:\temp\setup.zip");
+                string zipPath = @"c:\temp\setup.zip";
+                string extractPath =@"c:\temp\";
+                ZipFile.ExtractToDirectory(zipPath, extractPath);
+                File.Delete(@"c:\temp\setup.zip");
+                Process.Start(@"c:\temp\setup.exe");
+                Close();
+            }
+            catch
+            {
+                Process.Start(@"c:\temp\setup.exe");
+                Close();
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -198,6 +261,16 @@ namespace JP4
         private void button_area_cadastro_MouseLeave(object sender, EventArgs e)
         {
            
+        }
+
+        private void label_status_Click(object sender, EventArgs e)
+        {
+            DownloadFile();
+        }
+
+        private void linkLabel_baixar_nova_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(e.Link.LinkData as string);
         }
     }
 }

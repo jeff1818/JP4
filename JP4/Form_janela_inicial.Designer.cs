@@ -67,6 +67,8 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
+            this.linkLabel_baixar_nova = new System.Windows.Forms.LinkLabel();
+            this.label_status = new System.Windows.Forms.Label();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -148,6 +150,8 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.linkLabel_baixar_nova);
+            this.panel_menu_vertical.Controls.Add(this.label_status);
             this.panel_menu_vertical.Controls.Add(this.panel_sub_menu_cadastro);
             this.panel_menu_vertical.Controls.Add(this.panel5);
             this.panel_menu_vertical.Controls.Add(this.button_mov_estoque);
@@ -563,6 +567,27 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
+            // linkLabel_baixar_nova
+            // 
+            this.linkLabel_baixar_nova.AutoSize = true;
+            this.linkLabel_baixar_nova.Location = new System.Drawing.Point(91, 639);
+            this.linkLabel_baixar_nova.Name = "linkLabel_baixar_nova";
+            this.linkLabel_baixar_nova.Size = new System.Drawing.Size(99, 13);
+            this.linkLabel_baixar_nova.TabIndex = 0;
+            this.linkLabel_baixar_nova.TabStop = true;
+            this.linkLabel_baixar_nova.Text = "Baixar nova Versão";
+            this.linkLabel_baixar_nova.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_baixar_nova_LinkClicked);
+            // 
+            // label_status
+            // 
+            this.label_status.AutoSize = true;
+            this.label_status.Location = new System.Drawing.Point(12, 639);
+            this.label_status.Name = "label_status";
+            this.label_status.Size = new System.Drawing.Size(16, 13);
+            this.label_status.TabIndex = 0;
+            this.label_status.Text = "...";
+            this.label_status.Click += new System.EventHandler(this.label_status_Click);
+            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -635,6 +660,8 @@ namespace JP4
         private System.Windows.Forms.Button button_cad_operador;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button_mov_estoque;
+        private System.Windows.Forms.LinkLabel linkLabel_baixar_nova;
+        private System.Windows.Forms.Label label_status;
     }
 }
 

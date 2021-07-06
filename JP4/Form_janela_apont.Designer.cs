@@ -344,7 +344,7 @@ namespace JP4
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1113, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1224, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1200,7 +1200,7 @@ namespace JP4
             this.text_local_aplicacao.Location = new System.Drawing.Point(9, 164);
             this.text_local_aplicacao.Name = "text_local_aplicacao";
             this.text_local_aplicacao.Size = new System.Drawing.Size(140, 20);
-            this.text_local_aplicacao.TabIndex = 28;
+            this.text_local_aplicacao.TabIndex = 27;
             this.text_local_aplicacao.TextChanged += new System.EventHandler(this.text_local_aplicacao_TextChanged);
             // 
             // label2
@@ -1220,7 +1220,7 @@ namespace JP4
             this.dt_lançamento.Location = new System.Drawing.Point(6, 98);
             this.dt_lançamento.Name = "dt_lançamento";
             this.dt_lançamento.Size = new System.Drawing.Size(143, 20);
-            this.dt_lançamento.TabIndex = 27;
+            this.dt_lançamento.TabIndex = 26;
             // 
             // label8
             // 
@@ -1290,14 +1290,13 @@ namespace JP4
             // 
             // status_bar_apon
             // 
-            this.status_bar_apon.Dock = System.Windows.Forms.DockStyle.None;
             this.status_bar_apon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_nome,
             this.toolStripStatusLabel_status_apon,
             this.toolStripProgressBar_apon});
-            this.status_bar_apon.Location = new System.Drawing.Point(12, 650);
+            this.status_bar_apon.Location = new System.Drawing.Point(3, 587);
             this.status_bar_apon.Name = "status_bar_apon";
-            this.status_bar_apon.Size = new System.Drawing.Size(158, 22);
+            this.status_bar_apon.Size = new System.Drawing.Size(1186, 22);
             this.status_bar_apon.TabIndex = 11;
             this.status_bar_apon.Text = "statusStrip1";
             // 
@@ -1329,12 +1328,14 @@ namespace JP4
             this.tab_menu_apontamento.Location = new System.Drawing.Point(12, 27);
             this.tab_menu_apontamento.Name = "tab_menu_apontamento";
             this.tab_menu_apontamento.SelectedIndex = 0;
-            this.tab_menu_apontamento.Size = new System.Drawing.Size(1091, 620);
+            this.tab_menu_apontamento.Size = new System.Drawing.Size(1200, 638);
             this.tab_menu_apontamento.TabIndex = 12;
             // 
             // tab_apontamento
             // 
+            this.tab_apontamento.BackColor = System.Drawing.SystemColors.Control;
             this.tab_apontamento.Controls.Add(this.groupBox6);
+            this.tab_apontamento.Controls.Add(this.status_bar_apon);
             this.tab_apontamento.Controls.Add(this.groupBox3);
             this.tab_apontamento.Controls.Add(this.groupBox7);
             this.tab_apontamento.Controls.Add(this.groupBox5);
@@ -1344,10 +1345,9 @@ namespace JP4
             this.tab_apontamento.Location = new System.Drawing.Point(4, 22);
             this.tab_apontamento.Name = "tab_apontamento";
             this.tab_apontamento.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_apontamento.Size = new System.Drawing.Size(1083, 594);
+            this.tab_apontamento.Size = new System.Drawing.Size(1192, 612);
             this.tab_apontamento.TabIndex = 0;
             this.tab_apontamento.Text = "Apontamento";
-            this.tab_apontamento.UseVisualStyleBackColor = true;
             // 
             // tab_defeitos_apon
             // 
@@ -1357,7 +1357,7 @@ namespace JP4
             this.tab_defeitos_apon.Location = new System.Drawing.Point(4, 22);
             this.tab_defeitos_apon.Name = "tab_defeitos_apon";
             this.tab_defeitos_apon.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_defeitos_apon.Size = new System.Drawing.Size(1083, 594);
+            this.tab_defeitos_apon.Size = new System.Drawing.Size(1192, 612);
             this.tab_defeitos_apon.TabIndex = 6;
             this.tab_defeitos_apon.Text = "Defeitos / Aparas";
             this.tab_defeitos_apon.UseVisualStyleBackColor = true;
@@ -1715,7 +1715,7 @@ namespace JP4
             this.tab_paradas.Controls.Add(this.groupBox8);
             this.tab_paradas.Location = new System.Drawing.Point(4, 22);
             this.tab_paradas.Name = "tab_paradas";
-            this.tab_paradas.Size = new System.Drawing.Size(1083, 594);
+            this.tab_paradas.Size = new System.Drawing.Size(1192, 612);
             this.tab_paradas.TabIndex = 2;
             this.tab_paradas.Text = "Paradas";
             this.tab_paradas.UseVisualStyleBackColor = true;
@@ -2289,7 +2289,7 @@ namespace JP4
             this.tab_mistura.Controls.Add(this.groupBox11);
             this.tab_mistura.Location = new System.Drawing.Point(4, 22);
             this.tab_mistura.Name = "tab_mistura";
-            this.tab_mistura.Size = new System.Drawing.Size(1083, 594);
+            this.tab_mistura.Size = new System.Drawing.Size(1192, 612);
             this.tab_mistura.TabIndex = 3;
             this.tab_mistura.Text = "Mistura";
             this.tab_mistura.UseVisualStyleBackColor = true;
@@ -2298,7 +2298,7 @@ namespace JP4
             // 
             this.label61.AutoSize = true;
             this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(52, 287);
+            this.label61.Location = new System.Drawing.Point(3, 577);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(21, 17);
             this.label61.TabIndex = 89;
@@ -2850,7 +2850,7 @@ namespace JP4
             this.tab_consumo.Controls.Add(this.groupBox10);
             this.tab_consumo.Location = new System.Drawing.Point(4, 22);
             this.tab_consumo.Name = "tab_consumo";
-            this.tab_consumo.Size = new System.Drawing.Size(1083, 594);
+            this.tab_consumo.Size = new System.Drawing.Size(1192, 612);
             this.tab_consumo.TabIndex = 4;
             this.tab_consumo.Text = "Consumo";
             this.tab_consumo.UseVisualStyleBackColor = true;
@@ -2930,7 +2930,7 @@ namespace JP4
             this.tab_consulta_apon.Location = new System.Drawing.Point(4, 22);
             this.tab_consulta_apon.Name = "tab_consulta_apon";
             this.tab_consulta_apon.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_consulta_apon.Size = new System.Drawing.Size(1083, 594);
+            this.tab_consulta_apon.Size = new System.Drawing.Size(1192, 612);
             this.tab_consulta_apon.TabIndex = 5;
             this.tab_consulta_apon.Text = "Pesquisar";
             this.tab_consulta_apon.UseVisualStyleBackColor = true;
@@ -3121,9 +3121,8 @@ namespace JP4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1113, 677);
+            this.ClientSize = new System.Drawing.Size(1224, 735);
             this.Controls.Add(this.tab_menu_apontamento);
-            this.Controls.Add(this.status_bar_apon);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -3150,6 +3149,7 @@ namespace JP4
             this.status_bar_apon.PerformLayout();
             this.tab_menu_apontamento.ResumeLayout(false);
             this.tab_apontamento.ResumeLayout(false);
+            this.tab_apontamento.PerformLayout();
             this.tab_defeitos_apon.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();

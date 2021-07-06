@@ -25,6 +25,10 @@ namespace JP4
             text_tipo_mov.Text = "N";
             combo_local_orig.Text = "ALMOXARIF";
             combo_local_destino.Text = "PRODUCAO";
+
+            textBox_ano_filtro.Text = Convert.ToString(0);
+            comboBox_mes_filtro.Text = Convert.ToString(0);
+
         }
 
 
@@ -201,6 +205,114 @@ namespace JP4
             return resultado_tipo;
         }
 
+
+        private void Filtrar_grid_mes_ano(int mes_movto, int ano_movto)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_movto, secao_nome, data_operac, observacao, mes_movto, ano_movto, cod_local_est_orig, cod_local_est_dest from estoque_trans";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+
+                if (mes_movto != 0)
+                {
+                    //dv.RowFilter = string.Format("mes_movto like '%{0}%'", mes_movto);
+                    dv.RowFilter = string.Format("CONVERT(mes_movto, 'System.String') like '%{0}%'", mes_movto.ToString());
+                    grid_mov_estoque.DataSource = dv.ToTable();
+                }
+                if (ano_movto != 0)
+                {
+                    //dv.RowFilter = string.Format("ano_movto like '%{0}%'", ano_movto);
+                    dv.RowFilter = string.Format("CONVERT(ano_movto, 'System.String') like '%{0}%'", ano_movto.ToString());
+                    grid_mov_estoque.DataSource = dv.ToTable();
+                }
+
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+        private void Filtrar_grid_pesquisar(string cod_descri_completa, string cod_operacao, string cod_local_est_orig, string cod_local_est_dest)
+        {
+
+            try
+            {
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_movto, secao_nome, data_operac, observacao, mes_movto, ano_movto, cod_local_est_orig, cod_local_est_dest from estoque_trans";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+
+                //if (dat_movto != string.Empty)
+                //dv.RowFilter = string.Format("CONVERT(dat_movto, 'System.String') like '%{0}%'", dat_movto.ToString());
+                //grid_mov_estoque.DataSource = dv.ToTable();
+
+                //if (dat_proces != string.Empty)
+                //dv.RowFilter = string.Format("CONVERT(dat_proces, 'System.String') like '%{0}%'", dat_proces.ToString());
+                //grid_mov_estoque.DataSource = dv.ToTable();
+
+                //if (mes_movto != 0)
+                //{
+                //    //dv.RowFilter = string.Format("mes_movto like '%{0}%'", mes_movto);
+                //    dv.RowFilter = string.Format("CONVERT(mes_movto, 'System.String') like '%{0}%'", mes_movto.ToString());
+                //    grid_mov_estoque.DataSource = dv.ToTable();
+                //}
+                //if (ano_movto != 0)
+                //{
+                //    //dv.RowFilter = string.Format("ano_movto like '%{0}%'", ano_movto);
+                //    dv.RowFilter = string.Format("CONVERT(ano_movto, 'System.String') like '%{0}%'", ano_movto.ToString());
+                //    grid_mov_estoque.DataSource = dv.ToTable();
+                //}
+
+                if (cod_descri_completa != string.Empty)
+                {
+                    dv.RowFilter = string.Format("cod_descri_completa like '%{0}%'", cod_descri_completa);
+                    grid_mov_estoque.DataSource = dv.ToTable();
+                }
+                if (cod_operacao != string.Empty)
+                {
+                    dv.RowFilter = string.Format("cod_operacao like '%{0}%'", cod_operacao);
+                    grid_mov_estoque.DataSource = dv.ToTable();
+                }
+
+                if (cod_local_est_orig != string.Empty)
+                {
+                    dv.RowFilter = string.Format("cod_local_est_orig like '%{0}%'", cod_local_est_orig);
+                    grid_mov_estoque.DataSource = dv.ToTable();
+                }
+
+                if (cod_local_est_dest != string.Empty)
+                {
+                    dv.RowFilter = string.Format("cod_local_est_dest like '%{0}%'", cod_local_est_dest);
+                    grid_mov_estoque.DataSource = dv.ToTable();
+                }
+
+                //dv.RowFilter = string.Format("codigo_item like '%{0}%', status_item like '%{1}%', grupo like '%{2}%', descricao_completa like '%{3}%' ", codigo_item, status_item, grupo_item, descri_completa);
+                //grid_cadastro.DataSource = dv.ToTable();
+
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+
         #endregion
 
         #region Metodos Limpeza // bloqueio
@@ -239,6 +351,11 @@ namespace JP4
             combo_local_orig.Text = string.Empty;
             combo_local_destino.Text = string.Empty;
             rich_observa.Text = string.Empty;
+
+            textBox_ano_filtro.Text = "0";
+            comboBox_mes_filtro.Text = "0";
+
+
         }
 
 
@@ -474,11 +591,12 @@ namespace JP4
             {
                 string cod_operacao = "APON";
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_movto, secao_nome, data_operac, observacao from estoque_trans " +
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_movto, secao_nome, data_operac, observacao, mes_movto, ano_movto, cod_local_est_orig, cod_local_est_dest from estoque_trans " +
                     "where (cod_operacao <>'" + cod_operacao + "') AND (qtd_movto >= 0 AND status_estorno = 0)";
 
                 // Verificar se ordem e qtd é igual 
                 // se for igual não puxar
+                //select cod_descri_completa, cod_operacao, cod_local_est_orig, cod_local_est_dest, mes_movto, ano_movto, dat_movto from estoque_trans
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -780,10 +898,14 @@ namespace JP4
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
-
+            Filtrar_grid_pesquisar(combo_descri_completa.Text, combo_operacao.Text, combo_local_orig.Text, combo_local_destino.Text);
         }
 
-
+        private void button_limpar_filtro_Click(object sender, EventArgs e)
+        {
+            Limpar_controles();
+            Carrega_grid();
+        }
 
         private void text_num_documento_MouseHover(object sender, EventArgs e)
         {
@@ -808,6 +930,9 @@ namespace JP4
 
         }
 
-     
+        private void comboBox_mes_filtro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filtrar_grid_mes_ano(Convert.ToInt32(comboBox_mes_filtro.Text), Convert.ToInt32(textBox_ano_filtro.Text));
+        }
     }
 }

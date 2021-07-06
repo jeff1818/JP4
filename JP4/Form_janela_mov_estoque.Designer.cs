@@ -30,6 +30,8 @@ namespace JP4
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_limpar_filtro = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
             this.button_estornar = new System.Windows.Forms.Button();
             this.button_salvar = new System.Windows.Forms.Button();
@@ -71,7 +73,10 @@ namespace JP4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox_ano_filtro = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox_mes_filtro = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -80,6 +85,11 @@ namespace JP4
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.comboBox_mes_filtro);
+            this.groupBox1.Controls.Add(this.textBox_ano_filtro);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.button_limpar_filtro);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button_buscar);
             this.groupBox1.Controls.Add(this.button_estornar);
@@ -93,13 +103,33 @@ namespace JP4
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
             // 
+            // button_limpar_filtro
+            // 
+            this.button_limpar_filtro.Location = new System.Drawing.Point(6, 163);
+            this.button_limpar_filtro.Name = "button_limpar_filtro";
+            this.button_limpar_filtro.Size = new System.Drawing.Size(116, 23);
+            this.button_limpar_filtro.TabIndex = 5;
+            this.button_limpar_filtro.Text = "Limpar Filtro";
+            this.button_limpar_filtro.UseVisualStyleBackColor = true;
+            this.button_limpar_filtro.Click += new System.EventHandler(this.button_limpar_filtro_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Atualizar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button_buscar
             // 
             this.button_buscar.Location = new System.Drawing.Point(6, 134);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(116, 23);
             this.button_buscar.TabIndex = 3;
-            this.button_buscar.Text = "Buscar";
+            this.button_buscar.Text = "Filtrar";
             this.button_buscar.UseVisualStyleBackColor = true;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
             // 
@@ -411,7 +441,6 @@ namespace JP4
             // 
             // dt_lancamento
             // 
-            this.dt_lancamento.Enabled = false;
             this.dt_lancamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dt_lancamento.Location = new System.Drawing.Point(730, 82);
             this.dt_lancamento.Name = "dt_lancamento";
@@ -493,15 +522,54 @@ namespace JP4
             this.grid_mov_estoque.TabIndex = 7;
             this.grid_mov_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_mov_estoque_CellDoubleClick);
             // 
-            // button1
+            // textBox_ano_filtro
             // 
-            this.button1.Location = new System.Drawing.Point(6, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Atualizar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.textBox_ano_filtro.Location = new System.Drawing.Point(67, 250);
+            this.textBox_ano_filtro.Name = "textBox_ano_filtro";
+            this.textBox_ano_filtro.Size = new System.Drawing.Size(55, 20);
+            this.textBox_ano_filtro.TabIndex = 18;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 252);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 13);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Filtro Ano";
+            // 
+            // comboBox_mes_filtro
+            // 
+            this.comboBox_mes_filtro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox_mes_filtro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_mes_filtro.FormattingEnabled = true;
+            this.comboBox_mes_filtro.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox_mes_filtro.Location = new System.Drawing.Point(67, 276);
+            this.comboBox_mes_filtro.Name = "comboBox_mes_filtro";
+            this.comboBox_mes_filtro.Size = new System.Drawing.Size(55, 21);
+            this.comboBox_mes_filtro.TabIndex = 19;
+            this.comboBox_mes_filtro.SelectedIndexChanged += new System.EventHandler(this.comboBox_mes_filtro_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 279);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(52, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Filtro Mês";
             // 
             // STOQ01
             // 
@@ -517,6 +585,7 @@ namespace JP4
             this.Name = "STOQ01";
             this.Text = "Form_janela_mov_estoque";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -572,5 +641,10 @@ namespace JP4
         private System.Windows.Forms.ToolStripMenuItem cadEmpresasToolStripMenuItem;
         private System.Windows.Forms.Label label_descricao_operacao;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_limpar_filtro;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox comboBox_mes_filtro;
+        private System.Windows.Forms.TextBox textBox_ano_filtro;
+        private System.Windows.Forms.Label label14;
     }
 }

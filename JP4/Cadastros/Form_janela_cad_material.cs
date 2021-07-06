@@ -840,12 +840,12 @@ namespace JP4
 
 
 
-            string codigo_item = text_cod_item.Text;
-            string status_item = combo_status.Text;
-            string grupo = combo_grupo_material.Text;
-            string descricao_reduzida = text_descr_reduzida.Text;
-            string descricao_completa = text_descr_completa.Text;
-            string tipo_material = combo_tipo_material.Text;
+            string codigo_item = text_cod_item.Text.TrimStart().TrimEnd();
+            string status_item = combo_status.Text.TrimStart().TrimEnd();
+            string grupo = combo_grupo_material.Text.TrimStart().TrimEnd();
+            string descricao_reduzida = text_descr_reduzida.Text.TrimStart().TrimEnd();
+            string descricao_completa = text_descr_completa.Text.TrimStart().TrimEnd();
+            string tipo_material = combo_tipo_material.Text.TrimStart().TrimEnd();
 
             double qtd_embala = Convert.ToDouble(text_qtd_embala.Text);
             double fator_multi = Convert.ToDouble(text_fator_conver.Text);
@@ -853,7 +853,7 @@ namespace JP4
             double peso_padrao = Convert.ToDouble(text_peso_padrao.Text);
             double peso_maximo = Convert.ToDouble(text_peso_maximo.Text);
 
-            string unidade_medida = combo_und_medida.Text;
+            string unidade_medida = combo_und_medida.Text.TrimStart().TrimEnd();
 
             double altura = Convert.ToDouble(text_altura.Text);
             double comprimento = Convert.ToDouble(text_comprimento.Text);

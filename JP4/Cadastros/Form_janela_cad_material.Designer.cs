@@ -984,10 +984,11 @@ namespace JP4
             this.ClientSize = new System.Drawing.Size(1103, 592);
             this.Controls.Add(this.tab_cadastro_material);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CAD01";
-            this.Text = "Form_janela_cadastro_material";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Cadastro de Material";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.Item.ResumeLayout(false);

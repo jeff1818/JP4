@@ -240,8 +240,8 @@ namespace JP4
 
         private void verificarAtualizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
-            janela_up.ShowDialog();
+            //Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
+            // janela_up.ShowDialog();
         }
     }
 }
