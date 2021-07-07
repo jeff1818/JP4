@@ -107,8 +107,18 @@ namespace JP4
         #region Metodos de auxiliares
 
         // Aba apontamento
-        private void Verifica_mistura()
+        private int Verifica_mistura()
         {
+            if (text_local_aplicacao.Text == "Extrusora")
+            {
+                if (AbaMistura_label_total_mistura.Text == "%")
+                {
+                    MessageBox.Show("Falta completar a mistura ANIMAL!");
+                    return 1;
+                }
+            }
+
+            return 0;
 
         }
 
@@ -122,7 +132,7 @@ namespace JP4
         private void Resetar_janela()
         {
 
-        
+
         }
 
         #endregion
@@ -1521,7 +1531,7 @@ namespace JP4
             AbaMistura_label_turno.Text = string.Empty;
             AbaMistura_label_operador.Text = string.Empty;
             AbaMistura_label_producao.Text = string.Empty;
-            
+
             abaParadas_obs.Text = string.Empty;
 
 
@@ -1571,6 +1581,9 @@ namespace JP4
         private int Verifica_campos()
         {
             int cod_geral_erro = 0;
+
+            cod_geral_erro = Verifica_mistura();
+
             if (combo_ordem_prod.Text == string.Empty)
             {
                 MessageBox.Show("Verifique os campo Ordem");
@@ -1690,7 +1703,7 @@ namespace JP4
             string cod_turno = this.combo_turnos.Text;
             string nom_usuario = "";
             string num_prog = this.Name;
-            double largura_material = Convert.ToDouble( text_largura.Text);
+            double largura_material = Convert.ToDouble(text_largura.Text);
             double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
             double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
             double velocidade = Convert.ToDouble(this.text_velocidade.Text);
