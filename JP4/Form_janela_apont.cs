@@ -104,10 +104,30 @@ namespace JP4
             }
         }
 
-        private void Resetar_janela()
+        #region Metodos de auxiliares
+
+        // Aba apontamento
+        private void Verifica_mistura()
         {
 
         }
+
+        private void Verifica_ordem_estornada()
+        {
+
+        }
+
+
+
+        private void Resetar_janela()
+        {
+
+        
+        }
+
+        #endregion
+
+        //-------------------------------------------------------------------------------------------
 
         #region carrega itens do arquivo de excel
 
@@ -276,6 +296,7 @@ namespace JP4
 
 
         #endregion // Botões do menu
+
         //------------------------------------------------------------------------------------------
 
         #region Metodos de preencher controles
@@ -943,11 +964,11 @@ namespace JP4
 
         #endregion //Funcionalidade combobox e textbox da janela Apontamento
 
-
         //------------------------------------------------------------------------------------------
         #region Metodos de Busca
 
         // Janela Apontamento
+
         private string Buscar_operacao(string nome_programa, string tipo_movimento)
         {
 
@@ -1186,8 +1207,6 @@ namespace JP4
         #endregion // Metodos de busta
         //------------------------------------------------------------------------------------------
 
-
-
         #region Metodos de Calculo
 
         private void Soma_saldo_op(double num_docum)
@@ -1411,9 +1430,9 @@ namespace JP4
             text_lotes.Text = string.Empty;
             richText_observacao.Text = string.Empty;
 
+            dt_lançamento.Value = DateTime.Now;
 
-
-
+            toolStripStatusLabel_status_apon.Text = "---";
 
             //Aba Defeitos------------------------------------------------
 
@@ -1502,7 +1521,7 @@ namespace JP4
             AbaMistura_label_turno.Text = string.Empty;
             AbaMistura_label_operador.Text = string.Empty;
             AbaMistura_label_producao.Text = string.Empty;
-            dt_lançamento.Value = Convert.ToDateTime("01/01/2000 00:00:00");
+            
             abaParadas_obs.Text = string.Empty;
 
 
@@ -1671,7 +1690,7 @@ namespace JP4
             string cod_turno = this.combo_turnos.Text;
             string nom_usuario = "";
             string num_prog = this.Name;
-            double largura_material = 0;
+            double largura_material = Convert.ToDouble( text_largura.Text);
             double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
             double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
             double velocidade = Convert.ToDouble(this.text_velocidade.Text);
@@ -3988,6 +4007,7 @@ namespace JP4
             Estatus_estorno(abaApon_label_id_apont.Text);
             label_tipo_movimento.Text = "R";
             Estornar_apontamento("R");
+            Limpar_campos();
 
         }
         private void button_importar_Click(object sender, EventArgs e)
