@@ -47,6 +47,9 @@ namespace JP4
 
             toolStripStatusLabel_nome.Text = "AP01";
             this.text_operacao.Text = Buscar_operacao("AP01", "Entrada");
+
+            abaPesquisar_text_ano_lanc.Text = Convert.ToString(DateTime.Now.Year);
+
         }
 
         public int cod_geral_erro = 0;
@@ -576,7 +579,7 @@ namespace JP4
         }
 
         // Aba parada de maquina
-        private void carregar_tipos_parada(string origem_apara)
+        private void Carregar_tipos_parada(string origem_apara)
         {
             try
             {
@@ -590,26 +593,26 @@ namespace JP4
                 myreader = cmd.ExecuteReader();
 
 
-                this.abaParada_combo_parada01.Items.Clear();
-                this.abaParada_combo_parada02.Items.Clear();
-                this.abaParada_combo_parada03.Items.Clear();
-                this.abaParada_combo_parada04.Items.Clear();
-                this.abaParada_combo_parada05.Items.Clear();
-                this.abaParada_combo_parada06.Items.Clear();
-                this.abaParada_combo_parada07.Items.Clear();
-                this.abaParada_combo_parada08.Items.Clear();
+                abaParada_combo_parada01.Items.Clear();
+                abaParada_combo_parada02.Items.Clear();
+                abaParada_combo_parada03.Items.Clear();
+                abaParada_combo_parada04.Items.Clear();
+                abaParada_combo_parada05.Items.Clear();
+                abaParada_combo_parada06.Items.Clear();
+                abaParada_combo_parada07.Items.Clear();
+                abaParada_combo_parada08.Items.Clear();
 
 
                 while (myreader.Read())
                 {
-                    this.abaParada_combo_parada01.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada02.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada03.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada04.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada05.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada06.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada07.Items.Add(myreader["descricao_parada"].ToString());
-                    this.abaParada_combo_parada08.Items.Add(myreader["descricao_parada"].ToString());
+                    abaParada_combo_parada01.Items.Add(myreader["descricao_parada"].ToString());
+                    abaParada_combo_parada02.Items.Add(myreader["descricao_parada"].ToString());
+                    abaParada_combo_parada03.Items.Add(myreader["descricao_parada"].ToString());
+                    abaParada_combo_parada04.Items.Add(myreader["descricao_parada"].ToString());
+                    abaParada_combo_parada05.Items.Add(myreader["descricao_parada"].ToString());
+                    abaParada_combo_parada06.Items.Add(myreader["descricao_parada"].ToString());
+                    abaParada_combo_parada07.Items.Add(myreader["descricao_parada"].ToString());
+                    abaParada_combo_parada08.Items.Add(myreader["descricao_parada"].ToString());
                 }
 
                 conexao.Close();
@@ -722,6 +725,8 @@ namespace JP4
             carregar_qtd_prevista(this.combo_ordem_prod.Text);
             Soma_saldo_op(Convert.ToDouble(combo_ordem_prod.Text));
             carregar_maquina_arquivo(this.combo_ordem_prod.Text);
+            label_tipo_material.Text= Buscar_tipo_material(combo_desc_completa.Text);
+
 
             try
             {
@@ -932,7 +937,7 @@ namespace JP4
         }
         private void text_velocidade_Leave(object sender, EventArgs e)
         {
-            calculo_velocidade();
+            Calculo_velocidade();
         }
         private void combo_cod_item_TextChanged(object sender, EventArgs e)
         {
@@ -1156,8 +1161,6 @@ namespace JP4
         }
 
 
-
-
         // Janela Mistura
         private void Carregar_mp_mistura()
         {
@@ -1215,6 +1218,40 @@ namespace JP4
 
 
         #endregion // Metodos de busta
+
+        private string Buscar_tipo_material(string cod_descri_completa)
+        {
+            string tipo_material = "";
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select tipo_material from db_cadastro_material where descricao_completa='" + cod_descri_completa + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    tipo_material = myreader["tipo_material"].ToString();
+                }
+
+                conexao.Close();
+
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+            return tipo_material;
+
+        }
+
         //------------------------------------------------------------------------------------------
 
         #region Metodos de Calculo
@@ -1250,7 +1287,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        private void calculo_velocidade()
+        private void Calculo_velocidade()
         {
             double velocidade = 0;
 
@@ -1264,7 +1301,7 @@ namespace JP4
 
             double velocidade_db = 0;
             double fator = 0;
-            double veloc_total = 0;
+            double veloc_total;
 
             if (maquina == "" || velocidade == 0)
             {
@@ -1317,7 +1354,7 @@ namespace JP4
         }
 
         // Aba Parada de maquina
-        private TimeSpan calculo_hora(DateTime hora_inicio, DateTime hora_fim)
+        private TimeSpan Calculo_hora(DateTime hora_inicio, DateTime hora_fim)
         {
             TimeSpan resultado;
 
@@ -1496,15 +1533,15 @@ namespace JP4
             abaParada_combo_parada06.Text = string.Empty;
             abaParada_combo_parada07.Text = string.Empty;
             abaParada_combo_parada07.Text = string.Empty;
-
-            abaParada_label_hr_total01.Text = string.Empty;
-            abaParada_label_hr_total02.Text = string.Empty;
-            abaParada_label_hr_total03.Text = string.Empty;
-            abaParada_label_hr_total04.Text = string.Empty;
-            abaParada_label_hr_total05.Text = string.Empty;
-            abaParada_label_hr_total06.Text = string.Empty;
-            abaParada_label_hr_total07.Text = string.Empty;
-            abaParada_label_hr_total08.Text = string.Empty;
+            
+            abaParada_label_hr_total01.Text = "0";
+            abaParada_label_hr_total02.Text = "0";
+            abaParada_label_hr_total03.Text = "0";
+            abaParada_label_hr_total04.Text = "0";
+            abaParada_label_hr_total05.Text = "0";
+            abaParada_label_hr_total06.Text = "0";
+            abaParada_label_hr_total07.Text = "0";
+            abaParada_label_hr_total08.Text = "0";
 
             abaParada_hr_inicio01.Value = Convert.ToDateTime("01/01/2000 00:00:00");
             abaParada_hr_inicio02.Value = Convert.ToDateTime("01/01/2000 00:00:00");
@@ -1545,6 +1582,7 @@ namespace JP4
             abaMistura_combo_mp08.Text = string.Empty;
             abaMistura_combo_mp09.Text = string.Empty;
             abaMistura_combo_mp10.Text = string.Empty;
+            
 
             abaMistura_text_perct01.Text = string.Empty;
             abaMistura_text_perct02.Text = string.Empty;
@@ -4032,7 +4070,9 @@ namespace JP4
         private void button_paradas_Click(object sender, EventArgs e)
         {
             tab_menu_apontamento.SelectedTab = tab_paradas;
-            carregar_tipos_parada(this.text_local_aplicacao.Text);
+
+
+            Carregar_tipos_parada(this.text_local_aplicacao.Text);
 
             abaParadas_label_data.Text = dt_inicio_pro.Value.ToString("dd/MM/yyyy");
 
@@ -4119,7 +4159,7 @@ namespace JP4
         }
         private void abaMistura_text_perct04_TextChanged(object sender, EventArgs e)
         {
-            double resultado = 0;
+            double resultado;
             resultado = Soma_percentual(abaMistura_text_perct01.Text, abaMistura_text_perct02.Text, abaMistura_text_perct03.Text, abaMistura_text_perct04.Text, abaMistura_text_perct05.Text, abaMistura_text_perct06.Text, abaMistura_text_perct07.Text, abaMistura_text_perct08.Text, abaMistura_text_perct09.Text, abaMistura_text_perct10.Text);
             AbaMistura_label_total_mistura.Text = Convert.ToString(resultado);
         }
@@ -4174,102 +4214,101 @@ namespace JP4
 
         //------------------------------------------------------------------------------------------
 
-
         #region Funções da aba Parada
         private void abaParada_hr_inicio01_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total01.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio01.Value), Convert.ToDateTime(abaParada_hr_fim01.Value)));
+            abaParada_label_hr_total01.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio01.Value), Convert.ToDateTime(abaParada_hr_fim01.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
 
         }
         private void abaParada_hr_fim01_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total01.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio01.Value), Convert.ToDateTime(abaParada_hr_fim01.Value)));
+            abaParada_label_hr_total01.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio01.Value), Convert.ToDateTime(abaParada_hr_fim01.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_inicio02_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total02.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio02.Value), Convert.ToDateTime(abaParada_hr_fim02.Value)));
+            abaParada_label_hr_total02.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio02.Value), Convert.ToDateTime(abaParada_hr_fim02.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_fim02_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total02.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio02.Value), Convert.ToDateTime(abaParada_hr_fim02.Value)));
+            abaParada_label_hr_total02.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio02.Value), Convert.ToDateTime(abaParada_hr_fim02.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_inicio03_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total03.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio03.Value), Convert.ToDateTime(abaParada_hr_fim03.Value)));
+            abaParada_label_hr_total03.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio03.Value), Convert.ToDateTime(abaParada_hr_fim03.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_fim03_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total03.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio03.Value), Convert.ToDateTime(abaParada_hr_fim03.Value)));
+            abaParada_label_hr_total03.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio03.Value), Convert.ToDateTime(abaParada_hr_fim03.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_inicio04_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total04.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio04.Value), Convert.ToDateTime(abaParada_hr_fim04.Value)));
+            abaParada_label_hr_total04.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio04.Value), Convert.ToDateTime(abaParada_hr_fim04.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_fim04_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total04.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio04.Value), Convert.ToDateTime(abaParada_hr_fim04.Value)));
+            abaParada_label_hr_total04.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio04.Value), Convert.ToDateTime(abaParada_hr_fim04.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_inicio05_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total05.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio05.Value), Convert.ToDateTime(abaParada_hr_fim05.Value)));
+            abaParada_label_hr_total05.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio05.Value), Convert.ToDateTime(abaParada_hr_fim05.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_fim05_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total05.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio05.Value), Convert.ToDateTime(abaParada_hr_fim05.Value)));
+            abaParada_label_hr_total05.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio05.Value), Convert.ToDateTime(abaParada_hr_fim05.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_inicio06_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total06.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio06.Value), Convert.ToDateTime(abaParada_hr_fim06.Value)));
+            abaParada_label_hr_total06.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio06.Value), Convert.ToDateTime(abaParada_hr_fim06.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_fim06_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total06.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio06.Value), Convert.ToDateTime(abaParada_hr_fim06.Value)));
+            abaParada_label_hr_total06.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio06.Value), Convert.ToDateTime(abaParada_hr_fim06.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_inicio07_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total07.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio07.Value), Convert.ToDateTime(abaParada_hr_fim07.Value)));
+            abaParada_label_hr_total07.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio07.Value), Convert.ToDateTime(abaParada_hr_fim07.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_fim07_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total07.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio07.Value), Convert.ToDateTime(abaParada_hr_fim07.Value)));
+            abaParada_label_hr_total07.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio07.Value), Convert.ToDateTime(abaParada_hr_fim07.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_inicio08_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total08.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio08.Value), Convert.ToDateTime(abaParada_hr_fim08.Value)));
+            abaParada_label_hr_total08.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio08.Value), Convert.ToDateTime(abaParada_hr_fim08.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
         private void abaParada_hr_fim08_ValueChanged(object sender, EventArgs e)
         {
-            abaParada_label_hr_total08.Text = Convert.ToString(calculo_hora(Convert.ToDateTime(abaParada_hr_inicio08.Value), Convert.ToDateTime(abaParada_hr_fim08.Value)));
+            abaParada_label_hr_total08.Text = Convert.ToString(Calculo_hora(Convert.ToDateTime(abaParada_hr_inicio08.Value), Convert.ToDateTime(abaParada_hr_fim08.Value)));
             TimeSpan resultado = Soma_hora();
             abaParada_label_hr_total.Text = Convert.ToString(resultado);
         }
@@ -4812,7 +4851,7 @@ namespace JP4
             {
                 string cod_operacao = "APON";
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans " +
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans " +
                     "where (cod_operacao='" + cod_operacao + "') AND (qtd_real >= 0 AND status_estorno = 0)";
 
                 // Verificar se ordem e qtd é igual 
@@ -4831,6 +4870,73 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
+
+
+        private void Filtrar_ano(int ano_movto)
+        {
+            try
+            {
+                string cod_operacao = "APON";
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+
+
+
+                //dv.RowFilter = string.Format("ano_movto like '%{0}%'", ano_movto);
+                dv.RowFilter = string.Format("CONVERT(ano_movto, 'System.String') like '%{0}%'", ano_movto.ToString());
+                abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+
+
+        private void Filtrar_mes_ano(int mes_movto)
+        {
+            try
+            {
+                string cod_operacao = "APON";
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+
+                //dv.RowFilter = string.Format("mes_movto like '%{0}%'", mes_movto);
+                dv.RowFilter = string.Format("CONVERT(mes_movto, 'System.String') like '%{0}%'", mes_movto.ToString());
+                abaPesquisar_Grid_apon.DataSource = dv.ToTable();                
+
+                //dv.RowFilter = string.Format("CONVERT(ano_movto, 'System.String') like '%{0}%'", ano_movto.ToString());
+                //abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+
+
+
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+
+
         private void Filtrar_grid_pesquisar(string num_docum, string data_lancamento, string operador, string turno, string descricao_material, string maquina)
         {
 
@@ -4838,7 +4944,7 @@ namespace JP4
             {
                 string cod_operacao = "APON";
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, data_operac, observacao from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -4849,12 +4955,6 @@ namespace JP4
                 if (num_docum != string.Empty)
                 {
                     dv.RowFilter = string.Format("CONVERT(num_docum, 'System.String') like '%{0}%'", num_docum);
-                    abaPesquisar_Grid_apon.DataSource = dv.ToTable();
-                }
-
-                if (data_lancamento != string.Empty)
-                {
-                    dv.RowFilter = string.Format("CONVERT(data_operac, 'System.String') like '%{0}%'", data_lancamento.ToString());
                     abaPesquisar_Grid_apon.DataSource = dv.ToTable();
                 }
 
@@ -4939,7 +5039,8 @@ namespace JP4
 
         private void maquinasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form_janela_cad_equipamentos cad_equipamento = new Form_janela_cad_equipamentos();
+            cad_equipamento.ShowDialog();
         }
 
         private void turnosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4949,7 +5050,8 @@ namespace JP4
 
         private void operadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form_janela_cad_operador cad_operador = new Form_janela_cad_operador();
+            cad_operador.ShowDialog();
         }
 
         private void operaçãoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4964,7 +5066,8 @@ namespace JP4
 
         private void defeitosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Form_janela_cad_defeitos cad_defeitos = new Form_janela_cad_defeitos();
+            cad_defeitos.ShowDialog();
         }
 
         private void paradasToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -4975,6 +5078,16 @@ namespace JP4
         private void etruturaDoItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void abaPesquisar_combo_mes_lanc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filtrar_mes_ano(Convert.ToInt32(abaPesquisar_combo_mes_lanc.Text));
+        }
+
+        private void abaPesquisar_text_ano_lanc_Leave(object sender, EventArgs e)
+        {
+            Filtrar_ano(Convert.ToInt32(abaPesquisar_text_ano_lanc.Text));
         }
     }
 }

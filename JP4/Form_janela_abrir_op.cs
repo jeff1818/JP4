@@ -36,7 +36,7 @@ namespace JP4
                 // primeira linha é o cabecalho
                 for (int l = 2; l <= totalLinhas; l++)
                 {
-                    if (planilha.Cell($"G{l}").Value.ToString() != "Digitada") ;
+                    if (planilha.Cell($"G{l}").Value.ToString() != "Digitada");
                         //combo_ordem_prod.Items.Add(planilha.Cell($"B{l}").Value.ToString());
                 }
             }
