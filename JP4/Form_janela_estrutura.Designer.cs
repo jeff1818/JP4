@@ -34,6 +34,10 @@ namespace JP4
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.combo_cliente = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.combo_empresa = new System.Windows.Forms.ComboBox();
             this.button_pesquisar = new System.Windows.Forms.Button();
             this.combo_descricao_item = new System.Windows.Forms.ComboBox();
@@ -47,6 +51,16 @@ namespace JP4
             this.text_qtd_necess01 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo01 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dt_inicio10 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio09 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio08 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio07 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio06 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio05 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio04 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio03 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio02 = new System.Windows.Forms.DateTimePicker();
+            this.dt_inicio01 = new System.Windows.Forms.DateTimePicker();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
@@ -93,61 +107,50 @@ namespace JP4
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.text_dt_inicio10 = new System.Windows.Forms.TextBox();
             this.text_dt_validade10 = new System.Windows.Forms.TextBox();
             this.combo_componente10 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess10 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo10 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio09 = new System.Windows.Forms.TextBox();
             this.text_dt_validade09 = new System.Windows.Forms.TextBox();
             this.combo_componente09 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess09 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo09 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio08 = new System.Windows.Forms.TextBox();
             this.text_dt_validade08 = new System.Windows.Forms.TextBox();
             this.combo_componente08 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess08 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo08 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio07 = new System.Windows.Forms.TextBox();
             this.text_dt_validade07 = new System.Windows.Forms.TextBox();
             this.combo_componente07 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess07 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo07 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio06 = new System.Windows.Forms.TextBox();
             this.text_dt_validade06 = new System.Windows.Forms.TextBox();
             this.combo_componente06 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess06 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo06 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio05 = new System.Windows.Forms.TextBox();
             this.text_dt_validade05 = new System.Windows.Forms.TextBox();
             this.combo_componente05 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess05 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo05 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio04 = new System.Windows.Forms.TextBox();
             this.text_dt_validade04 = new System.Windows.Forms.TextBox();
             this.combo_componente04 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess04 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo04 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio03 = new System.Windows.Forms.TextBox();
             this.text_dt_validade03 = new System.Windows.Forms.TextBox();
             this.combo_componente03 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess03 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo03 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio02 = new System.Windows.Forms.TextBox();
             this.text_dt_validade02 = new System.Windows.Forms.TextBox();
             this.combo_componente02 = new System.Windows.Forms.ComboBox();
             this.text_qtd_necess02 = new System.Windows.Forms.TextBox();
             this.text_percentual_refugo02 = new System.Windows.Forms.TextBox();
-            this.text_dt_inicio01 = new System.Windows.Forms.TextBox();
             this.text_dt_validade01 = new System.Windows.Forms.TextBox();
             this.button_delete = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.combo_cliente = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.button_atualizar = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -158,7 +161,7 @@ namespace JP4
             this.pesquisarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(985, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1232, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -191,12 +194,47 @@ namespace JP4
             this.groupBox1.Controls.Add(this.combo_descricao_item);
             this.groupBox1.Controls.Add(this.text_cod_item);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 27);
+            this.groupBox1.Location = new System.Drawing.Point(176, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(962, 84);
+            this.groupBox1.Size = new System.Drawing.Size(1004, 84);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "--";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(257, 21);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(58, 13);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "Descrição:";
+            // 
+            // combo_cliente
+            // 
+            this.combo_cliente.FormattingEnabled = true;
+            this.combo_cliente.Location = new System.Drawing.Point(338, 46);
+            this.combo_cliente.Name = "combo_cliente";
+            this.combo_cliente.Size = new System.Drawing.Size(143, 21);
+            this.combo_cliente.TabIndex = 16;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(273, 49);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 13);
+            this.label19.TabIndex = 15;
+            this.label19.Text = "Cliente:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(20, 48);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(48, 13);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "Empresa";
             // 
             // combo_empresa
             // 
@@ -243,10 +281,10 @@ namespace JP4
             // 
             // button_salvar
             // 
-            this.button_salvar.BackColor = System.Drawing.Color.Chartreuse;
-            this.button_salvar.Location = new System.Drawing.Point(729, 453);
+            this.button_salvar.BackColor = System.Drawing.SystemColors.Control;
+            this.button_salvar.Location = new System.Drawing.Point(6, 59);
             this.button_salvar.Name = "button_salvar";
-            this.button_salvar.Size = new System.Drawing.Size(79, 30);
+            this.button_salvar.Size = new System.Drawing.Size(157, 30);
             this.button_salvar.TabIndex = 3;
             this.button_salvar.Text = "Salvar";
             this.button_salvar.UseVisualStyleBackColor = false;
@@ -254,27 +292,27 @@ namespace JP4
             // 
             // button_proximo
             // 
-            this.button_proximo.Location = new System.Drawing.Point(194, 453);
+            this.button_proximo.Location = new System.Drawing.Point(367, 447);
             this.button_proximo.Name = "button_proximo";
-            this.button_proximo.Size = new System.Drawing.Size(79, 30);
+            this.button_proximo.Size = new System.Drawing.Size(79, 26);
             this.button_proximo.TabIndex = 1;
             this.button_proximo.Text = ">>";
             this.button_proximo.UseVisualStyleBackColor = true;
             // 
             // button_anterior
             // 
-            this.button_anterior.Location = new System.Drawing.Point(70, 453);
+            this.button_anterior.Location = new System.Drawing.Point(199, 447);
             this.button_anterior.Name = "button_anterior";
-            this.button_anterior.Size = new System.Drawing.Size(79, 30);
+            this.button_anterior.Size = new System.Drawing.Size(79, 26);
             this.button_anterior.TabIndex = 0;
             this.button_anterior.Text = "<<";
             this.button_anterior.UseVisualStyleBackColor = true;
             // 
             // button_editar
             // 
-            this.button_editar.Location = new System.Drawing.Point(644, 453);
+            this.button_editar.Location = new System.Drawing.Point(6, 23);
             this.button_editar.Name = "button_editar";
-            this.button_editar.Size = new System.Drawing.Size(79, 30);
+            this.button_editar.Size = new System.Drawing.Size(157, 30);
             this.button_editar.TabIndex = 2;
             this.button_editar.Text = "Editar";
             this.button_editar.UseVisualStyleBackColor = true;
@@ -294,6 +332,7 @@ namespace JP4
             this.text_qtd_necess01.Name = "text_qtd_necess01";
             this.text_qtd_necess01.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess01.TabIndex = 1;
+            this.text_qtd_necess01.Text = "0";
             // 
             // text_percentual_refugo01
             // 
@@ -301,9 +340,20 @@ namespace JP4
             this.text_percentual_refugo01.Name = "text_percentual_refugo01";
             this.text_percentual_refugo01.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo01.TabIndex = 3;
+            this.text_percentual_refugo01.Text = "0";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dt_inicio10);
+            this.groupBox2.Controls.Add(this.dt_inicio09);
+            this.groupBox2.Controls.Add(this.dt_inicio08);
+            this.groupBox2.Controls.Add(this.dt_inicio07);
+            this.groupBox2.Controls.Add(this.dt_inicio06);
+            this.groupBox2.Controls.Add(this.dt_inicio05);
+            this.groupBox2.Controls.Add(this.dt_inicio04);
+            this.groupBox2.Controls.Add(this.dt_inicio03);
+            this.groupBox2.Controls.Add(this.dt_inicio02);
+            this.groupBox2.Controls.Add(this.dt_inicio01);
             this.groupBox2.Controls.Add(this.checkBox11);
             this.groupBox2.Controls.Add(this.checkBox12);
             this.groupBox2.Controls.Add(this.checkBox13);
@@ -350,62 +400,132 @@ namespace JP4
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.text_dt_inicio10);
             this.groupBox2.Controls.Add(this.text_dt_validade10);
             this.groupBox2.Controls.Add(this.combo_componente10);
             this.groupBox2.Controls.Add(this.text_qtd_necess10);
             this.groupBox2.Controls.Add(this.text_percentual_refugo10);
-            this.groupBox2.Controls.Add(this.text_dt_inicio09);
             this.groupBox2.Controls.Add(this.text_dt_validade09);
             this.groupBox2.Controls.Add(this.combo_componente09);
             this.groupBox2.Controls.Add(this.text_qtd_necess09);
             this.groupBox2.Controls.Add(this.text_percentual_refugo09);
-            this.groupBox2.Controls.Add(this.text_dt_inicio08);
             this.groupBox2.Controls.Add(this.text_dt_validade08);
             this.groupBox2.Controls.Add(this.combo_componente08);
             this.groupBox2.Controls.Add(this.text_qtd_necess08);
             this.groupBox2.Controls.Add(this.text_percentual_refugo08);
-            this.groupBox2.Controls.Add(this.text_dt_inicio07);
             this.groupBox2.Controls.Add(this.text_dt_validade07);
             this.groupBox2.Controls.Add(this.combo_componente07);
             this.groupBox2.Controls.Add(this.text_qtd_necess07);
             this.groupBox2.Controls.Add(this.text_percentual_refugo07);
-            this.groupBox2.Controls.Add(this.text_dt_inicio06);
             this.groupBox2.Controls.Add(this.text_dt_validade06);
             this.groupBox2.Controls.Add(this.combo_componente06);
             this.groupBox2.Controls.Add(this.text_qtd_necess06);
             this.groupBox2.Controls.Add(this.text_percentual_refugo06);
-            this.groupBox2.Controls.Add(this.text_dt_inicio05);
             this.groupBox2.Controls.Add(this.text_dt_validade05);
             this.groupBox2.Controls.Add(this.combo_componente05);
             this.groupBox2.Controls.Add(this.text_qtd_necess05);
             this.groupBox2.Controls.Add(this.text_percentual_refugo05);
-            this.groupBox2.Controls.Add(this.text_dt_inicio04);
             this.groupBox2.Controls.Add(this.text_dt_validade04);
             this.groupBox2.Controls.Add(this.combo_componente04);
             this.groupBox2.Controls.Add(this.text_qtd_necess04);
             this.groupBox2.Controls.Add(this.text_percentual_refugo04);
-            this.groupBox2.Controls.Add(this.text_dt_inicio03);
             this.groupBox2.Controls.Add(this.text_dt_validade03);
             this.groupBox2.Controls.Add(this.combo_componente03);
             this.groupBox2.Controls.Add(this.text_qtd_necess03);
             this.groupBox2.Controls.Add(this.text_percentual_refugo03);
-            this.groupBox2.Controls.Add(this.text_dt_inicio02);
             this.groupBox2.Controls.Add(this.text_dt_validade02);
             this.groupBox2.Controls.Add(this.combo_componente02);
             this.groupBox2.Controls.Add(this.text_qtd_necess02);
             this.groupBox2.Controls.Add(this.text_percentual_refugo02);
-            this.groupBox2.Controls.Add(this.text_dt_inicio01);
             this.groupBox2.Controls.Add(this.text_dt_validade01);
             this.groupBox2.Controls.Add(this.combo_componente01);
             this.groupBox2.Controls.Add(this.text_qtd_necess01);
             this.groupBox2.Controls.Add(this.text_percentual_refugo01);
-            this.groupBox2.Location = new System.Drawing.Point(11, 117);
+            this.groupBox2.Location = new System.Drawing.Point(175, 128);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(962, 313);
+            this.groupBox2.Size = new System.Drawing.Size(1005, 313);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consumo";
+            // 
+            // dt_inicio10
+            // 
+            this.dt_inicio10.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio10.Location = new System.Drawing.Point(617, 279);
+            this.dt_inicio10.Name = "dt_inicio10";
+            this.dt_inicio10.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio10.TabIndex = 117;
+            // 
+            // dt_inicio09
+            // 
+            this.dt_inicio09.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio09.Location = new System.Drawing.Point(617, 254);
+            this.dt_inicio09.Name = "dt_inicio09";
+            this.dt_inicio09.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio09.TabIndex = 116;
+            // 
+            // dt_inicio08
+            // 
+            this.dt_inicio08.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio08.Location = new System.Drawing.Point(617, 228);
+            this.dt_inicio08.Name = "dt_inicio08";
+            this.dt_inicio08.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio08.TabIndex = 115;
+            // 
+            // dt_inicio07
+            // 
+            this.dt_inicio07.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio07.Location = new System.Drawing.Point(617, 202);
+            this.dt_inicio07.Name = "dt_inicio07";
+            this.dt_inicio07.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio07.TabIndex = 114;
+            // 
+            // dt_inicio06
+            // 
+            this.dt_inicio06.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio06.Location = new System.Drawing.Point(617, 176);
+            this.dt_inicio06.Name = "dt_inicio06";
+            this.dt_inicio06.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio06.TabIndex = 113;
+            // 
+            // dt_inicio05
+            // 
+            this.dt_inicio05.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio05.Location = new System.Drawing.Point(617, 149);
+            this.dt_inicio05.Name = "dt_inicio05";
+            this.dt_inicio05.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio05.TabIndex = 112;
+            // 
+            // dt_inicio04
+            // 
+            this.dt_inicio04.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio04.Location = new System.Drawing.Point(617, 124);
+            this.dt_inicio04.Name = "dt_inicio04";
+            this.dt_inicio04.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio04.TabIndex = 111;
+            // 
+            // dt_inicio03
+            // 
+            this.dt_inicio03.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio03.Location = new System.Drawing.Point(617, 98);
+            this.dt_inicio03.Name = "dt_inicio03";
+            this.dt_inicio03.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio03.TabIndex = 110;
+            // 
+            // dt_inicio02
+            // 
+            this.dt_inicio02.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio02.Location = new System.Drawing.Point(617, 71);
+            this.dt_inicio02.Name = "dt_inicio02";
+            this.dt_inicio02.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio02.TabIndex = 109;
+            // 
+            // dt_inicio01
+            // 
+            this.dt_inicio01.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_inicio01.Location = new System.Drawing.Point(617, 46);
+            this.dt_inicio01.Name = "dt_inicio01";
+            this.dt_inicio01.Size = new System.Drawing.Size(143, 20);
+            this.dt_inicio01.TabIndex = 20;
             // 
             // checkBox11
             // 
@@ -847,14 +967,6 @@ namespace JP4
             this.label1.TabIndex = 63;
             this.label1.Text = "Componentes";
             // 
-            // text_dt_inicio10
-            // 
-            this.text_dt_inicio10.Location = new System.Drawing.Point(617, 280);
-            this.text_dt_inicio10.MaxLength = 10;
-            this.text_dt_inicio10.Name = "text_dt_inicio10";
-            this.text_dt_inicio10.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio10.TabIndex = 49;
-            // 
             // text_dt_validade10
             // 
             this.text_dt_validade10.Location = new System.Drawing.Point(766, 280);
@@ -877,6 +989,7 @@ namespace JP4
             this.text_qtd_necess10.Name = "text_qtd_necess10";
             this.text_qtd_necess10.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess10.TabIndex = 47;
+            this.text_qtd_necess10.Text = "0";
             // 
             // text_percentual_refugo10
             // 
@@ -884,14 +997,7 @@ namespace JP4
             this.text_percentual_refugo10.Name = "text_percentual_refugo10";
             this.text_percentual_refugo10.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo10.TabIndex = 48;
-            // 
-            // text_dt_inicio09
-            // 
-            this.text_dt_inicio09.Location = new System.Drawing.Point(617, 254);
-            this.text_dt_inicio09.MaxLength = 10;
-            this.text_dt_inicio09.Name = "text_dt_inicio09";
-            this.text_dt_inicio09.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio09.TabIndex = 44;
+            this.text_percentual_refugo10.Text = "0";
             // 
             // text_dt_validade09
             // 
@@ -915,6 +1021,7 @@ namespace JP4
             this.text_qtd_necess09.Name = "text_qtd_necess09";
             this.text_qtd_necess09.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess09.TabIndex = 42;
+            this.text_qtd_necess09.Text = "0";
             // 
             // text_percentual_refugo09
             // 
@@ -922,14 +1029,7 @@ namespace JP4
             this.text_percentual_refugo09.Name = "text_percentual_refugo09";
             this.text_percentual_refugo09.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo09.TabIndex = 43;
-            // 
-            // text_dt_inicio08
-            // 
-            this.text_dt_inicio08.Location = new System.Drawing.Point(617, 228);
-            this.text_dt_inicio08.MaxLength = 10;
-            this.text_dt_inicio08.Name = "text_dt_inicio08";
-            this.text_dt_inicio08.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio08.TabIndex = 39;
+            this.text_percentual_refugo09.Text = "0";
             // 
             // text_dt_validade08
             // 
@@ -953,6 +1053,7 @@ namespace JP4
             this.text_qtd_necess08.Name = "text_qtd_necess08";
             this.text_qtd_necess08.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess08.TabIndex = 37;
+            this.text_qtd_necess08.Text = "0";
             // 
             // text_percentual_refugo08
             // 
@@ -960,14 +1061,7 @@ namespace JP4
             this.text_percentual_refugo08.Name = "text_percentual_refugo08";
             this.text_percentual_refugo08.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo08.TabIndex = 38;
-            // 
-            // text_dt_inicio07
-            // 
-            this.text_dt_inicio07.Location = new System.Drawing.Point(617, 202);
-            this.text_dt_inicio07.MaxLength = 10;
-            this.text_dt_inicio07.Name = "text_dt_inicio07";
-            this.text_dt_inicio07.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio07.TabIndex = 34;
+            this.text_percentual_refugo08.Text = "0";
             // 
             // text_dt_validade07
             // 
@@ -991,6 +1085,7 @@ namespace JP4
             this.text_qtd_necess07.Name = "text_qtd_necess07";
             this.text_qtd_necess07.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess07.TabIndex = 32;
+            this.text_qtd_necess07.Text = "0";
             // 
             // text_percentual_refugo07
             // 
@@ -998,14 +1093,7 @@ namespace JP4
             this.text_percentual_refugo07.Name = "text_percentual_refugo07";
             this.text_percentual_refugo07.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo07.TabIndex = 33;
-            // 
-            // text_dt_inicio06
-            // 
-            this.text_dt_inicio06.Location = new System.Drawing.Point(617, 176);
-            this.text_dt_inicio06.MaxLength = 10;
-            this.text_dt_inicio06.Name = "text_dt_inicio06";
-            this.text_dt_inicio06.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio06.TabIndex = 29;
+            this.text_percentual_refugo07.Text = "0";
             // 
             // text_dt_validade06
             // 
@@ -1029,6 +1117,7 @@ namespace JP4
             this.text_qtd_necess06.Name = "text_qtd_necess06";
             this.text_qtd_necess06.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess06.TabIndex = 27;
+            this.text_qtd_necess06.Text = "0";
             // 
             // text_percentual_refugo06
             // 
@@ -1036,14 +1125,7 @@ namespace JP4
             this.text_percentual_refugo06.Name = "text_percentual_refugo06";
             this.text_percentual_refugo06.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo06.TabIndex = 28;
-            // 
-            // text_dt_inicio05
-            // 
-            this.text_dt_inicio05.Location = new System.Drawing.Point(617, 150);
-            this.text_dt_inicio05.MaxLength = 10;
-            this.text_dt_inicio05.Name = "text_dt_inicio05";
-            this.text_dt_inicio05.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio05.TabIndex = 24;
+            this.text_percentual_refugo06.Text = "0";
             // 
             // text_dt_validade05
             // 
@@ -1067,6 +1149,7 @@ namespace JP4
             this.text_qtd_necess05.Name = "text_qtd_necess05";
             this.text_qtd_necess05.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess05.TabIndex = 22;
+            this.text_qtd_necess05.Text = "0";
             // 
             // text_percentual_refugo05
             // 
@@ -1074,14 +1157,7 @@ namespace JP4
             this.text_percentual_refugo05.Name = "text_percentual_refugo05";
             this.text_percentual_refugo05.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo05.TabIndex = 23;
-            // 
-            // text_dt_inicio04
-            // 
-            this.text_dt_inicio04.Location = new System.Drawing.Point(617, 124);
-            this.text_dt_inicio04.MaxLength = 10;
-            this.text_dt_inicio04.Name = "text_dt_inicio04";
-            this.text_dt_inicio04.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio04.TabIndex = 19;
+            this.text_percentual_refugo05.Text = "0";
             // 
             // text_dt_validade04
             // 
@@ -1105,6 +1181,7 @@ namespace JP4
             this.text_qtd_necess04.Name = "text_qtd_necess04";
             this.text_qtd_necess04.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess04.TabIndex = 17;
+            this.text_qtd_necess04.Text = "0";
             // 
             // text_percentual_refugo04
             // 
@@ -1112,14 +1189,7 @@ namespace JP4
             this.text_percentual_refugo04.Name = "text_percentual_refugo04";
             this.text_percentual_refugo04.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo04.TabIndex = 18;
-            // 
-            // text_dt_inicio03
-            // 
-            this.text_dt_inicio03.Location = new System.Drawing.Point(617, 98);
-            this.text_dt_inicio03.MaxLength = 10;
-            this.text_dt_inicio03.Name = "text_dt_inicio03";
-            this.text_dt_inicio03.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio03.TabIndex = 14;
+            this.text_percentual_refugo04.Text = "0";
             // 
             // text_dt_validade03
             // 
@@ -1143,6 +1213,7 @@ namespace JP4
             this.text_qtd_necess03.Name = "text_qtd_necess03";
             this.text_qtd_necess03.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess03.TabIndex = 12;
+            this.text_qtd_necess03.Text = "0";
             // 
             // text_percentual_refugo03
             // 
@@ -1150,14 +1221,7 @@ namespace JP4
             this.text_percentual_refugo03.Name = "text_percentual_refugo03";
             this.text_percentual_refugo03.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo03.TabIndex = 13;
-            // 
-            // text_dt_inicio02
-            // 
-            this.text_dt_inicio02.Location = new System.Drawing.Point(617, 72);
-            this.text_dt_inicio02.MaxLength = 10;
-            this.text_dt_inicio02.Name = "text_dt_inicio02";
-            this.text_dt_inicio02.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio02.TabIndex = 8;
+            this.text_percentual_refugo03.Text = "0";
             // 
             // text_dt_validade02
             // 
@@ -1182,6 +1246,7 @@ namespace JP4
             this.text_qtd_necess02.Name = "text_qtd_necess02";
             this.text_qtd_necess02.Size = new System.Drawing.Size(143, 20);
             this.text_qtd_necess02.TabIndex = 6;
+            this.text_qtd_necess02.Text = "0";
             // 
             // text_percentual_refugo02
             // 
@@ -1189,14 +1254,7 @@ namespace JP4
             this.text_percentual_refugo02.Name = "text_percentual_refugo02";
             this.text_percentual_refugo02.Size = new System.Drawing.Size(80, 20);
             this.text_percentual_refugo02.TabIndex = 7;
-            // 
-            // text_dt_inicio01
-            // 
-            this.text_dt_inicio01.Location = new System.Drawing.Point(617, 46);
-            this.text_dt_inicio01.MaxLength = 10;
-            this.text_dt_inicio01.Name = "text_dt_inicio01";
-            this.text_dt_inicio01.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_inicio01.TabIndex = 4;
+            this.text_percentual_refugo02.Text = "0";
             // 
             // text_dt_validade01
             // 
@@ -1208,60 +1266,48 @@ namespace JP4
             // 
             // button_delete
             // 
-            this.button_delete.Location = new System.Drawing.Point(890, 453);
+            this.button_delete.Location = new System.Drawing.Point(6, 131);
             this.button_delete.Name = "button_delete";
-            this.button_delete.Size = new System.Drawing.Size(58, 30);
+            this.button_delete.Size = new System.Drawing.Size(157, 30);
             this.button_delete.TabIndex = 19;
             this.button_delete.Text = "Delete";
             this.button_delete.UseVisualStyleBackColor = true;
             this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
-            // label18
+            // button_atualizar
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(20, 48);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(48, 13);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "Empresa";
+            this.button_atualizar.BackColor = System.Drawing.SystemColors.Control;
+            this.button_atualizar.Location = new System.Drawing.Point(6, 95);
+            this.button_atualizar.Name = "button_atualizar";
+            this.button_atualizar.Size = new System.Drawing.Size(157, 30);
+            this.button_atualizar.TabIndex = 20;
+            this.button_atualizar.Text = "Atualizar";
+            this.button_atualizar.UseVisualStyleBackColor = false;
+            this.button_atualizar.Click += new System.EventHandler(this.button_atualizar_Click);
             // 
-            // label19
+            // groupBox3
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(273, 49);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(42, 13);
-            this.label19.TabIndex = 15;
-            this.label19.Text = "Cliente:";
-            // 
-            // combo_cliente
-            // 
-            this.combo_cliente.FormattingEnabled = true;
-            this.combo_cliente.Location = new System.Drawing.Point(338, 46);
-            this.combo_cliente.Name = "combo_cliente";
-            this.combo_cliente.Size = new System.Drawing.Size(143, 21);
-            this.combo_cliente.TabIndex = 16;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(257, 21);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(58, 13);
-            this.label20.TabIndex = 17;
-            this.label20.Text = "Descrição:";
+            this.groupBox3.Controls.Add(this.button_editar);
+            this.groupBox3.Controls.Add(this.button_delete);
+            this.groupBox3.Controls.Add(this.button_atualizar);
+            this.groupBox3.Controls.Add(this.button_salvar);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox3.Location = new System.Drawing.Point(0, 24);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(169, 483);
+            this.groupBox3.TabIndex = 21;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Opções";
             // 
             // ST01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 507);
-            this.Controls.Add(this.button_delete);
+            this.ClientSize = new System.Drawing.Size(1232, 507);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button_editar);
             this.Controls.Add(this.button_anterior);
             this.Controls.Add(this.button_proximo);
-            this.Controls.Add(this.button_salvar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1274,6 +1320,7 @@ namespace JP4
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1373,29 +1420,31 @@ namespace JP4
         private System.Windows.Forms.CheckBox checkBox19;
         private System.Windows.Forms.CheckBox checkBox20;
         private System.Windows.Forms.Button button_delete;
-        private System.Windows.Forms.TextBox text_dt_inicio09;
         private System.Windows.Forms.TextBox text_dt_validade09;
-        private System.Windows.Forms.TextBox text_dt_inicio08;
         private System.Windows.Forms.TextBox text_dt_validade08;
-        private System.Windows.Forms.TextBox text_dt_inicio07;
         private System.Windows.Forms.TextBox text_dt_validade07;
-        private System.Windows.Forms.TextBox text_dt_inicio06;
         private System.Windows.Forms.TextBox text_dt_validade06;
-        private System.Windows.Forms.TextBox text_dt_inicio05;
         private System.Windows.Forms.TextBox text_dt_validade05;
-        private System.Windows.Forms.TextBox text_dt_inicio04;
         private System.Windows.Forms.TextBox text_dt_validade04;
-        private System.Windows.Forms.TextBox text_dt_inicio03;
         private System.Windows.Forms.TextBox text_dt_validade03;
-        private System.Windows.Forms.TextBox text_dt_inicio02;
         private System.Windows.Forms.TextBox text_dt_validade02;
-        private System.Windows.Forms.TextBox text_dt_inicio01;
         private System.Windows.Forms.TextBox text_dt_validade01;
-        private System.Windows.Forms.TextBox text_dt_inicio10;
         private System.Windows.Forms.TextBox text_dt_validade10;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox combo_cliente;
+        private System.Windows.Forms.DateTimePicker dt_inicio01;
+        private System.Windows.Forms.DateTimePicker dt_inicio10;
+        private System.Windows.Forms.DateTimePicker dt_inicio09;
+        private System.Windows.Forms.DateTimePicker dt_inicio08;
+        private System.Windows.Forms.DateTimePicker dt_inicio07;
+        private System.Windows.Forms.DateTimePicker dt_inicio06;
+        private System.Windows.Forms.DateTimePicker dt_inicio05;
+        private System.Windows.Forms.DateTimePicker dt_inicio04;
+        private System.Windows.Forms.DateTimePicker dt_inicio03;
+        private System.Windows.Forms.DateTimePicker dt_inicio02;
+        private System.Windows.Forms.Button button_atualizar;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
