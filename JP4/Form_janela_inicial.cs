@@ -26,6 +26,7 @@ namespace JP4
 
             label_status.Visible = false;
             linkLabel_baixar_nova.Visible = false;
+            
             Check_update();
 
         }
@@ -44,7 +45,8 @@ namespace JP4
                     linkLabel_baixar_nova.Visible = true;
 
                     LinkLabel.Link link = new LinkLabel.Link();
-                    link.LinkData = "https://casacriativa.top/";
+                    //link.LinkData = "https://casacriativa.top/";
+                    link.LinkData = "https://1drv.ms/u/s!AnBCCWfJxas3gfMBNGNcm1yZE6L2oA?e=xMkWfr";
                     linkLabel_baixar_nova.Links.Add(link);
                 }
                 else
@@ -72,6 +74,7 @@ namespace JP4
                 System.Threading.Thread.Sleep(5000);
                 File.Delete(@"c:\temp\setup.exe");
                 client.DownloadFile("https://casacriativa.top/aplicativo_update/Aplicativo/setup.zip", @"c:\temp\setup.zip");
+                
                 string zipPath = @"c:\temp\setup.zip";
                 string extractPath =@"c:\temp\";
                 ZipFile.ExtractToDirectory(zipPath, extractPath);
@@ -265,7 +268,7 @@ namespace JP4
 
         private void label_status_Click(object sender, EventArgs e)
         {
-            DownloadFile();
+            //DownloadFile();
         }
 
         private void linkLabel_baixar_nova_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

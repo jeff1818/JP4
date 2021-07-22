@@ -2667,7 +2667,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito01.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd01.Text, cultures);
@@ -2711,7 +2711,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito02.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd02.Text, cultures);
@@ -2755,7 +2755,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito01.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd03.Text, cultures);
@@ -2799,7 +2799,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito04.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd04.Text, cultures);
@@ -2842,7 +2842,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito05.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd05.Text, cultures);
@@ -2885,7 +2885,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito06.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd06.Text, cultures);
@@ -2928,7 +2928,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito07.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd07.Text, cultures);
@@ -2971,7 +2971,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito08.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd08.Text, cultures);
@@ -3013,7 +3013,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito09.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd09.Text, cultures);
@@ -3056,7 +3056,7 @@ namespace JP4
                 double ordem_prod = Convert.ToDouble(label_AbaDefeitos_ordem.Text);
                 string maquina = label_AbaDefeitos_maq.Text;
                 string turno = label_AbaDefeitos_turno.Text;
-                string operador = label_AbaDefeitos_turno.Text;
+                string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito10.Text;
                 double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd10.Text, cultures);
