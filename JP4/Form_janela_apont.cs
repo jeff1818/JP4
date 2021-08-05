@@ -682,6 +682,19 @@ namespace JP4
 
                 myreader = cmd.ExecuteReader();
 
+                AbaDefeito_combo_defeito01.Items.Clear();
+                AbaDefeito_combo_defeito02.Items.Clear();
+                AbaDefeito_combo_defeito03.Items.Clear();
+                AbaDefeito_combo_defeito04.Items.Clear();
+                AbaDefeito_combo_defeito05.Items.Clear();
+                AbaDefeito_combo_defeito06.Items.Clear();
+                AbaDefeito_combo_defeito07.Items.Clear();
+                AbaDefeito_combo_defeito08.Items.Clear();
+                AbaDefeito_combo_defeito09.Items.Clear();
+                AbaDefeito_combo_defeito10.Items.Clear();
+
+
+
                 while (myreader.Read())
                 {
                     this.AbaDefeito_combo_defeito01.Items.Add(myreader["descricao_apara"].ToString());
@@ -725,7 +738,7 @@ namespace JP4
             carregar_qtd_prevista(this.combo_ordem_prod.Text);
             Soma_saldo_op(Convert.ToDouble(combo_ordem_prod.Text));
             carregar_maquina_arquivo(this.combo_ordem_prod.Text);
-            label_tipo_material.Text= Buscar_tipo_material(combo_desc_completa.Text);
+            label_tipo_material.Text = Buscar_tipo_material(combo_desc_completa.Text);
 
 
             try
@@ -1089,7 +1102,43 @@ namespace JP4
             return nome_grupo;
         }
 
+        private string Buscar_descri_reduzida(string descricao_completa)
+        {
+            string descri_reduzida = "";
 
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (myreader["descricao_completa"].ToString() == descri_reduzida)
+                    {
+                        descri_reduzida = myreader["descricao_reduzida"].ToString();
+                    }
+                }
+
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+
+            return descri_reduzida;
+
+        }
 
 
         // Janela Parada de maquina
@@ -1533,7 +1582,7 @@ namespace JP4
             abaParada_combo_parada06.Text = string.Empty;
             abaParada_combo_parada07.Text = string.Empty;
             abaParada_combo_parada07.Text = string.Empty;
-            
+
             abaParada_label_hr_total01.Text = "0";
             abaParada_label_hr_total02.Text = "0";
             abaParada_label_hr_total03.Text = "0";
@@ -1582,7 +1631,7 @@ namespace JP4
             abaMistura_combo_mp08.Text = string.Empty;
             abaMistura_combo_mp09.Text = string.Empty;
             abaMistura_combo_mp10.Text = string.Empty;
-            
+
 
             abaMistura_text_perct01.Text = string.Empty;
             abaMistura_text_perct02.Text = string.Empty;
@@ -1717,7 +1766,7 @@ namespace JP4
             string num_transac = "";
             string cod_item = this.combo_cod_item.Text;
             string cod_descri_completa = this.combo_desc_completa.Text;
-            string cod_descri_reduzida = "";
+            string cod_descri_reduzida = Buscar_descri_reduzida(cod_descri_completa);
             int mes_proces = DateTime.Now.Month;
             int mes_movto = DateTime.Now.Month;
             int ano_movto = DateTime.Now.Year;
@@ -4647,18 +4696,7 @@ namespace JP4
                 OleDbDataReader myreader;
                 conexao.Open();
 
-                myreader = cmd.ExecuteReader();
-
-                AbaDefeito_combo_defeito01.Items.Clear();
-                AbaDefeito_combo_defeito02.Items.Clear();
-                AbaDefeito_combo_defeito03.Items.Clear();
-                AbaDefeito_combo_defeito04.Items.Clear();
-                AbaDefeito_combo_defeito05.Items.Clear();
-                AbaDefeito_combo_defeito06.Items.Clear();
-                AbaDefeito_combo_defeito07.Items.Clear();
-                AbaDefeito_combo_defeito08.Items.Clear();
-                AbaDefeito_combo_defeito09.Items.Clear();
-                AbaDefeito_combo_defeito10.Items.Clear();
+                myreader = cmd.ExecuteReader();             
 
 
                 while (myreader.Read())
@@ -4919,7 +4957,7 @@ namespace JP4
 
                 //dv.RowFilter = string.Format("mes_movto like '%{0}%'", mes_movto);
                 dv.RowFilter = string.Format("CONVERT(mes_movto, 'System.String') like '%{0}%'", mes_movto.ToString());
-                abaPesquisar_Grid_apon.DataSource = dv.ToTable();                
+                abaPesquisar_Grid_apon.DataSource = dv.ToTable();
 
                 //dv.RowFilter = string.Format("CONVERT(ano_movto, 'System.String') like '%{0}%'", ano_movto.ToString());
                 //abaPesquisar_Grid_apon.DataSource = dv.ToTable();

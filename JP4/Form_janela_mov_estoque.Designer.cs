@@ -30,6 +30,10 @@ namespace JP4
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.comboBox_mes_filtro = new System.Windows.Forms.ComboBox();
+            this.textBox_ano_filtro = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.button_limpar_filtro = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
@@ -73,10 +77,8 @@ namespace JP4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
-            this.textBox_ano_filtro = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox_mes_filtro = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.inventárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventárioMensalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -102,6 +104,55 @@ namespace JP4
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 279);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(52, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Filtro Mês";
+            // 
+            // comboBox_mes_filtro
+            // 
+            this.comboBox_mes_filtro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox_mes_filtro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_mes_filtro.FormattingEnabled = true;
+            this.comboBox_mes_filtro.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox_mes_filtro.Location = new System.Drawing.Point(67, 276);
+            this.comboBox_mes_filtro.Name = "comboBox_mes_filtro";
+            this.comboBox_mes_filtro.Size = new System.Drawing.Size(55, 21);
+            this.comboBox_mes_filtro.TabIndex = 19;
+            this.comboBox_mes_filtro.SelectedIndexChanged += new System.EventHandler(this.comboBox_mes_filtro_SelectedIndexChanged);
+            // 
+            // textBox_ano_filtro
+            // 
+            this.textBox_ano_filtro.Location = new System.Drawing.Point(67, 250);
+            this.textBox_ano_filtro.Name = "textBox_ano_filtro";
+            this.textBox_ano_filtro.Size = new System.Drawing.Size(55, 20);
+            this.textBox_ano_filtro.TabIndex = 18;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 252);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 13);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Filtro Ano";
             // 
             // button_limpar_filtro
             // 
@@ -166,7 +217,8 @@ namespace JP4
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastroToolStripMenuItem});
+            this.cadastroToolStripMenuItem,
+            this.inventárioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1010, 24);
@@ -522,54 +574,20 @@ namespace JP4
             this.grid_mov_estoque.TabIndex = 7;
             this.grid_mov_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_mov_estoque_CellDoubleClick);
             // 
-            // textBox_ano_filtro
+            // inventárioToolStripMenuItem
             // 
-            this.textBox_ano_filtro.Location = new System.Drawing.Point(67, 250);
-            this.textBox_ano_filtro.Name = "textBox_ano_filtro";
-            this.textBox_ano_filtro.Size = new System.Drawing.Size(55, 20);
-            this.textBox_ano_filtro.TabIndex = 18;
+            this.inventárioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inventárioMensalToolStripMenuItem});
+            this.inventárioToolStripMenuItem.Name = "inventárioToolStripMenuItem";
+            this.inventárioToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.inventárioToolStripMenuItem.Text = "Inventário";
             // 
-            // label14
+            // inventárioMensalToolStripMenuItem
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 252);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 13);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Filtro Ano";
-            // 
-            // comboBox_mes_filtro
-            // 
-            this.comboBox_mes_filtro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBox_mes_filtro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_mes_filtro.FormattingEnabled = true;
-            this.comboBox_mes_filtro.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.comboBox_mes_filtro.Location = new System.Drawing.Point(67, 276);
-            this.comboBox_mes_filtro.Name = "comboBox_mes_filtro";
-            this.comboBox_mes_filtro.Size = new System.Drawing.Size(55, 21);
-            this.comboBox_mes_filtro.TabIndex = 19;
-            this.comboBox_mes_filtro.SelectedIndexChanged += new System.EventHandler(this.comboBox_mes_filtro_SelectedIndexChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 279);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(52, 13);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "Filtro Mês";
+            this.inventárioMensalToolStripMenuItem.Name = "inventárioMensalToolStripMenuItem";
+            this.inventárioMensalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inventárioMensalToolStripMenuItem.Text = "Inventário Mensal";
+            this.inventárioMensalToolStripMenuItem.Click += new System.EventHandler(this.inventárioMensalToolStripMenuItem_Click);
             // 
             // STOQ01
             // 
@@ -646,5 +664,7 @@ namespace JP4
         private System.Windows.Forms.ComboBox comboBox_mes_filtro;
         private System.Windows.Forms.TextBox textBox_ano_filtro;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ToolStripMenuItem inventárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inventárioMensalToolStripMenuItem;
     }
 }

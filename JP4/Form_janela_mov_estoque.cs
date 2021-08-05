@@ -934,5 +934,10 @@ namespace JP4
         {
             Filtrar_grid_mes_ano(Convert.ToInt32(comboBox_mes_filtro.Text), Convert.ToInt32(textBox_ano_filtro.Text));
         }
+
+        private void inventárioMensalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
