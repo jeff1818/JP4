@@ -118,6 +118,7 @@ namespace JP4
             this.combo_descri_completa = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.combo_cod_item = new System.Windows.Forms.ComboBox();
+            this.button_deletar_cadastro = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.Item.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -240,10 +241,11 @@ namespace JP4
             // 
             // text_descri_unidade
             // 
+            this.text_descri_unidade.Enabled = false;
             this.text_descri_unidade.Location = new System.Drawing.Point(552, 70);
             this.text_descri_unidade.Name = "text_descri_unidade";
             this.text_descri_unidade.Size = new System.Drawing.Size(158, 20);
-            this.text_descri_unidade.TabIndex = 17;
+            this.text_descri_unidade.TabIndex = 5;
             // 
             // label9
             // 
@@ -260,7 +262,7 @@ namespace JP4
             this.combo_und_medida.Location = new System.Drawing.Point(476, 70);
             this.combo_und_medida.Name = "combo_und_medida";
             this.combo_und_medida.Size = new System.Drawing.Size(70, 21);
-            this.combo_und_medida.TabIndex = 15;
+            this.combo_und_medida.TabIndex = 4;
             this.combo_und_medida.SelectedIndexChanged += new System.EventHandler(this.combo_und_medida_SelectedIndexChanged);
             // 
             // dt_modificacao
@@ -305,7 +307,7 @@ namespace JP4
             this.combo_tipo_material.Location = new System.Drawing.Point(112, 43);
             this.combo_tipo_material.Name = "combo_tipo_material";
             this.combo_tipo_material.Size = new System.Drawing.Size(121, 21);
-            this.combo_tipo_material.TabIndex = 10;
+            this.combo_tipo_material.TabIndex = 2;
             // 
             // combo_grupo_material
             // 
@@ -313,7 +315,7 @@ namespace JP4
             this.combo_grupo_material.Location = new System.Drawing.Point(112, 16);
             this.combo_grupo_material.Name = "combo_grupo_material";
             this.combo_grupo_material.Size = new System.Drawing.Size(121, 21);
-            this.combo_grupo_material.TabIndex = 5;
+            this.combo_grupo_material.TabIndex = 1;
             this.combo_grupo_material.SelectedIndexChanged += new System.EventHandler(this.combo_grupo_material_SelectedIndexChanged);
             this.combo_grupo_material.TextChanged += new System.EventHandler(this.combo_grupo_material_TextChanged);
             // 
@@ -340,10 +342,11 @@ namespace JP4
             this.text_cod_item.Location = new System.Drawing.Point(112, 70);
             this.text_cod_item.Name = "text_cod_item";
             this.text_cod_item.Size = new System.Drawing.Size(284, 20);
-            this.text_cod_item.TabIndex = 0;
+            this.text_cod_item.TabIndex = 3;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button_deletar_cadastro);
             this.groupBox2.Controls.Add(this.button_atualizar_cad);
             this.groupBox2.Controls.Add(this.button_editar_cadastro);
             this.groupBox2.Controls.Add(this.button_buscar);
@@ -401,7 +404,7 @@ namespace JP4
             this.combo_status.Location = new System.Drawing.Point(112, 45);
             this.combo_status.Name = "combo_status";
             this.combo_status.Size = new System.Drawing.Size(128, 21);
-            this.combo_status.TabIndex = 2;
+            this.combo_status.TabIndex = 8;
             // 
             // label2
             // 
@@ -468,7 +471,7 @@ namespace JP4
             this.text_num_sacos.Location = new System.Drawing.Point(112, 98);
             this.text_num_sacos.Name = "text_num_sacos";
             this.text_num_sacos.Size = new System.Drawing.Size(128, 20);
-            this.text_num_sacos.TabIndex = 18;
+            this.text_num_sacos.TabIndex = 10;
             // 
             // label20
             // 
@@ -484,7 +487,7 @@ namespace JP4
             this.text_peso_maximo.Location = new System.Drawing.Point(112, 202);
             this.text_peso_maximo.Name = "text_peso_maximo";
             this.text_peso_maximo.Size = new System.Drawing.Size(128, 20);
-            this.text_peso_maximo.TabIndex = 16;
+            this.text_peso_maximo.TabIndex = 14;
             // 
             // label14
             // 
@@ -500,7 +503,7 @@ namespace JP4
             this.text_peso_padrao.Location = new System.Drawing.Point(112, 176);
             this.text_peso_padrao.Name = "text_peso_padrao";
             this.text_peso_padrao.Size = new System.Drawing.Size(128, 20);
-            this.text_peso_padrao.TabIndex = 14;
+            this.text_peso_padrao.TabIndex = 13;
             // 
             // label13
             // 
@@ -532,7 +535,7 @@ namespace JP4
             this.text_fator_conver.Location = new System.Drawing.Point(112, 124);
             this.text_fator_conver.Name = "text_fator_conver";
             this.text_fator_conver.Size = new System.Drawing.Size(128, 20);
-            this.text_fator_conver.TabIndex = 10;
+            this.text_fator_conver.TabIndex = 11;
             // 
             // label11
             // 
@@ -548,7 +551,7 @@ namespace JP4
             this.text_qtd_embala.Location = new System.Drawing.Point(112, 72);
             this.text_qtd_embala.Name = "text_qtd_embala";
             this.text_qtd_embala.Size = new System.Drawing.Size(128, 20);
-            this.text_qtd_embala.TabIndex = 8;
+            this.text_qtd_embala.TabIndex = 9;
             // 
             // label10
             // 
@@ -573,7 +576,7 @@ namespace JP4
             this.text_descr_reduzida.Location = new System.Drawing.Point(112, 19);
             this.text_descr_reduzida.Name = "text_descr_reduzida";
             this.text_descr_reduzida.Size = new System.Drawing.Size(284, 20);
-            this.text_descr_reduzida.TabIndex = 2;
+            this.text_descr_reduzida.TabIndex = 7;
             // 
             // groupBox5
             // 
@@ -599,21 +602,21 @@ namespace JP4
             this.text_espessura.Location = new System.Drawing.Point(88, 126);
             this.text_espessura.Name = "text_espessura";
             this.text_espessura.Size = new System.Drawing.Size(128, 20);
-            this.text_espessura.TabIndex = 21;
+            this.text_espessura.TabIndex = 19;
             // 
             // text_densidade
             // 
             this.text_densidade.Location = new System.Drawing.Point(88, 100);
             this.text_densidade.Name = "text_densidade";
             this.text_densidade.Size = new System.Drawing.Size(128, 20);
-            this.text_densidade.TabIndex = 20;
+            this.text_densidade.TabIndex = 18;
             // 
             // text_largura
             // 
             this.text_largura.Location = new System.Drawing.Point(88, 74);
             this.text_largura.Name = "text_largura";
             this.text_largura.Size = new System.Drawing.Size(128, 20);
-            this.text_largura.TabIndex = 19;
+            this.text_largura.TabIndex = 17;
             // 
             // label19
             // 
@@ -647,7 +650,7 @@ namespace JP4
             this.text_comprimento.Location = new System.Drawing.Point(88, 48);
             this.text_comprimento.Name = "text_comprimento";
             this.text_comprimento.Size = new System.Drawing.Size(128, 20);
-            this.text_comprimento.TabIndex = 14;
+            this.text_comprimento.TabIndex = 16;
             // 
             // label16
             // 
@@ -663,7 +666,7 @@ namespace JP4
             this.text_altura.Location = new System.Drawing.Point(88, 22);
             this.text_altura.Name = "text_altura";
             this.text_altura.Size = new System.Drawing.Size(128, 20);
-            this.text_altura.TabIndex = 12;
+            this.text_altura.TabIndex = 15;
             // 
             // label15
             // 
@@ -707,7 +710,7 @@ namespace JP4
             this.combo_empresa.Location = new System.Drawing.Point(767, 62);
             this.combo_empresa.Name = "combo_empresa";
             this.combo_empresa.Size = new System.Drawing.Size(144, 21);
-            this.combo_empresa.TabIndex = 6;
+            this.combo_empresa.TabIndex = 22;
             // 
             // check_estrutura_NAO
             // 
@@ -746,7 +749,7 @@ namespace JP4
             this.combo_local_estoque.Location = new System.Drawing.Point(98, 42);
             this.combo_local_estoque.Name = "combo_local_estoque";
             this.combo_local_estoque.Size = new System.Drawing.Size(128, 21);
-            this.combo_local_estoque.TabIndex = 7;
+            this.combo_local_estoque.TabIndex = 21;
             // 
             // label22
             // 
@@ -763,7 +766,7 @@ namespace JP4
             this.combo_local_aplicacao.Location = new System.Drawing.Point(98, 13);
             this.combo_local_aplicacao.Name = "combo_local_aplicacao";
             this.combo_local_aplicacao.Size = new System.Drawing.Size(128, 21);
-            this.combo_local_aplicacao.TabIndex = 5;
+            this.combo_local_aplicacao.TabIndex = 20;
             // 
             // label21
             // 
@@ -975,6 +978,16 @@ namespace JP4
             this.combo_cod_item.Size = new System.Drawing.Size(170, 21);
             this.combo_cod_item.TabIndex = 0;
             // 
+            // button_deletar_cadastro
+            // 
+            this.button_deletar_cadastro.Location = new System.Drawing.Point(6, 135);
+            this.button_deletar_cadastro.Name = "button_deletar_cadastro";
+            this.button_deletar_cadastro.Size = new System.Drawing.Size(122, 23);
+            this.button_deletar_cadastro.TabIndex = 4;
+            this.button_deletar_cadastro.Text = "Deletar";
+            this.button_deletar_cadastro.UseVisualStyleBackColor = true;
+            this.button_deletar_cadastro.Click += new System.EventHandler(this.button_deletar_cadastro_Click);
+            // 
             // CAD01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -984,7 +997,7 @@ namespace JP4
             this.ClientSize = new System.Drawing.Size(1103, 592);
             this.Controls.Add(this.tab_cadastro_material);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CAD01";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -1106,5 +1119,6 @@ namespace JP4
         private System.Windows.Forms.ComboBox combo_cod_item;
         private System.Windows.Forms.Label abaCadastro_label_id_cadastro;
         private System.Windows.Forms.Label label_grupo_estoque_id;
+        private System.Windows.Forms.Button button_deletar_cadastro;
     }
 }

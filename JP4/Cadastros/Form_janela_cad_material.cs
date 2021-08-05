@@ -631,7 +631,6 @@ namespace JP4
             this.combo_empresa.Enabled = false;
 
         }
-
         private void Desbloquear_controles()
         {
             this.combo_grupo_material.Enabled = true;
@@ -838,14 +837,14 @@ namespace JP4
         private void Salvar_cadastro()
         {
 
+            char[] charsToTrim = { '*',' ', '\'' };
 
-
-            string codigo_item = text_cod_item.Text.TrimStart().TrimEnd();
-            string status_item = combo_status.Text.TrimStart().TrimEnd();
-            string grupo = combo_grupo_material.Text.TrimStart().TrimEnd();
-            string descricao_reduzida = text_descr_reduzida.Text.TrimStart().TrimEnd();
-            string descricao_completa = text_descr_completa.Text.TrimStart().TrimEnd();
-            string tipo_material = combo_tipo_material.Text.TrimStart().TrimEnd();
+            string codigo_item = text_cod_item.Text.Trim(charsToTrim);
+            string status_item = combo_status.Text.Trim(charsToTrim);
+            string grupo = combo_grupo_material.Text;
+            string descricao_reduzida = text_descr_reduzida.Text.Trim(charsToTrim);
+            string descricao_completa = text_descr_completa.Text.Trim(charsToTrim);
+            string tipo_material = combo_tipo_material.Text.Trim(charsToTrim);
 
             double qtd_embala = Convert.ToDouble(text_qtd_embala.Text);
             double fator_multi = Convert.ToDouble(text_fator_conver.Text);
@@ -853,7 +852,7 @@ namespace JP4
             double peso_padrao = Convert.ToDouble(text_peso_padrao.Text);
             double peso_maximo = Convert.ToDouble(text_peso_maximo.Text);
 
-            string unidade_medida = combo_und_medida.Text.TrimStart().TrimEnd();
+            string unidade_medida = combo_und_medida.Text.Trim(charsToTrim);
 
             double altura = Convert.ToDouble(text_altura.Text);
             double comprimento = Convert.ToDouble(text_comprimento.Text);
@@ -901,7 +900,7 @@ namespace JP4
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_material(codigo_item, status_item, grupo, descricao_reduzida, descricao_completa, tipo_material, qtd_embala, fator_multi, peso_minimo, peso_padrao, peso_maximo, unidade_medida, altura, comprimento, largura, densidade, espessura, numero_sacos, data_modificacao, local_aplicacao, local_estoque, data_cadastro, tem_estrutura, empresa) " +
-                    "VALUES('" + codigo_item + " ',' " + status_item + " ',' " + grupo + " ',' " + descricao_reduzida + " ',' " + descricao_completa + " ',' " + tipo_material + " ',' " + qtd_embala + " ',' " + fator_multi + " ',' " + peso_minimo + " ',' " + peso_padrao + " ',' " + peso_maximo + " ',' " + unidade_medida + " ',' " + altura + " ',' " + comprimento + " ',' " + largura + " ',' " + densidade + " ',' " + espessura + " ',' " + numero_sacos + " ',' " + data_modificacao + " ',' " + local_aplicacao + " ',' " + local_estoque + " ',' " + data_cadastro + " ',' " + tem_estrutura + " ',' " + empresa + "')";
+                    "VALUES('" + codigo_item + "','" + status_item + "','" + grupo + "','" + descricao_reduzida + "','" + descricao_completa + "','" + tipo_material + "','" + qtd_embala + "','" + fator_multi + "','" + peso_minimo + "','" + peso_padrao + "','" + peso_maximo + "','" + unidade_medida + "','" + altura + "','" + comprimento + "','" + largura + "','" + densidade + "','" + espessura + "','" + numero_sacos + "','" + data_modificacao + "','" + local_aplicacao + "','" + local_estoque + "','" + data_cadastro + "','" + tem_estrutura + "','" + empresa + "')";
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
@@ -915,6 +914,32 @@ namespace JP4
                 {
                     MessageBox.Show(erro.Message);
                 }
+            }
+        }
+
+        private void Deletar_cadastro(string cadastro_id)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                string comando_sql;
+
+                comando_sql = "DELETE FROM db_cadastro_material WHERE cadastro_id = " + cadastro_id;
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Deletado com sucesso!");
+
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
             }
         }
 
@@ -1019,6 +1044,7 @@ namespace JP4
 
                 if (resposta == DialogResult.Yes)
                     Salvar_cadastro();
+                    limpar_campos();
 
             }
 
@@ -1067,6 +1093,13 @@ namespace JP4
         private void combo_und_medida_SelectedIndexChanged(object sender, EventArgs e)
         {
             Carrega_descricao_undMedida(combo_und_medida.Text);
+        }
+
+        private void button_deletar_cadastro_Click(object sender, EventArgs e)
+        {
+            Deletar_cadastro(abaCadastro_label_id_cadastro.Text);
+            Carregar_grid();
+            limpar_campos();
         }
     }
 }

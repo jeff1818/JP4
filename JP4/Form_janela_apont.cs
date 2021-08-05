@@ -655,13 +655,22 @@ namespace JP4
         }
         private void Calcular_qtd_total_grid()
         {
-            double total = Convert.ToDouble(this.abaConsumo_text_qtd_boa.Text);
 
-            for (int i = 0; i < Grid_estrutura_item.RowCount - 1; i++)
+            try
             {
-                DataGridViewRow row = Grid_estrutura_item.Rows[i];
-                string valueA = row.Cells["qtd_necessaria"].Value.ToString();
-                row.Cells["Qt_total"].Value = (Convert.ToDouble(valueA) * total).ToString("0.00000");
+                double total = Convert.ToDouble(this.abaConsumo_text_qtd_boa.Text);
+
+                for (int i = 0; i < Grid_estrutura_item.RowCount - 1; i++)
+                {
+                    DataGridViewRow row = Grid_estrutura_item.Rows[i];
+                    string valueA = row.Cells["qtd_necessaria"].Value.ToString();
+                    row.Cells["Qt_total"].Value = (Convert.ToDouble(valueA) * total).ToString("0.00000");
+                }
+
+            }
+            catch (Exception)
+            {
+                
             }
 
         }
@@ -1529,6 +1538,9 @@ namespace JP4
             dt_lançamento.Value = DateTime.Now;
 
             toolStripStatusLabel_status_apon.Text = "---";
+
+            abaApon_label_num_transa.Text = "---------";
+            abaApon_label_id_apont.Text = "---------";
 
             //Aba Defeitos------------------------------------------------
 
@@ -2697,7 +2709,7 @@ namespace JP4
         private void Atualizar_mistura()
         {
 
-        }
+        }   
 
 
         #endregion
@@ -4098,8 +4110,13 @@ namespace JP4
 
         private void button_apontamento_Click(object sender, EventArgs e)
         {
-            Desbloquear_controles();
+            Desbloquear_controles();            
             this.label_tipo_movimento.Text = "N";
+
+            if(combo_ordem_prod.Text != string.Empty)
+            {
+                Limpar_campos();
+            }
 
         }
         private void button_estornar_Click(object sender, EventArgs e)
