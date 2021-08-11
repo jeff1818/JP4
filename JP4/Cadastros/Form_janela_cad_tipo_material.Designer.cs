@@ -72,6 +72,7 @@ namespace JP4.Cadastros
             this.button_limpar_controles.TabIndex = 11;
             this.button_limpar_controles.Text = "Limpar Controles";
             this.button_limpar_controles.UseVisualStyleBackColor = true;
+            this.button_limpar_controles.Click += new System.EventHandler(this.button_limpar_controles_Click);
             // 
             // button_atualizar
             // 
@@ -81,6 +82,7 @@ namespace JP4.Cadastros
             this.button_atualizar.TabIndex = 10;
             this.button_atualizar.Text = "Atualizar";
             this.button_atualizar.UseVisualStyleBackColor = true;
+            this.button_atualizar.Click += new System.EventHandler(this.button_atualizar_Click);
             // 
             // button_filtrar
             // 
@@ -90,6 +92,7 @@ namespace JP4.Cadastros
             this.button_filtrar.TabIndex = 9;
             this.button_filtrar.Text = "Filtrar";
             this.button_filtrar.UseVisualStyleBackColor = true;
+            this.button_filtrar.Click += new System.EventHandler(this.button_filtrar_Click);
             // 
             // button_salvar
             // 
@@ -109,6 +112,7 @@ namespace JP4.Cadastros
             this.button_deletar.TabIndex = 8;
             this.button_deletar.Text = "Excluir";
             this.button_deletar.UseVisualStyleBackColor = true;
+            this.button_deletar.Click += new System.EventHandler(this.button_deletar_Click);
             // 
             // groupBox1
             // 
