@@ -1024,6 +1024,7 @@ namespace JP4
         private void button_cadastrar_Click(object sender, EventArgs e)
         {
             Desbloquear_controles();
+            limpar_campos();
         }
 
         private void check_estrutura_SIM_CheckedChanged(object sender, EventArgs e)
