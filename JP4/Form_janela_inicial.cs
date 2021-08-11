@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.IO.Compression;
 using System.IO;
+using JP4.Cadastros;
 
 namespace JP4
 {
@@ -46,7 +47,7 @@ namespace JP4
 
                     LinkLabel.Link link = new LinkLabel.Link();
                     //link.LinkData = "https://casacriativa.top/";
-                    link.LinkData = "https://1drv.ms/u/s!AnBCCWfJxas3gfMBNGNcm1yZE6L2oA?e=xMkWfr";
+                    link.LinkData = "https://1drv.ms/u/s!AnBCCWfJxas3gflsl-I35zjW4lwHAw?e=8SOZDi";
                     linkLabel_baixar_nova.Links.Add(link);
                 }
                 else
@@ -274,6 +275,11 @@ namespace JP4
         private void linkLabel_baixar_nova_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(e.Link.LinkData as string);
+        }
+
+        private void button_tipo_material_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_tipo_material());
         }
     }
 }

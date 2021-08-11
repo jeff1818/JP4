@@ -36,6 +36,8 @@ namespace JP4
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
+            this.linkLabel_baixar_nova = new System.Windows.Forms.LinkLabel();
+            this.label_status = new System.Windows.Forms.Label();
             this.panel_sub_menu_cadastro = new System.Windows.Forms.Panel();
             this.button_cad_operador = new System.Windows.Forms.Button();
             this.button_cad_operacao = new System.Windows.Forms.Button();
@@ -67,8 +69,7 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
-            this.linkLabel_baixar_nova = new System.Windows.Forms.LinkLabel();
-            this.label_status = new System.Windows.Forms.Label();
+            this.button_tipo_material = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -177,9 +178,31 @@ namespace JP4
             this.panel_menu_vertical.TabIndex = 4;
             this.panel_menu_vertical.Click += new System.EventHandler(this.panel_menu_vertical_Click);
             // 
+            // linkLabel_baixar_nova
+            // 
+            this.linkLabel_baixar_nova.AutoSize = true;
+            this.linkLabel_baixar_nova.Location = new System.Drawing.Point(91, 639);
+            this.linkLabel_baixar_nova.Name = "linkLabel_baixar_nova";
+            this.linkLabel_baixar_nova.Size = new System.Drawing.Size(99, 13);
+            this.linkLabel_baixar_nova.TabIndex = 0;
+            this.linkLabel_baixar_nova.TabStop = true;
+            this.linkLabel_baixar_nova.Text = "Baixar nova Versão";
+            this.linkLabel_baixar_nova.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_baixar_nova_LinkClicked);
+            // 
+            // label_status
+            // 
+            this.label_status.AutoSize = true;
+            this.label_status.Location = new System.Drawing.Point(12, 639);
+            this.label_status.Name = "label_status";
+            this.label_status.Size = new System.Drawing.Size(16, 13);
+            this.label_status.TabIndex = 0;
+            this.label_status.Text = "...";
+            this.label_status.Click += new System.EventHandler(this.label_status_Click);
+            // 
             // panel_sub_menu_cadastro
             // 
             this.panel_sub_menu_cadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(205)))));
+            this.panel_sub_menu_cadastro.Controls.Add(this.button_tipo_material);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_operador);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_operacao);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_origem_apara);
@@ -192,7 +215,7 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
             this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(48, 134);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
-            this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 386);
+            this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 462);
             this.panel_sub_menu_cadastro.TabIndex = 27;
             this.panel_sub_menu_cadastro.Visible = false;
             // 
@@ -567,26 +590,21 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
-            // linkLabel_baixar_nova
+            // button_tipo_material
             // 
-            this.linkLabel_baixar_nova.AutoSize = true;
-            this.linkLabel_baixar_nova.Location = new System.Drawing.Point(91, 639);
-            this.linkLabel_baixar_nova.Name = "linkLabel_baixar_nova";
-            this.linkLabel_baixar_nova.Size = new System.Drawing.Size(99, 13);
-            this.linkLabel_baixar_nova.TabIndex = 0;
-            this.linkLabel_baixar_nova.TabStop = true;
-            this.linkLabel_baixar_nova.Text = "Baixar nova Versão";
-            this.linkLabel_baixar_nova.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_baixar_nova_LinkClicked);
-            // 
-            // label_status
-            // 
-            this.label_status.AutoSize = true;
-            this.label_status.Location = new System.Drawing.Point(12, 639);
-            this.label_status.Name = "label_status";
-            this.label_status.Size = new System.Drawing.Size(16, 13);
-            this.label_status.TabIndex = 0;
-            this.label_status.Text = "...";
-            this.label_status.Click += new System.EventHandler(this.label_status_Click);
+            this.button_tipo_material.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button_tipo_material.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_tipo_material.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_tipo_material.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_tipo_material.ForeColor = System.Drawing.Color.White;
+            this.button_tipo_material.Location = new System.Drawing.Point(3, 383);
+            this.button_tipo_material.Name = "button_tipo_material";
+            this.button_tipo_material.Size = new System.Drawing.Size(139, 32);
+            this.button_tipo_material.TabIndex = 29;
+            this.button_tipo_material.Text = "Cadastro Tipo Material";
+            this.button_tipo_material.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_tipo_material.UseVisualStyleBackColor = false;
+            this.button_tipo_material.Click += new System.EventHandler(this.button_tipo_material_Click);
             // 
             // Form_tela_inicial
             // 
@@ -662,6 +680,7 @@ namespace JP4
         private System.Windows.Forms.Button button_mov_estoque;
         private System.Windows.Forms.LinkLabel linkLabel_baixar_nova;
         private System.Windows.Forms.Label label_status;
+        private System.Windows.Forms.Button button_tipo_material;
     }
 }
 

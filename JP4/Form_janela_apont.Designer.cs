@@ -583,6 +583,7 @@ namespace JP4
             // 
             // text_qtd_saldo
             // 
+            this.text_qtd_saldo.Enabled = false;
             this.text_qtd_saldo.Location = new System.Drawing.Point(313, 91);
             this.text_qtd_saldo.Name = "text_qtd_saldo";
             this.text_qtd_saldo.Size = new System.Drawing.Size(143, 20);

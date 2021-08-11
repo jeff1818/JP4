@@ -1744,7 +1744,7 @@ namespace JP4
             this.combo_cod_item.Enabled = true;
             this.combo_desc_completa.Enabled = true;
             this.text_qtd_planejada.Enabled = true;
-            this.text_qtd_saldo.Enabled = true;
+            // this.text_qtd_saldo.Enabled = true;
             this.combo_maquinas.Enabled = true;
             this.combo_turnos.Enabled = true;
             this.combo_operadores.Enabled = true;
@@ -3619,10 +3619,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp01.Name;
@@ -3660,10 +3660,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct02.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp02.Name;
@@ -3701,10 +3701,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct03.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp03.Name;
@@ -3742,10 +3742,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct04.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp04.Name;
@@ -3783,10 +3783,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct05.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp05.Name;
@@ -3824,10 +3824,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct06.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp06.Name;
@@ -3865,10 +3865,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct07.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp07.Name;
@@ -3906,10 +3906,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct08.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp08.Name;
@@ -3947,10 +3947,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct09.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp09.Name;
@@ -3988,10 +3988,10 @@ namespace JP4
                     double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     double percentual = Convert.ToDouble(abaMistura_text_perct10.Text) / 100;
                     double consumo_mp = producao * percentual;
-                    int dia = Convert.ToDateTime(dt_lançamento.Value).Date.Day;
-                    int mes = Convert.ToDateTime(dt_lançamento.Value).Date.Month;
-                    int ano = Convert.ToDateTime(dt_lançamento.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_lançamento.Value);
+                    int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
+                    int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
+                    int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
+                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
@@ -4184,7 +4184,7 @@ namespace JP4
                 AbaMistura_label_operador.Text = combo_operadores.Text;
                 AbaMistura_label_turno.Text = combo_turnos.Text;
                 AbaMistura_label_producao.Text = text_qtd_boa.Text;
-
+                AbaMistura_label_data_lanc.Text = dt_inicio_pro.Value.ToString("dd/MM/yyyy");
                 button_mistura_mp.BackColor = Color.LightGreen;
             }
             else
