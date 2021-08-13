@@ -693,6 +693,9 @@ namespace JP4
             check_estrutura_SIM.Enabled = false;
             check_estrutura_NAO.Enabled = false;
 
+            label_grupo_estoque_id.Text = string.Empty;
+            label_descri_grupo_estoque.Text = string.Empty;
+
         }
         private void verifica_campos()
         {

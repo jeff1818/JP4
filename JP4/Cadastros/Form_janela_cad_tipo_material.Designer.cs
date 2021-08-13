@@ -194,6 +194,7 @@ namespace JP4.Cadastros
             this.grid_tipo_material.ReadOnly = true;
             this.grid_tipo_material.Size = new System.Drawing.Size(847, 454);
             this.grid_tipo_material.TabIndex = 19;
+            this.grid_tipo_material.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_tipo_material_CellDoubleClick);
             // 
             // text_descri_tipo_material
             // 
@@ -210,7 +211,7 @@ namespace JP4.Cadastros
             this.Controls.Add(this.grid_tipo_material);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_janela_cad_tipo_material";
             this.Text = "Tipo do Material:";
             this.groupBox2.ResumeLayout(false);

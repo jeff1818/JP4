@@ -1814,7 +1814,14 @@ namespace JP4
             DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
             DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
             string Tipo_material = this.label_tipo_material.Text;
-            string observacao = this.richText_observacao.Text;
+
+            if(richText_observacao.Text == string.Empty)
+            {
+                richText_observacao.Text = "--";
+            }
+
+            string observacao = richText_observacao.Text;
+
             int status_estorno = 0;
             string cliente_apon = this.combo_cliente_esto.Text;
 
@@ -1939,6 +1946,44 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
+
+
+        private void Estornar_apontamento_delete(string id_apontamento)
+        {
+            // Estornando e deletando
+            
+            string num_transac = this.abaApon_label_num_transa.Text; // mudou aqui            
+            string cod_descri_completa = this.combo_desc_completa.Text; 
+            double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
+
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                comando_sql = "DELETE FROM estoque_trans WHERE id_estoque_trans=" + Convert.ToInt32(id_apontamento) + "";
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                Consumo_estrutura(cod_descri_completa, qtd_movto); // ve se vai se comportar do jeito certo
+                Estornar_paradas(num_transac);
+                Estornar_consumo_mp(num_transac);
+                Estornar_defeitos_mq(num_transac);
+
+                MessageBox.Show("Estornado Com sucesso!");
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         private void Estornar_apontamento(string tipo_movimento)
         {
             // id_estoque_trans = 
@@ -1991,7 +2036,6 @@ namespace JP4
             // links para banco de dados
 
 
-
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -2026,49 +2070,7 @@ namespace JP4
         }
         private void Estatus_estorno(string id_apontamento)
         {
-            //string cod_empresa = this.combo_empresa.Text;
-            //string num_transac = "";
-            //string cod_item = this.combo_cod_item.Text;
-            //string cod_descri_completa = this.combo_desc_completa.Text;
-            ////string cod_descri_reduzida = "";
-            //int mes_proces = DateTime.Now.Month;
-            //int mes_movto = DateTime.Now.Month;
-            //int ano_movto = DateTime.Now.Year;
-            //DateTime dat_proces = DateTime.Today;
-            //DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
-            //string cod_operacao = this.text_operacao.Text;
-            //double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
-            //string ies_tip_movto = this.label_tipo_movimento.Text;
-            //double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
-            //double qtd_real = qtd_movto;// * (-1);
-            //double fardos = Convert.ToDouble(this.text_qtd_fardos.Text);
-            //double num_secao_requis = 1;
-            //string operador = this.combo_operadores.Text;
-            //string secao_nome = this.combo_maquinas.Text;
-            //string cod_local_est_orig = this.combo_local_orig.Text;
-            //string cod_local_est_dest = this.combo_local_desti.Text;
-            //string num_lote_orig = "";
-            //string num_lote_dest = text_lotes.Text;
-            //string ies_sit_est_orig = "L";
-            //string ies_sit_est_dest = "L";
-            //string cod_turno = this.combo_turnos.Text;
-            //string nom_usuario = "";
-            //string num_prog = this.Name;
-            //double largura_material = 0;
-            //double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
-            //double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
-            //double velocidade = Convert.ToDouble(this.text_velocidade.Text);
-            //double contador_fardos = Convert.ToDouble(this.text_contador.Text);
-            //double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
-            //double peso_total_fardo = 0; // Fazer metodos pra calcular
-            //DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
-            //DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
-            //DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
-            //DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
-            //string Tipo_material = this.label_tipo_material.Text;
-            //string observacao = this.richText_observacao.Text;
-
-            //num_transac = abaApon_label_num_transa.Text;
+            // identifica qual ordem de produção foi estornada
 
             int status_estorno = 1;
 
@@ -2079,51 +2081,6 @@ namespace JP4
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 conexao.Open();
-
-
-                //comando_sql = "UPDATE estoque_trans SET " +
-                //        "cod_empresa='" + cod_empresa +
-                //        "', num_transac='" + num_transac +
-                //        "', cod_item='" + cod_item +
-                //        "', cod_descri_completa='" + cod_descri_completa +
-                //        "', mes_proces='" + mes_proces +
-                //        "', mes_movto='" + mes_movto +
-                //        "', ano_movto='" + ano_movto +
-                //        "', dat_proces='" + dat_proces +
-                //        "', dat_movto='" + dat_movto +
-                //        "', cod_operacao='" + cod_operacao +
-                //        "', num_docum='" + num_docum +
-                //        "', ies_tip_movto='" + ies_tip_movto +
-                //        "', qtd_real='" + qtd_real +
-                //        "', qtd_movto='" + qtd_movto +
-                //        "', num_secao_requis='" + num_secao_requis +
-                //        "', operador='" + operador +
-                //        "', secao_nome='" + secao_nome +
-                //        "', cod_local_est_orig='" + cod_local_est_orig +
-                //        "', cod_local_est_dest='" + cod_local_est_dest +
-                //        "', num_lote_orig='" + num_lote_orig +
-                //        "', num_lote_dest='" + num_lote_dest +
-                //        "', ies_sit_est_orig='" + ies_sit_est_orig +
-                //        "', ies_sit_est_dest='" + ies_sit_est_dest +
-                //        "', cod_turno='" + cod_turno +
-                //        "', nom_usuario='" + nom_usuario +
-                //        "', num_prog='" + num_prog +
-                //        "', largura_material='" + largura_material +
-                //        "', n_bobina_inical='" + n_bobina_inical +
-                //        "', n_bobina_final='" + n_bobina_final +
-                //        "', velocidade='" + velocidade +
-                //        "', contador='" + contador_fardos +
-                //        "', fardos='" + fardos +
-                //        "', peso_medio_bobina='" + peso_medio_bobina +
-                //        "', peso_total_fardo='" + peso_total_fardo +
-                //        "', hora_inical='" + hora_inical +
-                //        "', hora_final='" + hora_final +
-                //        "', data_operac='" + data_operac +
-                //        "', hor_operac='" + hor_operac +
-                //        "', Tipo_material='" + Tipo_material +
-                //        "', observacao='" + observacao +
-                //        "', status_estorno='" + status_estorno +
-                //        "' WHERE id_estoque_trans=" + Convert.ToInt32(id_apontamento) + "";
 
                 comando_sql = "UPDATE estoque_trans SET status_estorno='" + status_estorno +
                         "' WHERE id_estoque_trans=" + Convert.ToInt32(id_apontamento) + "";
@@ -4123,9 +4080,14 @@ namespace JP4
         }
         private void button_estornar_Click(object sender, EventArgs e)
         {
-            Estatus_estorno(abaApon_label_id_apont.Text);
-            label_tipo_movimento.Text = "R";
-            Estornar_apontamento("R");
+            
+            //Estatus_estorno(abaApon_label_id_apont.Text); // identifica qual ordem foi estornada            
+            
+            Estornar_apontamento_delete(abaApon_label_id_apont.Text); // 13/08
+            label_tipo_movimento.Text = "R"; 
+
+            //Estornar_apontamento("R");
+            
             Limpar_campos();
 
         }

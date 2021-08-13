@@ -47,6 +47,8 @@ namespace JP4
             this.cadMaquinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadLocaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadEmpresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventárioMensalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label_descricao_operacao = new System.Windows.Forms.Label();
             this.combo_empresa = new System.Windows.Forms.ComboBox();
@@ -77,8 +79,6 @@ namespace JP4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
-            this.inventárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventárioMensalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -266,6 +266,21 @@ namespace JP4
             this.cadEmpresasToolStripMenuItem.Name = "cadEmpresasToolStripMenuItem";
             this.cadEmpresasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cadEmpresasToolStripMenuItem.Text = "Cad. Empresas";
+            // 
+            // inventárioToolStripMenuItem
+            // 
+            this.inventárioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inventárioMensalToolStripMenuItem});
+            this.inventárioToolStripMenuItem.Name = "inventárioToolStripMenuItem";
+            this.inventárioToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.inventárioToolStripMenuItem.Text = "Inventário";
+            // 
+            // inventárioMensalToolStripMenuItem
+            // 
+            this.inventárioMensalToolStripMenuItem.Name = "inventárioMensalToolStripMenuItem";
+            this.inventárioMensalToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.inventárioMensalToolStripMenuItem.Text = "Inventário Mensal";
+            this.inventárioMensalToolStripMenuItem.Click += new System.EventHandler(this.inventárioMensalToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -501,7 +516,7 @@ namespace JP4
             // 
             // combo_operacao
             // 
-            this.combo_operacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.combo_operacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.combo_operacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_operacao.FormattingEnabled = true;
             this.combo_operacao.Location = new System.Drawing.Point(85, 46);
@@ -521,7 +536,7 @@ namespace JP4
             // 
             // combo_descri_completa
             // 
-            this.combo_descri_completa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.combo_descri_completa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.combo_descri_completa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_descri_completa.FormattingEnabled = true;
             this.combo_descri_completa.Location = new System.Drawing.Point(291, 19);
@@ -574,21 +589,6 @@ namespace JP4
             this.grid_mov_estoque.TabIndex = 7;
             this.grid_mov_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_mov_estoque_CellDoubleClick);
             // 
-            // inventárioToolStripMenuItem
-            // 
-            this.inventárioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inventárioMensalToolStripMenuItem});
-            this.inventárioToolStripMenuItem.Name = "inventárioToolStripMenuItem";
-            this.inventárioToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.inventárioToolStripMenuItem.Text = "Inventário";
-            // 
-            // inventárioMensalToolStripMenuItem
-            // 
-            this.inventárioMensalToolStripMenuItem.Name = "inventárioMensalToolStripMenuItem";
-            this.inventárioMensalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.inventárioMensalToolStripMenuItem.Text = "Inventário Mensal";
-            this.inventárioMensalToolStripMenuItem.Click += new System.EventHandler(this.inventárioMensalToolStripMenuItem_Click);
-            // 
             // STOQ01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,7 +598,7 @@ namespace JP4
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "STOQ01";
             this.Text = "Form_janela_mov_estoque";

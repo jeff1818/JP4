@@ -22,7 +22,37 @@ namespace JP4.Cadastros
         }
 
         #region Metodos Carregar controles
+        private void Carregar_controles(string id_tipo_material)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_operador where id_tipo_material=" + id_tipo_material;
 
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    text_codigo_tipo_material.Text = myreader["codigo_material"].ToString();
+                    text_tipo_material.Text = myreader["tipo_material"].ToString();
+                    text_descri_tipo_material.Text = myreader["descricao"].ToString();
+
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
         private void Carregar_grid()
         {
             try
@@ -82,14 +112,63 @@ namespace JP4.Cadastros
             }
         }
 
-        private void Atualizar_tipo_material()
+        private void Atualizar_tipo_material(string id_tipo_material)
         {
+            string codigo_material = text_codigo_tipo_material.Text;
+            string tipo_material = text_tipo_material.Text;
+            string descricao = text_descri_tipo_material.Text;
 
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                comando_sql = "UPDATE db_cadastro_tipo_material SET " +
+                        "codigo_material='" + codigo_material +
+                        "', tipo_material='" + tipo_material +
+                        "', descricao='" + descricao +
+                        "' WHERE id_tipo_material=" + id_tipo_material;
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Atualizado com sucesso!");
+
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
 
-        private void Deletar_tipo_material()
+        private void Deletar_tipo_material(string id_tipo_material)
         {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
 
+                string comando_sql;
+
+                comando_sql = "DELETE FROM db_cadastro_tipo_material WHERE id_operador = " + id_tipo_material;
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Deletado com sucesso!");
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
         }
         #endregion
 
@@ -123,12 +202,16 @@ namespace JP4.Cadastros
 
         private void button_atualizar_Click(object sender, EventArgs e)
         {
-
+            Atualizar_tipo_material(label_id_tipo_material.Text);
+            Carregar_grid();
+            limpar_controles();
         }
 
         private void button_deletar_Click(object sender, EventArgs e)
         {
-
+            Deletar_tipo_material(label_id_tipo_material.Text);
+            Carregar_grid();
+            limpar_controles();
         }
 
         private void button_limpar_controles_Click(object sender, EventArgs e)
@@ -140,5 +223,14 @@ namespace JP4.Cadastros
         {
 
         }
+
+        private void grid_tipo_material_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string id_tipo_material = grid_tipo_material.CurrentRow.Cells[0].Value.ToString();
+            label_id_tipo_material.Text = id_tipo_material;            
+            Carregar_controles(id_tipo_material);
+        }
+
+        
     }
 }
