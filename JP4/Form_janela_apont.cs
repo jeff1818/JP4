@@ -76,7 +76,7 @@ namespace JP4
                     this.abaConsumo_text__cod_item.Text = combo_cod_item.Text;
                     this.abaConsumo_text_descri_item.Text = combo_desc_completa.Text;
                     this.abaConsumo_text_qtd_boa.Text = Convert.ToString(text_qtd_boa.Text);
-                    Carregar_grid(combo_desc_completa.Text, combo_cliente_esto.Text);
+                    Carregar_grid(combo_desc_completa.Text, combo_cliente_esto.Text, combo_maquinas.Text);
 
                     if (tab_menu_apontamento.SelectedTab == tab_consumo)
                     {
@@ -626,14 +626,14 @@ namespace JP4
         }
 
         // Aba consumo
-        public void Carregar_grid(string item_pai, string cliente)
+        public void Carregar_grid(string item_pai, string cliente, string maquina_destino)
         {
             try
             {
                 // Mudei para aceitar o cliente
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura where cliente='"+ cliente+"'";
+                string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura where cliente='"+ cliente+ "' and maquina_destino = '"+ maquina_destino+"'";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -5045,7 +5045,7 @@ namespace JP4
             Carregar_defeitos_apontamento(abaApon_label_num_transa.Text);
             Carregar_mistura_apontamento(abaApon_label_num_transa.Text);
 
-            Carregar_grid(combo_desc_completa.Text, combo_cliente_esto.Text);
+            Carregar_grid(combo_desc_completa.Text, combo_cliente_esto.Text, combo_maquinas.Text);
             Calcular_qtd_total_grid();
 
 

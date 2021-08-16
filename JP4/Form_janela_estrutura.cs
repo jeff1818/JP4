@@ -15,6 +15,7 @@ namespace JP4
             Carregar_empresa();
             Bloquear_controles();
             Carregar_clientes();
+            Carregar_maquinas();
 
             combo_empresa.Text = "Picoflex";
 
@@ -121,12 +122,42 @@ namespace JP4
 
 
         }
-        public void Carregar_estrutura(string item_pai, string cliente)
+        private void Carregar_maquinas()
         {
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "SELECT * FROM db_estrutura WHERE descri_pai = '" + item_pai + "' AND cliente = '"+ cliente+"'";
+
+                string comando_sql = "select * from db_cadastro_equipamento";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    combo_maquina_destino.Items.Add(myreader["descricao_equipamento"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+        public void Carregar_estrutura(string item_pai, string cliente, string maquina_destino)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "SELECT * FROM db_estrutura WHERE descri_pai = '" + item_pai + "' AND cliente = '"+ cliente+ "' AND maquina_destino ='"+ maquina_destino+"'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -436,6 +467,9 @@ namespace JP4
             this.delete08.Enabled = false;
             this.delete09.Enabled = false;
             this.delete10.Enabled = false;
+
+            
+
         }
         private void Desbloquear_controles()
         {
@@ -510,6 +544,8 @@ namespace JP4
             this.delete09.Enabled = true;
             this.delete10.Enabled = true;
 
+            
+
         }
         private void Atualizar_estrutura()
         {
@@ -530,6 +566,8 @@ namespace JP4
                 string descri_filho = combo_componente01.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess01.Text);
                 string marcador_campo = combo_componente01.Name;
+
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -553,6 +591,7 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
+                        "', maquina_destino='" + maquina_destino +
                         "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
@@ -588,6 +627,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess01.Text);
                 string marcador_campo = combo_componente01.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
 
@@ -596,8 +637,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -631,6 +672,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess02.Text);
                 string marcador_campo = combo_componente02.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -653,7 +696,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id02.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -689,6 +733,7 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess02.Text);
                 string marcador_campo = combo_componente02.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -698,8 +743,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -733,6 +778,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess03.Text);
                 string marcador_campo = combo_componente03.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -755,7 +802,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id03.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -790,6 +838,7 @@ namespace JP4
                 string descri_filho = combo_componente03.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess03.Text);
                 string marcador_campo = combo_componente03.Name;
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -799,8 +848,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -834,6 +883,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess04.Text);
                 string marcador_campo = combo_componente04.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -856,7 +907,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id04.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -890,7 +942,7 @@ namespace JP4
                 string descri_filho = combo_componente04.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess04.Text);
                 string marcador_campo = combo_componente04.Name;
-
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -900,8 +952,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -935,6 +987,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess05.Text);
                 string marcador_campo = combo_componente05.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -957,7 +1011,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id05.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -991,6 +1046,7 @@ namespace JP4
                 string descri_filho = combo_componente05.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess05.Text);
                 string marcador_campo = combo_componente05.Name;
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1000,8 +1056,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1035,6 +1091,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess06.Text);
                 string marcador_campo = combo_componente06.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -1057,7 +1115,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id06.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1091,6 +1150,7 @@ namespace JP4
                 string descri_filho = combo_componente06.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess06.Text);
                 string marcador_campo = combo_componente06.Name;
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1100,8 +1160,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1135,6 +1195,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess07.Text);
                 string marcador_campo = combo_componente07.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -1157,7 +1219,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id07.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1191,7 +1254,7 @@ namespace JP4
                 string descri_filho = combo_componente07.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess07.Text);
                 string marcador_campo = combo_componente07.Name;
-
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1201,8 +1264,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1236,6 +1299,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess08.Text);
                 string marcador_campo = combo_componente08.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -1258,7 +1323,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id08.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1292,7 +1358,7 @@ namespace JP4
                 string descri_filho = combo_componente08.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess08.Text);
                 string marcador_campo = combo_componente08.Name;
-
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1302,8 +1368,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1336,6 +1402,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess09.Text);
                 string marcador_campo = combo_componente09.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -1358,7 +1426,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id09.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1392,7 +1461,7 @@ namespace JP4
                 string descri_filho = combo_componente09.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess09.Text);
                 string marcador_campo = combo_componente09.Name;
-
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1402,8 +1471,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1437,6 +1506,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess10.Text);
                 string marcador_campo = combo_componente10.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -1459,7 +1530,8 @@ namespace JP4
                         "', num_transac='" + num_transac +
                         "', cliente='" + cliente +
                         "', marcador_campo='" + marcador_campo +
-                        "' WHERE id_estrutura=" + Convert.ToInt64(id10.Text) + "";
+                        "', maquina_destino='" + maquina_destino +
+                        "' WHERE id_estrutura=" + Convert.ToInt64(id01.Text) + "";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1493,7 +1565,7 @@ namespace JP4
                 string descri_filho = combo_componente10.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess10.Text);
                 string marcador_campo = combo_componente10.Name;
-
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1503,8 +1575,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1551,6 +1623,8 @@ namespace JP4
                 string descri_filho = combo_componente01.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess01.Text);
                 string marcador_campo = combo_componente01.Name;
+                
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1560,8 +1634,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','"+ maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1598,6 +1672,7 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess02.Text);
                 string marcador_campo = combo_componente02.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1607,8 +1682,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1645,6 +1720,7 @@ namespace JP4
                 string descri_filho = combo_componente03.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess03.Text);
                 string marcador_campo = combo_componente03.Name;
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1654,8 +1730,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1693,6 +1769,7 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess04.Text);
                 string marcador_campo = combo_componente04.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1702,8 +1779,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1740,6 +1817,8 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess05.Text);
                 string marcador_campo = combo_componente05.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
+
                 try
                 {
 
@@ -1748,8 +1827,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1786,6 +1865,7 @@ namespace JP4
                 string descri_filho = combo_componente06.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess06.Text);
                 string marcador_campo = combo_componente06.Name;
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1795,8 +1875,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1833,6 +1913,7 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess07.Text);
                 string marcador_campo = combo_componente07.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1842,8 +1923,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1881,6 +1962,7 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess08.Text);
                 string marcador_campo = combo_componente08.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1890,8 +1972,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1929,6 +2011,7 @@ namespace JP4
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess09.Text);
                 string marcador_campo = combo_componente09.Name;
 
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1938,8 +2021,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1976,7 +2059,7 @@ namespace JP4
                 string descri_filho = combo_componente10.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess10.Text);
                 string marcador_campo = combo_componente10.Name;
-
+                string maquina_destino = combo_maquina_destino.Text;
 
                 try
                 {
@@ -1986,8 +2069,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "')";
+                    comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -2026,7 +2109,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
             Limpar_campos();
-            Carregar_estrutura(combo_descricao_item.Text, combo_cliente.Text);
+            Carregar_estrutura(combo_descricao_item.Text, combo_cliente.Text, combo_maquina_destino.Text);
 
         }
         private void button_editar_Click(object sender, EventArgs e)
@@ -2053,7 +2136,7 @@ namespace JP4
         private void button_pesquisar_Click(object sender, EventArgs e)
         {
             Limpar_campos();
-            Carregar_estrutura(this.combo_descricao_item.Text, combo_cliente.Text);
+            Carregar_estrutura(this.combo_descricao_item.Text, combo_cliente.Text, combo_maquina_destino.Text);
 
         }
 

@@ -147,6 +147,8 @@ namespace JP4
             this.button_delete = new System.Windows.Forms.Button();
             this.button_atualizar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.combo_maquina_destino = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -185,6 +187,8 @@ namespace JP4
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.combo_maquina_destino);
+            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.combo_cliente);
             this.groupBox1.Controls.Add(this.label19);
@@ -1299,6 +1303,23 @@ namespace JP4
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opções";
             // 
+            // combo_maquina_destino
+            // 
+            this.combo_maquina_destino.FormattingEnabled = true;
+            this.combo_maquina_destino.Location = new System.Drawing.Point(587, 45);
+            this.combo_maquina_destino.Name = "combo_maquina_destino";
+            this.combo_maquina_destino.Size = new System.Drawing.Size(143, 21);
+            this.combo_maquina_destino.TabIndex = 19;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(494, 49);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 13);
+            this.label21.TabIndex = 18;
+            this.label21.Text = "Maquina Destino";
+            // 
             // ST01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1446,5 +1467,7 @@ namespace JP4
         private System.Windows.Forms.DateTimePicker dt_inicio02;
         private System.Windows.Forms.Button button_atualizar;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox combo_maquina_destino;
+        private System.Windows.Forms.Label label21;
     }
 }
