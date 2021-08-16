@@ -1131,7 +1131,7 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    if (myreader["descricao_completa"].ToString() == descri_reduzida)
+                    if (myreader["descricao_completa"].ToString() == descricao_completa)
                     {
                         descri_reduzida = myreader["descricao_reduzida"].ToString();
                     }
