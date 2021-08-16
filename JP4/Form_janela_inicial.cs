@@ -29,6 +29,7 @@ namespace JP4
             linkLabel_baixar_nova.Visible = false;
             
             Check_update();
+            //abrir_janelas(new Form_janela_report01());
 
         }
 

@@ -39,6 +39,7 @@ namespace JP4
             this.linkLabel_baixar_nova = new System.Windows.Forms.LinkLabel();
             this.label_status = new System.Windows.Forms.Label();
             this.panel_sub_menu_cadastro = new System.Windows.Forms.Panel();
+            this.button_tipo_material = new System.Windows.Forms.Button();
             this.button_cad_operador = new System.Windows.Forms.Button();
             this.button_cad_operacao = new System.Windows.Forms.Button();
             this.button_cad_origem_apara = new System.Windows.Forms.Button();
@@ -69,7 +70,6 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
-            this.button_tipo_material = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -213,11 +213,27 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_aplica);
             this.panel_sub_menu_cadastro.Controls.Add(this.button1);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
-            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(48, 134);
+            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(54, 135);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 462);
             this.panel_sub_menu_cadastro.TabIndex = 27;
             this.panel_sub_menu_cadastro.Visible = false;
+            // 
+            // button_tipo_material
+            // 
+            this.button_tipo_material.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button_tipo_material.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_tipo_material.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_tipo_material.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_tipo_material.ForeColor = System.Drawing.Color.White;
+            this.button_tipo_material.Location = new System.Drawing.Point(3, 383);
+            this.button_tipo_material.Name = "button_tipo_material";
+            this.button_tipo_material.Size = new System.Drawing.Size(139, 32);
+            this.button_tipo_material.TabIndex = 29;
+            this.button_tipo_material.Text = "Cadastro Tipo Material";
+            this.button_tipo_material.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_tipo_material.UseVisualStyleBackColor = false;
+            this.button_tipo_material.Click += new System.EventHandler(this.button_tipo_material_Click);
             // 
             // button_cad_operador
             // 
@@ -589,22 +605,6 @@ namespace JP4
             // db_configTableAdapter1
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
-            // 
-            // button_tipo_material
-            // 
-            this.button_tipo_material.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button_tipo_material.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_tipo_material.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button_tipo_material.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_tipo_material.ForeColor = System.Drawing.Color.White;
-            this.button_tipo_material.Location = new System.Drawing.Point(3, 383);
-            this.button_tipo_material.Name = "button_tipo_material";
-            this.button_tipo_material.Size = new System.Drawing.Size(139, 32);
-            this.button_tipo_material.TabIndex = 29;
-            this.button_tipo_material.Text = "Cadastro Tipo Material";
-            this.button_tipo_material.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_tipo_material.UseVisualStyleBackColor = false;
-            this.button_tipo_material.Click += new System.EventHandler(this.button_tipo_material_Click);
             // 
             // Form_tela_inicial
             // 

@@ -415,7 +415,7 @@ namespace JP4
                     combo_operacao.Text = myreader["cod_operacao"].ToString();
                     text_num_documento.Text = myreader["num_docum"].ToString();
                     combo_secao_maquina.Text = myreader["num_secao_requis"].ToString();
-                    text_qtd_movt.Text = myreader["qtd_movto"].ToString();
+                    text_qtd_movt.Text = Convert.ToString(Convert.ToDouble(myreader["qtd_movto"]) / Fator_conversao(combo_descri_completa.Text));
                     combo_local_orig.Text = myreader["cod_local_est_orig"].ToString();
                     combo_local_destino.Text = myreader["cod_local_est_dest"].ToString();
                     rich_observa.Text = myreader["observacao"].ToString();
@@ -617,6 +617,46 @@ namespace JP4
 
         #region Metodos  Salvar // Estornar // Buscar
 
+        private double Fator_conversao(string cod_descri_completa)
+        {
+            
+
+            try
+            {
+                double resultado = 1;
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + cod_descri_completa+"'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    resultado = Convert.ToDouble(myreader["fator_multi"]);
+
+                    if (resultado == 0)
+                        resultado = 1;
+
+                }
+
+                conexao.Close();
+                return resultado;
+
+            }
+            catch (Exception erro)
+            {
+                
+                MessageBox.Show(erro.Message);
+            }
+
+            return 1;
+
+        }
+
         private void Salvar_lancamento()
         {
 
@@ -627,7 +667,7 @@ namespace JP4
             string secao_nome = combo_secao_maquina.Text;
             string ies_tip_movto = text_tipo_mov.Text;
 
-            double qtd_movto = Convert.ToDouble(text_qtd_movt.Text);
+            double qtd_movto = Convert.ToDouble(text_qtd_movt.Text) * Fator_conversao(cod_descri_completa);
 
             double qtd_real = 0;
             if (Busca_tipo_baixa(combo_operacao.Text) == "Saida")
@@ -736,7 +776,7 @@ namespace JP4
 
             // Não aproveita 
 
-            string cod_descri_reduzida;
+            //string cod_descri_reduzida;
             double fardos = 0;
             double num_secao_requis = 1;
             string operador = "";
@@ -759,8 +799,8 @@ namespace JP4
             DateTime data_operac = Convert.ToDateTime(dt_lancamento.Value);
             DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
             string Tipo_material = Buscar_tipo_material(combo_descri_completa.Text);
-            int status_estorno;
-            string cliente_apon;
+            //int status_estorno;
+            //string cliente_apon;
 
             num_transac = Gerar_num_transac(num_docum, hor_operac);
 

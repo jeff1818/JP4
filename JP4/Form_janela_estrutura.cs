@@ -121,12 +121,12 @@ namespace JP4
 
 
         }
-        public void Carregar_estrutura(string item_pai)
+        public void Carregar_estrutura(string item_pai, string cliente)
         {
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "SELECT * FROM db_estrutura WHERE descri_pai = '" + item_pai + "'";
+                string comando_sql = "SELECT * FROM db_estrutura WHERE descri_pai = '" + item_pai + "' AND cliente = '"+ cliente+"'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -2026,7 +2026,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
             Limpar_campos();
-            Carregar_estrutura(this.combo_descricao_item.Text);
+            Carregar_estrutura(combo_descricao_item.Text, combo_cliente.Text);
 
         }
         private void button_editar_Click(object sender, EventArgs e)
@@ -2053,7 +2053,7 @@ namespace JP4
         private void button_pesquisar_Click(object sender, EventArgs e)
         {
             Limpar_campos();
-            Carregar_estrutura(this.combo_descricao_item.Text);
+            Carregar_estrutura(this.combo_descricao_item.Text, combo_cliente.Text);
 
         }
 

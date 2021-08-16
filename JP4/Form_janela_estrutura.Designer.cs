@@ -339,7 +339,7 @@ namespace JP4
             this.text_percentual_refugo01.Location = new System.Drawing.Point(531, 46);
             this.text_percentual_refugo01.Name = "text_percentual_refugo01";
             this.text_percentual_refugo01.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo01.TabIndex = 3;
+            this.text_percentual_refugo01.TabIndex = 2;
             this.text_percentual_refugo01.Text = "0";
             // 
             // groupBox2
@@ -453,7 +453,7 @@ namespace JP4
             this.dt_inicio10.Location = new System.Drawing.Point(617, 279);
             this.dt_inicio10.Name = "dt_inicio10";
             this.dt_inicio10.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio10.TabIndex = 117;
+            this.dt_inicio10.TabIndex = 48;
             // 
             // dt_inicio09
             // 
@@ -461,7 +461,7 @@ namespace JP4
             this.dt_inicio09.Location = new System.Drawing.Point(617, 254);
             this.dt_inicio09.Name = "dt_inicio09";
             this.dt_inicio09.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio09.TabIndex = 116;
+            this.dt_inicio09.TabIndex = 43;
             // 
             // dt_inicio08
             // 
@@ -469,7 +469,7 @@ namespace JP4
             this.dt_inicio08.Location = new System.Drawing.Point(617, 228);
             this.dt_inicio08.Name = "dt_inicio08";
             this.dt_inicio08.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio08.TabIndex = 115;
+            this.dt_inicio08.TabIndex = 38;
             // 
             // dt_inicio07
             // 
@@ -477,7 +477,7 @@ namespace JP4
             this.dt_inicio07.Location = new System.Drawing.Point(617, 202);
             this.dt_inicio07.Name = "dt_inicio07";
             this.dt_inicio07.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio07.TabIndex = 114;
+            this.dt_inicio07.TabIndex = 33;
             // 
             // dt_inicio06
             // 
@@ -485,7 +485,7 @@ namespace JP4
             this.dt_inicio06.Location = new System.Drawing.Point(617, 176);
             this.dt_inicio06.Name = "dt_inicio06";
             this.dt_inicio06.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio06.TabIndex = 113;
+            this.dt_inicio06.TabIndex = 28;
             // 
             // dt_inicio05
             // 
@@ -493,7 +493,7 @@ namespace JP4
             this.dt_inicio05.Location = new System.Drawing.Point(617, 149);
             this.dt_inicio05.Name = "dt_inicio05";
             this.dt_inicio05.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio05.TabIndex = 112;
+            this.dt_inicio05.TabIndex = 23;
             // 
             // dt_inicio04
             // 
@@ -501,7 +501,7 @@ namespace JP4
             this.dt_inicio04.Location = new System.Drawing.Point(617, 124);
             this.dt_inicio04.Name = "dt_inicio04";
             this.dt_inicio04.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio04.TabIndex = 111;
+            this.dt_inicio04.TabIndex = 18;
             // 
             // dt_inicio03
             // 
@@ -509,7 +509,7 @@ namespace JP4
             this.dt_inicio03.Location = new System.Drawing.Point(617, 98);
             this.dt_inicio03.Name = "dt_inicio03";
             this.dt_inicio03.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio03.TabIndex = 110;
+            this.dt_inicio03.TabIndex = 13;
             // 
             // dt_inicio02
             // 
@@ -517,7 +517,7 @@ namespace JP4
             this.dt_inicio02.Location = new System.Drawing.Point(617, 71);
             this.dt_inicio02.Name = "dt_inicio02";
             this.dt_inicio02.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio02.TabIndex = 109;
+            this.dt_inicio02.TabIndex = 8;
             // 
             // dt_inicio01
             // 
@@ -525,7 +525,7 @@ namespace JP4
             this.dt_inicio01.Location = new System.Drawing.Point(617, 46);
             this.dt_inicio01.Name = "dt_inicio01";
             this.dt_inicio01.Size = new System.Drawing.Size(143, 20);
-            this.dt_inicio01.TabIndex = 20;
+            this.dt_inicio01.TabIndex = 3;
             // 
             // checkBox11
             // 
@@ -973,7 +973,7 @@ namespace JP4
             this.text_dt_validade10.MaxLength = 10;
             this.text_dt_validade10.Name = "text_dt_validade10";
             this.text_dt_validade10.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade10.TabIndex = 50;
+            this.text_dt_validade10.TabIndex = 49;
             // 
             // combo_componente10
             // 
@@ -981,14 +981,14 @@ namespace JP4
             this.combo_componente10.Location = new System.Drawing.Point(45, 279);
             this.combo_componente10.Name = "combo_componente10";
             this.combo_componente10.Size = new System.Drawing.Size(331, 21);
-            this.combo_componente10.TabIndex = 46;
+            this.combo_componente10.TabIndex = 45;
             // 
             // text_qtd_necess10
             // 
             this.text_qtd_necess10.Location = new System.Drawing.Point(382, 280);
             this.text_qtd_necess10.Name = "text_qtd_necess10";
             this.text_qtd_necess10.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_necess10.TabIndex = 47;
+            this.text_qtd_necess10.TabIndex = 46;
             this.text_qtd_necess10.Text = "0";
             // 
             // text_percentual_refugo10
@@ -996,7 +996,7 @@ namespace JP4
             this.text_percentual_refugo10.Location = new System.Drawing.Point(531, 280);
             this.text_percentual_refugo10.Name = "text_percentual_refugo10";
             this.text_percentual_refugo10.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo10.TabIndex = 48;
+            this.text_percentual_refugo10.TabIndex = 47;
             this.text_percentual_refugo10.Text = "0";
             // 
             // text_dt_validade09
@@ -1005,7 +1005,7 @@ namespace JP4
             this.text_dt_validade09.MaxLength = 10;
             this.text_dt_validade09.Name = "text_dt_validade09";
             this.text_dt_validade09.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade09.TabIndex = 45;
+            this.text_dt_validade09.TabIndex = 44;
             // 
             // combo_componente09
             // 
@@ -1013,14 +1013,14 @@ namespace JP4
             this.combo_componente09.Location = new System.Drawing.Point(45, 253);
             this.combo_componente09.Name = "combo_componente09";
             this.combo_componente09.Size = new System.Drawing.Size(331, 21);
-            this.combo_componente09.TabIndex = 41;
+            this.combo_componente09.TabIndex = 40;
             // 
             // text_qtd_necess09
             // 
             this.text_qtd_necess09.Location = new System.Drawing.Point(382, 254);
             this.text_qtd_necess09.Name = "text_qtd_necess09";
             this.text_qtd_necess09.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_necess09.TabIndex = 42;
+            this.text_qtd_necess09.TabIndex = 41;
             this.text_qtd_necess09.Text = "0";
             // 
             // text_percentual_refugo09
@@ -1028,7 +1028,7 @@ namespace JP4
             this.text_percentual_refugo09.Location = new System.Drawing.Point(531, 254);
             this.text_percentual_refugo09.Name = "text_percentual_refugo09";
             this.text_percentual_refugo09.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo09.TabIndex = 43;
+            this.text_percentual_refugo09.TabIndex = 42;
             this.text_percentual_refugo09.Text = "0";
             // 
             // text_dt_validade08
@@ -1037,7 +1037,7 @@ namespace JP4
             this.text_dt_validade08.MaxLength = 10;
             this.text_dt_validade08.Name = "text_dt_validade08";
             this.text_dt_validade08.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade08.TabIndex = 40;
+            this.text_dt_validade08.TabIndex = 39;
             // 
             // combo_componente08
             // 
@@ -1045,14 +1045,14 @@ namespace JP4
             this.combo_componente08.Location = new System.Drawing.Point(45, 227);
             this.combo_componente08.Name = "combo_componente08";
             this.combo_componente08.Size = new System.Drawing.Size(331, 21);
-            this.combo_componente08.TabIndex = 36;
+            this.combo_componente08.TabIndex = 35;
             // 
             // text_qtd_necess08
             // 
             this.text_qtd_necess08.Location = new System.Drawing.Point(382, 228);
             this.text_qtd_necess08.Name = "text_qtd_necess08";
             this.text_qtd_necess08.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_necess08.TabIndex = 37;
+            this.text_qtd_necess08.TabIndex = 36;
             this.text_qtd_necess08.Text = "0";
             // 
             // text_percentual_refugo08
@@ -1060,7 +1060,7 @@ namespace JP4
             this.text_percentual_refugo08.Location = new System.Drawing.Point(531, 228);
             this.text_percentual_refugo08.Name = "text_percentual_refugo08";
             this.text_percentual_refugo08.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo08.TabIndex = 38;
+            this.text_percentual_refugo08.TabIndex = 37;
             this.text_percentual_refugo08.Text = "0";
             // 
             // text_dt_validade07
@@ -1069,7 +1069,7 @@ namespace JP4
             this.text_dt_validade07.MaxLength = 10;
             this.text_dt_validade07.Name = "text_dt_validade07";
             this.text_dt_validade07.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade07.TabIndex = 35;
+            this.text_dt_validade07.TabIndex = 34;
             // 
             // combo_componente07
             // 
@@ -1077,14 +1077,14 @@ namespace JP4
             this.combo_componente07.Location = new System.Drawing.Point(45, 201);
             this.combo_componente07.Name = "combo_componente07";
             this.combo_componente07.Size = new System.Drawing.Size(331, 21);
-            this.combo_componente07.TabIndex = 31;
+            this.combo_componente07.TabIndex = 30;
             // 
             // text_qtd_necess07
             // 
             this.text_qtd_necess07.Location = new System.Drawing.Point(382, 202);
             this.text_qtd_necess07.Name = "text_qtd_necess07";
             this.text_qtd_necess07.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_necess07.TabIndex = 32;
+            this.text_qtd_necess07.TabIndex = 31;
             this.text_qtd_necess07.Text = "0";
             // 
             // text_percentual_refugo07
@@ -1092,7 +1092,7 @@ namespace JP4
             this.text_percentual_refugo07.Location = new System.Drawing.Point(531, 202);
             this.text_percentual_refugo07.Name = "text_percentual_refugo07";
             this.text_percentual_refugo07.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo07.TabIndex = 33;
+            this.text_percentual_refugo07.TabIndex = 32;
             this.text_percentual_refugo07.Text = "0";
             // 
             // text_dt_validade06
@@ -1101,7 +1101,7 @@ namespace JP4
             this.text_dt_validade06.MaxLength = 10;
             this.text_dt_validade06.Name = "text_dt_validade06";
             this.text_dt_validade06.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade06.TabIndex = 30;
+            this.text_dt_validade06.TabIndex = 29;
             // 
             // combo_componente06
             // 
@@ -1109,14 +1109,14 @@ namespace JP4
             this.combo_componente06.Location = new System.Drawing.Point(45, 175);
             this.combo_componente06.Name = "combo_componente06";
             this.combo_componente06.Size = new System.Drawing.Size(331, 21);
-            this.combo_componente06.TabIndex = 26;
+            this.combo_componente06.TabIndex = 25;
             // 
             // text_qtd_necess06
             // 
             this.text_qtd_necess06.Location = new System.Drawing.Point(382, 176);
             this.text_qtd_necess06.Name = "text_qtd_necess06";
             this.text_qtd_necess06.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_necess06.TabIndex = 27;
+            this.text_qtd_necess06.TabIndex = 26;
             this.text_qtd_necess06.Text = "0";
             // 
             // text_percentual_refugo06
@@ -1124,7 +1124,7 @@ namespace JP4
             this.text_percentual_refugo06.Location = new System.Drawing.Point(531, 176);
             this.text_percentual_refugo06.Name = "text_percentual_refugo06";
             this.text_percentual_refugo06.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo06.TabIndex = 28;
+            this.text_percentual_refugo06.TabIndex = 27;
             this.text_percentual_refugo06.Text = "0";
             // 
             // text_dt_validade05
@@ -1133,7 +1133,7 @@ namespace JP4
             this.text_dt_validade05.MaxLength = 10;
             this.text_dt_validade05.Name = "text_dt_validade05";
             this.text_dt_validade05.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade05.TabIndex = 25;
+            this.text_dt_validade05.TabIndex = 24;
             // 
             // combo_componente05
             // 
@@ -1141,14 +1141,14 @@ namespace JP4
             this.combo_componente05.Location = new System.Drawing.Point(45, 149);
             this.combo_componente05.Name = "combo_componente05";
             this.combo_componente05.Size = new System.Drawing.Size(331, 21);
-            this.combo_componente05.TabIndex = 21;
+            this.combo_componente05.TabIndex = 20;
             // 
             // text_qtd_necess05
             // 
             this.text_qtd_necess05.Location = new System.Drawing.Point(382, 150);
             this.text_qtd_necess05.Name = "text_qtd_necess05";
             this.text_qtd_necess05.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_necess05.TabIndex = 22;
+            this.text_qtd_necess05.TabIndex = 21;
             this.text_qtd_necess05.Text = "0";
             // 
             // text_percentual_refugo05
@@ -1156,7 +1156,7 @@ namespace JP4
             this.text_percentual_refugo05.Location = new System.Drawing.Point(531, 150);
             this.text_percentual_refugo05.Name = "text_percentual_refugo05";
             this.text_percentual_refugo05.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo05.TabIndex = 23;
+            this.text_percentual_refugo05.TabIndex = 22;
             this.text_percentual_refugo05.Text = "0";
             // 
             // text_dt_validade04
@@ -1165,7 +1165,7 @@ namespace JP4
             this.text_dt_validade04.MaxLength = 10;
             this.text_dt_validade04.Name = "text_dt_validade04";
             this.text_dt_validade04.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade04.TabIndex = 20;
+            this.text_dt_validade04.TabIndex = 19;
             // 
             // combo_componente04
             // 
@@ -1173,14 +1173,14 @@ namespace JP4
             this.combo_componente04.Location = new System.Drawing.Point(45, 123);
             this.combo_componente04.Name = "combo_componente04";
             this.combo_componente04.Size = new System.Drawing.Size(331, 21);
-            this.combo_componente04.TabIndex = 16;
+            this.combo_componente04.TabIndex = 15;
             // 
             // text_qtd_necess04
             // 
             this.text_qtd_necess04.Location = new System.Drawing.Point(382, 124);
             this.text_qtd_necess04.Name = "text_qtd_necess04";
             this.text_qtd_necess04.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_necess04.TabIndex = 17;
+            this.text_qtd_necess04.TabIndex = 16;
             this.text_qtd_necess04.Text = "0";
             // 
             // text_percentual_refugo04
@@ -1188,7 +1188,7 @@ namespace JP4
             this.text_percentual_refugo04.Location = new System.Drawing.Point(531, 124);
             this.text_percentual_refugo04.Name = "text_percentual_refugo04";
             this.text_percentual_refugo04.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo04.TabIndex = 18;
+            this.text_percentual_refugo04.TabIndex = 17;
             this.text_percentual_refugo04.Text = "0";
             // 
             // text_dt_validade03
@@ -1197,7 +1197,7 @@ namespace JP4
             this.text_dt_validade03.MaxLength = 10;
             this.text_dt_validade03.Name = "text_dt_validade03";
             this.text_dt_validade03.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade03.TabIndex = 15;
+            this.text_dt_validade03.TabIndex = 14;
             // 
             // combo_componente03
             // 
@@ -1212,7 +1212,7 @@ namespace JP4
             this.text_qtd_necess03.Location = new System.Drawing.Point(382, 98);
             this.text_qtd_necess03.Name = "text_qtd_necess03";
             this.text_qtd_necess03.Size = new System.Drawing.Size(143, 20);
-            this.text_qtd_necess03.TabIndex = 12;
+            this.text_qtd_necess03.TabIndex = 11;
             this.text_qtd_necess03.Text = "0";
             // 
             // text_percentual_refugo03
@@ -1220,7 +1220,7 @@ namespace JP4
             this.text_percentual_refugo03.Location = new System.Drawing.Point(531, 98);
             this.text_percentual_refugo03.Name = "text_percentual_refugo03";
             this.text_percentual_refugo03.Size = new System.Drawing.Size(80, 20);
-            this.text_percentual_refugo03.TabIndex = 13;
+            this.text_percentual_refugo03.TabIndex = 12;
             this.text_percentual_refugo03.Text = "0";
             // 
             // text_dt_validade02
@@ -1238,7 +1238,7 @@ namespace JP4
             this.combo_componente02.MaxLength = 5;
             this.combo_componente02.Name = "combo_componente02";
             this.combo_componente02.Size = new System.Drawing.Size(331, 21);
-            this.combo_componente02.TabIndex = 18;
+            this.combo_componente02.TabIndex = 5;
             // 
             // text_qtd_necess02
             // 
@@ -1262,7 +1262,7 @@ namespace JP4
             this.text_dt_validade01.MaxLength = 10;
             this.text_dt_validade01.Name = "text_dt_validade01";
             this.text_dt_validade01.Size = new System.Drawing.Size(143, 20);
-            this.text_dt_validade01.TabIndex = 5;
+            this.text_dt_validade01.TabIndex = 4;
             // 
             // button_delete
             // 
