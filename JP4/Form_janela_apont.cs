@@ -746,7 +746,6 @@ namespace JP4
         //Funcionalidade combobox e textbox da janela Apontamento
 
 
-
         //private void text_qtd_fardos_TextChanged(object sender, EventArgs e) { }
 
         private void combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e)
@@ -1885,7 +1884,7 @@ namespace JP4
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
-                Consumo_estrutura(cod_descri_completa, qtd_movto);
+                Consumo_estrutura(num_transac, cod_descri_completa, qtd_movto, cliente_apon, secao_nome);
 
             }
             catch (Exception erro)
@@ -1898,14 +1897,15 @@ namespace JP4
             Salvar_mistura(num_transac);
 
         }
-        private void Consumo_estrutura(string descri_item, double qtd_apont)
+        private void Consumo_estrutura(string num_transac01, string descri_item, double qtd_apont, string cliente, string maquina_destino)
         {
+            //Atualizado 17/08/2021
 
             string cod_empresa = this.combo_empresa.Text;
-            double num_transac = 0;
+            string num_transac = num_transac01;
             string cod_item = "";//this.combo_cod_item.Text;
             //string cod_descri_completa = this.combo_desc_completa.Text;
-            string cod_descri_reduzida = "";
+            string cod_descri_reduzida = Buscar_descri_reduzida(descri_item);
             int mes_proces = DateTime.Now.Month;
             int mes_movto = DateTime.Now.Month;
             int ano_movto = DateTime.Now.Year;
@@ -1952,7 +1952,7 @@ namespace JP4
                 //double qtd_item_filho = 0;
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_estrutura where descri_pai = '" + descri_item + "'";
+                string comando_sql = "select * from db_estrutura where descri_pai = '" + descri_item + "' and cliente = '"+ cliente + "' and maquina_destino = '"+ maquina_destino+"'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1987,15 +1987,13 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
-
         private void Estornar_apontamento_delete(string id_apontamento)
         {
             // Estornando e deletando
             
             string num_transac = this.abaApon_label_num_transa.Text; // mudou aqui            
-            string cod_descri_completa = this.combo_desc_completa.Text; 
-            double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
+            // string cod_descri_completa = this.combo_desc_completa.Text; 
+            // double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
 
             try
             {
@@ -2011,7 +2009,8 @@ namespace JP4
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
-                Consumo_estrutura(cod_descri_completa, qtd_movto); // ve se vai se comportar do jeito certo
+                
+                Estornar_consumo_estrutura(num_transac);
                 Estornar_paradas(num_transac);
                 Estornar_consumo_mp(num_transac);
                 Estornar_defeitos_mq(num_transac);
@@ -2027,6 +2026,8 @@ namespace JP4
 
         private void Estornar_apontamento(string tipo_movimento)
         {
+            // Não estou usando mais 
+
             // id_estoque_trans = 
             string cod_empresa = this.combo_empresa.Text;
             string num_transac = this.abaApon_label_num_transa.Text; // mudou aqui
@@ -2092,7 +2093,7 @@ namespace JP4
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
-                Consumo_estrutura(cod_descri_completa, qtd_movto); // ve se vai se comportar do jeito certo
+                
                 Estornar_paradas(num_transac);
                 Estornar_consumo_mp(num_transac);
                 Estornar_defeitos_mq(num_transac);
@@ -2700,16 +2701,9 @@ namespace JP4
         {
             string cod_descri_completa = this.combo_desc_completa.Text;
             double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
-
-            Consumo_estrutura(cod_descri_completa, qtd_movto);
-
-
-
+            // Consumo_estrutura(cod_descri_completa, qtd_movto);
         }
-        private void Atualizar_mistura()
-        {
-
-        }   
+        private void Atualizar_mistura() { }
 
 
         #endregion
@@ -3595,6 +3589,30 @@ namespace JP4
 
         }
 
+        private void Estornar_consumo_estrutura(string num_transac)
+        {
+            try
+            {
+                string comando_sql;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                conexao.Open();
+
+                comando_sql = "DELETE FROM estoque_trans WHERE num_transac='" + num_transac + "'";
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+                MessageBox.Show("Estornado Com sucesso!");
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
 
         #endregion //Metodos Janela Parada
 
@@ -5086,9 +5104,6 @@ namespace JP4
         #endregion
         //------------------------------------------------------------------------------------------
 
-
-
-
         #endregion
 
         private void abaPesquisar_Grid_apon_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -5103,8 +5118,6 @@ namespace JP4
 
             Carregar_grid(combo_desc_completa.Text, combo_cliente_esto.Text, combo_maquinas.Text);
             Calcular_qtd_total_grid();
-
-
 
         }
 
