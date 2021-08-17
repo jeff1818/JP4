@@ -53,8 +53,15 @@ namespace JP4
         }
 
         public int cod_geral_erro = 0;
-
         CultureInfo cultures = new CultureInfo("pt-BR");
+
+
+        private string Nome_pc()
+        {
+            var name = Environment.MachineName;
+            return name;
+        }
+
         private void Form_janela_apont_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -1007,6 +1014,40 @@ namespace JP4
         #region Metodos de Busca
 
         // Janela Apontamento
+        private double Peso_medio_bobina(string cod_descri_completa)
+        {
+            double peso_medio = 0;
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + cod_descri_completa + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (myreader["descricao_completa"].ToString() == cod_descri_completa)
+                    {
+                        peso_medio = Convert.ToDouble(myreader["qtd_embala"]);
+                    }
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+            return peso_medio;
+        }
 
         private string Buscar_operacao(string nome_programa, string tipo_movimento)
         {
@@ -1045,7 +1086,6 @@ namespace JP4
 
             return nome_operacao;
         }
-
         private string Buscar_grupo_estoque(string descricao_completa)
         {
             string grupo_estoque = "";
@@ -1112,7 +1152,6 @@ namespace JP4
 
             return nome_grupo;
         }
-
         private string Buscar_descri_reduzida(string descricao_completa)
         {
             string descri_reduzida = "";
@@ -1136,7 +1175,6 @@ namespace JP4
                         descri_reduzida = myreader["descricao_reduzida"].ToString();
                     }
                 }
-
 
                 conexao.Close();
 
@@ -1802,15 +1840,16 @@ namespace JP4
             string ies_sit_est_orig = "L";
             string ies_sit_est_dest = "L";
             string cod_turno = this.combo_turnos.Text;
-            string nom_usuario = "";
+            string nom_usuario = Nome_pc();
             string num_prog = this.Name;
             double largura_material = Convert.ToDouble(text_largura.Text);
             double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
             double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
             double velocidade = Convert.ToDouble(this.text_velocidade.Text);
             double contador_fardos = Convert.ToDouble(this.text_contador.Text);
-            double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
-            double peso_total_fardo = 0; // Fazer metodos pra calcular
+            //double peso_medio_bobina =  Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
+            double peso_total_fardo = (qtd_movto/ fardos);
+            double peso_medio_bobina = peso_total_fardo / Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
             DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
             DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
             DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
@@ -1889,7 +1928,7 @@ namespace JP4
             string ies_sit_est_orig = "L";
             string ies_sit_est_dest = "L";
             string cod_turno = this.combo_turnos.Text;
-            string nom_usuario = "";
+            string nom_usuario = Nome_pc();
             string num_prog = this.Name;
 
             double largura_material = 0;
@@ -2015,7 +2054,7 @@ namespace JP4
             string ies_sit_est_orig = "L";
             string ies_sit_est_dest = "L";
             string cod_turno = this.combo_turnos.Text;
-            string nom_usuario = "";
+            string nom_usuario = Nome_pc();
             string num_prog = this.Name;
             double largura_material = 0;
             double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
@@ -2129,7 +2168,7 @@ namespace JP4
             string ies_sit_est_orig = "L";
             string ies_sit_est_dest = "L";
             string cod_turno = this.combo_turnos.Text;
-            string nom_usuario = "";
+            string nom_usuario = Nome_pc();
             string num_prog = this.Name;
             double largura_material = 0;
             double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
@@ -3587,6 +3626,8 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp01.Name;
+                    
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
 
                     try
                     {
@@ -3596,8 +3637,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','"+ Tipo_material+ "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3628,6 +3669,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp02.Name;
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
 
                     try
                     {
@@ -3637,8 +3679,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3669,6 +3711,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp03.Name;
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
 
                     try
                     {
@@ -3678,8 +3721,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3711,6 +3754,8 @@ namespace JP4
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp04.Name;
 
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
+
                     try
                     {
                         string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -3719,8 +3764,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3751,6 +3796,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp05.Name;
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
 
                     try
                     {
@@ -3760,8 +3806,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3793,6 +3839,8 @@ namespace JP4
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp06.Name;
 
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
+
                     try
                     {
                         string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -3801,8 +3849,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3834,6 +3882,8 @@ namespace JP4
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp07.Name;
 
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
+
                     try
                     {
                         string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -3842,8 +3892,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3874,6 +3924,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp08.Name;
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
 
                     try
                     {
@@ -3883,8 +3934,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','"+ Tipo_material+ "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3916,6 +3967,8 @@ namespace JP4
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp09.Name;
 
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
+
                     try
                     {
                         string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -3924,8 +3977,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -3955,6 +4008,8 @@ namespace JP4
                     DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
+                    string campo_marcador = abaMistura_combo_mp10.Name;
+                    string Tipo_material = AbaMistura_label_tipoMaterial.Text;
 
                     try
                     {
@@ -3964,8 +4019,8 @@ namespace JP4
 
                         string comando_sql;
 
-                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "')";
+                        comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material) " +
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "')";
 
                         OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -4151,6 +4206,7 @@ namespace JP4
                 AbaMistura_label_turno.Text = combo_turnos.Text;
                 AbaMistura_label_producao.Text = text_qtd_boa.Text;
                 AbaMistura_label_data_lanc.Text = dt_inicio_pro.Value.ToString("dd/MM/yyyy");
+                AbaMistura_label_tipoMaterial.Text = label_tipo_material.Text;
                 button_mistura_mp.BackColor = Color.LightGreen;
             }
             else

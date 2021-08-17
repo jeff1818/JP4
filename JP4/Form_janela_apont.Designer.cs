@@ -306,6 +306,7 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
+            this.AbaMistura_label_tipoMaterial = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -2325,6 +2326,7 @@ namespace JP4
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.AbaMistura_label_tipoMaterial);
             this.groupBox12.Controls.Add(this.AbaMistura_label_data_lanc);
             this.groupBox12.Controls.Add(this.AbaMistura_label_producao);
             this.groupBox12.Controls.Add(this.AbaMistura_label_turno);
@@ -3177,6 +3179,16 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
+            // AbaMistura_label_tipoMaterial
+            // 
+            this.AbaMistura_label_tipoMaterial.AutoSize = true;
+            this.AbaMistura_label_tipoMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_tipoMaterial.Location = new System.Drawing.Point(187, 16);
+            this.AbaMistura_label_tipoMaterial.Name = "AbaMistura_label_tipoMaterial";
+            this.AbaMistura_label_tipoMaterial.Size = new System.Drawing.Size(24, 17);
+            this.AbaMistura_label_tipoMaterial.TabIndex = 93;
+            this.AbaMistura_label_tipoMaterial.Text = "....";
+            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3521,5 +3533,6 @@ namespace JP4
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.ComboBox abaPesquisar_combo_mes_lanc;
         private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label AbaMistura_label_tipoMaterial;
     }
 }
