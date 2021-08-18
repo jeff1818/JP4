@@ -16,7 +16,6 @@ namespace JP4.Cadastros
         public Form_janela_cad_turno()
         {
             InitializeComponent();
-
             Carregar_grid_turno();
         }
 

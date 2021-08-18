@@ -21,32 +21,33 @@ namespace JP4
 
         #region carrega itens do arquivo de excel
 
-        private void Importar_ordens()
-        {
+        //private void Importar_ordens()
+        //{
 
-            try
-            {
-                // adicionar uma janela para o usuário esclher a pasta e local da pasta
-                // adicionar uma opção para escolher o nome da aba dentro do arquivo
+        //    try
+        //    {
+        //        // adicionar uma janela para o usuário esclher a pasta e local da pasta
+        //        // adicionar uma opção para escolher o nome da aba dentro do arquivo
 
                 
-                var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
-                var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
-                var totalLinhas = planilha.Rows().Count();
-                // primeira linha é o cabecalho
-                for (int l = 2; l <= totalLinhas; l++)
-                {
-                    if (planilha.Cell($"G{l}").Value.ToString() != "Digitada");
-                        //combo_ordem_prod.Items.Add(planilha.Cell($"B{l}").Value.ToString());
-                }
-            }
-            catch (Exception ex)
-            {
+        //        var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
+        //        var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
+        //        var totalLinhas = planilha.Rows().Count();
+        //        // primeira linha é o cabecalho
+        //        for (int l = 2; l <= totalLinhas; l++)
+        //        {
+        //            if (planilha.Cell($"G{l}").Value.ToString() != "Digitada");
+        //                //combo_ordem_prod.Items.Add(planilha.Cell($"B{l}").Value.ToString());
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        //        MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
 
-        }
+        //}
+     
         private void carregar_descricao_completa(string ordem_prod)
         {
             try
