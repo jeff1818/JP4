@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using JP4.Cadastros;
 using System;
 using System.Data;
 using System.Data.OleDb;
@@ -640,7 +641,7 @@ namespace JP4
                 // Mudei para aceitar o cliente
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura where cliente='"+ cliente+ "' and maquina_destino = '"+ maquina_destino+"'";
+                string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura where cliente='"+ cliente+ "' and maquina_destino = '"+ maquina_destino +"'";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -659,7 +660,7 @@ namespace JP4
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show(erro.Message + "\r\n Erro ao carregar o Grid!");
             }
         }
         private void Calcular_qtd_total_grid()
@@ -679,7 +680,7 @@ namespace JP4
             }
             catch (Exception)
             {
-                
+                MessageBox.Show("Erro ao calcular o grid!");
             }
 
         }
@@ -1847,8 +1848,31 @@ namespace JP4
             double velocidade = Convert.ToDouble(this.text_velocidade.Text);
             double contador_fardos = Convert.ToDouble(this.text_contador.Text);
             //double peso_medio_bobina =  Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
-            double peso_total_fardo = (qtd_movto/ fardos);
-            double peso_medio_bobina = peso_total_fardo / Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
+
+            double peso_total_fardo;
+            if (qtd_movto == 0 || fardos == 0)
+            {
+                peso_total_fardo = 0;
+            }
+            else 
+            {
+                peso_total_fardo = (qtd_movto / fardos);
+            }
+
+            double peso_medio_bobina;
+            
+            if (peso_total_fardo == 0)
+            {
+                peso_medio_bobina = 0;
+            }
+            else
+            {
+                peso_medio_bobina = peso_total_fardo / Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
+            }
+
+
+
+
             DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
             DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
             DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
@@ -1889,7 +1913,7 @@ namespace JP4
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show(erro.Message + "\r\n Erro ao salvar o apontamento");
             }
 
             Salvar_paradas_mq(num_transac);
@@ -1952,7 +1976,7 @@ namespace JP4
                 //double qtd_item_filho = 0;
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_estrutura where descri_pai = '" + descri_item + "' and cliente = '"+ cliente + "' and maquina_destino = '"+ maquina_destino+"'";
+                string comando_sql = "select * from db_estrutura where descri_pai = '" + descri_item + "' and cliente = '"+ cliente + "' and maquina_destino = '" + maquina_destino+"'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -1984,7 +2008,7 @@ namespace JP4
             catch (Exception erro)
             {
 
-                MessageBox.Show(erro.Message);
+                MessageBox.Show(erro.Message + "\r\n Erro Consumo de estrutura!");
             }
         }
         private void Estornar_apontamento_delete(string id_apontamento)
@@ -5135,7 +5159,8 @@ namespace JP4
 
         private void turnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form_janela_cad_turno cad_turno = new Form_janela_cad_turno();
+            cad_turno.ShowDialog();
         }
 
         private void operadoresToolStripMenuItem_Click(object sender, EventArgs e)

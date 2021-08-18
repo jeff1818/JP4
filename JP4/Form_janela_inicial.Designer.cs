@@ -70,6 +70,7 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
+            this.button_cad_turno = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -202,6 +203,7 @@ namespace JP4
             // panel_sub_menu_cadastro
             // 
             this.panel_sub_menu_cadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(205)))));
+            this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_turno);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_tipo_material);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_operador);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_operacao);
@@ -226,7 +228,7 @@ namespace JP4
             this.button_tipo_material.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.button_tipo_material.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_tipo_material.ForeColor = System.Drawing.Color.White;
-            this.button_tipo_material.Location = new System.Drawing.Point(3, 383);
+            this.button_tipo_material.Location = new System.Drawing.Point(4, 383);
             this.button_tipo_material.Name = "button_tipo_material";
             this.button_tipo_material.Size = new System.Drawing.Size(139, 32);
             this.button_tipo_material.TabIndex = 29;
@@ -606,6 +608,22 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
+            // button_cad_turno
+            // 
+            this.button_cad_turno.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button_cad_turno.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cad_turno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cad_turno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cad_turno.ForeColor = System.Drawing.Color.White;
+            this.button_cad_turno.Location = new System.Drawing.Point(3, 421);
+            this.button_cad_turno.Name = "button_cad_turno";
+            this.button_cad_turno.Size = new System.Drawing.Size(139, 32);
+            this.button_cad_turno.TabIndex = 30;
+            this.button_cad_turno.Text = "Cadastro Turnos";
+            this.button_cad_turno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cad_turno.UseVisualStyleBackColor = false;
+            this.button_cad_turno.Click += new System.EventHandler(this.button_cad_turno_Click);
+            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,6 +699,7 @@ namespace JP4
         private System.Windows.Forms.LinkLabel linkLabel_baixar_nova;
         private System.Windows.Forms.Label label_status;
         private System.Windows.Forms.Button button_tipo_material;
+        private System.Windows.Forms.Button button_cad_turno;
     }
 }
 

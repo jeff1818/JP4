@@ -282,5 +282,10 @@ namespace JP4
         {
             abrir_janelas(new Form_janela_cad_tipo_material());
         }
+
+        private void button_cad_turno_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_turno());
+        }
     }
 }

@@ -330,5 +330,10 @@ namespace JP4
             label_id_cad_operador.Text = id_operador;
             Carregar_controles(id_operador);
         }
+
+        private void button_fechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

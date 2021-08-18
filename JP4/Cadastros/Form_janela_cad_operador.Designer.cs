@@ -37,6 +37,7 @@ namespace JP4
             this.button_deletar = new System.Windows.Forms.Button();
             this.grid_cad_operador = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_descri_turno = new System.Windows.Forms.Label();
             this.text_funcao = new System.Windows.Forms.TextBox();
             this.combo_equipamento = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,7 +50,7 @@ namespace JP4
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastroTurnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroEquipamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label_descri_turno = new System.Windows.Forms.Label();
+            this.button_fechar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_operador)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -58,6 +59,7 @@ namespace JP4
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button_fechar);
             this.groupBox2.Controls.Add(this.button_limpar_controles);
             this.groupBox2.Controls.Add(this.button_atualizar);
             this.groupBox2.Controls.Add(this.button_filtrar);
@@ -155,6 +157,15 @@ namespace JP4
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação basica";
+            // 
+            // label_descri_turno
+            // 
+            this.label_descri_turno.AutoSize = true;
+            this.label_descri_turno.Location = new System.Drawing.Point(521, 50);
+            this.label_descri_turno.Name = "label_descri_turno";
+            this.label_descri_turno.Size = new System.Drawing.Size(16, 13);
+            this.label_descri_turno.TabIndex = 13;
+            this.label_descri_turno.Text = "...";
             // 
             // text_funcao
             // 
@@ -256,14 +267,15 @@ namespace JP4
             this.cadastroEquipamentoToolStripMenuItem.Size = new System.Drawing.Size(140, 20);
             this.cadastroEquipamentoToolStripMenuItem.Text = "Cadastro Equipamento";
             // 
-            // label_descri_turno
+            // button_fechar
             // 
-            this.label_descri_turno.AutoSize = true;
-            this.label_descri_turno.Location = new System.Drawing.Point(521, 50);
-            this.label_descri_turno.Name = "label_descri_turno";
-            this.label_descri_turno.Size = new System.Drawing.Size(16, 13);
-            this.label_descri_turno.TabIndex = 13;
-            this.label_descri_turno.Text = "...";
+            this.button_fechar.Location = new System.Drawing.Point(12, 178);
+            this.button_fechar.Name = "button_fechar";
+            this.button_fechar.Size = new System.Drawing.Size(114, 23);
+            this.button_fechar.TabIndex = 12;
+            this.button_fechar.Text = "Sair";
+            this.button_fechar.UseVisualStyleBackColor = true;
+            this.button_fechar.Click += new System.EventHandler(this.button_fechar_Click);
             // 
             // Form_janela_cad_operador
             // 
@@ -273,7 +285,7 @@ namespace JP4
             this.Controls.Add(this.grid_cad_operador);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_janela_cad_operador";
             this.Text = "Cadastro Operadores";
@@ -310,5 +322,6 @@ namespace JP4
         private System.Windows.Forms.ToolStripMenuItem cadastroTurnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroEquipamentoToolStripMenuItem;
         private System.Windows.Forms.Label label_descri_turno;
+        private System.Windows.Forms.Button button_fechar;
     }
 }
