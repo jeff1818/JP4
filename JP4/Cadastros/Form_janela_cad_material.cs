@@ -481,7 +481,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void carregar_status_material()
         {
             try
@@ -538,7 +537,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void carregar_local_aplicacao()
         {
             try
@@ -567,7 +565,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void carregar_empresa()
         {
             try
@@ -744,7 +741,6 @@ namespace JP4
 
 
         }
-
         private void Atualizar_cadastro(string id_cadastro)
         {
             string codigo_item = text_cod_item.Text;
@@ -836,7 +832,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Salvar_cadastro()
         {
 
@@ -919,7 +914,6 @@ namespace JP4
                 }
             }
         }
-
         private void Deletar_cadastro(string cadastro_id)
         {
             try
@@ -945,8 +939,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
-
         private void Carrega_campos(string id_cadastro)
         {
             try

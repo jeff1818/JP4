@@ -17,7 +17,7 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">C:\Users\Jarvis\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx</Value>
     </Setting>
-    <Setting Name="contador_backup" Type="System.Int32" Scope="User">
+    <Setting Name="contagem_back" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>

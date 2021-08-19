@@ -47,7 +47,9 @@ namespace JP4
             this.verificarAtualizaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_config_local = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dt_ultimo_backup = new System.Windows.Forms.DateTimePicker();
+            this.label_endereco_backup = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -202,7 +204,6 @@ namespace JP4
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage_config_local);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
@@ -212,6 +213,9 @@ namespace JP4
             // 
             // tabPage_config_local
             // 
+            this.tabPage_config_local.Controls.Add(this.label_endereco_backup);
+            this.tabPage_config_local.Controls.Add(this.dt_ultimo_backup);
+            this.tabPage_config_local.Controls.Add(this.label3);
             this.tabPage_config_local.Controls.Add(this.groupBox1);
             this.tabPage_config_local.Controls.Add(this.groupBox2);
             this.tabPage_config_local.Location = new System.Drawing.Point(4, 22);
@@ -222,15 +226,34 @@ namespace JP4
             this.tabPage_config_local.Text = "Config. Locais";
             this.tabPage_config_local.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // label3
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(840, 380);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 288);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Ultimo Backup";
+            // 
+            // dt_ultimo_backup
+            // 
+            this.dt_ultimo_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_ultimo_backup.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_ultimo_backup.Location = new System.Drawing.Point(113, 283);
+            this.dt_ultimo_backup.Name = "dt_ultimo_backup";
+            this.dt_ultimo_backup.Size = new System.Drawing.Size(119, 23);
+            this.dt_ultimo_backup.TabIndex = 6;
+            // 
+            // label_endereco_backup
+            // 
+            this.label_endereco_backup.AutoSize = true;
+            this.label_endereco_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_endereco_backup.Location = new System.Drawing.Point(15, 319);
+            this.label_endereco_backup.Name = "label_endereco_backup";
+            this.label_endereco_backup.Size = new System.Drawing.Size(20, 17);
+            this.label_endereco_backup.TabIndex = 7;
+            this.label_endereco_backup.Text = "...";
             // 
             // CONF01
             // 
@@ -253,6 +276,7 @@ namespace JP4
             this.menuStrip2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage_config_local.ResumeLayout(false);
+            this.tabPage_config_local.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,6 +301,8 @@ namespace JP4
         private System.Windows.Forms.ToolStripMenuItem verificarAtualizaçãoToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage_config_local;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dt_ultimo_backup;
+        private System.Windows.Forms.Label label_endereco_backup;
     }
 }

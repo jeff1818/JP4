@@ -89,6 +89,7 @@ namespace JP4
             this.text_senha.PasswordChar = '*';
             this.text_senha.Size = new System.Drawing.Size(124, 20);
             this.text_senha.TabIndex = 11;
+            this.text_senha.Enter += new System.EventHandler(this.text_senha_Enter);
             // 
             // text_usuario
             // 
@@ -142,6 +143,7 @@ namespace JP4
             this.Controls.Add(this.text_usuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_janela_login";

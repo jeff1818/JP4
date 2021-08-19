@@ -39,6 +39,7 @@ namespace JP4
             this.linkLabel_baixar_nova = new System.Windows.Forms.LinkLabel();
             this.label_status = new System.Windows.Forms.Label();
             this.panel_sub_menu_cadastro = new System.Windows.Forms.Panel();
+            this.button_cad_turno = new System.Windows.Forms.Button();
             this.button_tipo_material = new System.Windows.Forms.Button();
             this.button_cad_operador = new System.Windows.Forms.Button();
             this.button_cad_operacao = new System.Windows.Forms.Button();
@@ -70,7 +71,8 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
-            this.button_cad_turno = new System.Windows.Forms.Button();
+            this.label_nome_usuario = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -85,6 +87,8 @@ namespace JP4
             // panel_titulo_menu
             // 
             this.panel_titulo_menu.BackColor = System.Drawing.Color.Black;
+            this.panel_titulo_menu.Controls.Add(this.label2);
+            this.panel_titulo_menu.Controls.Add(this.label_nome_usuario);
             this.panel_titulo_menu.Controls.Add(this.botao_restor);
             this.panel_titulo_menu.Controls.Add(this.botao_mini);
             this.panel_titulo_menu.Controls.Add(this.botao_maxm);
@@ -220,6 +224,22 @@ namespace JP4
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 462);
             this.panel_sub_menu_cadastro.TabIndex = 27;
             this.panel_sub_menu_cadastro.Visible = false;
+            // 
+            // button_cad_turno
+            // 
+            this.button_cad_turno.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button_cad_turno.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cad_turno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cad_turno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cad_turno.ForeColor = System.Drawing.Color.White;
+            this.button_cad_turno.Location = new System.Drawing.Point(3, 421);
+            this.button_cad_turno.Name = "button_cad_turno";
+            this.button_cad_turno.Size = new System.Drawing.Size(139, 32);
+            this.button_cad_turno.TabIndex = 30;
+            this.button_cad_turno.Text = "Cadastro Turnos";
+            this.button_cad_turno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cad_turno.UseVisualStyleBackColor = false;
+            this.button_cad_turno.Click += new System.EventHandler(this.button_cad_turno_Click);
             // 
             // button_tipo_material
             // 
@@ -608,21 +628,25 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
-            // button_cad_turno
+            // label_nome_usuario
             // 
-            this.button_cad_turno.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button_cad_turno.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_cad_turno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button_cad_turno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cad_turno.ForeColor = System.Drawing.Color.White;
-            this.button_cad_turno.Location = new System.Drawing.Point(3, 421);
-            this.button_cad_turno.Name = "button_cad_turno";
-            this.button_cad_turno.Size = new System.Drawing.Size(139, 32);
-            this.button_cad_turno.TabIndex = 30;
-            this.button_cad_turno.Text = "Cadastro Turnos";
-            this.button_cad_turno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_cad_turno.UseVisualStyleBackColor = false;
-            this.button_cad_turno.Click += new System.EventHandler(this.button_cad_turno_Click);
+            this.label_nome_usuario.AutoSize = true;
+            this.label_nome_usuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_nome_usuario.Location = new System.Drawing.Point(63, 9);
+            this.label_nome_usuario.Name = "label_nome_usuario";
+            this.label_nome_usuario.Size = new System.Drawing.Size(10, 13);
+            this.label_nome_usuario.TabIndex = 3;
+            this.label_nome_usuario.Text = ".";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(11, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Usuário:";
             // 
             // Form_tela_inicial
             // 
@@ -643,6 +667,7 @@ namespace JP4
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.panel_titulo_menu.ResumeLayout(false);
+            this.panel_titulo_menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_maxm)).EndInit();
@@ -700,6 +725,8 @@ namespace JP4
         private System.Windows.Forms.Label label_status;
         private System.Windows.Forms.Button button_tipo_material;
         private System.Windows.Forms.Button button_cad_turno;
+        public System.Windows.Forms.Label label_nome_usuario;
+        public System.Windows.Forms.Label label2;
     }
 }
 

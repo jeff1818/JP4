@@ -47,12 +47,12 @@ namespace JP4.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int contador_backup {
+        public int contagem_back {
             get {
-                return ((int)(this["contador_backup"]));
+                return ((int)(this["contagem_back"]));
             }
             set {
-                this["contador_backup"] = value;
+                this["contagem_back"] = value;
             }
         }
     }
