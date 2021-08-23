@@ -1599,7 +1599,6 @@ namespace JP4
             return resultado;
 
         }
-
         private void Salvar_estrutura()
         {
             if (combo_componente01.Text != string.Empty)
@@ -2087,7 +2086,6 @@ namespace JP4
             }
 
         }
-
         private void Delete_item_estrutura(long id_cadastro)
         {
 
@@ -2116,7 +2114,6 @@ namespace JP4
         {
             Desbloquear_controles();
         }
-
         private void button_salvar_Click(object sender, EventArgs e)
         {
             try
@@ -2132,14 +2129,12 @@ namespace JP4
 
 
         }
-
         private void button_pesquisar_Click(object sender, EventArgs e)
         {
             Limpar_campos();
             Carregar_estrutura(this.combo_descricao_item.Text, combo_cliente.Text, combo_maquina_destino.Text);
 
         }
-
         private void combo_descricao_item_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

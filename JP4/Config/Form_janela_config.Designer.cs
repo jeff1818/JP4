@@ -47,9 +47,11 @@ namespace JP4
             this.verificarAtualizaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_config_local = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dt_ultimo_backup = new System.Windows.Forms.DateTimePicker();
             this.label_endereco_backup = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button_config_bakcup = new System.Windows.Forms.Button();
+            this.label_origem_backup = new System.Windows.Forms.Label();
+            this.label_dt_ultimo_backup = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -213,8 +215,10 @@ namespace JP4
             // 
             // tabPage_config_local
             // 
+            this.tabPage_config_local.Controls.Add(this.label_dt_ultimo_backup);
+            this.tabPage_config_local.Controls.Add(this.label_origem_backup);
+            this.tabPage_config_local.Controls.Add(this.button_config_bakcup);
             this.tabPage_config_local.Controls.Add(this.label_endereco_backup);
-            this.tabPage_config_local.Controls.Add(this.dt_ultimo_backup);
             this.tabPage_config_local.Controls.Add(this.label3);
             this.tabPage_config_local.Controls.Add(this.groupBox1);
             this.tabPage_config_local.Controls.Add(this.groupBox2);
@@ -226,6 +230,16 @@ namespace JP4
             this.tabPage_config_local.Text = "Config. Locais";
             this.tabPage_config_local.UseVisualStyleBackColor = true;
             // 
+            // label_endereco_backup
+            // 
+            this.label_endereco_backup.AutoSize = true;
+            this.label_endereco_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_endereco_backup.Location = new System.Drawing.Point(15, 346);
+            this.label_endereco_backup.Name = "label_endereco_backup";
+            this.label_endereco_backup.Size = new System.Drawing.Size(16, 13);
+            this.label_endereco_backup.TabIndex = 7;
+            this.label_endereco_backup.Text = "...";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -236,24 +250,35 @@ namespace JP4
             this.label3.TabIndex = 5;
             this.label3.Text = "Ultimo Backup";
             // 
-            // dt_ultimo_backup
+            // button_config_bakcup
             // 
-            this.dt_ultimo_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_ultimo_backup.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_ultimo_backup.Location = new System.Drawing.Point(113, 283);
-            this.dt_ultimo_backup.Name = "dt_ultimo_backup";
-            this.dt_ultimo_backup.Size = new System.Drawing.Size(119, 23);
-            this.dt_ultimo_backup.TabIndex = 6;
+            this.button_config_bakcup.Location = new System.Drawing.Point(251, 283);
+            this.button_config_bakcup.Name = "button_config_bakcup";
+            this.button_config_bakcup.Size = new System.Drawing.Size(163, 23);
+            this.button_config_bakcup.TabIndex = 8;
+            this.button_config_bakcup.Text = "configurar pasta bakcup";
+            this.button_config_bakcup.UseVisualStyleBackColor = true;
+            this.button_config_bakcup.Click += new System.EventHandler(this.button_config_bakcup_Click);
             // 
-            // label_endereco_backup
+            // label_origem_backup
             // 
-            this.label_endereco_backup.AutoSize = true;
-            this.label_endereco_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_endereco_backup.Location = new System.Drawing.Point(15, 319);
-            this.label_endereco_backup.Name = "label_endereco_backup";
-            this.label_endereco_backup.Size = new System.Drawing.Size(20, 17);
-            this.label_endereco_backup.TabIndex = 7;
-            this.label_endereco_backup.Text = "...";
+            this.label_origem_backup.AutoSize = true;
+            this.label_origem_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_origem_backup.Location = new System.Drawing.Point(15, 314);
+            this.label_origem_backup.Name = "label_origem_backup";
+            this.label_origem_backup.Size = new System.Drawing.Size(16, 13);
+            this.label_origem_backup.TabIndex = 9;
+            this.label_origem_backup.Text = "...";
+            // 
+            // label_dt_ultimo_backup
+            // 
+            this.label_dt_ultimo_backup.AutoSize = true;
+            this.label_dt_ultimo_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_dt_ultimo_backup.Location = new System.Drawing.Point(114, 289);
+            this.label_dt_ultimo_backup.Name = "label_dt_ultimo_backup";
+            this.label_dt_ultimo_backup.Size = new System.Drawing.Size(80, 17);
+            this.label_dt_ultimo_backup.TabIndex = 10;
+            this.label_dt_ultimo_backup.Text = "20/08/2021";
             // 
             // CONF01
             // 
@@ -302,7 +327,9 @@ namespace JP4
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage_config_local;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dt_ultimo_backup;
         private System.Windows.Forms.Label label_endereco_backup;
+        private System.Windows.Forms.Button button_config_bakcup;
+        private System.Windows.Forms.Label label_origem_backup;
+        private System.Windows.Forms.Label label_dt_ultimo_backup;
     }
 }

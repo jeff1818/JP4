@@ -44,15 +44,33 @@ namespace JP4.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int contagem_back {
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("20/08/2021")]
+        public string dt_ultimo_backup {
             get {
-                return ((int)(this["contagem_back"]));
+                return ((string)(this["dt_ultimo_backup"]));
             }
-            set {
-                this["contagem_back"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Jarvis\\OneDrive\\Visual - basic c#\\banco\\db_backup")]
+        public string caminho_backup {
+            get {
+                return ((string)(this["caminho_backup"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Jarvis\\OneDrive\\Visual - basic c#\\banco")]
+        public string origem_backup {
+            get {
+                return ((string)(this["origem_backup"]));
             }
         }
     }

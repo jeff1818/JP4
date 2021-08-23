@@ -15,6 +15,7 @@ using System.IO.Compression;
 using System.IO;
 using JP4.Cadastros;
 
+
 namespace JP4
 {
     public partial class Form_tela_inicial : Form
@@ -31,9 +32,15 @@ namespace JP4
             Check_update();
             //abrir_janelas(new Form_janela_report01());
 
+            CONF01 gerar_backup = new CONF01();
+            gerar_backup.fazer_backup();
+
         }
 
+
         
+        
+
 
 
         // ------------------------------------------------------------------------------------------------------

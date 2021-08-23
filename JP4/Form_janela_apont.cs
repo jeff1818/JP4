@@ -137,9 +137,6 @@ namespace JP4
         {
 
         }
-
-
-
         private void Resetar_janela()
         {
 
@@ -3612,7 +3609,6 @@ namespace JP4
 
 
         }
-
         private void Estornar_consumo_estrutura(string num_transac)
         {
             try
@@ -4253,7 +4249,7 @@ namespace JP4
             }
             else
             {
-                MessageBox.Show("Não é necessario informar mistura para itens da picotadeira!");
+                MessageBox.Show("Não é necessario informar mistura para itens da picotadeira ANIMAL!");
 
             }
 
