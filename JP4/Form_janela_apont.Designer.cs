@@ -223,6 +223,7 @@ namespace JP4
             this.label61 = new System.Windows.Forms.Label();
             this.abaMistura_button_voltar_parada = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.AbaMistura_label_tipoMaterial = new System.Windows.Forms.Label();
             this.AbaMistura_label_data_lanc = new System.Windows.Forms.Label();
             this.AbaMistura_label_producao = new System.Windows.Forms.Label();
             this.AbaMistura_label_turno = new System.Windows.Forms.Label();
@@ -306,7 +307,6 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
-            this.AbaMistura_label_tipoMaterial = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -2341,6 +2341,16 @@ namespace JP4
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Informação básica";
             // 
+            // AbaMistura_label_tipoMaterial
+            // 
+            this.AbaMistura_label_tipoMaterial.AutoSize = true;
+            this.AbaMistura_label_tipoMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbaMistura_label_tipoMaterial.Location = new System.Drawing.Point(187, 16);
+            this.AbaMistura_label_tipoMaterial.Name = "AbaMistura_label_tipoMaterial";
+            this.AbaMistura_label_tipoMaterial.Size = new System.Drawing.Size(24, 17);
+            this.AbaMistura_label_tipoMaterial.TabIndex = 93;
+            this.AbaMistura_label_tipoMaterial.Text = "....";
+            // 
             // AbaMistura_label_data_lanc
             // 
             this.AbaMistura_label_data_lanc.AutoSize = true;
@@ -2993,7 +3003,6 @@ namespace JP4
             this.abaPesquisar_Grid_apon.AllowUserToDeleteRows = false;
             this.abaPesquisar_Grid_apon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.abaPesquisar_Grid_apon.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.abaPesquisar_Grid_apon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.abaPesquisar_Grid_apon.Location = new System.Drawing.Point(6, 142);
             this.abaPesquisar_Grid_apon.Name = "abaPesquisar_Grid_apon";
             this.abaPesquisar_Grid_apon.ReadOnly = true;
@@ -3178,16 +3187,6 @@ namespace JP4
             // db_cadastro_grupo_estoqueTableAdapter1
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
-            // 
-            // AbaMistura_label_tipoMaterial
-            // 
-            this.AbaMistura_label_tipoMaterial.AutoSize = true;
-            this.AbaMistura_label_tipoMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AbaMistura_label_tipoMaterial.Location = new System.Drawing.Point(187, 16);
-            this.AbaMistura_label_tipoMaterial.Name = "AbaMistura_label_tipoMaterial";
-            this.AbaMistura_label_tipoMaterial.Size = new System.Drawing.Size(24, 17);
-            this.AbaMistura_label_tipoMaterial.TabIndex = 93;
-            this.AbaMistura_label_tipoMaterial.Text = "....";
             // 
             // AP01
             // 

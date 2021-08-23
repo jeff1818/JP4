@@ -4966,7 +4966,7 @@ namespace JP4
             {
                 string cod_operacao = "APON";
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans " +
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, cliente_apon, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans " +
                     "where (cod_operacao='" + cod_operacao + "') AND (qtd_real >= 0 AND status_estorno = 0)";
 
                 // Verificar se ordem e qtd é igual 
