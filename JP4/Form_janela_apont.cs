@@ -1652,6 +1652,7 @@ namespace JP4
 
             abaParada_hr_fim01.Value = Convert.ToDateTime("01/01/2000 00:00:00");
             abaParada_hr_fim02.Value = Convert.ToDateTime("01/01/2000 00:00:00");
+            abaParada_hr_fim03.Value = Convert.ToDateTime("01/01/2000 00:00:00");
             abaParada_hr_fim04.Value = Convert.ToDateTime("01/01/2000 00:00:00");
             abaParada_hr_fim05.Value = Convert.ToDateTime("01/01/2000 00:00:00");
             abaParada_hr_fim06.Value = Convert.ToDateTime("01/01/2000 00:00:00");
@@ -4860,7 +4861,6 @@ namespace JP4
         {
             // ll
         }
-
         private void Carregar_mistura_apontamento(string num_transac)
         {
             try
@@ -4985,8 +4985,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
-
         private void Filtrar_ano(int ano_movto)
         {
             try
@@ -5016,8 +5014,6 @@ namespace JP4
             }
 
         }
-
-
         private void Filtrar_mes_ano(int mes_movto)
         {
             try
@@ -5050,8 +5046,6 @@ namespace JP4
             }
 
         }
-
-
         private void Filtrar_grid_pesquisar(string num_docum, string data_lancamento, string operador, string turno, string descricao_material, string maquina)
         {
 
@@ -5114,7 +5108,6 @@ namespace JP4
         {
             Carregar_grid_pesquisar();
         }
-
         private void abaPesquisar_button_Click(object sender, EventArgs e)
         {
             Filtrar_grid_pesquisar(abaPesquisar_text_ordem.Text, abaPesquisar_text_dt_lanc.Text, abaPesquisar_combo_operador.Text, abaPesquisar_combo_turno.Text, abaPesquisar_combo_material.Text, abaPesquisar_combo_maq.Text);
