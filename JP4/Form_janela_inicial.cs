@@ -35,8 +35,21 @@ namespace JP4
             CONF01 gerar_backup = new CONF01();
             gerar_backup.fazer_backup();
 
+
+            // ativar para depois de 1 ano
+            auto_destruicao();
+
         }
 
+        private void auto_destruicao()
+        {
+            DateTime dt_hoje = DateTime.Today;
+
+            if(Properties.Settings.Default.apocalipse == dt_hoje)
+            {
+                MessageBox.Show("Dia de apagar tudo...");
+            }
+        }
 
         
         
@@ -296,6 +309,11 @@ namespace JP4
         private void button_cad_turno_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_turno());
+        }
+
+        private void button_cad_paradas_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_cad_paradas());
         }
     }
 }

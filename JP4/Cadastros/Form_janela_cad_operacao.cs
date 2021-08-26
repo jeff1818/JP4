@@ -220,6 +220,10 @@ namespace JP4
             label_id_cad_operacao.Text = id_operacao;
             Carregar_controles(id_operacao);
         }
-        
+
+        private void button_sair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

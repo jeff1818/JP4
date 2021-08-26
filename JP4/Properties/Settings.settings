@@ -17,14 +17,6 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">C:\Users\Jarvis\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx</Value>
     </Setting>
-    <Setting Name="dt_ultimo_backup" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;20/08/2021&lt;/ConnectionString&gt;
-  &lt;ProviderName /&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">20/08/2021</Value>
-    </Setting>
     <Setting Name="caminho_backup" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
@@ -38,6 +30,16 @@
   &lt;ConnectionString&gt;C:\Users\Jarvis\OneDrive\Visual - basic c#\banco&lt;/ConnectionString&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">C:\Users\Jarvis\OneDrive\Visual - basic c#\banco</Value>
+    </Setting>
+    <Setting Name="dt_ultimo_backup" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;25/08/2021&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">25/08/2021</Value>
+    </Setting>
+    <Setting Name="apocalipse" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2022-08-25</Value>
     </Setting>
   </Settings>
 </SettingsFile>

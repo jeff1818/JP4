@@ -37,15 +37,16 @@ namespace JP4
             this.button_deletar = new System.Windows.Forms.Button();
             this.grid_cad_operacao = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.combo_programa_destino = new System.Windows.Forms.ComboBox();
+            this.combo_tipo_operacao = new System.Windows.Forms.ComboBox();
+            this.text_descri_operacao = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label_id_cad_operacao = new System.Windows.Forms.Label();
             this.text_cod_operacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.text_descri_operacao = new System.Windows.Forms.TextBox();
-            this.combo_tipo_operacao = new System.Windows.Forms.ComboBox();
-            this.combo_programa_destino = new System.Windows.Forms.ComboBox();
+            this.button_sair = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_operacao)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -53,6 +54,7 @@ namespace JP4
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button_sair);
             this.groupBox2.Controls.Add(this.button_limpar_controles);
             this.groupBox2.Controls.Add(this.button_atualizar);
             this.groupBox2.Controls.Add(this.button_filtrar);
@@ -149,6 +151,43 @@ namespace JP4
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação basica";
             // 
+            // combo_programa_destino
+            // 
+            this.combo_programa_destino.FormattingEnabled = true;
+            this.combo_programa_destino.Items.AddRange(new object[] {
+            "AP01"});
+            this.combo_programa_destino.Location = new System.Drawing.Point(340, 44);
+            this.combo_programa_destino.Name = "combo_programa_destino";
+            this.combo_programa_destino.Size = new System.Drawing.Size(121, 21);
+            this.combo_programa_destino.TabIndex = 13;
+            // 
+            // combo_tipo_operacao
+            // 
+            this.combo_tipo_operacao.FormattingEnabled = true;
+            this.combo_tipo_operacao.Items.AddRange(new object[] {
+            "Entrada",
+            "Saida"});
+            this.combo_tipo_operacao.Location = new System.Drawing.Point(97, 44);
+            this.combo_tipo_operacao.Name = "combo_tipo_operacao";
+            this.combo_tipo_operacao.Size = new System.Drawing.Size(121, 21);
+            this.combo_tipo_operacao.TabIndex = 12;
+            // 
+            // text_descri_operacao
+            // 
+            this.text_descri_operacao.Location = new System.Drawing.Point(340, 19);
+            this.text_descri_operacao.Name = "text_descri_operacao";
+            this.text_descri_operacao.Size = new System.Drawing.Size(352, 20);
+            this.text_descri_operacao.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(239, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Programa Destino";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -192,42 +231,15 @@ namespace JP4
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo:";
             // 
-            // label4
+            // button_sair
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(239, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Programa Destino";
-            // 
-            // text_descri_operacao
-            // 
-            this.text_descri_operacao.Location = new System.Drawing.Point(340, 19);
-            this.text_descri_operacao.Name = "text_descri_operacao";
-            this.text_descri_operacao.Size = new System.Drawing.Size(352, 20);
-            this.text_descri_operacao.TabIndex = 11;
-            // 
-            // combo_tipo_operacao
-            // 
-            this.combo_tipo_operacao.FormattingEnabled = true;
-            this.combo_tipo_operacao.Items.AddRange(new object[] {
-            "Entrada",
-            "Saida"});
-            this.combo_tipo_operacao.Location = new System.Drawing.Point(97, 44);
-            this.combo_tipo_operacao.Name = "combo_tipo_operacao";
-            this.combo_tipo_operacao.Size = new System.Drawing.Size(121, 21);
-            this.combo_tipo_operacao.TabIndex = 12;
-            // 
-            // combo_programa_destino
-            // 
-            this.combo_programa_destino.FormattingEnabled = true;
-            this.combo_programa_destino.Items.AddRange(new object[] {
-            "AP01"});
-            this.combo_programa_destino.Location = new System.Drawing.Point(340, 44);
-            this.combo_programa_destino.Name = "combo_programa_destino";
-            this.combo_programa_destino.Size = new System.Drawing.Size(121, 21);
-            this.combo_programa_destino.TabIndex = 13;
+            this.button_sair.Location = new System.Drawing.Point(12, 178);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(114, 23);
+            this.button_sair.TabIndex = 14;
+            this.button_sair.Text = "Sair";
+            this.button_sair.UseVisualStyleBackColor = true;
+            this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
             // 
             // Form_janela_cad_operacao
             // 
@@ -237,7 +249,7 @@ namespace JP4
             this.Controls.Add(this.grid_cad_operacao);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_janela_cad_operacao";
             this.Text = "Cadastro Operação";
             this.groupBox2.ResumeLayout(false);
@@ -267,5 +279,6 @@ namespace JP4
         private System.Windows.Forms.ComboBox combo_programa_destino;
         private System.Windows.Forms.ComboBox combo_tipo_operacao;
         private System.Windows.Forms.TextBox text_descri_operacao;
+        private System.Windows.Forms.Button button_sair;
     }
 }

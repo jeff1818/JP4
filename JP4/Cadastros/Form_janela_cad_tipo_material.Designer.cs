@@ -36,6 +36,7 @@ namespace JP4.Cadastros
             this.button_salvar = new System.Windows.Forms.Button();
             this.button_deletar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.text_descri_tipo_material = new System.Windows.Forms.TextBox();
             this.text_codigo_tipo_material = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,7 +44,7 @@ namespace JP4.Cadastros
             this.text_tipo_material = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grid_tipo_material = new System.Windows.Forms.DataGridView();
-            this.text_descri_tipo_material = new System.Windows.Forms.TextBox();
+            this.button_sair = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_tipo_material)).BeginInit();
@@ -51,6 +52,7 @@ namespace JP4.Cadastros
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button_sair);
             this.groupBox2.Controls.Add(this.button_limpar_controles);
             this.groupBox2.Controls.Add(this.button_atualizar);
             this.groupBox2.Controls.Add(this.button_filtrar);
@@ -131,6 +133,13 @@ namespace JP4.Cadastros
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação basica";
             // 
+            // text_descri_tipo_material
+            // 
+            this.text_descri_tipo_material.Location = new System.Drawing.Point(88, 50);
+            this.text_descri_tipo_material.Name = "text_descri_tipo_material";
+            this.text_descri_tipo_material.Size = new System.Drawing.Size(399, 20);
+            this.text_descri_tipo_material.TabIndex = 12;
+            // 
             // text_codigo_tipo_material
             // 
             this.text_codigo_tipo_material.Location = new System.Drawing.Point(88, 19);
@@ -196,12 +205,15 @@ namespace JP4.Cadastros
             this.grid_tipo_material.TabIndex = 19;
             this.grid_tipo_material.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_tipo_material_CellDoubleClick);
             // 
-            // text_descri_tipo_material
+            // button_sair
             // 
-            this.text_descri_tipo_material.Location = new System.Drawing.Point(88, 50);
-            this.text_descri_tipo_material.Name = "text_descri_tipo_material";
-            this.text_descri_tipo_material.Size = new System.Drawing.Size(399, 20);
-            this.text_descri_tipo_material.TabIndex = 12;
+            this.button_sair.Location = new System.Drawing.Point(12, 178);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(114, 23);
+            this.button_sair.TabIndex = 13;
+            this.button_sair.Text = "Sair";
+            this.button_sair.UseVisualStyleBackColor = true;
+            this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
             // 
             // Form_janela_cad_tipo_material
             // 
@@ -239,5 +251,6 @@ namespace JP4.Cadastros
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grid_tipo_material;
         private System.Windows.Forms.TextBox text_descri_tipo_material;
+        private System.Windows.Forms.Button button_sair;
     }
 }

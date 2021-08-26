@@ -216,7 +216,7 @@ namespace JP4.Cadastros
 
         private void button_limpar_controles_Click(object sender, EventArgs e)
         {
-
+            limpar_controles();
         }
 
         private void button_filtrar_Click(object sender, EventArgs e)
@@ -231,6 +231,9 @@ namespace JP4.Cadastros
             Carregar_controles(id_tipo_material);
         }
 
-        
+        private void button_sair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
