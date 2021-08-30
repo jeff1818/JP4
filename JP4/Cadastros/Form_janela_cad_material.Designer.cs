@@ -54,6 +54,7 @@ namespace JP4
             this.label1 = new System.Windows.Forms.Label();
             this.text_cod_item = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_deletar_cadastro = new System.Windows.Forms.Button();
             this.button_atualizar_cad = new System.Windows.Forms.Button();
             this.button_editar_cadastro = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
@@ -118,7 +119,7 @@ namespace JP4
             this.combo_descri_completa = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.combo_cod_item = new System.Windows.Forms.ComboBox();
-            this.button_deletar_cadastro = new System.Windows.Forms.Button();
+            this.button_duplicar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.Item.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -346,6 +347,7 @@ namespace JP4
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button_duplicar);
             this.groupBox2.Controls.Add(this.button_deletar_cadastro);
             this.groupBox2.Controls.Add(this.button_atualizar_cad);
             this.groupBox2.Controls.Add(this.button_editar_cadastro);
@@ -357,6 +359,16 @@ namespace JP4
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Menu";
+            // 
+            // button_deletar_cadastro
+            // 
+            this.button_deletar_cadastro.Location = new System.Drawing.Point(6, 135);
+            this.button_deletar_cadastro.Name = "button_deletar_cadastro";
+            this.button_deletar_cadastro.Size = new System.Drawing.Size(122, 23);
+            this.button_deletar_cadastro.TabIndex = 4;
+            this.button_deletar_cadastro.Text = "Deletar";
+            this.button_deletar_cadastro.UseVisualStyleBackColor = true;
+            this.button_deletar_cadastro.Click += new System.EventHandler(this.button_deletar_cadastro_Click);
             // 
             // button_atualizar_cad
             // 
@@ -833,7 +845,7 @@ namespace JP4
             this.groupBox6.Controls.Add(this.button_filtrar);
             this.groupBox6.Location = new System.Drawing.Point(6, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(144, 122);
+            this.groupBox6.Size = new System.Drawing.Size(144, 148);
             this.groupBox6.TabIndex = 10;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Menu";
@@ -875,10 +887,10 @@ namespace JP4
             this.grid_cadastro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grid_cadastro.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grid_cadastro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_cadastro.Location = new System.Drawing.Point(6, 134);
+            this.grid_cadastro.Location = new System.Drawing.Point(6, 160);
             this.grid_cadastro.Name = "grid_cadastro";
             this.grid_cadastro.ReadOnly = true;
-            this.grid_cadastro.Size = new System.Drawing.Size(1046, 387);
+            this.grid_cadastro.Size = new System.Drawing.Size(1046, 361);
             this.grid_cadastro.TabIndex = 9;
             this.grid_cadastro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_cadastro_CellDoubleClick_1);
             // 
@@ -895,7 +907,7 @@ namespace JP4
             this.groupBox7.Controls.Add(this.combo_cod_item);
             this.groupBox7.Location = new System.Drawing.Point(156, 6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(896, 122);
+            this.groupBox7.Size = new System.Drawing.Size(896, 148);
             this.groupBox7.TabIndex = 8;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Item";
@@ -978,15 +990,14 @@ namespace JP4
             this.combo_cod_item.Size = new System.Drawing.Size(170, 21);
             this.combo_cod_item.TabIndex = 0;
             // 
-            // button_deletar_cadastro
+            // button_duplicar
             // 
-            this.button_deletar_cadastro.Location = new System.Drawing.Point(6, 135);
-            this.button_deletar_cadastro.Name = "button_deletar_cadastro";
-            this.button_deletar_cadastro.Size = new System.Drawing.Size(122, 23);
-            this.button_deletar_cadastro.TabIndex = 4;
-            this.button_deletar_cadastro.Text = "Deletar";
-            this.button_deletar_cadastro.UseVisualStyleBackColor = true;
-            this.button_deletar_cadastro.Click += new System.EventHandler(this.button_deletar_cadastro_Click);
+            this.button_duplicar.Location = new System.Drawing.Point(6, 164);
+            this.button_duplicar.Name = "button_duplicar";
+            this.button_duplicar.Size = new System.Drawing.Size(122, 23);
+            this.button_duplicar.TabIndex = 5;
+            this.button_duplicar.Text = "Copiar item";
+            this.button_duplicar.UseVisualStyleBackColor = true;
             // 
             // CAD01
             // 
@@ -1120,5 +1131,6 @@ namespace JP4
         private System.Windows.Forms.Label abaCadastro_label_id_cadastro;
         private System.Windows.Forms.Label label_grupo_estoque_id;
         private System.Windows.Forms.Button button_deletar_cadastro;
+        private System.Windows.Forms.Button button_duplicar;
     }
 }

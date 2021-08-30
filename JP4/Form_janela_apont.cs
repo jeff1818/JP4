@@ -96,15 +96,15 @@ namespace JP4
                             //Salvar_mistura();
                             Apontar_ordem(this.label_tipo_movimento.Text);
 
-                            MessageBox.Show("Salvo com Sucesso!!");
-                            tab_menu_apontamento.SelectedTab = tab_apontamento;
-                            toolStripStatusLabel_status_apon.Text = "Apontamento feito com Sucesso!";
-                            Limpar_campos();
+                            //MessageBox.Show("Salvo com Sucesso!!");
+                            //tab_menu_apontamento.SelectedTab = tab_apontamento;
+                            //toolStripStatusLabel_status_apon.Text = "Apontamento feito com Sucesso!";
+                            //Limpar_campos();
 
-                            button_paradas.BackColor = Color.Transparent;
-                            button_defeitos.BackColor = Color.Transparent;
-                            button_mistura_mp.BackColor = Color.Transparent;
-                            this.Refresh();
+                            //button_paradas.BackColor = Color.Transparent;
+                            //button_defeitos.BackColor = Color.Transparent;
+                            //button_mistura_mp.BackColor = Color.Transparent;
+                            //this.Refresh();
                         }
                         else if (resposta == DialogResult.No)
                         {
@@ -1041,6 +1041,7 @@ namespace JP4
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
+                return 0;
             }
 
             return peso_medio;
@@ -1865,7 +1866,15 @@ namespace JP4
             }
             else
             {
-                peso_medio_bobina = peso_total_fardo / Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
+                try
+                {
+                    peso_medio_bobina = peso_total_fardo / Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
+                }
+                catch (DivideByZeroException)
+                {
+                    peso_medio_bobina = 0;
+                    MessageBox.Show("O apontamento vai ser salvo \r\n Porem, o item apontado esta com erro no cadastro \r\n Vá ate o cadastro do item e informe um numero maior que zero no campo [Qtd Embalagem]");
+                }
             }
 
 
@@ -1908,15 +1917,30 @@ namespace JP4
 
                 Consumo_estrutura(num_transac, cod_descri_completa, qtd_movto, cliente_apon, secao_nome);
 
+                Salvar_paradas_mq(num_transac);
+                Salvar_defeitos_mq(num_transac);
+                Salvar_mistura(num_transac);
+
+                MessageBox.Show("Salvo com Sucesso!!");
+                tab_menu_apontamento.SelectedTab = tab_apontamento;
+                toolStripStatusLabel_status_apon.Text = "Apontamento feito com Sucesso!";
+                Limpar_campos();
+
+                button_paradas.BackColor = Color.Transparent;
+                button_defeitos.BackColor = Color.Transparent;
+                button_mistura_mp.BackColor = Color.Transparent;
+                this.Refresh();
+
+
+
             }
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message + "\r\n Erro ao salvar o apontamento");
-            }
+                tab_menu_apontamento.SelectedTab = tab_apontamento;
 
-            Salvar_paradas_mq(num_transac);
-            Salvar_defeitos_mq(num_transac);
-            Salvar_mistura(num_transac);
+            }
+           
 
         }
         private void Consumo_estrutura(string num_transac01, string descri_item, double qtd_apont, string cliente, string maquina_destino)

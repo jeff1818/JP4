@@ -625,6 +625,9 @@ namespace JP4
             this.combo_local_aplicacao.Enabled = false;
             this.combo_local_estoque.Enabled = false;
 
+            check_estrutura_SIM.Enabled = false;
+            check_estrutura_NAO.Enabled = false;
+
             this.combo_empresa.Enabled = false;
 
         }
@@ -652,6 +655,9 @@ namespace JP4
             this.text_largura.Enabled = true;
             this.text_densidade.Enabled = true;
             this.text_espessura.Enabled = true;
+
+            check_estrutura_SIM.Enabled = true;
+            check_estrutura_NAO.Enabled = true;
 
             this.combo_local_aplicacao.Enabled = true;
             this.combo_local_estoque.Enabled = true;
@@ -687,11 +693,15 @@ namespace JP4
             combo_local_estoque.Text = string.Empty;
 
             combo_empresa.Text = string.Empty;
-            check_estrutura_SIM.Enabled = false;
-            check_estrutura_NAO.Enabled = false;
+
+            check_estrutura_SIM.Checked = false;
+            check_estrutura_NAO.Checked = false;
 
             label_grupo_estoque_id.Text = string.Empty;
             label_descri_grupo_estoque.Text = string.Empty;
+
+            abaCadastro_label_id_cadastro.Text = "0000";
+            
 
         }
         private void verifica_campos()

@@ -14,7 +14,7 @@ using System.Threading;
 using System.IO.Compression;
 using System.IO;
 using JP4.Cadastros;
-
+using JP4.Config;
 
 namespace JP4
 {
@@ -314,6 +314,15 @@ namespace JP4
         private void button_cad_paradas_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_paradas());
+        }
+
+        private void button_cadastro_user_Click(object sender, EventArgs e)
+        {
+            if(label_nome_usuario.Text == "admin")
+            {
+                abrir_janelas(new Form_janela_cad_usuario());
+            }
+            abrir_janelas(new Form_janela_cad_usuario());
         }
     }
 }
