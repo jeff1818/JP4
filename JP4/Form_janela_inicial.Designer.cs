@@ -30,33 +30,33 @@ namespace JP4
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_tela_inicial));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Cadastro Defeitos");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cadastro Grupo de Estoque");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Cadastro Cliente");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Cadastro Local Aplicação");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Cadastro Local Estoque");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Cadastro Empresa");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Cadastro Equipamento");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Cadastro Origem Apara");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Cadastro Operação");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Cadastro de Operador");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Cadastro Tipo Material");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Cadastro Turnos");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Cadastro de Paradas");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Area de Cadastro", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Cadastro Defeitos");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Cadastro Grupo de Estoque");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Cadastro Cliente");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Cadastro Local Aplicação");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Cadastro Local Estoque");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Cadastro Empresa");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Cadastro Equipamento");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Cadastro Origem Apara");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Cadastro Operação");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Cadastro de Operador");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Cadastro Tipo Material");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Cadastro Turnos");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Cadastro de Paradas");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Area de Cadastro", new System.Windows.Forms.TreeNode[] {
+            treeNode15,
+            treeNode16,
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24,
+            treeNode25,
+            treeNode26,
+            treeNode27});
             this.panel_titulo_menu = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label_nome_usuario = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@ namespace JP4
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
             this.panel_sub_menu_cadastro = new System.Windows.Forms.Panel();
+            this.button_cadastro_user = new System.Windows.Forms.Button();
             this.button_cad_paradas = new System.Windows.Forms.Button();
             this.button_cad_turno = new System.Windows.Forms.Button();
             this.button_tipo_material = new System.Windows.Forms.Button();
@@ -79,6 +80,8 @@ namespace JP4
             this.button_cad_local_aplica = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button_cad_local_estoque = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.button_report = new System.Windows.Forms.Button();
             this.tree_area_cadastro = new System.Windows.Forms.TreeView();
             this.linkLabel_baixar_nova = new System.Windows.Forms.LinkLabel();
             this.label_status = new System.Windows.Forms.Label();
@@ -102,7 +105,6 @@ namespace JP4
             this.panel_central = new System.Windows.Forms.Panel();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
-            this.button_cadastro_user = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -207,6 +209,8 @@ namespace JP4
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.panel_menu_vertical.Controls.Add(this.panel_sub_menu_cadastro);
+            this.panel_menu_vertical.Controls.Add(this.panel7);
+            this.panel_menu_vertical.Controls.Add(this.button_report);
             this.panel_menu_vertical.Controls.Add(this.tree_area_cadastro);
             this.panel_menu_vertical.Controls.Add(this.linkLabel_baixar_nova);
             this.panel_menu_vertical.Controls.Add(this.label_status);
@@ -251,11 +255,27 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_aplica);
             this.panel_sub_menu_cadastro.Controls.Add(this.button1);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
-            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(51, 89);
+            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(54, 15);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 563);
             this.panel_sub_menu_cadastro.TabIndex = 27;
             this.panel_sub_menu_cadastro.Visible = false;
+            // 
+            // button_cadastro_user
+            // 
+            this.button_cadastro_user.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button_cadastro_user.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cadastro_user.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cadastro_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cadastro_user.ForeColor = System.Drawing.Color.White;
+            this.button_cadastro_user.Location = new System.Drawing.Point(3, 497);
+            this.button_cadastro_user.Name = "button_cadastro_user";
+            this.button_cadastro_user.Size = new System.Drawing.Size(139, 32);
+            this.button_cadastro_user.TabIndex = 32;
+            this.button_cadastro_user.Text = "Cadastro Usuarios";
+            this.button_cadastro_user.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cadastro_user.UseVisualStyleBackColor = false;
+            this.button_cadastro_user.Click += new System.EventHandler(this.button_cadastro_user_Click);
             // 
             // button_cad_paradas
             // 
@@ -465,42 +485,65 @@ namespace JP4
             this.button_cad_local_estoque.UseVisualStyleBackColor = false;
             this.button_cad_local_estoque.Click += new System.EventHandler(this.button_cad_local_estoque_Click);
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Black;
+            this.panel7.Location = new System.Drawing.Point(3, 377);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(5, 32);
+            this.panel7.TabIndex = 33;
+            // 
+            // button_report
+            // 
+            this.button_report.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_report.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_report.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_report.ForeColor = System.Drawing.Color.White;
+            this.button_report.Location = new System.Drawing.Point(14, 377);
+            this.button_report.Name = "button_report";
+            this.button_report.Size = new System.Drawing.Size(180, 32);
+            this.button_report.TabIndex = 32;
+            this.button_report.Text = "Report";
+            this.button_report.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_report.UseVisualStyleBackColor = true;
+            this.button_report.Click += new System.EventHandler(this.button_report_Click);
+            // 
             // tree_area_cadastro
             // 
             this.tree_area_cadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.tree_area_cadastro.Location = new System.Drawing.Point(12, 377);
+            this.tree_area_cadastro.Location = new System.Drawing.Point(12, 423);
             this.tree_area_cadastro.Name = "tree_area_cadastro";
-            treeNode1.Name = "cad_defeitos";
-            treeNode1.Text = "Cadastro Defeitos";
-            treeNode2.Name = "cad_grupo_estoque";
-            treeNode2.Text = "Cadastro Grupo de Estoque";
-            treeNode3.Name = "cad_cliente";
-            treeNode3.Text = "Cadastro Cliente";
-            treeNode4.Name = "cad_local_aplicacao";
-            treeNode4.Text = "Cadastro Local Aplicação";
-            treeNode5.Name = "cad_local_estoque";
-            treeNode5.Text = "Cadastro Local Estoque";
-            treeNode6.Name = "cad_empresa";
-            treeNode6.Text = "Cadastro Empresa";
-            treeNode7.Name = "cad_equipamento";
-            treeNode7.Text = "Cadastro Equipamento";
-            treeNode8.Name = "cad_origem_apara";
-            treeNode8.Text = "Cadastro Origem Apara";
-            treeNode9.Name = "cad_operacao";
-            treeNode9.Text = "Cadastro Operação";
-            treeNode10.Name = "cad_operador";
-            treeNode10.Text = "Cadastro de Operador";
-            treeNode11.Name = "cad_tipo_material";
-            treeNode11.Text = "Cadastro Tipo Material";
-            treeNode12.Name = "cad_turno";
-            treeNode12.Text = "Cadastro Turnos";
-            treeNode13.Name = "cad_paradas";
-            treeNode13.Text = "Cadastro de Paradas";
-            treeNode14.Name = "area_cadastro";
-            treeNode14.Text = "Area de Cadastro";
+            treeNode15.Name = "cad_defeitos";
+            treeNode15.Text = "Cadastro Defeitos";
+            treeNode16.Name = "cad_grupo_estoque";
+            treeNode16.Text = "Cadastro Grupo de Estoque";
+            treeNode17.Name = "cad_cliente";
+            treeNode17.Text = "Cadastro Cliente";
+            treeNode18.Name = "cad_local_aplicacao";
+            treeNode18.Text = "Cadastro Local Aplicação";
+            treeNode19.Name = "cad_local_estoque";
+            treeNode19.Text = "Cadastro Local Estoque";
+            treeNode20.Name = "cad_empresa";
+            treeNode20.Text = "Cadastro Empresa";
+            treeNode21.Name = "cad_equipamento";
+            treeNode21.Text = "Cadastro Equipamento";
+            treeNode22.Name = "cad_origem_apara";
+            treeNode22.Text = "Cadastro Origem Apara";
+            treeNode23.Name = "cad_operacao";
+            treeNode23.Text = "Cadastro Operação";
+            treeNode24.Name = "cad_operador";
+            treeNode24.Text = "Cadastro de Operador";
+            treeNode25.Name = "cad_tipo_material";
+            treeNode25.Text = "Cadastro Tipo Material";
+            treeNode26.Name = "cad_turno";
+            treeNode26.Text = "Cadastro Turnos";
+            treeNode27.Name = "cad_paradas";
+            treeNode27.Text = "Cadastro de Paradas";
+            treeNode28.Name = "area_cadastro";
+            treeNode28.Text = "Area de Cadastro";
             this.tree_area_cadastro.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode14});
-            this.tree_area_cadastro.Size = new System.Drawing.Size(182, 259);
+            treeNode28});
+            this.tree_area_cadastro.Size = new System.Drawing.Size(182, 213);
             this.tree_area_cadastro.TabIndex = 31;
             this.tree_area_cadastro.Visible = false;
             // 
@@ -736,22 +779,6 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
-            // button_cadastro_user
-            // 
-            this.button_cadastro_user.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button_cadastro_user.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_cadastro_user.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button_cadastro_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cadastro_user.ForeColor = System.Drawing.Color.White;
-            this.button_cadastro_user.Location = new System.Drawing.Point(3, 497);
-            this.button_cadastro_user.Name = "button_cadastro_user";
-            this.button_cadastro_user.Size = new System.Drawing.Size(139, 32);
-            this.button_cadastro_user.TabIndex = 32;
-            this.button_cadastro_user.Text = "Cadastro Usuarios";
-            this.button_cadastro_user.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_cadastro_user.UseVisualStyleBackColor = false;
-            this.button_cadastro_user.Click += new System.EventHandler(this.button_cadastro_user_Click);
-            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -834,6 +861,8 @@ namespace JP4
         private System.Windows.Forms.Button button_cad_paradas;
         private System.Windows.Forms.TreeView tree_area_cadastro;
         private System.Windows.Forms.Button button_cadastro_user;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button button_report;
     }
 }
 

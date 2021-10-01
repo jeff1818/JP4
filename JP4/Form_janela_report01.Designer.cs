@@ -29,24 +29,24 @@ namespace JP4
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label_dia_atual = new System.Windows.Forms.Label();
             this.label_report_dia_semana = new System.Windows.Forms.Label();
+            this.label_dia_atual = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label_report_total_prod = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label_report_total_prod = new System.Windows.Forms.Label();
             this.label_report_total_apara = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label_report_perct_apara = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label_report_perct_apara = new System.Windows.Forms.Label();
             this.chart_producao_pico = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart_producao_extrusora = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
@@ -67,15 +67,15 @@ namespace JP4
             this.panel1.Size = new System.Drawing.Size(318, 79);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // label_report_dia_semana
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label_report_total_prod);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(336, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(334, 79);
-            this.panel2.TabIndex = 1;
+            this.label_report_dia_semana.AutoSize = true;
+            this.label_report_dia_semana.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_report_dia_semana.Location = new System.Drawing.Point(3, 23);
+            this.label_report_dia_semana.Name = "label_report_dia_semana";
+            this.label_report_dia_semana.Size = new System.Drawing.Size(149, 29);
+            this.label_report_dia_semana.TabIndex = 1;
+            this.label_report_dia_semana.Text = "Sexta - Feira";
             // 
             // label_dia_atual
             // 
@@ -87,15 +87,25 @@ namespace JP4
             this.label_dia_atual.TabIndex = 0;
             this.label_dia_atual.Text = "13/08/2021";
             // 
-            // label_report_dia_semana
+            // panel2
             // 
-            this.label_report_dia_semana.AutoSize = true;
-            this.label_report_dia_semana.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_report_dia_semana.Location = new System.Drawing.Point(3, 23);
-            this.label_report_dia_semana.Name = "label_report_dia_semana";
-            this.label_report_dia_semana.Size = new System.Drawing.Size(149, 29);
-            this.label_report_dia_semana.TabIndex = 1;
-            this.label_report_dia_semana.Text = "Sexta - Feira";
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label_report_total_prod);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(336, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(334, 79);
+            this.panel2.TabIndex = 1;
+            // 
+            // label_report_total_prod
+            // 
+            this.label_report_total_prod.AutoSize = true;
+            this.label_report_total_prod.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_report_total_prod.Location = new System.Drawing.Point(187, 23);
+            this.label_report_total_prod.Name = "label_report_total_prod";
+            this.label_report_total_prod.Size = new System.Drawing.Size(97, 29);
+            this.label_report_total_prod.TabIndex = 3;
+            this.label_report_total_prod.Text = "100,000";
             // 
             // label3
             // 
@@ -117,26 +127,6 @@ namespace JP4
             this.panel3.Size = new System.Drawing.Size(267, 79);
             this.panel3.TabIndex = 2;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 29);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Apara Total";
-            // 
-            // label_report_total_prod
-            // 
-            this.label_report_total_prod.AutoSize = true;
-            this.label_report_total_prod.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_report_total_prod.Location = new System.Drawing.Point(187, 23);
-            this.label_report_total_prod.Name = "label_report_total_prod";
-            this.label_report_total_prod.Size = new System.Drawing.Size(97, 29);
-            this.label_report_total_prod.TabIndex = 3;
-            this.label_report_total_prod.Text = "100,000";
-            // 
             // label_report_total_apara
             // 
             this.label_report_total_apara.AutoSize = true;
@@ -146,6 +136,16 @@ namespace JP4
             this.label_report_total_apara.Size = new System.Drawing.Size(97, 29);
             this.label_report_total_apara.TabIndex = 4;
             this.label_report_total_apara.Text = "100,000";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 29);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Apara Total";
             // 
             // panel4
             // 
@@ -157,16 +157,6 @@ namespace JP4
             this.panel4.Size = new System.Drawing.Size(179, 79);
             this.panel4.TabIndex = 3;
             // 
-            // label_report_perct_apara
-            // 
-            this.label_report_perct_apara.AutoSize = true;
-            this.label_report_perct_apara.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_report_perct_apara.Location = new System.Drawing.Point(115, 19);
-            this.label_report_perct_apara.Name = "label_report_perct_apara";
-            this.label_report_perct_apara.Size = new System.Drawing.Size(61, 29);
-            this.label_report_perct_apara.TabIndex = 4;
-            this.label_report_perct_apara.Text = "10%";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -177,36 +167,46 @@ namespace JP4
             this.label8.TabIndex = 5;
             this.label8.Text = "%Apara";
             // 
+            // label_report_perct_apara
+            // 
+            this.label_report_perct_apara.AutoSize = true;
+            this.label_report_perct_apara.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_report_perct_apara.Location = new System.Drawing.Point(115, 19);
+            this.label_report_perct_apara.Name = "label_report_perct_apara";
+            this.label_report_perct_apara.Size = new System.Drawing.Size(61, 29);
+            this.label_report_perct_apara.TabIndex = 4;
+            this.label_report_perct_apara.Text = "10%";
+            // 
             // chart_producao_pico
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart_producao_pico.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart_producao_pico.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chart_producao_pico.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart_producao_pico.Legends.Add(legend5);
             this.chart_producao_pico.Location = new System.Drawing.Point(12, 97);
             this.chart_producao_pico.Name = "chart_producao_pico";
-            this.chart_producao_pico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart_producao_pico.Series.Add(series1);
+            this.chart_producao_pico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Maquina";
+            this.chart_producao_pico.Series.Add(series5);
             this.chart_producao_pico.Size = new System.Drawing.Size(1116, 243);
             this.chart_producao_pico.TabIndex = 4;
             this.chart_producao_pico.Text = "chart1";
             // 
             // chart_producao_extrusora
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_producao_extrusora.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart_producao_extrusora.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart_producao_extrusora.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart_producao_extrusora.Legends.Add(legend6);
             this.chart_producao_extrusora.Location = new System.Drawing.Point(12, 346);
             this.chart_producao_extrusora.Name = "chart_producao_extrusora";
-            this.chart_producao_extrusora.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart_producao_extrusora.Series.Add(series2);
+            this.chart_producao_extrusora.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Maquina";
+            this.chart_producao_extrusora.Series.Add(series6);
             this.chart_producao_extrusora.Size = new System.Drawing.Size(1116, 243);
             this.chart_producao_extrusora.TabIndex = 5;
             this.chart_producao_extrusora.Text = "chart1";
@@ -215,7 +215,7 @@ namespace JP4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1140, 635);
+            this.ClientSize = new System.Drawing.Size(1151, 635);
             this.Controls.Add(this.chart_producao_extrusora);
             this.Controls.Add(this.chart_producao_pico);
             this.Controls.Add(this.panel4);

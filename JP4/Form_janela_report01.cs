@@ -16,21 +16,28 @@ namespace JP4
     {
         public Form_janela_report01()
         {
-            InitializeComponent();           
-            
+            InitializeComponent();
+            Carregar_grafico_pico();
+            Carregar_grafico_ext();
+
+            label_report_dia_semana.Text = DateTime.Today.ToString("DDDD");
+            label_dia_atual.Text = DateTime.Today.ToString("dd/MM/yyyy");
+
         }
 
         private void Carregar_grafico_pico()
         {
             try
             {
-                double mes_movto = 8;
+
+                string dat_movto = "30/08/2021"; //Convert.ToDateTime( DateTime.Today.AddDays(-1).ToString("dd/MM/yyyy"));
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
-                string comando_sql = "select * from estoque_trans where mes_movto= " + mes_movto;
+                string comando_sql = "select * from estoque_trans where dat_movto= '" + dat_movto + "' and cod_operacao = 'APON' and cod_empresa ='SAN MARINO'";
                 OleDbDataReader myreader;
 
+                // cod_operacao
 
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);                
                 conexao.Open();
@@ -38,7 +45,11 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    //chart_producao_pico.Series["Series1"].Points.AddXY(myreader.GetString("secao_nome"), myreader.GetInt16("qtd_movto"));
+
+                    //Maquina
+
+                    chart_producao_pico.Series["Maquina"].Points.AddXY(myreader["secao_nome"].ToString(), myreader["qtd_movto"].ToString());
+
 
                 }
                 conexao.Close();
@@ -50,6 +61,42 @@ namespace JP4
             }
         }
 
+
+        private void Carregar_grafico_ext()
+        {
+            try
+            {
+
+                DateTime dat_movto = Convert.ToDateTime(label_dia_atual.Text);
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                string comando_sql = "select * from estoque_trans where dat_movto= '" + dat_movto + "' and cod_operacao = 'APON' and cod_empresa ='PICOFLEX' ";
+                OleDbDataReader myreader;
+
+                // cod_operacao
+
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                conexao.Open();
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    //Maquina
+
+                    chart_producao_extrusora.Series["Maquina"].Points.AddXY(myreader["secao_nome"].ToString(), myreader["qtd_movto"].ToString());
+
+
+                }
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
 
     }
 }

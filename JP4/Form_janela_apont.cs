@@ -84,6 +84,7 @@ namespace JP4
                     this.abaConsumo_text__cod_item.Text = combo_cod_item.Text;
                     this.abaConsumo_text_descri_item.Text = combo_desc_completa.Text;
                     this.abaConsumo_text_qtd_boa.Text = Convert.ToString(text_qtd_boa.Text);
+                    this.abaConsumo_label_cliente.Text = combo_cliente_esto.Text;
                     Carregar_grid(combo_desc_completa.Text, combo_cliente_esto.Text, combo_maquinas.Text);
 
                     if (tab_menu_apontamento.SelectedTab == tab_consumo)
@@ -1818,11 +1819,13 @@ namespace JP4
             string cod_item = this.combo_cod_item.Text;
             string cod_descri_completa = this.combo_desc_completa.Text;
             string cod_descri_reduzida = Buscar_descri_reduzida(cod_descri_completa);
-            int mes_proces = DateTime.Now.Month;
-            int mes_movto = DateTime.Now.Month;
-            int ano_movto = DateTime.Now.Year;
+            int mes_proces = DateTime.Now.Month;            
             DateTime dat_proces = DateTime.Today;
+
             DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
+            int mes_movto = dat_movto.Month;
+            int ano_movto = dat_movto.Year;
+
             string cod_operacao = this.text_operacao.Text;
             double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
             string ies_tip_movto = tipo_movimento; //this.label_tipo_movimento.Text;

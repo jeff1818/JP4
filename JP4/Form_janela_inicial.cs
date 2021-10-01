@@ -324,5 +324,10 @@ namespace JP4
             }
             abrir_janelas(new Form_janela_cad_usuario());
         }
+
+        private void button_report_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_report01());
+        }
     }
 }

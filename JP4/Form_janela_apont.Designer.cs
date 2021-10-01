@@ -307,6 +307,7 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
+            this.abaConsumo_label_cliente = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -2891,6 +2892,7 @@ namespace JP4
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.abaConsumo_label_cliente);
             this.groupBox10.Controls.Add(this.abaConsumo_text_descri_item);
             this.groupBox10.Controls.Add(this.abaConsumo_text__cod_item);
             this.groupBox10.Controls.Add(this.abaConsumo_text_qtd_boa);
@@ -3187,6 +3189,15 @@ namespace JP4
             // db_cadastro_grupo_estoqueTableAdapter1
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
+            // 
+            // abaConsumo_label_cliente
+            // 
+            this.abaConsumo_label_cliente.AutoSize = true;
+            this.abaConsumo_label_cliente.Location = new System.Drawing.Point(276, 58);
+            this.abaConsumo_label_cliente.Name = "abaConsumo_label_cliente";
+            this.abaConsumo_label_cliente.Size = new System.Drawing.Size(13, 13);
+            this.abaConsumo_label_cliente.TabIndex = 12;
+            this.abaConsumo_label_cliente.Text = "--";
             // 
             // AP01
             // 
@@ -3533,5 +3544,6 @@ namespace JP4
         private System.Windows.Forms.ComboBox abaPesquisar_combo_mes_lanc;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label AbaMistura_label_tipoMaterial;
+        private System.Windows.Forms.Label abaConsumo_label_cliente;
     }
 }
