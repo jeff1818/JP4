@@ -54,6 +54,9 @@ namespace JP4
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.combo_local_destino = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button_sair = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_clientes)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,6 +64,7 @@ namespace JP4
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button_sair);
             this.groupBox2.Controls.Add(this.button_limpar_controles);
             this.groupBox2.Controls.Add(this.button_atualizar);
             this.groupBox2.Controls.Add(this.button_filtrar);
@@ -131,15 +135,17 @@ namespace JP4
             this.grid_cad_clientes.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.grid_cad_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_cad_clientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid_cad_clientes.Location = new System.Drawing.Point(142, 143);
+            this.grid_cad_clientes.Location = new System.Drawing.Point(142, 172);
             this.grid_cad_clientes.Name = "grid_cad_clientes";
             this.grid_cad_clientes.ReadOnly = true;
-            this.grid_cad_clientes.Size = new System.Drawing.Size(910, 469);
+            this.grid_cad_clientes.Size = new System.Drawing.Size(910, 440);
             this.grid_cad_clientes.TabIndex = 12;
             this.grid_cad_clientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_cad_clientes_CellDoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.combo_local_destino);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.richText_observacao);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.date_modificacao);
@@ -160,23 +166,23 @@ namespace JP4
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(142, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(910, 143);
+            this.groupBox1.Size = new System.Drawing.Size(910, 172);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informação basica";
+            this.groupBox1.Text = "Informação basica:";
             // 
             // richText_observacao
             // 
-            this.richText_observacao.Location = new System.Drawing.Point(429, 75);
+            this.richText_observacao.Location = new System.Drawing.Point(96, 102);
             this.richText_observacao.Name = "richText_observacao";
-            this.richText_observacao.Size = new System.Drawing.Size(469, 58);
+            this.richText_observacao.Size = new System.Drawing.Size(575, 58);
             this.richText_observacao.TabIndex = 6;
             this.richText_observacao.Text = "";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(355, 83);
+            this.label8.Location = new System.Drawing.Point(22, 125);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 13);
             this.label8.TabIndex = 20;
@@ -186,7 +192,7 @@ namespace JP4
             // 
             this.date_modificacao.Enabled = false;
             this.date_modificacao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_modificacao.Location = new System.Drawing.Point(96, 101);
+            this.date_modificacao.Location = new System.Drawing.Point(298, 74);
             this.date_modificacao.Name = "date_modificacao";
             this.date_modificacao.Size = new System.Drawing.Size(106, 20);
             this.date_modificacao.TabIndex = 19;
@@ -194,7 +200,7 @@ namespace JP4
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 107);
+            this.label7.Location = new System.Drawing.Point(208, 80);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 13);
             this.label7.TabIndex = 18;
@@ -210,11 +216,11 @@ namespace JP4
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(426, 52);
+            this.label6.Location = new System.Drawing.Point(466, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Nome Fantasia";
+            this.label6.Text = "Nome Fantasia:";
             // 
             // text_razao_social
             // 
@@ -226,7 +232,7 @@ namespace JP4
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 47);
+            this.label5.Location = new System.Drawing.Point(20, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 14;
@@ -244,9 +250,9 @@ namespace JP4
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(426, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 13);
+            this.label2.Size = new System.Drawing.Size(121, 13);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Nome Cliente Reduzido";
+            this.label2.Text = "Nome Cliente Reduzido:";
             // 
             // text_cod_cliente
             // 
@@ -287,7 +293,7 @@ namespace JP4
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 82);
+            this.label4.Location = new System.Drawing.Point(20, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 6;
@@ -305,11 +311,41 @@ namespace JP4
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Location = new System.Drawing.Point(53, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Status";
+            // 
+            // combo_local_destino
+            // 
+            this.combo_local_destino.FormattingEnabled = true;
+            this.combo_local_destino.Items.AddRange(new object[] {
+            "Ativo",
+            "Desativado"});
+            this.combo_local_destino.Location = new System.Drawing.Point(550, 75);
+            this.combo_local_destino.Name = "combo_local_destino";
+            this.combo_local_destino.Size = new System.Drawing.Size(196, 21);
+            this.combo_local_destino.TabIndex = 22;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(469, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Local Destino:";
+            // 
+            // button_sair
+            // 
+            this.button_sair.Location = new System.Drawing.Point(12, 178);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(114, 23);
+            this.button_sair.TabIndex = 12;
+            this.button_sair.Text = "Sair";
+            this.button_sair.UseVisualStyleBackColor = true;
+            this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
             // 
             // Form_janela_cad_clientes
             // 
@@ -319,7 +355,7 @@ namespace JP4
             this.Controls.Add(this.grid_cad_clientes);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_janela_cad_clientes";
             this.Text = "Cadastro Clientes";
             this.groupBox2.ResumeLayout(false);
@@ -357,5 +393,8 @@ namespace JP4
         private System.Windows.Forms.ComboBox combo_status_cliente;
         private System.Windows.Forms.RichTextBox richText_observacao;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox combo_local_destino;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button_sair;
     }
 }

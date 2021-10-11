@@ -12,6 +12,8 @@ namespace JP4
             InitializeComponent();
 
             Carregar_grid_clientes();
+            Carregar_local_destino();
+
             date_modificacao.Value = DateTime.Today;
         }
 
@@ -87,6 +89,37 @@ namespace JP4
             }
         }
 
+
+        private void Carregar_local_destino()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_local_estoque";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    this.combo_local_destino.Items.Add(myreader["local_estoque"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
         #endregion
 
 
@@ -103,6 +136,7 @@ namespace JP4
             DateTime data_cadastro = date_cadastro.Value;
             DateTime ultima_modificao = date_modificacao.Value;
             string observacao = richText_observacao.Text;
+            string local_destino_cliente = combo_local_destino.Text;
 
             try
             {
@@ -112,8 +146,8 @@ namespace JP4
 
                 string comando_sql;
 
-                comando_sql = "INSERT INTO db_cadastro_clientes(status, codigo_cliente, cliente_nome, razao_social,nome_fantasia, data_cadastro , ultima_modificao, observacao) " +
-                    "VALUES('" + status + "','" + codigo_cliente + "','" + cliente_nome + "','" + razao_social + "','" + nome_fantasia + "','" + data_cadastro + "','" + ultima_modificao + "','" + observacao + "')";
+                comando_sql = "INSERT INTO db_cadastro_clientes(status, codigo_cliente, cliente_nome, razao_social,nome_fantasia, data_cadastro , ultima_modificao, observacao, local_destino_cliente) " +
+                    "VALUES('" + status + "','" + codigo_cliente + "','" + cliente_nome + "','" + razao_social + "','" + nome_fantasia + "','" + data_cadastro + "','" + ultima_modificao + "','" + observacao +"','"+ local_destino_cliente + "')";
 
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -135,6 +169,7 @@ namespace JP4
             DateTime data_cadastro = date_cadastro.Value;
             DateTime ultima_modificao = date_modificacao.Value;
             string observacao = richText_observacao.Text;
+            string local_destino_cliente = combo_local_destino.Text;
 
             try
             {
@@ -153,6 +188,7 @@ namespace JP4
                         "', data_cadastro='" + data_cadastro +
                         "', ultima_modificao='" + ultima_modificao +
                         "', observacao='" + observacao +
+                        "', local_destino_cliente='" + local_destino_cliente +
                         "' WHERE cliente_id=" + cliente_id;
 
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -203,6 +239,7 @@ namespace JP4
             //date_cadastro.Value;
             //date_modificacao.Value;
             richText_observacao.Text = string.Empty;
+            combo_local_destino.Text = string.Empty;
         }
 
 
@@ -249,6 +286,11 @@ namespace JP4
             string cliente_id = grid_cad_clientes.CurrentRow.Cells[0].Value.ToString();
             label_id_clientes.Text = cliente_id;
             Carregar_controles(cliente_id);
+        }
+
+        private void button_sair_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

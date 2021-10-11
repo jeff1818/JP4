@@ -4207,10 +4207,10 @@ namespace JP4
             //Estatus_estorno(abaApon_label_id_apont.Text); // identifica qual ordem foi estornada            
             
             Estornar_apontamento_delete(abaApon_label_id_apont.Text); // 13/08
-            label_tipo_movimento.Text = "R"; 
-
+            //label_tipo_movimento.Text = "R";
+            label_tipo_movimento.Text = "N";
             //Estornar_apontamento("R");
-            
+
             Limpar_campos();
 
         }

@@ -29,17 +29,6 @@ namespace JP4
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.comboBox_mes_filtro = new System.Windows.Forms.ComboBox();
-            this.textBox_ano_filtro = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.button_limpar_filtro = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button_buscar = new System.Windows.Forms.Button();
-            this.button_estornar = new System.Windows.Forms.Button();
-            this.button_salvar = new System.Windows.Forms.Button();
-            this.button_iniciar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +38,11 @@ namespace JP4
             this.cadEmpresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventárioMensalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatorioEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab_mov_estoque = new System.Windows.Forms.TabPage();
+            this.tab_relatorio_estoque = new System.Windows.Forms.TabPage();
+            this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label_descricao_operacao = new System.Windows.Forms.Label();
             this.combo_empresa = new System.Windows.Forms.ComboBox();
@@ -78,150 +72,53 @@ namespace JP4
             this.combo_cod_item = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.comboBox_mes_filtro = new System.Windows.Forms.ComboBox();
+            this.textBox_ano_filtro = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button_limpar_filtro = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button_buscar = new System.Windows.Forms.Button();
+            this.button_estornar = new System.Windows.Forms.Button();
+            this.button_salvar = new System.Windows.Forms.Button();
+            this.button_iniciar = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.Grid_relatorio_estoque = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tab_mov_estoque.SuspendLayout();
+            this.tab_relatorio_estoque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_mov_estoque)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_relatorio_estoque)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.comboBox_mes_filtro);
-            this.groupBox1.Controls.Add(this.textBox_ano_filtro);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.button_limpar_filtro);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button_buscar);
-            this.groupBox1.Controls.Add(this.button_estornar);
-            this.groupBox1.Controls.Add(this.button_salvar);
-            this.groupBox1.Controls.Add(this.button_iniciar);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Location = new System.Drawing.Point(0, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(128, 521);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Menu";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 279);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(52, 13);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "Filtro Mês";
-            // 
-            // comboBox_mes_filtro
-            // 
-            this.comboBox_mes_filtro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBox_mes_filtro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox_mes_filtro.FormattingEnabled = true;
-            this.comboBox_mes_filtro.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.comboBox_mes_filtro.Location = new System.Drawing.Point(67, 276);
-            this.comboBox_mes_filtro.Name = "comboBox_mes_filtro";
-            this.comboBox_mes_filtro.Size = new System.Drawing.Size(55, 21);
-            this.comboBox_mes_filtro.TabIndex = 19;
-            this.comboBox_mes_filtro.SelectedIndexChanged += new System.EventHandler(this.comboBox_mes_filtro_SelectedIndexChanged);
-            // 
-            // textBox_ano_filtro
-            // 
-            this.textBox_ano_filtro.Location = new System.Drawing.Point(67, 250);
-            this.textBox_ano_filtro.Name = "textBox_ano_filtro";
-            this.textBox_ano_filtro.Size = new System.Drawing.Size(55, 20);
-            this.textBox_ano_filtro.TabIndex = 18;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 252);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 13);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Filtro Ano";
-            // 
-            // button_limpar_filtro
-            // 
-            this.button_limpar_filtro.Location = new System.Drawing.Point(6, 163);
-            this.button_limpar_filtro.Name = "button_limpar_filtro";
-            this.button_limpar_filtro.Size = new System.Drawing.Size(116, 23);
-            this.button_limpar_filtro.TabIndex = 5;
-            this.button_limpar_filtro.Text = "Limpar Filtro";
-            this.button_limpar_filtro.UseVisualStyleBackColor = true;
-            this.button_limpar_filtro.Click += new System.EventHandler(this.button_limpar_filtro_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Atualizar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button_buscar
-            // 
-            this.button_buscar.Location = new System.Drawing.Point(6, 134);
-            this.button_buscar.Name = "button_buscar";
-            this.button_buscar.Size = new System.Drawing.Size(116, 23);
-            this.button_buscar.TabIndex = 3;
-            this.button_buscar.Text = "Filtrar";
-            this.button_buscar.UseVisualStyleBackColor = true;
-            this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
-            // 
-            // button_estornar
-            // 
-            this.button_estornar.Location = new System.Drawing.Point(6, 105);
-            this.button_estornar.Name = "button_estornar";
-            this.button_estornar.Size = new System.Drawing.Size(116, 23);
-            this.button_estornar.TabIndex = 2;
-            this.button_estornar.Text = "Estornar";
-            this.button_estornar.UseVisualStyleBackColor = true;
-            this.button_estornar.Click += new System.EventHandler(this.button_estornar_Click);
-            // 
-            // button_salvar
-            // 
-            this.button_salvar.Location = new System.Drawing.Point(6, 47);
-            this.button_salvar.Name = "button_salvar";
-            this.button_salvar.Size = new System.Drawing.Size(116, 23);
-            this.button_salvar.TabIndex = 1;
-            this.button_salvar.Text = "Salvar";
-            this.button_salvar.UseVisualStyleBackColor = true;
-            this.button_salvar.Click += new System.EventHandler(this.button_salvar_Click);
-            // 
-            // button_iniciar
-            // 
-            this.button_iniciar.Location = new System.Drawing.Point(6, 19);
-            this.button_iniciar.Name = "button_iniciar";
-            this.button_iniciar.Size = new System.Drawing.Size(116, 23);
-            this.button_iniciar.TabIndex = 0;
-            this.button_iniciar.Text = "Iniciar";
-            this.button_iniciar.UseVisualStyleBackColor = true;
-            this.button_iniciar.Click += new System.EventHandler(this.button_iniciar_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem,
-            this.inventárioToolStripMenuItem});
+            this.inventárioToolStripMenuItem,
+            this.relatorioEstoqueToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1010, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1012, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -282,6 +179,62 @@ namespace JP4
             this.inventárioMensalToolStripMenuItem.Text = "Inventário Mensal";
             this.inventárioMensalToolStripMenuItem.Click += new System.EventHandler(this.inventárioMensalToolStripMenuItem_Click);
             // 
+            // relatorioEstoqueToolStripMenuItem
+            // 
+            this.relatorioEstoqueToolStripMenuItem.Name = "relatorioEstoqueToolStripMenuItem";
+            this.relatorioEstoqueToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.relatorioEstoqueToolStripMenuItem.Text = "Relatorio Estoque";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tab_mov_estoque);
+            this.tabControl1.Controls.Add(this.tab_relatorio_estoque);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 24);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1012, 578);
+            this.tabControl1.TabIndex = 8;
+            // 
+            // tab_mov_estoque
+            // 
+            this.tab_mov_estoque.Controls.Add(this.grid_mov_estoque);
+            this.tab_mov_estoque.Controls.Add(this.groupBox2);
+            this.tab_mov_estoque.Controls.Add(this.groupBox1);
+            this.tab_mov_estoque.Location = new System.Drawing.Point(4, 22);
+            this.tab_mov_estoque.Name = "tab_mov_estoque";
+            this.tab_mov_estoque.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_mov_estoque.Size = new System.Drawing.Size(1004, 552);
+            this.tab_mov_estoque.TabIndex = 0;
+            this.tab_mov_estoque.Text = "Movimentação";
+            this.tab_mov_estoque.UseVisualStyleBackColor = true;
+            // 
+            // tab_relatorio_estoque
+            // 
+            this.tab_relatorio_estoque.Controls.Add(this.Grid_relatorio_estoque);
+            this.tab_relatorio_estoque.Controls.Add(this.groupBox3);
+            this.tab_relatorio_estoque.Location = new System.Drawing.Point(4, 22);
+            this.tab_relatorio_estoque.Name = "tab_relatorio_estoque";
+            this.tab_relatorio_estoque.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_relatorio_estoque.Size = new System.Drawing.Size(1004, 552);
+            this.tab_relatorio_estoque.TabIndex = 1;
+            this.tab_relatorio_estoque.Text = "Relatório Estoque";
+            this.tab_relatorio_estoque.UseVisualStyleBackColor = true;
+            // 
+            // grid_mov_estoque
+            // 
+            this.grid_mov_estoque.AllowUserToAddRows = false;
+            this.grid_mov_estoque.AllowUserToDeleteRows = false;
+            this.grid_mov_estoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_mov_estoque.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.grid_mov_estoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_mov_estoque.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_mov_estoque.Location = new System.Drawing.Point(131, 237);
+            this.grid_mov_estoque.Name = "grid_mov_estoque";
+            this.grid_mov_estoque.ReadOnly = true;
+            this.grid_mov_estoque.Size = new System.Drawing.Size(870, 312);
+            this.grid_mov_estoque.TabIndex = 10;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label_descricao_operacao);
@@ -313,10 +266,10 @@ namespace JP4
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(128, 24);
+            this.groupBox2.Location = new System.Drawing.Point(131, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(882, 234);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.Size = new System.Drawing.Size(870, 234);
+            this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "...";
             // 
@@ -469,7 +422,6 @@ namespace JP4
             this.text_num_documento.Name = "text_num_documento";
             this.text_num_documento.Size = new System.Drawing.Size(128, 20);
             this.text_num_documento.TabIndex = 4;
-            this.text_num_documento.MouseHover += new System.EventHandler(this.text_num_documento_MouseHover);
             // 
             // label6
             // 
@@ -523,7 +475,6 @@ namespace JP4
             this.combo_operacao.Name = "combo_operacao";
             this.combo_operacao.Size = new System.Drawing.Size(128, 21);
             this.combo_operacao.TabIndex = 3;
-            this.combo_operacao.SelectedIndexChanged += new System.EventHandler(this.combo_operacao_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -543,7 +494,6 @@ namespace JP4
             this.combo_descri_completa.Name = "combo_descri_completa";
             this.combo_descri_completa.Size = new System.Drawing.Size(392, 21);
             this.combo_descri_completa.TabIndex = 2;
-            this.combo_descri_completa.Leave += new System.EventHandler(this.combo_descri_completa_Leave);
             // 
             // combo_cod_item
             // 
@@ -554,7 +504,6 @@ namespace JP4
             this.combo_cod_item.Name = "combo_cod_item";
             this.combo_cod_item.Size = new System.Drawing.Size(128, 21);
             this.combo_cod_item.TabIndex = 1;
-            this.combo_cod_item.Leave += new System.EventHandler(this.combo_cod_item_Leave);
             // 
             // label2
             // 
@@ -574,55 +523,353 @@ namespace JP4
             this.label1.TabIndex = 0;
             this.label1.Text = "Item:";
             // 
-            // grid_mov_estoque
+            // groupBox1
             // 
-            this.grid_mov_estoque.AllowUserToAddRows = false;
-            this.grid_mov_estoque.AllowUserToDeleteRows = false;
-            this.grid_mov_estoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid_mov_estoque.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.grid_mov_estoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_mov_estoque.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid_mov_estoque.Location = new System.Drawing.Point(128, 258);
-            this.grid_mov_estoque.Name = "grid_mov_estoque";
-            this.grid_mov_estoque.ReadOnly = true;
-            this.grid_mov_estoque.Size = new System.Drawing.Size(882, 287);
-            this.grid_mov_estoque.TabIndex = 7;
-            this.grid_mov_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_mov_estoque_CellDoubleClick);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.comboBox_mes_filtro);
+            this.groupBox1.Controls.Add(this.textBox_ano_filtro);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.button_limpar_filtro);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button_buscar);
+            this.groupBox1.Controls.Add(this.button_estornar);
+            this.groupBox1.Controls.Add(this.button_salvar);
+            this.groupBox1.Controls.Add(this.button_iniciar);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(128, 546);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Menu";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 279);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(52, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Filtro Mês";
+            // 
+            // comboBox_mes_filtro
+            // 
+            this.comboBox_mes_filtro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox_mes_filtro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_mes_filtro.FormattingEnabled = true;
+            this.comboBox_mes_filtro.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox_mes_filtro.Location = new System.Drawing.Point(67, 276);
+            this.comboBox_mes_filtro.Name = "comboBox_mes_filtro";
+            this.comboBox_mes_filtro.Size = new System.Drawing.Size(55, 21);
+            this.comboBox_mes_filtro.TabIndex = 19;
+            // 
+            // textBox_ano_filtro
+            // 
+            this.textBox_ano_filtro.Location = new System.Drawing.Point(67, 250);
+            this.textBox_ano_filtro.Name = "textBox_ano_filtro";
+            this.textBox_ano_filtro.Size = new System.Drawing.Size(55, 20);
+            this.textBox_ano_filtro.TabIndex = 18;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 252);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 13);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Filtro Ano";
+            // 
+            // button_limpar_filtro
+            // 
+            this.button_limpar_filtro.Location = new System.Drawing.Point(6, 163);
+            this.button_limpar_filtro.Name = "button_limpar_filtro";
+            this.button_limpar_filtro.Size = new System.Drawing.Size(116, 23);
+            this.button_limpar_filtro.TabIndex = 5;
+            this.button_limpar_filtro.Text = "Limpar Filtro";
+            this.button_limpar_filtro.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Atualizar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button_buscar
+            // 
+            this.button_buscar.Location = new System.Drawing.Point(6, 134);
+            this.button_buscar.Name = "button_buscar";
+            this.button_buscar.Size = new System.Drawing.Size(116, 23);
+            this.button_buscar.TabIndex = 3;
+            this.button_buscar.Text = "Filtrar";
+            this.button_buscar.UseVisualStyleBackColor = true;
+            // 
+            // button_estornar
+            // 
+            this.button_estornar.Location = new System.Drawing.Point(6, 105);
+            this.button_estornar.Name = "button_estornar";
+            this.button_estornar.Size = new System.Drawing.Size(116, 23);
+            this.button_estornar.TabIndex = 2;
+            this.button_estornar.Text = "Estornar";
+            this.button_estornar.UseVisualStyleBackColor = true;
+            // 
+            // button_salvar
+            // 
+            this.button_salvar.Location = new System.Drawing.Point(6, 47);
+            this.button_salvar.Name = "button_salvar";
+            this.button_salvar.Size = new System.Drawing.Size(116, 23);
+            this.button_salvar.TabIndex = 1;
+            this.button_salvar.Text = "Salvar";
+            this.button_salvar.UseVisualStyleBackColor = true;
+            // 
+            // button_iniciar
+            // 
+            this.button_iniciar.Location = new System.Drawing.Point(6, 19);
+            this.button_iniciar.Name = "button_iniciar";
+            this.button_iniciar.Size = new System.Drawing.Size(116, 23);
+            this.button_iniciar.TabIndex = 0;
+            this.button_iniciar.Text = "Iniciar";
+            this.button_iniciar.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.label27);
+            this.groupBox3.Controls.Add(this.dateTimePicker1);
+            this.groupBox3.Controls.Add(this.dateTimePicker2);
+            this.groupBox3.Controls.Add(this.comboBox6);
+            this.groupBox3.Controls.Add(this.comboBox7);
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Controls.Add(this.label30);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(998, 152);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "...";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(85, 100);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(128, 21);
+            this.comboBox1.TabIndex = 27;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(31, 108);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(48, 13);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "Empresa";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(300, 46);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(128, 21);
+            this.comboBox2.TabIndex = 8;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(219, 49);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(75, 13);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "Local Destino:";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(85, 46);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(128, 21);
+            this.comboBox3.TabIndex = 7;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(7, 49);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(72, 13);
+            this.label21.TabIndex = 19;
+            this.label21.Text = "Local Origem:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(727, 66);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(83, 13);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "Dt. Lançamento";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(34, 79);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(45, 13);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "Dt. Mov";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(85, 73);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(128, 20);
+            this.dateTimePicker1.TabIndex = 9;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(730, 82);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(128, 20);
+            this.dateTimePicker2.TabIndex = 7;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(300, 19);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(392, 21);
+            this.comboBox6.TabIndex = 2;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(85, 19);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(128, 21);
+            this.comboBox7.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(219, 22);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(58, 13);
+            this.label29.TabIndex = 1;
+            this.label29.Text = "Descrição:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(49, 22);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(30, 13);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "Item:";
+            // 
+            // Grid_relatorio_estoque
+            // 
+            this.Grid_relatorio_estoque.AllowUserToAddRows = false;
+            this.Grid_relatorio_estoque.AllowUserToDeleteRows = false;
+            this.Grid_relatorio_estoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grid_relatorio_estoque.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.Grid_relatorio_estoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_relatorio_estoque.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Grid_relatorio_estoque.Location = new System.Drawing.Point(3, 155);
+            this.Grid_relatorio_estoque.Name = "Grid_relatorio_estoque";
+            this.Grid_relatorio_estoque.ReadOnly = true;
+            this.Grid_relatorio_estoque.Size = new System.Drawing.Size(998, 394);
+            this.Grid_relatorio_estoque.TabIndex = 11;
             // 
             // STOQ01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 545);
-            this.Controls.Add(this.grid_mov_estoque);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1012, 602);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "STOQ01";
             this.Text = "Form_janela_mov_estoque";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tab_mov_estoque.ResumeLayout(false);
+            this.tab_relatorio_estoque.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_mov_estoque)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_mov_estoque)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_relatorio_estoque)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadMaterialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadOperaçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadMaquinaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadLocaisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadEmpresasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inventárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inventárioMensalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem relatorioEstoqueToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tab_mov_estoque;
+        private System.Windows.Forms.DataGridView grid_mov_estoque;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox combo_descri_completa;
-        private System.Windows.Forms.ComboBox combo_cod_item;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_descricao_operacao;
+        private System.Windows.Forms.ComboBox combo_empresa;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label_id_stoque_trans;
+        private System.Windows.Forms.RichTextBox rich_observa;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox combo_local_destino;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox combo_local_orig;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox text_qtd_movt;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox text_tipo_mov;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox combo_secao_maquina;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox text_num_documento;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -630,41 +877,37 @@ namespace JP4
         private System.Windows.Forms.DateTimePicker dt_lancamento;
         private System.Windows.Forms.ComboBox combo_operacao;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox combo_secao_maquina;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox text_qtd_movt;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox text_tipo_mov;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RichTextBox rich_observa;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox combo_local_destino;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox combo_local_orig;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView grid_mov_estoque;
-        private System.Windows.Forms.Button button_estornar;
-        private System.Windows.Forms.Button button_salvar;
-        private System.Windows.Forms.Button button_iniciar;
-        private System.Windows.Forms.Button button_buscar;
-        private System.Windows.Forms.Label label_id_stoque_trans;
-        private System.Windows.Forms.TextBox text_num_documento;
-        private System.Windows.Forms.ComboBox combo_empresa;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadMaterialToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadOperaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadMaquinaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadLocaisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadEmpresasToolStripMenuItem;
-        private System.Windows.Forms.Label label_descricao_operacao;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button_limpar_filtro;
+        private System.Windows.Forms.ComboBox combo_descri_completa;
+        private System.Windows.Forms.ComboBox combo_cod_item;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox_mes_filtro;
         private System.Windows.Forms.TextBox textBox_ano_filtro;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ToolStripMenuItem inventárioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inventárioMensalToolStripMenuItem;
+        private System.Windows.Forms.Button button_limpar_filtro;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_buscar;
+        private System.Windows.Forms.Button button_estornar;
+        private System.Windows.Forms.Button button_salvar;
+        private System.Windows.Forms.Button button_iniciar;
+        private System.Windows.Forms.TabPage tab_relatorio_estoque;
+        private System.Windows.Forms.DataGridView Grid_relatorio_estoque;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
     }
 }

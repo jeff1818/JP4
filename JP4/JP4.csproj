@@ -295,6 +295,12 @@
     <Compile Include="Config\Form_janela_config.Designer.cs">
       <DependentUpon>Form_janela_config.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_janela_estoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_janela_estoque.Designer.cs">
+      <DependentUpon>Form_janela_estoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_janela_estrutura.cs">
       <SubType>Form</SubType>
     </Compile>
