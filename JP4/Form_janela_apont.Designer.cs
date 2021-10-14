@@ -583,7 +583,6 @@ namespace JP4
             this.combo_cliente_esto.Name = "combo_cliente_esto";
             this.combo_cliente_esto.Size = new System.Drawing.Size(166, 21);
             this.combo_cliente_esto.TabIndex = 11;
-            this.combo_cliente_esto.Visible = false;
             // 
             // label_tipo_material
             // 
@@ -1139,9 +1138,9 @@ namespace JP4
             this.label_razao_social.AutoSize = true;
             this.label_razao_social.Location = new System.Drawing.Point(270, 46);
             this.label_razao_social.Name = "label_razao_social";
-            this.label_razao_social.Size = new System.Drawing.Size(73, 13);
+            this.label_razao_social.Size = new System.Drawing.Size(19, 13);
             this.label_razao_social.TabIndex = 23;
-            this.label_razao_social.Text = "Razão Social:";
+            this.label_razao_social.Text = "----";
             // 
             // combo_local_desti
             // 

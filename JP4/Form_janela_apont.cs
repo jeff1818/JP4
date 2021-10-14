@@ -1047,7 +1047,6 @@ namespace JP4
 
             return peso_medio;
         }
-
         private string Buscar_operacao(string nome_programa, string tipo_movimento)
         {
 
@@ -1187,7 +1186,6 @@ namespace JP4
             return descri_reduzida;
 
         }
-
         private void Buscar_razao_social(string local_destino_cliente)
         {
             try
@@ -1202,12 +1200,14 @@ namespace JP4
 
                 myreader = cmd.ExecuteReader();
 
-
                 while (myreader.Read())
                 {
-                    label_razao_social.Text = myreader["razao_social"].ToString();
+                    string razao_social = myreader["razao_social"].ToString();                    
+                    label_razao_social.Text = razao_social;
+                                        
                 }
                 conexao.Close();
+                
             }
             catch (Exception erro)
             {
@@ -1215,8 +1215,7 @@ namespace JP4
             }
 
             
-        }
-
+        }        
 
         // Janela Parada de maquina
         private string busca_cod_parada_db(string desc_parada)
@@ -1609,6 +1608,9 @@ namespace JP4
 
             abaApon_label_num_transa.Text = "---------";
             abaApon_label_id_apont.Text = "---------";
+            label_razao_social.Text = "----";
+            label_tipo_material.Text = "---";
+
 
             //Aba Defeitos------------------------------------------------
 
@@ -1766,12 +1768,12 @@ namespace JP4
                 cod_geral_erro = 1;
                 return cod_geral_erro;
             }
-            if (combo_cliente_esto.Text == string.Empty)
-            {
-                MessageBox.Show("Verifique os campo Cliente");
-                cod_geral_erro = 1;
-                return cod_geral_erro;
-            }
+            //if (combo_cliente_esto.Text == string.Empty)
+            //{
+            //    MessageBox.Show("Verifique os campo Cliente");
+            //    cod_geral_erro = 1;
+            //    return cod_geral_erro;
+            //}
 
             if (combo_local_orig.Text == string.Empty)
             {
@@ -1806,8 +1808,6 @@ namespace JP4
         private void Desbloquear_controles()
         {
             this.text_operacao.Text = "APON";
-
-
             this.combo_ordem_prod.Enabled = true;
             this.combo_maquinas.Enabled = true;
             this.combo_cod_item.Enabled = true;
@@ -1834,9 +1834,7 @@ namespace JP4
             this.text_lotes.Enabled = true;
             this.combo_empresa.Enabled = true;
             this.dt_lançamento.Enabled = true;
-            this.combo_cliente_esto.Enabled = true;
-
-
+            //this.combo_cliente_esto.Enabled = true;
 
         }
         private void Apontar_ordem(string tipo_movimento)
@@ -1909,9 +1907,6 @@ namespace JP4
                 }
             }
 
-
-
-
             DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
             DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
             DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
@@ -1928,6 +1923,7 @@ namespace JP4
             int status_estorno = 0;
             string cliente_apon = this.combo_cliente_esto.Text;
             
+            string razao_social_cliente = label_razao_social.Text;
 
 
             num_transac = Gerar_num_transac(num_docum, hor_operac);
@@ -1942,8 +1938,8 @@ namespace JP4
 
                 string comando_sql;
 
-                comando_sql = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao, status_estorno, cliente_apon) " +
-                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "','" + status_estorno + "','" + cliente_apon + "')";
+                comando_sql = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao, status_estorno, cliente_apon, razao_social_cliente) " +
+                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "','" + status_estorno + "','" + cliente_apon + "','"+ razao_social_cliente +"')";
 
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -2103,7 +2099,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Estornar_apontamento(string tipo_movimento)
         {
             // Não estou usando mais 
@@ -2217,7 +2212,6 @@ namespace JP4
             }
         }
         private void Buscar_apontamento() { }
-
 
         // Metodos de atualização de lançamento
         private void Atualizar_lancamento(string id_apontamento)
@@ -5254,7 +5248,20 @@ namespace JP4
 
         private void combo_local_desti_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            label_razao_social.Text = "---";            
             Buscar_razao_social(combo_local_desti.Text);
+
+            if (label_razao_social.Text == "---")
+            {
+                combo_cliente_esto.Text = "PICOFLEX";
+            }
+            else
+            {
+                combo_cliente_esto.Text = combo_local_desti.Text;
+            }
+
+
 
         }
 
