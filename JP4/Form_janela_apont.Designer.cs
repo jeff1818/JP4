@@ -53,6 +53,7 @@ namespace JP4
             this.empresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.defeitosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.paradasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -109,6 +110,7 @@ namespace JP4
             this.button_estornar = new System.Windows.Forms.Button();
             this.button_apontamento = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label_razao_social = new System.Windows.Forms.Label();
             this.combo_local_desti = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.combo_local_orig = new System.Windows.Forms.ComboBox();
@@ -278,6 +280,7 @@ namespace JP4
             this.tab_consumo = new System.Windows.Forms.TabPage();
             this.Grid_estrutura_item = new System.Windows.Forms.DataGridView();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.abaConsumo_label_cliente = new System.Windows.Forms.Label();
             this.abaConsumo_text_descri_item = new System.Windows.Forms.TextBox();
             this.abaConsumo_text__cod_item = new System.Windows.Forms.TextBox();
             this.abaConsumo_text_qtd_boa = new System.Windows.Forms.TextBox();
@@ -307,7 +310,6 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
-            this.abaConsumo_label_cliente = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -435,7 +437,8 @@ namespace JP4
             this.toolStripSeparator1,
             this.empresaToolStripMenuItem,
             this.defeitosToolStripMenuItem1,
-            this.paradasToolStripMenuItem1});
+            this.paradasToolStripMenuItem1,
+            this.clientesToolStripMenuItem});
             this.cadastrosToolStripMenuItem1.Name = "cadastrosToolStripMenuItem1";
             this.cadastrosToolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem1.Text = "Cadastros";
@@ -522,6 +525,12 @@ namespace JP4
             this.paradasToolStripMenuItem1.Text = "Paradas";
             this.paradasToolStripMenuItem1.Click += new System.EventHandler(this.paradasToolStripMenuItem1_Click);
             // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
@@ -561,6 +570,7 @@ namespace JP4
             this.label32.Size = new System.Drawing.Size(42, 13);
             this.label32.TabIndex = 12;
             this.label32.Text = "Cliente:";
+            this.label32.Visible = false;
             // 
             // combo_cliente_esto
             // 
@@ -573,6 +583,7 @@ namespace JP4
             this.combo_cliente_esto.Name = "combo_cliente_esto";
             this.combo_cliente_esto.Size = new System.Drawing.Size(166, 21);
             this.combo_cliente_esto.TabIndex = 11;
+            this.combo_cliente_esto.Visible = false;
             // 
             // label_tipo_material
             // 
@@ -1111,6 +1122,7 @@ namespace JP4
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label_razao_social);
             this.groupBox4.Controls.Add(this.combo_local_desti);
             this.groupBox4.Controls.Add(this.label22);
             this.groupBox4.Controls.Add(this.combo_local_orig);
@@ -1122,6 +1134,15 @@ namespace JP4
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Informação de local";
             // 
+            // label_razao_social
+            // 
+            this.label_razao_social.AutoSize = true;
+            this.label_razao_social.Location = new System.Drawing.Point(270, 46);
+            this.label_razao_social.Name = "label_razao_social";
+            this.label_razao_social.Size = new System.Drawing.Size(73, 13);
+            this.label_razao_social.TabIndex = 23;
+            this.label_razao_social.Text = "Razão Social:";
+            // 
             // combo_local_desti
             // 
             this.combo_local_desti.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -1132,6 +1153,7 @@ namespace JP4
             this.combo_local_desti.Name = "combo_local_desti";
             this.combo_local_desti.Size = new System.Drawing.Size(143, 21);
             this.combo_local_desti.TabIndex = 22;
+            this.combo_local_desti.SelectedIndexChanged += new System.EventHandler(this.combo_local_desti_SelectedIndexChanged);
             // 
             // label22
             // 
@@ -2905,6 +2927,15 @@ namespace JP4
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Informação de Ordem";
             // 
+            // abaConsumo_label_cliente
+            // 
+            this.abaConsumo_label_cliente.AutoSize = true;
+            this.abaConsumo_label_cliente.Location = new System.Drawing.Point(276, 58);
+            this.abaConsumo_label_cliente.Name = "abaConsumo_label_cliente";
+            this.abaConsumo_label_cliente.Size = new System.Drawing.Size(13, 13);
+            this.abaConsumo_label_cliente.TabIndex = 12;
+            this.abaConsumo_label_cliente.Text = "--";
+            // 
             // abaConsumo_text_descri_item
             // 
             this.abaConsumo_text_descri_item.Location = new System.Drawing.Point(276, 22);
@@ -3189,15 +3220,6 @@ namespace JP4
             // db_cadastro_grupo_estoqueTableAdapter1
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
-            // 
-            // abaConsumo_label_cliente
-            // 
-            this.abaConsumo_label_cliente.AutoSize = true;
-            this.abaConsumo_label_cliente.Location = new System.Drawing.Point(276, 58);
-            this.abaConsumo_label_cliente.Name = "abaConsumo_label_cliente";
-            this.abaConsumo_label_cliente.Size = new System.Drawing.Size(13, 13);
-            this.abaConsumo_label_cliente.TabIndex = 12;
-            this.abaConsumo_label_cliente.Text = "--";
             // 
             // AP01
             // 
@@ -3545,5 +3567,7 @@ namespace JP4
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label AbaMistura_label_tipoMaterial;
         private System.Windows.Forms.Label abaConsumo_label_cliente;
+        private System.Windows.Forms.Label label_razao_social;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
     }
 }

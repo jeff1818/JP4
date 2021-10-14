@@ -1188,6 +1188,35 @@ namespace JP4
 
         }
 
+        private void Buscar_razao_social(string local_destino_cliente)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_clientes where local_destino_cliente='"+ local_destino_cliente+"'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+
+                while (myreader.Read())
+                {
+                    label_razao_social.Text = myreader["razao_social"].ToString();
+                }
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+            
+        }
+
 
         // Janela Parada de maquina
         private string busca_cod_parada_db(string desc_parada)
@@ -1898,6 +1927,8 @@ namespace JP4
 
             int status_estorno = 0;
             string cliente_apon = this.combo_cliente_esto.Text;
+            
+
 
             num_transac = Gerar_num_transac(num_docum, hor_operac);
 
@@ -5220,5 +5251,13 @@ namespace JP4
         {
             Filtrar_ano(Convert.ToInt32(abaPesquisar_text_ano_lanc.Text));
         }
+
+        private void combo_local_desti_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Buscar_razao_social(combo_local_desti.Text);
+
+        }
+
+        
     }
 }

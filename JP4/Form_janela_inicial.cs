@@ -39,6 +39,14 @@ namespace JP4
             // ativar para depois de 1 ano
             auto_destruicao();
 
+            //Carregar_imagen();
+
+
+        }
+
+        private void Carregar_imagen()
+        {
+            picture_inicial.Load("https://onedrive.live.com/?authkey=%21ABGnyQEieAM%2Df%2Dw&cid=37ABC5C967094270&id=37ABC5C967094270%2121446&parId=37ABC5C967094270%2117675&o=OneUp");
         }
 
         private void auto_destruicao()
