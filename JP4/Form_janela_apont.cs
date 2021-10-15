@@ -5265,6 +5265,10 @@ namespace JP4
 
         }
 
-        
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_janela_cad_clientes cad_clientes = new Form_janela_cad_clientes();
+            cad_clientes.ShowDialog();
+        }
     }
 }

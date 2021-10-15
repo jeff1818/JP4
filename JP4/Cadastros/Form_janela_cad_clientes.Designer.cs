@@ -30,6 +30,7 @@ namespace JP4
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_sair = new System.Windows.Forms.Button();
             this.button_limpar_controles = new System.Windows.Forms.Button();
             this.button_atualizar = new System.Windows.Forms.Button();
             this.button_filtrar = new System.Windows.Forms.Button();
@@ -37,6 +38,8 @@ namespace JP4
             this.button_deletar = new System.Windows.Forms.Button();
             this.grid_cad_clientes = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.combo_local_destino = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.richText_observacao = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.date_modificacao = new System.Windows.Forms.DateTimePicker();
@@ -54,9 +57,6 @@ namespace JP4
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.combo_local_destino = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button_sair = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_clientes)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -77,6 +77,16 @@ namespace JP4
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Menu";
+            // 
+            // button_sair
+            // 
+            this.button_sair.Location = new System.Drawing.Point(12, 178);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(114, 23);
+            this.button_sair.TabIndex = 12;
+            this.button_sair.Text = "Sair";
+            this.button_sair.UseVisualStyleBackColor = true;
+            this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
             // 
             // button_limpar_controles
             // 
@@ -170,6 +180,26 @@ namespace JP4
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação basica:";
+            // 
+            // combo_local_destino
+            // 
+            this.combo_local_destino.FormattingEnabled = true;
+            this.combo_local_destino.Items.AddRange(new object[] {
+            "Ativo",
+            "Desativado"});
+            this.combo_local_destino.Location = new System.Drawing.Point(550, 75);
+            this.combo_local_destino.Name = "combo_local_destino";
+            this.combo_local_destino.Size = new System.Drawing.Size(196, 21);
+            this.combo_local_destino.TabIndex = 22;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(469, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Local Destino:";
             // 
             // richText_observacao
             // 
@@ -317,36 +347,6 @@ namespace JP4
             this.label1.TabIndex = 0;
             this.label1.Text = "Status";
             // 
-            // combo_local_destino
-            // 
-            this.combo_local_destino.FormattingEnabled = true;
-            this.combo_local_destino.Items.AddRange(new object[] {
-            "Ativo",
-            "Desativado"});
-            this.combo_local_destino.Location = new System.Drawing.Point(550, 75);
-            this.combo_local_destino.Name = "combo_local_destino";
-            this.combo_local_destino.Size = new System.Drawing.Size(196, 21);
-            this.combo_local_destino.TabIndex = 22;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(469, 80);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Local Destino:";
-            // 
-            // button_sair
-            // 
-            this.button_sair.Location = new System.Drawing.Point(12, 178);
-            this.button_sair.Name = "button_sair";
-            this.button_sair.Size = new System.Drawing.Size(114, 23);
-            this.button_sair.TabIndex = 12;
-            this.button_sair.Text = "Sair";
-            this.button_sair.UseVisualStyleBackColor = true;
-            this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
-            // 
             // Form_janela_cad_clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +357,7 @@ namespace JP4
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_janela_cad_clientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Clientes";
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_clientes)).EndInit();

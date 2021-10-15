@@ -907,45 +907,7 @@ namespace JP4
 
         }
 
-        private void button_iniciar_Click(object sender, EventArgs e)
-        {
-            Limpar_controles();
-            Desbloquear_controles();
-        }
-
-        private void button_salvar_Click(object sender, EventArgs e)
-        {
-            Salvar_lancamento();
-            Limpar_controles();
-            Carrega_grid();
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Atualizar_lancamento(label_id_stoque_trans.Text);
-            Limpar_controles();
-            Carrega_grid();
-
-        }
-
-        private void button_estornar_Click(object sender, EventArgs e)
-        {
-            Deletar_movimento(label_id_stoque_trans.Text);
-            Limpar_controles();
-            Carrega_grid();
-        }
-
-        private void button_buscar_Click(object sender, EventArgs e)
-        {
-            Filtrar_grid_pesquisar(combo_descri_completa.Text, combo_operacao.Text, combo_local_orig.Text, combo_local_destino.Text);
-        }
-
-        private void button_limpar_filtro_Click(object sender, EventArgs e)
-        {
-            Limpar_controles();
-            Carrega_grid();
-        }
+       
 
         private void text_num_documento_MouseHover(object sender, EventArgs e)
         {
@@ -978,6 +940,44 @@ namespace JP4
         private void inventárioMensalToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_iniciar_Click_1(object sender, EventArgs e)
+        {
+            Limpar_controles();
+            Desbloquear_controles();
+        }
+
+        private void button_salvar_Click_1(object sender, EventArgs e)
+        {
+            Salvar_lancamento();
+            Limpar_controles();
+            Carrega_grid();
+        }
+
+        private void button_atualizar_Click(object sender, EventArgs e)
+        {
+            Atualizar_lancamento(label_id_stoque_trans.Text);
+            Limpar_controles();
+            Carrega_grid();
+        }
+
+        private void button_estornar_Click_1(object sender, EventArgs e)
+        {
+            Deletar_movimento(label_id_stoque_trans.Text);
+            Limpar_controles();
+            Carrega_grid();
+        }
+
+        private void button_buscar_Click_1(object sender, EventArgs e)
+        {
+            Filtrar_grid_pesquisar(combo_descri_completa.Text, combo_operacao.Text, combo_local_orig.Text, combo_local_destino.Text);
+        }
+
+        private void button_limpar_filtro_Click_1(object sender, EventArgs e)
+        {
+            Limpar_controles();
+            Carrega_grid();
         }
     }
 }

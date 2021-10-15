@@ -41,7 +41,6 @@ namespace JP4
             this.relatorioEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_mov_estoque = new System.Windows.Forms.TabPage();
-            this.tab_relatorio_estoque = new System.Windows.Forms.TabPage();
             this.grid_mov_estoque = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label_descricao_operacao = new System.Windows.Forms.Label();
@@ -78,11 +77,13 @@ namespace JP4
             this.textBox_ano_filtro = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.button_limpar_filtro = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_atualizar = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
             this.button_estornar = new System.Windows.Forms.Button();
             this.button_salvar = new System.Windows.Forms.Button();
             this.button_iniciar = new System.Windows.Forms.Button();
+            this.tab_relatorio_estoque = new System.Windows.Forms.TabPage();
+            this.Grid_relatorio_estoque = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -98,16 +99,16 @@ namespace JP4
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.Grid_relatorio_estoque = new System.Windows.Forms.DataGridView();
+            this.button_sair = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_mov_estoque.SuspendLayout();
-            this.tab_relatorio_estoque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_mov_estoque)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.tab_relatorio_estoque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_relatorio_estoque)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -209,18 +210,6 @@ namespace JP4
             this.tab_mov_estoque.Text = "Movimentação";
             this.tab_mov_estoque.UseVisualStyleBackColor = true;
             // 
-            // tab_relatorio_estoque
-            // 
-            this.tab_relatorio_estoque.Controls.Add(this.Grid_relatorio_estoque);
-            this.tab_relatorio_estoque.Controls.Add(this.groupBox3);
-            this.tab_relatorio_estoque.Location = new System.Drawing.Point(4, 22);
-            this.tab_relatorio_estoque.Name = "tab_relatorio_estoque";
-            this.tab_relatorio_estoque.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_relatorio_estoque.Size = new System.Drawing.Size(1004, 552);
-            this.tab_relatorio_estoque.TabIndex = 1;
-            this.tab_relatorio_estoque.Text = "Relatório Estoque";
-            this.tab_relatorio_estoque.UseVisualStyleBackColor = true;
-            // 
             // grid_mov_estoque
             // 
             this.grid_mov_estoque.AllowUserToAddRows = false;
@@ -234,6 +223,7 @@ namespace JP4
             this.grid_mov_estoque.ReadOnly = true;
             this.grid_mov_estoque.Size = new System.Drawing.Size(870, 312);
             this.grid_mov_estoque.TabIndex = 10;
+            this.grid_mov_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_mov_estoque_CellDoubleClick);
             // 
             // groupBox2
             // 
@@ -422,6 +412,7 @@ namespace JP4
             this.text_num_documento.Name = "text_num_documento";
             this.text_num_documento.Size = new System.Drawing.Size(128, 20);
             this.text_num_documento.TabIndex = 4;
+            this.text_num_documento.MouseHover += new System.EventHandler(this.text_num_documento_MouseHover);
             // 
             // label6
             // 
@@ -475,6 +466,7 @@ namespace JP4
             this.combo_operacao.Name = "combo_operacao";
             this.combo_operacao.Size = new System.Drawing.Size(128, 21);
             this.combo_operacao.TabIndex = 3;
+            this.combo_operacao.SelectedIndexChanged += new System.EventHandler(this.combo_operacao_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -494,6 +486,7 @@ namespace JP4
             this.combo_descri_completa.Name = "combo_descri_completa";
             this.combo_descri_completa.Size = new System.Drawing.Size(392, 21);
             this.combo_descri_completa.TabIndex = 2;
+            this.combo_descri_completa.Leave += new System.EventHandler(this.combo_descri_completa_Leave);
             // 
             // combo_cod_item
             // 
@@ -504,6 +497,7 @@ namespace JP4
             this.combo_cod_item.Name = "combo_cod_item";
             this.combo_cod_item.Size = new System.Drawing.Size(128, 21);
             this.combo_cod_item.TabIndex = 1;
+            this.combo_cod_item.Leave += new System.EventHandler(this.combo_cod_item_Leave);
             // 
             // label2
             // 
@@ -525,12 +519,13 @@ namespace JP4
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button_sair);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.comboBox_mes_filtro);
             this.groupBox1.Controls.Add(this.textBox_ano_filtro);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.button_limpar_filtro);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button_atualizar);
             this.groupBox1.Controls.Add(this.button_buscar);
             this.groupBox1.Controls.Add(this.button_estornar);
             this.groupBox1.Controls.Add(this.button_salvar);
@@ -574,6 +569,7 @@ namespace JP4
             this.comboBox_mes_filtro.Name = "comboBox_mes_filtro";
             this.comboBox_mes_filtro.Size = new System.Drawing.Size(55, 21);
             this.comboBox_mes_filtro.TabIndex = 19;
+            this.comboBox_mes_filtro.SelectedIndexChanged += new System.EventHandler(this.comboBox_mes_filtro_SelectedIndexChanged);
             // 
             // textBox_ano_filtro
             // 
@@ -599,15 +595,17 @@ namespace JP4
             this.button_limpar_filtro.TabIndex = 5;
             this.button_limpar_filtro.Text = "Limpar Filtro";
             this.button_limpar_filtro.UseVisualStyleBackColor = true;
+            this.button_limpar_filtro.Click += new System.EventHandler(this.button_limpar_filtro_Click_1);
             // 
-            // button1
+            // button_atualizar
             // 
-            this.button1.Location = new System.Drawing.Point(6, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Atualizar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_atualizar.Location = new System.Drawing.Point(6, 76);
+            this.button_atualizar.Name = "button_atualizar";
+            this.button_atualizar.Size = new System.Drawing.Size(116, 23);
+            this.button_atualizar.TabIndex = 4;
+            this.button_atualizar.Text = "Atualizar";
+            this.button_atualizar.UseVisualStyleBackColor = true;
+            this.button_atualizar.Click += new System.EventHandler(this.button_atualizar_Click);
             // 
             // button_buscar
             // 
@@ -617,6 +615,7 @@ namespace JP4
             this.button_buscar.TabIndex = 3;
             this.button_buscar.Text = "Filtrar";
             this.button_buscar.UseVisualStyleBackColor = true;
+            this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click_1);
             // 
             // button_estornar
             // 
@@ -626,6 +625,7 @@ namespace JP4
             this.button_estornar.TabIndex = 2;
             this.button_estornar.Text = "Estornar";
             this.button_estornar.UseVisualStyleBackColor = true;
+            this.button_estornar.Click += new System.EventHandler(this.button_estornar_Click_1);
             // 
             // button_salvar
             // 
@@ -635,6 +635,7 @@ namespace JP4
             this.button_salvar.TabIndex = 1;
             this.button_salvar.Text = "Salvar";
             this.button_salvar.UseVisualStyleBackColor = true;
+            this.button_salvar.Click += new System.EventHandler(this.button_salvar_Click_1);
             // 
             // button_iniciar
             // 
@@ -644,6 +645,33 @@ namespace JP4
             this.button_iniciar.TabIndex = 0;
             this.button_iniciar.Text = "Iniciar";
             this.button_iniciar.UseVisualStyleBackColor = true;
+            this.button_iniciar.Click += new System.EventHandler(this.button_iniciar_Click_1);
+            // 
+            // tab_relatorio_estoque
+            // 
+            this.tab_relatorio_estoque.Controls.Add(this.Grid_relatorio_estoque);
+            this.tab_relatorio_estoque.Controls.Add(this.groupBox3);
+            this.tab_relatorio_estoque.Location = new System.Drawing.Point(4, 22);
+            this.tab_relatorio_estoque.Name = "tab_relatorio_estoque";
+            this.tab_relatorio_estoque.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_relatorio_estoque.Size = new System.Drawing.Size(1004, 552);
+            this.tab_relatorio_estoque.TabIndex = 1;
+            this.tab_relatorio_estoque.Text = "Relatório Estoque";
+            this.tab_relatorio_estoque.UseVisualStyleBackColor = true;
+            // 
+            // Grid_relatorio_estoque
+            // 
+            this.Grid_relatorio_estoque.AllowUserToAddRows = false;
+            this.Grid_relatorio_estoque.AllowUserToDeleteRows = false;
+            this.Grid_relatorio_estoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Grid_relatorio_estoque.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.Grid_relatorio_estoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grid_relatorio_estoque.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Grid_relatorio_estoque.Location = new System.Drawing.Point(3, 155);
+            this.Grid_relatorio_estoque.Name = "Grid_relatorio_estoque";
+            this.Grid_relatorio_estoque.ReadOnly = true;
+            this.Grid_relatorio_estoque.Size = new System.Drawing.Size(998, 394);
+            this.Grid_relatorio_estoque.TabIndex = 11;
             // 
             // groupBox3
             // 
@@ -796,19 +824,14 @@ namespace JP4
             this.label30.TabIndex = 0;
             this.label30.Text = "Item:";
             // 
-            // Grid_relatorio_estoque
+            // button_sair
             // 
-            this.Grid_relatorio_estoque.AllowUserToAddRows = false;
-            this.Grid_relatorio_estoque.AllowUserToDeleteRows = false;
-            this.Grid_relatorio_estoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Grid_relatorio_estoque.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.Grid_relatorio_estoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grid_relatorio_estoque.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Grid_relatorio_estoque.Location = new System.Drawing.Point(3, 155);
-            this.Grid_relatorio_estoque.Name = "Grid_relatorio_estoque";
-            this.Grid_relatorio_estoque.ReadOnly = true;
-            this.Grid_relatorio_estoque.Size = new System.Drawing.Size(998, 394);
-            this.Grid_relatorio_estoque.TabIndex = 11;
+            this.button_sair.Location = new System.Drawing.Point(6, 193);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(116, 23);
+            this.button_sair.TabIndex = 21;
+            this.button_sair.Text = "Sair";
+            this.button_sair.UseVisualStyleBackColor = true;
             // 
             // STOQ01
             // 
@@ -817,6 +840,7 @@ namespace JP4
             this.ClientSize = new System.Drawing.Size(1012, 602);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "STOQ01";
             this.Text = "Form_janela_mov_estoque";
@@ -824,15 +848,15 @@ namespace JP4
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tab_mov_estoque.ResumeLayout(false);
-            this.tab_relatorio_estoque.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_mov_estoque)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tab_relatorio_estoque.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_relatorio_estoque)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grid_relatorio_estoque)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -887,7 +911,7 @@ namespace JP4
         private System.Windows.Forms.TextBox textBox_ano_filtro;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button_limpar_filtro;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_atualizar;
         private System.Windows.Forms.Button button_buscar;
         private System.Windows.Forms.Button button_estornar;
         private System.Windows.Forms.Button button_salvar;
@@ -909,5 +933,6 @@ namespace JP4
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Button button_sair;
     }
 }
