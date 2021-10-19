@@ -310,6 +310,7 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
+            this.abaConsumo_label_maquina = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -528,7 +529,7 @@ namespace JP4
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -2914,6 +2915,7 @@ namespace JP4
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.abaConsumo_label_maquina);
             this.groupBox10.Controls.Add(this.abaConsumo_label_cliente);
             this.groupBox10.Controls.Add(this.abaConsumo_text_descri_item);
             this.groupBox10.Controls.Add(this.abaConsumo_text__cod_item);
@@ -3220,6 +3222,15 @@ namespace JP4
             // db_cadastro_grupo_estoqueTableAdapter1
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
+            // 
+            // abaConsumo_label_maquina
+            // 
+            this.abaConsumo_label_maquina.AutoSize = true;
+            this.abaConsumo_label_maquina.Location = new System.Drawing.Point(493, 58);
+            this.abaConsumo_label_maquina.Name = "abaConsumo_label_maquina";
+            this.abaConsumo_label_maquina.Size = new System.Drawing.Size(13, 13);
+            this.abaConsumo_label_maquina.TabIndex = 13;
+            this.abaConsumo_label_maquina.Text = "--";
             // 
             // AP01
             // 
@@ -3569,5 +3580,6 @@ namespace JP4
         private System.Windows.Forms.Label abaConsumo_label_cliente;
         private System.Windows.Forms.Label label_razao_social;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.Label abaConsumo_label_maquina;
     }
 }

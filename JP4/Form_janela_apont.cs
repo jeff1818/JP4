@@ -85,6 +85,9 @@ namespace JP4
                     this.abaConsumo_text_descri_item.Text = combo_desc_completa.Text;
                     this.abaConsumo_text_qtd_boa.Text = Convert.ToString(text_qtd_boa.Text);
                     this.abaConsumo_label_cliente.Text = combo_cliente_esto.Text;
+                    this.abaConsumo_label_maquina.Text = combo_maquinas.Text;
+
+
                     Carregar_grid(combo_desc_completa.Text, combo_cliente_esto.Text, combo_maquinas.Text);
 
                     if (tab_menu_apontamento.SelectedTab == tab_consumo)
