@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Jarvis\OneDrive\Visual - basic c#\JP4\Setup_JP4\</PublishUrl>
+    <PublishUrl>C:\Users\Jarvis\OneDrive\Visual - basic c#\Aplicativo\setup\Instalador\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <MinimumRequiredVersion>10.1.1.1</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>26</ApplicationRevision>
+    <ApplicationRevision>28</ApplicationRevision>
     <ApplicationVersion>10.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -436,6 +436,9 @@
     <EmbeddedResource Include="Form_janela_report01.resx">
       <DependentUpon>Form_janela_report01.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_retrabalho.resx">
+      <DependentUpon>Form_janela_retrabalho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_stoque_trans.resx">
       <DependentUpon>Form_janela_stoque_trans.cs</DependentUpon>
     </EmbeddedResource>
@@ -505,7 +508,9 @@
     <Content Include="fabrica01.ico" />
     <Content Include="factory_contamination_industry_buildings_landscape_icon_132902.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Auto_update\" />
+  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

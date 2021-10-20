@@ -1614,6 +1614,9 @@ namespace JP4
             label_razao_social.Text = "----";
             label_tipo_material.Text = "---";
 
+            combo_local_desti.Text = string.Empty;
+
+
 
             //Aba Defeitos------------------------------------------------
 
@@ -1762,15 +1765,15 @@ namespace JP4
                 MessageBox.Show("Verifique os campo Ordem");
                 cod_geral_erro = 1;
                 return cod_geral_erro;
-
-
             }
+
             if (combo_cod_item.Text == string.Empty)
             {
                 MessageBox.Show("Verifique os campo Codigo");
                 cod_geral_erro = 1;
                 return cod_geral_erro;
             }
+
             //if (combo_cliente_esto.Text == string.Empty)
             //{
             //    MessageBox.Show("Verifique os campo Cliente");
@@ -1802,6 +1805,13 @@ namespace JP4
             if (combo_turnos.Text == string.Empty)
             {
                 MessageBox.Show("Verifique os campo Turnos");
+                cod_geral_erro = 1;
+                return cod_geral_erro;
+            }
+
+            if(combo_local_desti.Text == string.Empty)
+            {
+                MessageBox.Show("Verifique o campo Local Destino");
                 cod_geral_erro = 1;
                 return cod_geral_erro;
             }

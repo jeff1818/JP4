@@ -38,6 +38,7 @@ namespace JP4
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel_sub_menu_cadastro = new System.Windows.Forms.Panel();
             this.button_cadastro_user = new System.Windows.Forms.Button();
             this.button_cad_paradas = new System.Windows.Forms.Button();
@@ -74,12 +75,11 @@ namespace JP4
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_apontamento = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button_estoque_atual = new System.Windows.Forms.Button();
             this.panel_central = new System.Windows.Forms.Panel();
+            this.picture_inicial = new System.Windows.Forms.PictureBox();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.button_estoque_atual = new System.Windows.Forms.Button();
-            this.picture_inicial = new System.Windows.Forms.PictureBox();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -89,8 +89,8 @@ namespace JP4
             this.panel_sub_menu_cadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_central.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.db_aplicativo_kpiDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_aplicativo_kpiDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_titulo_menu
@@ -216,6 +216,14 @@ namespace JP4
             this.panel_menu_vertical.TabIndex = 4;
             this.panel_menu_vertical.Click += new System.EventHandler(this.panel_menu_vertical_Click);
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Black;
+            this.panel8.Location = new System.Drawing.Point(3, 225);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(5, 32);
+            this.panel8.TabIndex = 35;
+            // 
             // panel_sub_menu_cadastro
             // 
             this.panel_sub_menu_cadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(205)))));
@@ -233,7 +241,7 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_aplica);
             this.panel_sub_menu_cadastro.Controls.Add(this.button1);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
-            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(85, 73);
+            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(48, 39);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 563);
             this.panel_sub_menu_cadastro.TabIndex = 27;
@@ -698,35 +706,6 @@ namespace JP4
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // panel_central
-            // 
-            this.panel_central.AutoSize = true;
-            this.panel_central.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel_central.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel_central.Controls.Add(this.picture_inicial);
-            this.panel_central.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_central.Location = new System.Drawing.Point(200, 35);
-            this.panel_central.Name = "panel_central";
-            this.panel_central.Size = new System.Drawing.Size(1169, 689);
-            this.panel_central.TabIndex = 5;
-            // 
-            // db_aplicativo_kpiDataSet
-            // 
-            this.db_aplicativo_kpiDataSet.DataSetName = "db_aplicativo_kpiDataSet";
-            this.db_aplicativo_kpiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // db_configTableAdapter1
-            // 
-            this.db_configTableAdapter1.ClearBeforeFill = true;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Black;
-            this.panel8.Location = new System.Drawing.Point(3, 225);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(5, 32);
-            this.panel8.TabIndex = 35;
-            // 
             // button_estoque_atual
             // 
             this.button_estoque_atual.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
@@ -741,6 +720,18 @@ namespace JP4
             this.button_estoque_atual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_estoque_atual.UseVisualStyleBackColor = true;
             // 
+            // panel_central
+            // 
+            this.panel_central.AutoSize = true;
+            this.panel_central.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_central.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_central.Controls.Add(this.picture_inicial);
+            this.panel_central.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_central.Location = new System.Drawing.Point(200, 35);
+            this.panel_central.Name = "panel_central";
+            this.panel_central.Size = new System.Drawing.Size(1169, 689);
+            this.panel_central.TabIndex = 5;
+            // 
             // picture_inicial
             // 
             this.picture_inicial.Location = new System.Drawing.Point(337, 51);
@@ -748,6 +739,15 @@ namespace JP4
             this.picture_inicial.Size = new System.Drawing.Size(529, 461);
             this.picture_inicial.TabIndex = 0;
             this.picture_inicial.TabStop = false;
+            // 
+            // db_aplicativo_kpiDataSet
+            // 
+            this.db_aplicativo_kpiDataSet.DataSetName = "db_aplicativo_kpiDataSet";
+            this.db_aplicativo_kpiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // db_configTableAdapter1
+            // 
+            this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
             // Form_tela_inicial
             // 
@@ -778,8 +778,8 @@ namespace JP4
             this.panel_sub_menu_cadastro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_central.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.db_aplicativo_kpiDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_inicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_aplicativo_kpiDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
