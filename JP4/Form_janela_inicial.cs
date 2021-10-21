@@ -58,9 +58,7 @@ namespace JP4
                 MessageBox.Show("Dia de apagar tudo...");
             }
         }
-
-        
-        
+                
 
 
 

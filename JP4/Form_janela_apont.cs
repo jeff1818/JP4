@@ -1220,6 +1220,48 @@ namespace JP4
             
         }        
 
+        private int Verificar_maquina_local(string desc_completa, string maquina)
+        {
+            string local_aplicacao = "";
+            int resultado = 0;
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_material where descricao_completa='" + desc_completa + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    local_aplicacao = myreader["local_aplicacao"].ToString(); // ToUpper(new CultureInfo("en-US", false)); 
+
+                }
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+            string metade_maquina = maquina.Substring(0, 4);
+            string metade_local = local_aplicacao.Substring(0, 4).ToUpper(new CultureInfo("en-US", false));
+
+
+            if (metade_maquina != metade_local)
+            {
+                resultado = 1;
+            }
+
+            return resultado;
+
+
+        }
         // Janela Parada de maquina
         private string busca_cod_parada_db(string desc_parada)
         {
@@ -1773,6 +1815,8 @@ namespace JP4
                 cod_geral_erro = 1;
                 return cod_geral_erro;
             }
+
+            
 
             //if (combo_cliente_esto.Text == string.Empty)
             //{
@@ -5282,6 +5326,15 @@ namespace JP4
         {
             Form_janela_cad_clientes cad_clientes = new Form_janela_cad_clientes();
             cad_clientes.ShowDialog();
+        }
+
+        private void combo_ordem_prod_Leave(object sender, EventArgs e)
+        {
+            if (Verificar_maquina_local(combo_desc_completa.Text, combo_maquinas.Text) == 1)
+            {
+                MessageBox.Show("Ordem de produção incompativel com a maquina!");            
+            }
+
         }
     }
 }

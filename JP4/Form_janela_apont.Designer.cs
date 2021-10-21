@@ -280,6 +280,7 @@ namespace JP4
             this.tab_consumo = new System.Windows.Forms.TabPage();
             this.Grid_estrutura_item = new System.Windows.Forms.DataGridView();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.abaConsumo_label_maquina = new System.Windows.Forms.Label();
             this.abaConsumo_label_cliente = new System.Windows.Forms.Label();
             this.abaConsumo_text_descri_item = new System.Windows.Forms.TextBox();
             this.abaConsumo_text__cod_item = new System.Windows.Forms.TextBox();
@@ -310,7 +311,6 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
-            this.abaConsumo_label_maquina = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -680,6 +680,7 @@ namespace JP4
             this.combo_ordem_prod.Size = new System.Drawing.Size(143, 21);
             this.combo_ordem_prod.TabIndex = 1;
             this.combo_ordem_prod.SelectedIndexChanged += new System.EventHandler(this.combo_ordem_prod_SelectedIndexChanged);
+            this.combo_ordem_prod.Leave += new System.EventHandler(this.combo_ordem_prod_Leave);
             // 
             // label1
             // 
@@ -2929,6 +2930,15 @@ namespace JP4
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Informação de Ordem";
             // 
+            // abaConsumo_label_maquina
+            // 
+            this.abaConsumo_label_maquina.AutoSize = true;
+            this.abaConsumo_label_maquina.Location = new System.Drawing.Point(493, 58);
+            this.abaConsumo_label_maquina.Name = "abaConsumo_label_maquina";
+            this.abaConsumo_label_maquina.Size = new System.Drawing.Size(13, 13);
+            this.abaConsumo_label_maquina.TabIndex = 13;
+            this.abaConsumo_label_maquina.Text = "--";
+            // 
             // abaConsumo_label_cliente
             // 
             this.abaConsumo_label_cliente.AutoSize = true;
@@ -3222,15 +3232,6 @@ namespace JP4
             // db_cadastro_grupo_estoqueTableAdapter1
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
-            // 
-            // abaConsumo_label_maquina
-            // 
-            this.abaConsumo_label_maquina.AutoSize = true;
-            this.abaConsumo_label_maquina.Location = new System.Drawing.Point(493, 58);
-            this.abaConsumo_label_maquina.Name = "abaConsumo_label_maquina";
-            this.abaConsumo_label_maquina.Size = new System.Drawing.Size(13, 13);
-            this.abaConsumo_label_maquina.TabIndex = 13;
-            this.abaConsumo_label_maquina.Text = "--";
             // 
             // AP01
             // 
