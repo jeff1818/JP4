@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using JP4.Config;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
@@ -23,8 +25,37 @@ namespace JP4
             label_dt_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup;
 
             // backup_db();
+
+            // Ler_arquivo_config(); Funciona muito bem
+
         }
-        
+
+        #region Arquivo TXT
+
+
+
+
+        public void Ler_arquivo_config()
+        {
+            
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Jarvis\OneDrive\Visual - basic c#\banco\config.txt");
+
+            //label_linha01.Text = lines[0];
+            //label_linha02.Text = lines[1];
+            //label_linha03.Text = lines[2];
+            //label_linha04.Text = lines[3];
+
+
+        }
+
+
+       
+
+        #endregion
+
+
+
+
         #region Fazer backup do banco de dados Acess
 
 
@@ -52,9 +83,6 @@ namespace JP4
 
             
         }
-
-
-
         private void criar_pasta_backup(string local_db)
         {
             string folderName = local_db + @"\db_backup";
@@ -172,7 +200,6 @@ namespace JP4
 
             return endereco_completo;
         }
-
 
         #endregion
 
@@ -356,6 +383,8 @@ namespace JP4
             Salvar_local_backup();
             Reset_aplicativo();
         }
+
+        private void button1_Click(object sender, EventArgs e){}
     }
 }
 

@@ -650,6 +650,7 @@ namespace JP4
             this.combo_cod_item.Size = new System.Drawing.Size(143, 21);
             this.combo_cod_item.TabIndex = 2;
             this.combo_cod_item.TextChanged += new System.EventHandler(this.combo_cod_item_TextChanged);
+            this.combo_cod_item.Leave += new System.EventHandler(this.combo_cod_item_Leave);
             // 
             // label3
             // 

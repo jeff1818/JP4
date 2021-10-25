@@ -85,5 +85,15 @@ namespace JP4.Properties {
                 this["apocalipse"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Jarvis\\OneDrive\\Visual - basic c#\\banco\\config.txt")]
+        public string arquivo_txt {
+            get {
+                return ((string)(this["arquivo_txt"]));
+            }
+        }
     }
 }

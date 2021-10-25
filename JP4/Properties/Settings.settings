@@ -41,5 +41,12 @@
     <Setting Name="apocalipse" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">2022-08-25</Value>
     </Setting>
+    <Setting Name="arquivo_txt" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;C:\Users\Jarvis\OneDrive\Visual - basic c#\banco\config.txt&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">C:\Users\Jarvis\OneDrive\Visual - basic c#\banco\config.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

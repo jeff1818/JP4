@@ -26,9 +26,9 @@
     <UpdateUrl>\\108.167.151.58\public_html\aplicativo_update\Aplicativo\</UpdateUrl>
     <PublisherName>Gestão de Produção</PublisherName>
     <MinimumRequiredVersion>10.1.1.1</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>10.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -193,6 +193,12 @@
     </Compile>
     <Compile Include="Config\Form_janela_cad_usuario.Designer.cs">
       <DependentUpon>Form_janela_cad_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\Form_janela_config_txt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\Form_janela_config_txt.Designer.cs">
+      <DependentUpon>Form_janela_config_txt.cs</DependentUpon>
     </Compile>
     <Compile Include="db_aplicativo_kpiDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -369,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Config\Form_janela_cad_usuario.resx">
       <DependentUpon>Form_janela_cad_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\Form_janela_config_txt.resx">
+      <DependentUpon>Form_janela_config_txt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_consumo_estrutura.resx">
       <DependentUpon>Form_consumo_estrutura.cs</DependentUpon>

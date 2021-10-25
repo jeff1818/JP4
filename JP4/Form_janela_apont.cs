@@ -1249,14 +1249,20 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
 
-            string metade_maquina = maquina.Substring(0, 4);
-            string metade_local = local_aplicacao.Substring(0, 4).ToUpper(new CultureInfo("en-US", false));
-
-
-            if (metade_maquina != metade_local)
+            try
             {
-                resultado = 1;
+                string metade_maquina = maquina.Substring(0, 4);
+                string metade_local = local_aplicacao.Substring(0, 4).ToUpper(new CultureInfo("en-US", false));
+
+                if (metade_maquina != metade_local)
+                {
+                    resultado = 1;
+                }
             }
+            catch (Exception)
+            {
+                
+            }            
 
             return resultado;
 
@@ -4366,7 +4372,8 @@ namespace JP4
         }
         private void button_retrabalho_Click(object sender, EventArgs e)
         {
-
+            Form_janela_retrabalho janela_retrabalho = new Form_janela_retrabalho();
+            janela_retrabalho.ShowDialog();
         }
         #endregion
 
@@ -5317,9 +5324,6 @@ namespace JP4
             {
                 combo_cliente_esto.Text = combo_local_desti.Text;
             }
-
-
-
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5328,11 +5332,13 @@ namespace JP4
             cad_clientes.ShowDialog();
         }
 
-        private void combo_ordem_prod_Leave(object sender, EventArgs e)
+        private void combo_ordem_prod_Leave(object sender, EventArgs e){}
+
+        private void combo_cod_item_Leave(object sender, EventArgs e)
         {
             if (Verificar_maquina_local(combo_desc_completa.Text, combo_maquinas.Text) == 1)
             {
-                MessageBox.Show("Ordem de produção incompativel com a maquina!");            
+                MessageBox.Show("Ordem de produção incompativel com a maquina!");
             }
 
         }
