@@ -65,33 +65,28 @@ namespace JP4
                 MessageBox.Show("Dia de apagar tudo...");
             }
         }
-                
 
 
-
-        // ------------------------------------------------------------------------------------------------------
+        #region Funções de Auto Updater
         public void Check_update()
         {
+
             WebClient webClient = new WebClient();
+
+            string link_download = "https://pastebin.com/raw/Hc22rGGZ";
+            string versao_update = Application.ProductVersion;
+
             try
             {
-                if (!webClient.DownloadString("https://pastebin.com/raw/Hc22rGGZ").Contains(Application.ProductVersion))
+                if (!webClient.DownloadString(link_download).Contains(versao_update))
                 {
-                    //DialogResult resultado = MessageBox.Show("Uma nova versão do sistema esta disponivel, deseja baixar ?","Nova Versão!", MessageBoxButtons.YesNo);                    
-                    //label_status.Text = "Nova versão disponivel!";
-                    //label_status.Visible = true;
-                    linkLabel_baixar_nova.Visible = true;
-
-                    LinkLabel.Link link = new LinkLabel.Link();
-                    //link.LinkData = "https://casacriativa.top/";
-                    link.LinkData = "https://1drv.ms/u/s!AnBCCWfJxas3gflsl-I35zjW4lwHAw?e=8SOZDi";
-                    linkLabel_baixar_nova.Links.Add(link);
+                    if (MessageBox.Show("Nova atualização disponivel, Deseja baixar?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        using (var client = new WebClient())
+                        {
+                            Process.Start("AutoUpdateJP.exe.exe");
+                            this.Close();
+                        }
                 }
-                else
-                {
-                    label_status.Text = "O JP4 Já esta atualizado!";
-                }
-
             }
             catch
             {
@@ -102,32 +97,11 @@ namespace JP4
 
         public void DownloadFile()
         {
-            WebClient webClient = new WebClient();
-            var client = new WebClient();
-
-            MessageBox.Show("Atualizando...");
-
-            try
-            {
-                System.Threading.Thread.Sleep(5000);
-                File.Delete(@"c:\temp\setup.exe");
-                client.DownloadFile("https://casacriativa.top/aplicativo_update/Aplicativo/setup.zip", @"c:\temp\setup.zip");
-                
-                string zipPath = @"c:\temp\setup.zip";
-                string extractPath =@"c:\temp\";
-                ZipFile.ExtractToDirectory(zipPath, extractPath);
-                File.Delete(@"c:\temp\setup.zip");
-                Process.Start(@"c:\temp\setup.exe");
-                Close();
-            }
-            catch
-            {
-                Process.Start(@"c:\temp\setup.exe");
-                Close();
-            }
+            
         }
 
-        //-------------------------------------------------------------------------------------------------------
+        #endregion
+        
 
 
 
