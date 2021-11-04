@@ -29,6 +29,7 @@ namespace JP4
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_tela_inicial));
             this.panel_titulo_menu = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -80,6 +81,9 @@ namespace JP4
             this.picture_inicial = new System.Windows.Forms.PictureBox();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
+            this.timer_digital = new System.Windows.Forms.Timer(this.components);
+            this.label_data_inicial = new System.Windows.Forms.Label();
+            this.label_hora_digital = new System.Windows.Forms.Label();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -96,6 +100,8 @@ namespace JP4
             // panel_titulo_menu
             // 
             this.panel_titulo_menu.BackColor = System.Drawing.Color.Black;
+            this.panel_titulo_menu.Controls.Add(this.label_hora_digital);
+            this.panel_titulo_menu.Controls.Add(this.label_data_inicial);
             this.panel_titulo_menu.Controls.Add(this.label2);
             this.panel_titulo_menu.Controls.Add(this.label_nome_usuario);
             this.panel_titulo_menu.Controls.Add(this.botao_restor);
@@ -749,6 +755,31 @@ namespace JP4
             // 
             this.db_configTableAdapter1.ClearBeforeFill = true;
             // 
+            // timer_digital
+            // 
+            this.timer_digital.Enabled = true;
+            this.timer_digital.Tick += new System.EventHandler(this.timer_digital_Tick);
+            // 
+            // label_data_inicial
+            // 
+            this.label_data_inicial.AutoSize = true;
+            this.label_data_inicial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_data_inicial.Location = new System.Drawing.Point(661, 11);
+            this.label_data_inicial.Name = "label_data_inicial";
+            this.label_data_inicial.Size = new System.Drawing.Size(33, 13);
+            this.label_data_inicial.TabIndex = 5;
+            this.label_data_inicial.Text = "Data:";
+            // 
+            // label_hora_digital
+            // 
+            this.label_hora_digital.AutoSize = true;
+            this.label_hora_digital.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_hora_digital.Location = new System.Drawing.Point(810, 11);
+            this.label_hora_digital.Name = "label_hora_digital";
+            this.label_hora_digital.Size = new System.Drawing.Size(31, 13);
+            this.label_hora_digital.TabIndex = 6;
+            this.label_hora_digital.Text = "hora:";
+            // 
             // Form_tela_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -837,6 +868,9 @@ namespace JP4
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button button_estoque_atual;
         private System.Windows.Forms.PictureBox picture_inicial;
+        public System.Windows.Forms.Label label_hora_digital;
+        public System.Windows.Forms.Label label_data_inicial;
+        private System.Windows.Forms.Timer timer_digital;
     }
 }
 

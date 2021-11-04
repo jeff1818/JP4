@@ -16,6 +16,7 @@ using System.IO;
 using JP4.Cadastros;
 using JP4.Config;
 
+
 namespace JP4
 {
     public partial class Form_tela_inicial : Form
@@ -23,6 +24,10 @@ namespace JP4
         public Form_tela_inicial()
         {
             InitializeComponent();
+
+
+            label_data_inicial.Text = DateTime.Today.ToString("dddd - dd/MM/yyyy").ToUpper();
+            //label_nome_usuario.Text = JP4.AP01.Nome
 
             label_inicio_versao_prog.Text = Application.ProductVersion;
 
@@ -39,14 +44,16 @@ namespace JP4
             // ativar para depois de 1 ano
             auto_destruicao();
 
-            //Carregar_imagen();
+            // Carregar_imagen();
 
 
         }
 
         private void Carregar_imagen()
         {
-            picture_inicial.Load("https://onedrive.live.com/?authkey=%21ABGnyQEieAM%2Df%2Dw&cid=37ABC5C967094270&id=37ABC5C967094270%2121446&parId=37ABC5C967094270%2117675&o=OneUp");
+
+            picture_inicial.Load(@"C:\Users\Jarvis\OneDrive\Visual - basic c#\JP4\Cadastro.png");
+            
         }
 
         private void auto_destruicao()
@@ -334,6 +341,11 @@ namespace JP4
         private void button_report_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_report01());
+        }
+
+        private void timer_digital_Tick(object sender, EventArgs e)
+        {
+            label_hora_digital.Text = DateTime.Now.ToString("HH:mm");
         }
     }
 }

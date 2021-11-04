@@ -18,12 +18,123 @@ namespace JP4
         public Form_janela_retrabalho()
         {
             InitializeComponent();
+
+            origem_combo_mes.Text = Convert.ToString(DateTime.Now.Month);
+
+            Carregar_grid(Convert.ToInt32(origem_combo_mes.Text));
+            Carregar_controle_ordem();
+
         }
 
         // Janela de retrabalho esta dando muito trabalho
         // ainda precisa melhorar a logica dos filtros e busca no banco de dados
         // Pensar numa forma de transformar os fardos "errados" sem precisar estornar
 
+        #region Metodos para filtrar
+
+        private void Filtrar_gird_ordem_prod(double num_docum)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, select dat_movto, num_docum, cod_descri_completa, secao_nome, operador, cod_local_est_dest, fardos from estoque_trans where ordem_prod = " + num_docum;
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+                grid_retrabalho.DataSource = dt;
+                connection.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void Filtrar_gird_data(DateTime data_movt)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, select dat_movto, num_docum, cod_descri_completa, secao_nome, operador, cod_local_est_dest, fardos from estoque_trans where date(dat_movto) = " + data_movt;
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+                grid_retrabalho.DataSource = dt;
+                connection.Close();
+
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        #endregion
+
+        #region Metodos Carregar controles
+        private void Carregar_controle_ordem()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select distinct num_docum from estoque_trans";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    origem_combo_ordem_prod.Items.Add(myreader["num_docum"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Carregar_grid(int mes_movto)
+        {
+            try
+            {
+                // Mudei para aceitar o cliente
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_estoque_trans, dat_movto, num_docum, cod_descri_completa, secao_nome, operador, cod_local_est_dest, fardos from estoque_trans where mes_movto=" + mes_movto;
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+                grid_retrabalho.DataSource = dt;
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        
+
+        #endregion
+
+        #region Metodos de busca
 
         private void Busca_apon_ordem(DateTime data_apontamento)
         {
@@ -172,25 +283,18 @@ namespace JP4
 
         }
 
+        #endregion
+
         private void origem_dt_apontameno_ValueChanged(object sender, EventArgs e)
         {
-            //origem_combo_maquina.Items.Clear();
-            origem_combo_ordem_prod.Items.Clear();
-            Busca_apon_ordem(origem_dt_apontameno.Value);
+            Filtrar_gird_data(origem_dt_apontameno.Value);
         }
+        private void origem_combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e){}
+        private void origem_combo_maquina_SelectedIndexChanged(object sender, EventArgs e){}
 
-        private void origem_combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e)
+        private void origem_combo_mes_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            origem_combo_maquina.Items.Clear();
-            Busca_apon_maquina(Convert.ToDouble(origem_combo_ordem_prod.Text));
-            Busca_maquina(Convert.ToDouble(origem_combo_ordem_prod.Text));
-        }
-
-        private void origem_combo_maquina_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            origem_combo_operador.Items.Clear();
-            Busca_operador_afins(Convert.ToDouble(origem_combo_ordem_prod.Text), origem_combo_maquina.Text);
+            Carregar_grid(Convert.ToInt32(origem_combo_mes.Text));
         }
     }
 }

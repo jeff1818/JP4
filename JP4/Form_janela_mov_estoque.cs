@@ -204,8 +204,6 @@ namespace JP4
 
             return resultado_tipo;
         }
-
-
         private void Filtrar_grid_mes_ano(int mes_movto, int ano_movto)
         {
             try
@@ -656,7 +654,6 @@ namespace JP4
             return 1;
 
         }
-
         private void Salvar_lancamento()
         {
 
@@ -896,8 +893,73 @@ namespace JP4
             }
         }
 
+        #endregion
+
+
+        #region Metodos de alimentação de estoque
+
+        // Inventário Inicial (mais recente)
+        // Entradas (NF + Ajustes )
+        // Saidas (Vendas + Ajustes ) 
+        // Saldo = (Iventario + entrada) - Saida
+        // Salvar tudo isso em um banco separado
+
+        #region Metodos Carregar
+        private void Carregar_grid_estoque()
+        {
+            
+        }
+        #endregion
+
+
+        public void Salvar_movto_estoque()
+        {
+            // data_movt, dia_movt, mes_movt, ano_movt, cod_item, den_item, qtd_invent_inicial, qtd_entradas, qtd_saidas, qtd_saldo, cod_local_destino, situa_qtd, cod_empresa, cod_barra, num_lote
+
+            //DateTime data_movt;
+            //int dia_movt = data_movt.Day;
+            //int mes_movt = data_movt.Month;
+            //int ano_movt = data_movt.Year;
+            //string cod_item;
+            //string den_item;
+            //double qtd_invent_inicial;
+            //double qtd_entradas;
+            //double qtd_saidas;
+            //double qtd_saldo; // Calculado
+            //string cod_local_destino;
+            //string situa_qtd;
+            //string cod_empresa;
+            //string cod_barra;
+            //string num_lote;
+
+            
+
+
+
+
+
+
+
+        }
+
+        public void Atualizar_movto_estoque()
+        {
+
+        }
+
+        public void Deletar_movto_estoque()
+        {
+
+        }
+       
+
+
+
+
 
         #endregion
+
+
 
         private void grid_mov_estoque_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

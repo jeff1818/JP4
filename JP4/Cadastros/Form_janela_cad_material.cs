@@ -87,6 +87,7 @@ namespace JP4
                 while (myreader.Read())
                 {
                     this.combo_grupo_estoque.Items.Add(myreader["codigo_grupo"].ToString());
+                    
                 }
 
                 conexao.Close();
@@ -186,7 +187,7 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select cadastro_id, codigo_item, status_item, descricao_completa, grupo, tipo_material from db_cadastro_material";
+                string comando_sql = "select cadastro_id, codigo_item, status_item, descricao_completa, grupo, tipo_material, cod_familia from db_cadastro_material";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -205,13 +206,13 @@ namespace JP4
         #endregion
 
         #region Metodos adicionais
-        private void Filtrar_grid(string codigo_item, string status_item, string grupo_item, string descri_completa)
+        private void Filtrar_grid(string codigo_item, string status_item, string grupo_item, string descri_completa, string cod_familia)
         {
 
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select cadastro_id, codigo_item, status_item, descricao_completa, grupo, tipo_material from db_cadastro_material";
+                string comando_sql = "select cadastro_id, codigo_item, status_item, descricao_completa, grupo, tipo_material, cod_familia from db_cadastro_material";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -241,6 +242,13 @@ namespace JP4
                     dv.RowFilter = string.Format("descricao_completa like '%{0}%'", descri_completa);
                     grid_cadastro.DataSource = dv.ToTable();
                 }
+
+                if (cod_familia != string.Empty)
+                {
+                    dv.RowFilter = string.Format("cod_familia like '%{0}%'", cod_familia);
+                    grid_cadastro.DataSource = dv.ToTable();
+                }
+
 
                 //dv.RowFilter = string.Format("codigo_item like '%{0}%', status_item like '%{1}%', grupo like '%{2}%', descricao_completa like '%{3}%' ", codigo_item, status_item, grupo_item, descri_completa);
                 //grid_cadastro.DataSource = dv.ToTable();
@@ -368,7 +376,7 @@ namespace JP4
         }
         private void button_filtrar_Click_1(object sender, EventArgs e)
         {
-            Filtrar_grid(combo_cod_item.Text, combo_status.Text, combo_grupo_estoque.Text, combo_descri_completa.Text);
+            Filtrar_grid(combo_cod_item.Text, combo_status.Text, combo_grupo_estoque.Text, combo_descri_completa.Text, combo_cod_familia_busca.Text);
         }
 
         #endregion
@@ -440,7 +448,9 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    this.combo_tipo_material.Items.Add(myreader["tipo_material"].ToString());
+                    combo_tipo_material.Items.Add(myreader["tipo_material"].ToString());
+                    combo_cod_familia.Items.Add(myreader["tipo_material"].ToString());
+                    combo_cod_familia_busca.Items.Add(myreader["tipo_material"].ToString());
 
                 }
 
@@ -630,6 +640,8 @@ namespace JP4
 
             this.combo_empresa.Enabled = false;
 
+            this.combo_cod_familia.Enabled = false;
+
         }
         private void Desbloquear_controles()
         {
@@ -663,6 +675,8 @@ namespace JP4
             this.combo_local_estoque.Enabled = true;
 
             this.combo_empresa.Enabled = true;
+
+            this.combo_cod_familia.Enabled = true;
         }
         private void limpar_campos()
         {
@@ -795,6 +809,8 @@ namespace JP4
             }
 
             string empresa = combo_empresa.Text;
+
+            string cod_familia = combo_cod_familia.Text;
             //------------------------------
 
 
@@ -831,6 +847,7 @@ namespace JP4
                     "', data_cadastro='" + data_cadastro +
                     "', tem_estrutura='" + tem_estrutura +
                     "', empresa='" + empresa +
+                    "', cod_familia='" + cod_familia +
                     "' WHERE cadastro_id=" + Convert.ToInt64(id_cadastro) + "";
 
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -889,6 +906,8 @@ namespace JP4
             }
 
             string empresa = combo_empresa.Text;
+
+            string cod_familia = combo_cod_familia.Text;
             //----------------------------------------------
 
             int restulado = Verifica_duplicados(codigo_item);
@@ -907,8 +926,8 @@ namespace JP4
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
-                    comando_sql = "INSERT INTO db_cadastro_material(codigo_item, status_item, grupo, descricao_reduzida, descricao_completa, tipo_material, qtd_embala, fator_multi, peso_minimo, peso_padrao, peso_maximo, unidade_medida, altura, comprimento, largura, densidade, espessura, numero_sacos, data_modificacao, local_aplicacao, local_estoque, data_cadastro, tem_estrutura, empresa) " +
-                    "VALUES('" + codigo_item + "','" + status_item + "','" + grupo + "','" + descricao_reduzida + "','" + descricao_completa + "','" + tipo_material + "','" + qtd_embala + "','" + fator_multi + "','" + peso_minimo + "','" + peso_padrao + "','" + peso_maximo + "','" + unidade_medida + "','" + altura + "','" + comprimento + "','" + largura + "','" + densidade + "','" + espessura + "','" + numero_sacos + "','" + data_modificacao + "','" + local_aplicacao + "','" + local_estoque + "','" + data_cadastro + "','" + tem_estrutura + "','" + empresa + "')";
+                    comando_sql = "INSERT INTO db_cadastro_material(codigo_item, status_item, grupo, descricao_reduzida, descricao_completa, tipo_material, qtd_embala, fator_multi, peso_minimo, peso_padrao, peso_maximo, unidade_medida, altura, comprimento, largura, densidade, espessura, numero_sacos, data_modificacao, local_aplicacao, local_estoque, data_cadastro, tem_estrutura, empresa, cod_familia) " +
+                    "VALUES('" + codigo_item + "','" + status_item + "','" + grupo + "','" + descricao_reduzida + "','" + descricao_completa + "','" + tipo_material + "','" + qtd_embala + "','" + fator_multi + "','" + peso_minimo + "','" + peso_padrao + "','" + peso_maximo + "','" + unidade_medida + "','" + altura + "','" + comprimento + "','" + largura + "','" + densidade + "','" + espessura + "','" + numero_sacos + "','" + data_modificacao + "','" + local_aplicacao + "','" + local_estoque + "','" + data_cadastro + "','" + tem_estrutura + "','" + empresa + "','" + cod_familia + "')";
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
@@ -995,6 +1014,9 @@ namespace JP4
 
                     combo_local_aplicacao.Text = myreader["local_aplicacao"].ToString();
                     combo_local_estoque.Text = myreader["local_estoque"].ToString();
+
+                    combo_cod_familia.Text = myreader["cod_familia"].ToString();
+
                     //myreader["data_cadastro"].ToString();
                     //
 

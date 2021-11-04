@@ -1938,7 +1938,7 @@ namespace JP4
             // 
             // abaParada_combo_parada01
             // 
-            this.abaParada_combo_parada01.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada01.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaParada_combo_parada01.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada01.FormattingEnabled = true;
             this.abaParada_combo_parada01.Location = new System.Drawing.Point(4, 49);
@@ -1981,7 +1981,7 @@ namespace JP4
             // 
             // abaParada_combo_parada02
             // 
-            this.abaParada_combo_parada02.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada02.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaParada_combo_parada02.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada02.FormattingEnabled = true;
             this.abaParada_combo_parada02.Location = new System.Drawing.Point(4, 75);
@@ -2042,7 +2042,7 @@ namespace JP4
             // 
             // abaParada_combo_parada03
             // 
-            this.abaParada_combo_parada03.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada03.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaParada_combo_parada03.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada03.FormattingEnabled = true;
             this.abaParada_combo_parada03.Location = new System.Drawing.Point(4, 101);
@@ -2103,7 +2103,7 @@ namespace JP4
             // 
             // abaParada_combo_parada04
             // 
-            this.abaParada_combo_parada04.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada04.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaParada_combo_parada04.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada04.FormattingEnabled = true;
             this.abaParada_combo_parada04.Location = new System.Drawing.Point(4, 127);
@@ -2156,7 +2156,7 @@ namespace JP4
             // 
             // abaParada_combo_parada05
             // 
-            this.abaParada_combo_parada05.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada05.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaParada_combo_parada05.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada05.FormattingEnabled = true;
             this.abaParada_combo_parada05.Location = new System.Drawing.Point(4, 153);
@@ -2217,7 +2217,7 @@ namespace JP4
             // 
             // abaParada_combo_parada06
             // 
-            this.abaParada_combo_parada06.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada06.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaParada_combo_parada06.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada06.FormattingEnabled = true;
             this.abaParada_combo_parada06.Location = new System.Drawing.Point(4, 179);
@@ -2275,7 +2275,7 @@ namespace JP4
             // 
             // abaParada_combo_parada08
             // 
-            this.abaParada_combo_parada08.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada08.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaParada_combo_parada08.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada08.FormattingEnabled = true;
             this.abaParada_combo_parada08.Location = new System.Drawing.Point(4, 231);
@@ -2285,7 +2285,7 @@ namespace JP4
             // 
             // abaParada_combo_parada07
             // 
-            this.abaParada_combo_parada07.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaParada_combo_parada07.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaParada_combo_parada07.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaParada_combo_parada07.FormattingEnabled = true;
             this.abaParada_combo_parada07.Location = new System.Drawing.Point(4, 205);
@@ -2619,7 +2619,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp10
             // 
-            this.abaMistura_combo_mp10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp10.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp10.FormattingEnabled = true;
             this.abaMistura_combo_mp10.Location = new System.Drawing.Point(28, 306);
@@ -2646,7 +2646,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp09
             // 
-            this.abaMistura_combo_mp09.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp09.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp09.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp09.FormattingEnabled = true;
             this.abaMistura_combo_mp09.Location = new System.Drawing.Point(28, 280);
@@ -2673,7 +2673,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp08
             // 
-            this.abaMistura_combo_mp08.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp08.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp08.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp08.FormattingEnabled = true;
             this.abaMistura_combo_mp08.Location = new System.Drawing.Point(28, 254);
@@ -2700,7 +2700,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp07
             // 
-            this.abaMistura_combo_mp07.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp07.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp07.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp07.FormattingEnabled = true;
             this.abaMistura_combo_mp07.Location = new System.Drawing.Point(28, 228);
@@ -2727,7 +2727,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp06
             // 
-            this.abaMistura_combo_mp06.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp06.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp06.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp06.FormattingEnabled = true;
             this.abaMistura_combo_mp06.Location = new System.Drawing.Point(28, 202);
@@ -2754,7 +2754,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp05
             // 
-            this.abaMistura_combo_mp05.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp05.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp05.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp05.FormattingEnabled = true;
             this.abaMistura_combo_mp05.Location = new System.Drawing.Point(28, 176);
@@ -2781,7 +2781,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp04
             // 
-            this.abaMistura_combo_mp04.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp04.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp04.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp04.FormattingEnabled = true;
             this.abaMistura_combo_mp04.Location = new System.Drawing.Point(28, 150);
@@ -2808,7 +2808,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp03
             // 
-            this.abaMistura_combo_mp03.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp03.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp03.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp03.FormattingEnabled = true;
             this.abaMistura_combo_mp03.Location = new System.Drawing.Point(28, 124);
@@ -2836,7 +2836,7 @@ namespace JP4
             // 
             // abaMistura_combo_mp02
             // 
-            this.abaMistura_combo_mp02.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp02.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp02.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp02.FormattingEnabled = true;
             this.abaMistura_combo_mp02.Location = new System.Drawing.Point(28, 98);
@@ -2874,12 +2874,14 @@ namespace JP4
             // 
             // abaMistura_combo_mp01
             // 
-            this.abaMistura_combo_mp01.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.abaMistura_combo_mp01.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.abaMistura_combo_mp01.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abaMistura_combo_mp01.FormattingEnabled = true;
             this.abaMistura_combo_mp01.Location = new System.Drawing.Point(28, 72);
+            this.abaMistura_combo_mp01.MaxDropDownItems = 20;
             this.abaMistura_combo_mp01.Name = "abaMistura_combo_mp01";
             this.abaMistura_combo_mp01.Size = new System.Drawing.Size(163, 21);
+            this.abaMistura_combo_mp01.Sorted = true;
             this.abaMistura_combo_mp01.TabIndex = 1;
             // 
             // label38

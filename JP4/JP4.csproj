@@ -427,6 +427,9 @@
     <EmbeddedResource Include="Config\Form_janela_config.resx">
       <DependentUpon>Form_janela_config.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_janela_estoque.resx">
+      <DependentUpon>Form_janela_estoque.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_estrutura.resx">
       <DependentUpon>Form_janela_estrutura.cs</DependentUpon>
     </EmbeddedResource>

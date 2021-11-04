@@ -54,6 +54,7 @@ namespace JP4
             this.label1 = new System.Windows.Forms.Label();
             this.text_cod_item = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_duplicar = new System.Windows.Forms.Button();
             this.button_deletar_cadastro = new System.Windows.Forms.Button();
             this.button_atualizar_cad = new System.Windows.Forms.Button();
             this.button_editar_cadastro = new System.Windows.Forms.Button();
@@ -119,7 +120,10 @@ namespace JP4
             this.combo_descri_completa = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.combo_cod_item = new System.Windows.Forms.ComboBox();
-            this.button_duplicar = new System.Windows.Forms.Button();
+            this.combo_cod_familia = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.combo_cod_familia_busca = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.Item.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -210,6 +214,8 @@ namespace JP4
             // 
             // Item
             // 
+            this.Item.Controls.Add(this.combo_cod_familia);
+            this.Item.Controls.Add(this.label28);
             this.Item.Controls.Add(this.label_grupo_estoque_id);
             this.Item.Controls.Add(this.text_descri_unidade);
             this.Item.Controls.Add(this.label9);
@@ -243,7 +249,7 @@ namespace JP4
             // text_descri_unidade
             // 
             this.text_descri_unidade.Enabled = false;
-            this.text_descri_unidade.Location = new System.Drawing.Point(552, 70);
+            this.text_descri_unidade.Location = new System.Drawing.Point(568, 70);
             this.text_descri_unidade.Name = "text_descri_unidade";
             this.text_descri_unidade.Size = new System.Drawing.Size(158, 20);
             this.text_descri_unidade.TabIndex = 5;
@@ -251,7 +257,7 @@ namespace JP4
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(402, 73);
+            this.label9.Location = new System.Drawing.Point(418, 73);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 16;
@@ -260,7 +266,7 @@ namespace JP4
             // combo_und_medida
             // 
             this.combo_und_medida.FormattingEnabled = true;
-            this.combo_und_medida.Location = new System.Drawing.Point(476, 70);
+            this.combo_und_medida.Location = new System.Drawing.Point(492, 70);
             this.combo_und_medida.Name = "combo_und_medida";
             this.combo_und_medida.Size = new System.Drawing.Size(70, 21);
             this.combo_und_medida.TabIndex = 4;
@@ -342,7 +348,7 @@ namespace JP4
             // 
             this.text_cod_item.Location = new System.Drawing.Point(112, 70);
             this.text_cod_item.Name = "text_cod_item";
-            this.text_cod_item.Size = new System.Drawing.Size(284, 20);
+            this.text_cod_item.Size = new System.Drawing.Size(296, 20);
             this.text_cod_item.TabIndex = 3;
             // 
             // groupBox2
@@ -359,6 +365,15 @@ namespace JP4
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Menu";
+            // 
+            // button_duplicar
+            // 
+            this.button_duplicar.Location = new System.Drawing.Point(6, 164);
+            this.button_duplicar.Name = "button_duplicar";
+            this.button_duplicar.Size = new System.Drawing.Size(122, 23);
+            this.button_duplicar.TabIndex = 5;
+            this.button_duplicar.Text = "Copiar item";
+            this.button_duplicar.UseVisualStyleBackColor = true;
             // 
             // button_deletar_cadastro
             // 
@@ -896,6 +911,8 @@ namespace JP4
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label29);
+            this.groupBox7.Controls.Add(this.combo_cod_familia_busca);
             this.groupBox7.Controls.Add(this.label_descri_grupo);
             this.groupBox7.Controls.Add(this.label24);
             this.groupBox7.Controls.Add(this.combo_grupo_estoque);
@@ -990,14 +1007,39 @@ namespace JP4
             this.combo_cod_item.Size = new System.Drawing.Size(170, 21);
             this.combo_cod_item.TabIndex = 0;
             // 
-            // button_duplicar
+            // combo_cod_familia
             // 
-            this.button_duplicar.Location = new System.Drawing.Point(6, 164);
-            this.button_duplicar.Name = "button_duplicar";
-            this.button_duplicar.Size = new System.Drawing.Size(122, 23);
-            this.button_duplicar.TabIndex = 5;
-            this.button_duplicar.Text = "Copiar item";
-            this.button_duplicar.UseVisualStyleBackColor = true;
+            this.combo_cod_familia.FormattingEnabled = true;
+            this.combo_cod_familia.Location = new System.Drawing.Point(287, 43);
+            this.combo_cod_familia.Name = "combo_cod_familia";
+            this.combo_cod_familia.Size = new System.Drawing.Size(121, 21);
+            this.combo_cod_familia.TabIndex = 19;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(239, 46);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(42, 13);
+            this.label28.TabIndex = 20;
+            this.label28.Text = "Familia:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(598, 58);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(78, 13);
+            this.label29.TabIndex = 10;
+            this.label29.Text = "Grupo Estoque";
+            // 
+            // combo_cod_familia_busca
+            // 
+            this.combo_cod_familia_busca.FormattingEnabled = true;
+            this.combo_cod_familia_busca.Location = new System.Drawing.Point(682, 55);
+            this.combo_cod_familia_busca.Name = "combo_cod_familia_busca";
+            this.combo_cod_familia_busca.Size = new System.Drawing.Size(170, 21);
+            this.combo_cod_familia_busca.TabIndex = 9;
             // 
             // CAD01
             // 
@@ -1132,5 +1174,9 @@ namespace JP4
         private System.Windows.Forms.Label label_grupo_estoque_id;
         private System.Windows.Forms.Button button_deletar_cadastro;
         private System.Windows.Forms.Button button_duplicar;
+        private System.Windows.Forms.ComboBox combo_cod_familia;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.ComboBox combo_cod_familia_busca;
     }
 }

@@ -21,23 +21,16 @@ namespace JP4
 
             #region Chamar Metodos
             Importar_ordens();
-
             Carregar_empresa_db();
             Carregar_maquina_db();
             Carregar_turno_db();
-            Carregar_operadores_db();
+            //Carregar_operadores_db();
             Carregar_local_destino_db();
             Carregar_local_origem_db();
             Carregar_clientes_db();
             // Aba de parada
-
-
             // Mistura
-
-
             //Carregar_mp_mistura();
-
-
             // Aba Pesquisar
             Carregar_operador_pesquisar();
             Carregar_turno_pesquisar();
@@ -46,9 +39,9 @@ namespace JP4
 
             #endregion
 
+            
             toolStripStatusLabel_nome.Text = "AP01";
-            this.text_operacao.Text = Buscar_operacao("AP01", "Entrada");
-
+            text_operacao.Text = Buscar_operacao("AP01", "Entrada");
             abaPesquisar_text_ano_lanc.Text = Convert.ToString(DateTime.Now.Year);
 
         }
@@ -57,7 +50,7 @@ namespace JP4
         CultureInfo cultures = new CultureInfo("pt-BR");
 
 
-        private string Nome_pc()
+        public string Nome_pc()
         {
             var name = Environment.MachineName;
             return name;
@@ -435,6 +428,8 @@ namespace JP4
                     this.combo_maquinas.Items.Add(myreader["descricao_equipamento"].ToString());
                 }
 
+                combo_maquinas.Sorted = true;
+
                 conexao.Close();
 
             }
@@ -463,6 +458,40 @@ namespace JP4
 
                     this.combo_operadores.Items.Add(myreader["nome"].ToString());
                 }
+
+                combo_operadores.Sorted = true;
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+
+        }
+        private void Carregar_operadores_db(String equipamento)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_cadastro_operador where equipamento = '"+ equipamento + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+
+                    this.combo_operadores.Items.Add(myreader["nome"].ToString());
+                }
+
+                combo_operadores.Sorted = true;
 
                 conexao.Close();
 
@@ -988,6 +1017,10 @@ namespace JP4
                 text_contador.Enabled = false;
                 text_qtd_fardos.Enabled = false;
                 text_largura.Enabled = true;
+
+                combo_operadores.Items.Clear();
+                Carregar_operadores_db("EXTRUSORA");
+
             }
 
 
@@ -996,6 +1029,9 @@ namespace JP4
                 text_largura.Enabled = false;
                 text_contador.Enabled = true;
                 text_qtd_fardos.Enabled = true;
+
+                combo_operadores.Items.Clear();
+                Carregar_operadores_db("PICOTADEIRA");
             }
 
             if (text_local_aplicacao.Text == String.Empty)
@@ -1219,7 +1255,6 @@ namespace JP4
 
             
         }        
-
         private int Verificar_maquina_local(string desc_completa, string maquina)
         {
             string local_aplicacao = "";
@@ -1268,6 +1303,7 @@ namespace JP4
 
 
         }
+        
         // Janela Parada de maquina
         private string busca_cod_parada_db(string desc_parada)
         {
@@ -1300,8 +1336,6 @@ namespace JP4
 
             return cod_parada;
         }
-
-
         // Janela Defeitos
 
         private string busca_cod_defeitos_db(string desc_defeitos)
@@ -1884,7 +1918,7 @@ namespace JP4
             this.hr_inicial_prod.Enabled = true;
             this.dt_final_pro.Enabled = true;
             this.hr_final_prod.Enabled = true;
-            this.text_operacao.Enabled = true;
+            //this.text_operacao.Enabled = true;
             this.text_qtd_boa.Enabled = true;
             this.text_bobina_ini.Enabled = true;
             this.text_bobina_fim.Enabled = true;

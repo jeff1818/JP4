@@ -44,27 +44,18 @@ namespace JP4
             this.label1 = new System.Windows.Forms.Label();
             this.origem_combo_ordem_prod = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.destino_text_qtd_fd = new System.Windows.Forms.TextBox();
+            this.grid_retrabalho = new System.Windows.Forms.DataGridView();
+            this.origem_combo_mes = new System.Windows.Forms.ComboBox();
+            this.combo_ano = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.destino_combo_operador = new System.Windows.Forms.ComboBox();
-            this.destino_combo_maquina = new System.Windows.Forms.ComboBox();
-            this.destino_dt_apontameno = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.destino_combo_local_destino = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.destino_text_descri_material = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.destino_combo_ordem_prod = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_retrabalho)).BeginInit();
             this.SuspendLayout();
             // 
             // button_apontamento
             // 
-            this.button_apontamento.Location = new System.Drawing.Point(12, 342);
+            this.button_apontamento.Location = new System.Drawing.Point(746, 127);
             this.button_apontamento.Name = "button_apontamento";
             this.button_apontamento.Size = new System.Drawing.Size(158, 23);
             this.button_apontamento.TabIndex = 0;
@@ -73,6 +64,11 @@ namespace JP4
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.combo_ano);
+            this.groupBox1.Controls.Add(this.origem_combo_mes);
+            this.groupBox1.Controls.Add(this.button_apontamento);
             this.groupBox1.Controls.Add(this.origem_text_qtd_fardo);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.origem_combo_operador);
@@ -86,9 +82,10 @@ namespace JP4
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.origem_combo_ordem_prod);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 7);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(890, 156);
+            this.groupBox1.Size = new System.Drawing.Size(916, 156);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Origem";
@@ -205,154 +202,95 @@ namespace JP4
             this.label2.TabIndex = 1;
             this.label2.Text = "Ordem Prod.";
             // 
-            // groupBox2
+            // grid_retrabalho
             // 
-            this.groupBox2.Controls.Add(this.destino_text_qtd_fd);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.destino_combo_operador);
-            this.groupBox2.Controls.Add(this.destino_combo_maquina);
-            this.groupBox2.Controls.Add(this.destino_dt_apontameno);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.destino_combo_local_destino);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.destino_text_descri_material);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.destino_combo_ordem_prod);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(12, 169);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(890, 156);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Destino";
+            this.grid_retrabalho.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.grid_retrabalho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_retrabalho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_retrabalho.Location = new System.Drawing.Point(0, 156);
+            this.grid_retrabalho.Name = "grid_retrabalho";
+            this.grid_retrabalho.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.grid_retrabalho.Size = new System.Drawing.Size(916, 413);
+            this.grid_retrabalho.TabIndex = 9;
             // 
-            // destino_text_qtd_fd
+            // origem_combo_mes
             // 
-            this.destino_text_qtd_fd.Location = new System.Drawing.Point(101, 99);
-            this.destino_text_qtd_fd.Name = "destino_text_qtd_fd";
-            this.destino_text_qtd_fd.Size = new System.Drawing.Size(113, 20);
-            this.destino_text_qtd_fd.TabIndex = 16;
+            this.origem_combo_mes.FormattingEnabled = true;
+            this.origem_combo_mes.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.origem_combo_mes.Location = new System.Drawing.Point(821, 40);
+            this.origem_combo_mes.Name = "origem_combo_mes";
+            this.origem_combo_mes.Size = new System.Drawing.Size(74, 21);
+            this.origem_combo_mes.TabIndex = 17;
+            this.origem_combo_mes.SelectedIndexChanged += new System.EventHandler(this.origem_combo_mes_SelectedIndexChanged);
+            // 
+            // combo_ano
+            // 
+            this.combo_ano.FormattingEnabled = true;
+            this.combo_ano.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.combo_ano.Location = new System.Drawing.Point(821, 72);
+            this.combo_ano.Name = "combo_ano";
+            this.combo_ano.Size = new System.Drawing.Size(74, 21);
+            this.combo_ano.TabIndex = 18;
+            this.combo_ano.Text = "0";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 102);
+            this.label6.Location = new System.Drawing.Point(785, 43);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Qtd. Fardo";
-            // 
-            // destino_combo_operador
-            // 
-            this.destino_combo_operador.FormattingEnabled = true;
-            this.destino_combo_operador.Location = new System.Drawing.Point(277, 72);
-            this.destino_combo_operador.Name = "destino_combo_operador";
-            this.destino_combo_operador.Size = new System.Drawing.Size(113, 21);
-            this.destino_combo_operador.TabIndex = 14;
-            // 
-            // destino_combo_maquina
-            // 
-            this.destino_combo_maquina.FormattingEnabled = true;
-            this.destino_combo_maquina.Location = new System.Drawing.Point(101, 72);
-            this.destino_combo_maquina.Name = "destino_combo_maquina";
-            this.destino_combo_maquina.Size = new System.Drawing.Size(113, 21);
-            this.destino_combo_maquina.TabIndex = 13;
-            // 
-            // destino_dt_apontameno
-            // 
-            this.destino_dt_apontameno.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.destino_dt_apontameno.Location = new System.Drawing.Point(101, 19);
-            this.destino_dt_apontameno.Name = "destino_dt_apontameno";
-            this.destino_dt_apontameno.Size = new System.Drawing.Size(113, 20);
-            this.destino_dt_apontameno.TabIndex = 12;
+            this.label6.Size = new System.Drawing.Size(30, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Mês:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 19);
+            this.label7.Location = new System.Drawing.Point(786, 75);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Dt Apontamento.";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(220, 75);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Operador";
-            // 
-            // destino_combo_local_destino
-            // 
-            this.destino_combo_local_destino.FormattingEnabled = true;
-            this.destino_combo_local_destino.Location = new System.Drawing.Point(474, 72);
-            this.destino_combo_local_destino.Name = "destino_combo_local_destino";
-            this.destino_combo_local_destino.Size = new System.Drawing.Size(149, 21);
-            this.destino_combo_local_destino.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(396, 75);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Local Destino";
-            // 
-            // destino_text_descri_material
-            // 
-            this.destino_text_descri_material.Location = new System.Drawing.Point(220, 46);
-            this.destino_text_descri_material.Name = "destino_text_descri_material";
-            this.destino_text_descri_material.Size = new System.Drawing.Size(463, 20);
-            this.destino_text_descri_material.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(47, 75);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Maquina";
-            // 
-            // destino_combo_ordem_prod
-            // 
-            this.destino_combo_ordem_prod.FormattingEnabled = true;
-            this.destino_combo_ordem_prod.Location = new System.Drawing.Point(101, 45);
-            this.destino_combo_ordem_prod.Name = "destino_combo_ordem_prod";
-            this.destino_combo_ordem_prod.Size = new System.Drawing.Size(113, 21);
-            this.destino_combo_ordem_prod.TabIndex = 2;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(29, 48);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Ordem Prod.";
+            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Ano:";
             // 
             // Form_janela_retrabalho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 388);
-            this.Controls.Add(this.button_apontamento);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(916, 569);
+            this.Controls.Add(this.grid_retrabalho);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_janela_retrabalho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form_janela_retrabalho";
+            this.Text = "Aplicativo de retrabalho";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_retrabalho)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,19 +311,10 @@ namespace JP4
         private System.Windows.Forms.ComboBox origem_combo_operador;
         private System.Windows.Forms.TextBox origem_text_qtd_fardo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox destino_text_qtd_fd;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox destino_combo_operador;
-        private System.Windows.Forms.ComboBox destino_combo_maquina;
-        private System.Windows.Forms.DateTimePicker destino_dt_apontameno;
+        private System.Windows.Forms.DataGridView grid_retrabalho;
+        private System.Windows.Forms.ComboBox combo_ano;
+        private System.Windows.Forms.ComboBox origem_combo_mes;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox destino_combo_local_destino;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox destino_text_descri_material;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox destino_combo_ordem_prod;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label6;
     }
 }

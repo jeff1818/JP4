@@ -30,7 +30,7 @@ namespace JP4.Config
             string local_pasta;
             string nome_arquivo;
             string endereco_completo = string.Empty;
-            string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
+            // string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
 
 
             OpenFileDialog folderBrowser = new OpenFileDialog();
