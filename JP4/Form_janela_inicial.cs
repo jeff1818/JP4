@@ -19,23 +19,24 @@ using JP4.Config;
 
 namespace JP4
 {
-    public partial class Form_tela_inicial : Form
+    public partial class WINSTART : Form
     {
-        public Form_tela_inicial()
+        public WINSTART()
         {
             InitializeComponent();
 
 
             label_data_inicial.Text = DateTime.Today.ToString("dddd - dd/MM/yyyy").ToUpper();
-            //label_nome_usuario.Text = JP4.AP01.Nome
+            
 
             label_inicio_versao_prog.Text = Application.ProductVersion;
+            label_inicial_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup.ToString();
 
-            label_status.Visible = false;
-            linkLabel_baixar_nova.Visible = false;
+            label_status.Text = "Ultimo Backup >> ";
+            
             
             Check_update();
-            //abrir_janelas(new Form_janela_report01());
+            
 
             CONF01 gerar_backup = new CONF01();
             gerar_backup.fazer_backup();
@@ -55,7 +56,6 @@ namespace JP4
             picture_inicial.Load(@"C:\Users\Jarvis\OneDrive\Visual - basic c#\JP4\Cadastro.png");
             
         }
-
         private void auto_destruicao()
         {
             DateTime dt_hoje = DateTime.Today;
@@ -83,7 +83,7 @@ namespace JP4
                     if (MessageBox.Show("Nova atualização disponivel, Deseja baixar?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         using (var client = new WebClient())
                         {
-                            Process.Start("AutoUpdateJP.exe.exe");
+                            Process.Start(@"C:\JP4\AutoUpdateJP.exe");
                             this.Close();
                         }
                 }
@@ -94,17 +94,8 @@ namespace JP4
             }
         }
 
-
-        public void DownloadFile()
-        {
-            
-        }
-
         #endregion
         
-
-
-
 
         #region Declaração que faz o formulário se mover com o mouse
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")] private extern static void ReleaseCapture();
@@ -140,7 +131,6 @@ namespace JP4
 
 
         #endregion
-
 
         #region Metodos da janela
 
@@ -190,57 +180,46 @@ namespace JP4
         {
             abrir_janelas(new OP001());
         }
-
         private void button_config_Click(object sender, EventArgs e)
         {
             abrir_janelas(new CONF01());
         }
-
         private void button_cadastro_defeitos_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_defeitos());
         }
-
         private void button_cad_grupo_estoque_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_grupo_estoque());
         }
-
         private void button_cad_clientes_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_clientes());
         }
-
         private void button_cad_local_aplica_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_local_aplicacao());
         }
-
         private void button_cad_local_estoque_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_local_estoque());
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_empresas());
         }
-
         private void button_cad_equipamento_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_equipamentos());
         }
-
         private void button_cad_origem_apara_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_origem_apara());
         }
-
         private void button_cad_operacao_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_operacao());
         }
-
         private void button_cad_operador_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_operador());
@@ -249,8 +228,6 @@ namespace JP4
         {
             abrir_janelas(new STOQ01());
         }
-
-
         private void button_area_cadastro_Click(object sender, EventArgs e)
         {
             if (panel_sub_menu_cadastro.Visible == true)
@@ -262,47 +239,38 @@ namespace JP4
                 panel_sub_menu_cadastro.Visible = true;
             }
         }
-
         private void panel_menu_vertical_Click(object sender, EventArgs e)
         {
             panel_sub_menu_cadastro.Visible = false;
         }
-
         private void button_area_cadastro_MouseHover(object sender, EventArgs e)
         {
             panel_sub_menu_cadastro.Visible = true;
         }
-
         private void button_area_cadastro_MouseLeave(object sender, EventArgs e)
         {
            
         }
-
         private void label_status_Click(object sender, EventArgs e)
         {
             //DownloadFile();
         }
-
         private void linkLabel_baixar_nova_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(e.Link.LinkData as string);
+            //Process.Start(e.Link.LinkData as string);
         }
-
         private void button_tipo_material_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_tipo_material());
         }
-
         private void button_cad_turno_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_turno());
         }
-
         private void button_cad_paradas_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_cad_paradas());
         }
-
         private void button_cadastro_user_Click(object sender, EventArgs e)
         {
             if(label_nome_usuario.Text == "admin")
@@ -311,12 +279,10 @@ namespace JP4
             }
             abrir_janelas(new Form_janela_cad_usuario());
         }
-
         private void button_report_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_janela_report01());
         }
-
         private void timer_digital_Tick(object sender, EventArgs e)
         {
             label_hora_digital.Text = DateTime.Now.ToString("HH:mm");

@@ -1,7 +1,7 @@
 ﻿
 namespace JP4
 {
-    partial class Form_tela_inicial
+    partial class WINSTART
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -30,8 +30,10 @@ namespace JP4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_tela_inicial));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WINSTART));
             this.panel_titulo_menu = new System.Windows.Forms.Panel();
+            this.label_hora_digital = new System.Windows.Forms.Label();
+            this.label_data_inicial = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label_nome_usuario = new System.Windows.Forms.Label();
             this.botao_restor = new System.Windows.Forms.PictureBox();
@@ -39,6 +41,7 @@ namespace JP4
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
+            this.label_inicial_ultimo_backup = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel_sub_menu_cadastro = new System.Windows.Forms.Panel();
             this.button_cadastro_user = new System.Windows.Forms.Button();
@@ -57,7 +60,6 @@ namespace JP4
             this.button_cad_local_estoque = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button_report = new System.Windows.Forms.Button();
-            this.linkLabel_baixar_nova = new System.Windows.Forms.LinkLabel();
             this.label_status = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button_mov_estoque = new System.Windows.Forms.Button();
@@ -82,8 +84,6 @@ namespace JP4
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
             this.timer_digital = new System.Windows.Forms.Timer(this.components);
-            this.label_data_inicial = new System.Windows.Forms.Label();
-            this.label_hora_digital = new System.Windows.Forms.Label();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -114,6 +114,26 @@ namespace JP4
             this.panel_titulo_menu.Size = new System.Drawing.Size(1369, 35);
             this.panel_titulo_menu.TabIndex = 3;
             this.panel_titulo_menu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_titulo_menu_MouseDown);
+            // 
+            // label_hora_digital
+            // 
+            this.label_hora_digital.AutoSize = true;
+            this.label_hora_digital.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_hora_digital.Location = new System.Drawing.Point(810, 11);
+            this.label_hora_digital.Name = "label_hora_digital";
+            this.label_hora_digital.Size = new System.Drawing.Size(31, 13);
+            this.label_hora_digital.TabIndex = 6;
+            this.label_hora_digital.Text = "hora:";
+            // 
+            // label_data_inicial
+            // 
+            this.label_data_inicial.AutoSize = true;
+            this.label_data_inicial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_data_inicial.Location = new System.Drawing.Point(661, 11);
+            this.label_data_inicial.Name = "label_data_inicial";
+            this.label_data_inicial.Size = new System.Drawing.Size(33, 13);
+            this.label_data_inicial.TabIndex = 5;
+            this.label_data_inicial.Text = "Data:";
             // 
             // label2
             // 
@@ -191,11 +211,11 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.label_inicial_ultimo_backup);
             this.panel_menu_vertical.Controls.Add(this.panel8);
             this.panel_menu_vertical.Controls.Add(this.panel_sub_menu_cadastro);
             this.panel_menu_vertical.Controls.Add(this.panel7);
             this.panel_menu_vertical.Controls.Add(this.button_report);
-            this.panel_menu_vertical.Controls.Add(this.linkLabel_baixar_nova);
             this.panel_menu_vertical.Controls.Add(this.label_status);
             this.panel_menu_vertical.Controls.Add(this.panel5);
             this.panel_menu_vertical.Controls.Add(this.button_mov_estoque);
@@ -221,6 +241,15 @@ namespace JP4
             this.panel_menu_vertical.Size = new System.Drawing.Size(200, 689);
             this.panel_menu_vertical.TabIndex = 4;
             this.panel_menu_vertical.Click += new System.EventHandler(this.panel_menu_vertical_Click);
+            // 
+            // label_inicial_ultimo_backup
+            // 
+            this.label_inicial_ultimo_backup.AutoSize = true;
+            this.label_inicial_ultimo_backup.Location = new System.Drawing.Point(99, 639);
+            this.label_inicial_ultimo_backup.Name = "label_inicial_ultimo_backup";
+            this.label_inicial_ultimo_backup.Size = new System.Drawing.Size(16, 13);
+            this.label_inicial_ultimo_backup.TabIndex = 1;
+            this.label_inicial_ultimo_backup.Text = "...";
             // 
             // panel8
             // 
@@ -500,17 +529,6 @@ namespace JP4
             this.button_report.UseVisualStyleBackColor = true;
             this.button_report.Click += new System.EventHandler(this.button_report_Click);
             // 
-            // linkLabel_baixar_nova
-            // 
-            this.linkLabel_baixar_nova.AutoSize = true;
-            this.linkLabel_baixar_nova.Location = new System.Drawing.Point(91, 639);
-            this.linkLabel_baixar_nova.Name = "linkLabel_baixar_nova";
-            this.linkLabel_baixar_nova.Size = new System.Drawing.Size(99, 13);
-            this.linkLabel_baixar_nova.TabIndex = 0;
-            this.linkLabel_baixar_nova.TabStop = true;
-            this.linkLabel_baixar_nova.Text = "Baixar nova Versão";
-            this.linkLabel_baixar_nova.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_baixar_nova_LinkClicked);
-            // 
             // label_status
             // 
             this.label_status.AutoSize = true;
@@ -760,27 +778,7 @@ namespace JP4
             this.timer_digital.Enabled = true;
             this.timer_digital.Tick += new System.EventHandler(this.timer_digital_Tick);
             // 
-            // label_data_inicial
-            // 
-            this.label_data_inicial.AutoSize = true;
-            this.label_data_inicial.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_data_inicial.Location = new System.Drawing.Point(661, 11);
-            this.label_data_inicial.Name = "label_data_inicial";
-            this.label_data_inicial.Size = new System.Drawing.Size(33, 13);
-            this.label_data_inicial.TabIndex = 5;
-            this.label_data_inicial.Text = "Data:";
-            // 
-            // label_hora_digital
-            // 
-            this.label_hora_digital.AutoSize = true;
-            this.label_hora_digital.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_hora_digital.Location = new System.Drawing.Point(810, 11);
-            this.label_hora_digital.Name = "label_hora_digital";
-            this.label_hora_digital.Size = new System.Drawing.Size(31, 13);
-            this.label_hora_digital.TabIndex = 6;
-            this.label_hora_digital.Text = "hora:";
-            // 
-            // Form_tela_inicial
+            // WINSTART
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -794,7 +792,7 @@ namespace JP4
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(972, 646);
-            this.Name = "Form_tela_inicial";
+            this.Name = "WINSTART";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
@@ -855,7 +853,6 @@ namespace JP4
         private System.Windows.Forms.Button button_cad_operador;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button_mov_estoque;
-        private System.Windows.Forms.LinkLabel linkLabel_baixar_nova;
         private System.Windows.Forms.Label label_status;
         private System.Windows.Forms.Button button_tipo_material;
         private System.Windows.Forms.Button button_cad_turno;
@@ -871,6 +868,7 @@ namespace JP4
         public System.Windows.Forms.Label label_hora_digital;
         public System.Windows.Forms.Label label_data_inicial;
         private System.Windows.Forms.Timer timer_digital;
+        public System.Windows.Forms.Label label_inicial_ultimo_backup;
     }
 }
 

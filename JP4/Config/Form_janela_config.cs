@@ -1,6 +1,4 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
-using JP4.Config;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
@@ -17,9 +15,7 @@ namespace JP4
 
             text_endereco.Text = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
             text_local_arquivo_ordem.Text = Properties.Settings.Default.local_arquivo_excel;
-
-            //int tamanho_string = Convert.ToInt32(text_endereco.TextLength)-23;
-            //label_endereco_backup.Text = text_endereco.Text.Substring(46,(tamanho_string-46));
+                        
             label_endereco_backup.Text = Properties.Settings.Default.caminho_backup;
             label_origem_backup.Text = Properties.Settings.Default.origem_backup;
             label_dt_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup;
@@ -30,10 +26,25 @@ namespace JP4
 
         }
 
+
+        #region Metodos de Atualização
+
+        
+
+        private void Verifica_update()
+        {
+            DialogResult resposta = MessageBox.Show(this, "Deseja Verificar Atualização?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(resposta == DialogResult.Yes)
+            {
+                WINSTART janela_inicio = new WINSTART();
+                janela_inicio.Check_update();
+            }
+        }
+
+        #endregion
+
         #region Arquivo TXT
-
-
-
 
         public void Ler_arquivo_config()
         {
@@ -52,8 +63,6 @@ namespace JP4
        
 
         #endregion
-
-
 
 
         #region Fazer backup do banco de dados Acess
@@ -109,7 +118,8 @@ namespace JP4
                 // overwrite the destination file if it already exists.
                 System.IO.File.Copy(sourceFile, destFile, true);
 
-                MessageBox.Show("Backup feito com sucesso!");
+                // MessageBox.Show("Backup feito com sucesso!");
+
 
                 label_dt_ultimo_backup.Text = DateTime.Today.ToString("dd/MM/yyyy");
                 Salvar_ultima_data_backup();
@@ -233,9 +243,6 @@ namespace JP4
 
 
         // Busca local do Banco de dados
-
-        
-
         private string Procurar_pasta()
         {
             string local_pasta;

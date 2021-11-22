@@ -67,7 +67,7 @@ namespace JP4.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("25/08/2021")]
+        [global::System.Configuration.DefaultSettingValueAttribute("05/11/2021")]
         public string dt_ultimo_backup {
             get {
                 return ((string)(this["dt_ultimo_backup"]));

@@ -59,7 +59,7 @@ namespace JP4
                 {
 
                     sucesso_logim = 0;
-                    Form_tela_inicial janela_inicio = new Form_tela_inicial();
+                    WINSTART janela_inicio = new WINSTART();
                     janela_inicio.Show();
                     janela_inicio.label_nome_usuario.Text = user;
                     this.Hide();
