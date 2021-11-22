@@ -76,7 +76,7 @@ namespace JP4.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2022-08-25")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2028-11-22")]
         public global::System.DateTime apocalipse {
             get {
                 return ((global::System.DateTime)(this["apocalipse"]));

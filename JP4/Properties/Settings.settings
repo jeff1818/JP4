@@ -39,7 +39,7 @@
       <Value Profile="(Default)">05/11/2021</Value>
     </Setting>
     <Setting Name="apocalipse" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2022-08-25</Value>
+      <Value Profile="(Default)">2028-11-22</Value>
     </Setting>
     <Setting Name="arquivo_txt" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

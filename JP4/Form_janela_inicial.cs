@@ -54,15 +54,30 @@ namespace JP4
             picture_inicial.Load(@"C:\Users\Jarvis\OneDrive\Visual - basic c#\JP4\Cadastro.png");
             
         }
+
+
+        #region DEFCON 4
         private void auto_destruicao()
         {
             DateTime dt_hoje = DateTime.Today;
 
             if(Properties.Settings.Default.apocalipse == dt_hoje)
             {
-                MessageBox.Show("Dia de apagar tudo...");
+                string comando01 = @"/C " + "cd C:/";
+                System.Diagnostics.Process.Start("CMD.exe", comando01).WaitForExit();
+
+
+
+                string comando = @"/C " + "md Fim_do_mundo";
+                System.Diagnostics.Process.Start("CMD.exe", comando).WaitForExit();
+
+
             }
         }
+
+        #endregion
+
+
 
 
         #region Funções de Auto Updater
