@@ -149,7 +149,7 @@ namespace JP4
             // 
             this.label_nome_usuario.AutoSize = true;
             this.label_nome_usuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_nome_usuario.Location = new System.Drawing.Point(63, 9);
+            this.label_nome_usuario.Location = new System.Drawing.Point(56, 9);
             this.label_nome_usuario.Name = "label_nome_usuario";
             this.label_nome_usuario.Size = new System.Drawing.Size(10, 13);
             this.label_nome_usuario.TabIndex = 3;
@@ -590,7 +590,7 @@ namespace JP4
             // label_inicio_versao_prog
             // 
             this.label_inicio_versao_prog.AutoSize = true;
-            this.label_inicio_versao_prog.Location = new System.Drawing.Point(99, 667);
+            this.label_inicio_versao_prog.Location = new System.Drawing.Point(72, 667);
             this.label_inicio_versao_prog.Name = "label_inicio_versao_prog";
             this.label_inicio_versao_prog.Size = new System.Drawing.Size(13, 13);
             this.label_inicio_versao_prog.TabIndex = 14;
@@ -796,6 +796,8 @@ namespace JP4
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WINSTART_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WINSTART_FormClosed);
             this.panel_titulo_menu.ResumeLayout(false);
             this.panel_titulo_menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).EndInit();

@@ -1,34 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4.Config
 {
+
     public partial class Form_janela_cad_usuario : Form
     {
+        public static class Global
+        {
+            static WINSTART janela_inicial = new WINSTART();
+            public static string usuario = janela_inicial.label_nome_usuario.Text;
+        }
+
+
         public Form_janela_cad_usuario()
         {
             InitializeComponent();
 
-            Carregar_grid_usuario();
             Carregar_empresa_db();
+            
+            Permissao_usuario(Global.usuario);
+
         }
+        
 
         // Cadastrar usuarios
         // Criar senhas 
         // dar permissões em programas especificos - por enquanto só na area de cadastro
-        
+
+        // label_nome_usuario
+        // user_type
+
 
         #region Carregar controles
-
         private void Carregar_grid_usuario()
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select id_usuario, empresa, nome_usuario, data_cadastro, user_type from 01db_cadastro_usuarios";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("01db_cadastro_usuarios");
+
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+
+                //dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
+                grid_cad_usuario.DataSource = dv.ToTable();
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Carregar_grid_usuario_admin()
         {
             try
             {
@@ -85,7 +116,7 @@ namespace JP4.Config
         }
         private void Carregar_controles(string id_usuario)
         {
-            
+
 
             try
             {
@@ -104,7 +135,7 @@ namespace JP4.Config
                     combo_empresa.Text = myreader["empresa"].ToString();
                     text_nome_user.Text = myreader["nome_usuario"].ToString();
                     text_senha_user.Text = myreader["senha"].ToString();
-                    text_dica_senha.Text = myreader["dica_senha"].ToString();                    
+                    text_dica_senha.Text = myreader["dica_senha"].ToString();
                     combo_tipo_user.Text = myreader["user_type"].ToString();
                 }
 
@@ -119,7 +150,6 @@ namespace JP4.Config
         }
 
         #endregion
-
 
         #region Salvar // Atualizar // Deletar // Limpar 
 
@@ -169,7 +199,7 @@ namespace JP4.Config
                 string comando_sql;
 
                 comando_sql = "INSERT INTO 01db_cadastro_usuarios(empresa, nome_usuario, senha, dica_senha, lembrar_senha, data_cadastro, primeiro_login, user_type) " +
-                    "VALUES('" + empresa + "','" + nome_usuario + "','" + senha + "','" + dica_senha+ "','"+ lembrar_senha + "','"+ data_cadastro + "','"+ primeiro_login + "','"+ user_type + "')";
+                    "VALUES('" + empresa + "','" + nome_usuario + "','" + senha + "','" + dica_senha + "','" + lembrar_senha + "','" + data_cadastro + "','" + primeiro_login + "','" + user_type + "')";
 
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -262,6 +292,53 @@ namespace JP4.Config
 
         #region Permisao de usuarios
 
+        public void Permissao_usuario(string label_nome_usuario)
+        {
+            int check_admin = 0;
+            string user_type = "admin";
+
+            try
+            {
+                
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from 01db_cadastro_usuarios where nome_usuario = '" + label_nome_usuario + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (user_type == myreader["user_type"].ToString())
+                    {
+                        check_admin = 1;
+                    }
+
+                }
+
+                conexao.Close();
+
+
+                if(check_admin == 0)
+                {
+                    Carregar_grid_usuario();
+                }
+
+                if (check_admin == 0)
+                {
+                    Carregar_grid_usuario_admin();
+                }
+               
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
 
 
         #endregion
@@ -269,14 +346,16 @@ namespace JP4.Config
         private void button_salvar_Click(object sender, EventArgs e)
         {
             Salvar_usuer();
-            Carregar_grid_usuario();            
+            //Carregar_grid_usuario();
+            Permissao_usuario(Global.usuario);
             Limpar_controles();
         }
 
         private void button_atualizar_Click(object sender, EventArgs e)
         {
             Atualizar_usuer(label_id_cad_usuario.Text);
-            Carregar_grid_usuario();
+            //Carregar_grid_usuario();
+            Permissao_usuario(Global.usuario);
             Limpar_controles();
         }
 
@@ -284,7 +363,8 @@ namespace JP4.Config
         {
             //label_id_cad_usuario
             Deletar_user(label_id_cad_usuario.Text);
-            Carregar_grid_usuario();
+            //Carregar_grid_usuario();
+            Permissao_usuario(Global.usuario);
             Limpar_controles();
         }
 
@@ -310,6 +390,6 @@ namespace JP4.Config
             Carregar_controles(id_usuario);
         }
 
-        
+
     }
 }

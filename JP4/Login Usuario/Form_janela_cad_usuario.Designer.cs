@@ -37,6 +37,9 @@ namespace JP4.Config
             this.button_salvar = new System.Windows.Forms.Button();
             this.button_deletar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_id_cad_usuario = new System.Windows.Forms.Label();
+            this.combo_empresa = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.combo_tipo_user = new System.Windows.Forms.ComboBox();
             this.text_dica_senha = new System.Windows.Forms.TextBox();
             this.text_senha_user = new System.Windows.Forms.TextBox();
@@ -47,9 +50,6 @@ namespace JP4.Config
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.grid_cad_usuario = new System.Windows.Forms.DataGridView();
-            this.combo_empresa = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label_id_cad_usuario = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_usuario)).BeginInit();
@@ -152,12 +152,42 @@ namespace JP4.Config
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação";
             // 
+            // label_id_cad_usuario
+            // 
+            this.label_id_cad_usuario.AutoSize = true;
+            this.label_id_cad_usuario.Location = new System.Drawing.Point(6, 130);
+            this.label_id_cad_usuario.Name = "label_id_cad_usuario";
+            this.label_id_cad_usuario.Size = new System.Drawing.Size(15, 13);
+            this.label_id_cad_usuario.TabIndex = 10;
+            this.label_id_cad_usuario.Text = "id";
+            // 
+            // combo_empresa
+            // 
+            this.combo_empresa.FormattingEnabled = true;
+            this.combo_empresa.Location = new System.Drawing.Point(286, 62);
+            this.combo_empresa.Name = "combo_empresa";
+            this.combo_empresa.Size = new System.Drawing.Size(137, 21);
+            this.combo_empresa.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(229, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Empresa:";
+            // 
             // combo_tipo_user
             // 
             this.combo_tipo_user.AutoCompleteCustomSource.AddRange(new string[] {
             "admin",
             "prod"});
             this.combo_tipo_user.FormattingEnabled = true;
+            this.combo_tipo_user.Items.AddRange(new object[] {
+            "admin",
+            "prod",
+            "visitante"});
             this.combo_tipo_user.Location = new System.Drawing.Point(86, 64);
             this.combo_tipo_user.Name = "combo_tipo_user";
             this.combo_tipo_user.Size = new System.Drawing.Size(137, 21);
@@ -234,32 +264,6 @@ namespace JP4.Config
             this.grid_cad_usuario.Size = new System.Drawing.Size(757, 405);
             this.grid_cad_usuario.TabIndex = 20;
             this.grid_cad_usuario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_cad_usuario_CellDoubleClick);
-            // 
-            // combo_empresa
-            // 
-            this.combo_empresa.FormattingEnabled = true;
-            this.combo_empresa.Location = new System.Drawing.Point(286, 62);
-            this.combo_empresa.Name = "combo_empresa";
-            this.combo_empresa.Size = new System.Drawing.Size(137, 21);
-            this.combo_empresa.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(229, 67);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Empresa:";
-            // 
-            // label_id_cad_usuario
-            // 
-            this.label_id_cad_usuario.AutoSize = true;
-            this.label_id_cad_usuario.Location = new System.Drawing.Point(6, 130);
-            this.label_id_cad_usuario.Name = "label_id_cad_usuario";
-            this.label_id_cad_usuario.Size = new System.Drawing.Size(15, 13);
-            this.label_id_cad_usuario.TabIndex = 10;
-            this.label_id_cad_usuario.Text = "id";
             // 
             // Form_janela_cad_usuario
             // 

@@ -29,8 +29,8 @@
     <MinimumRequiredVersion>11.3.3.21</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>50</ApplicationRevision>
-    <ApplicationVersion>11.3.3.50</ApplicationVersion>
+    <ApplicationRevision>51</ApplicationRevision>
+    <ApplicationVersion>11.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -189,10 +189,10 @@
     <Compile Include="Cadastros\Form_janela_cad_turno.Designer.cs">
       <DependentUpon>Form_janela_cad_turno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Config\Form_janela_cad_usuario.cs">
+    <Compile Include="Login Usuario\Form_janela_cad_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Config\Form_janela_cad_usuario.Designer.cs">
+    <Compile Include="Login Usuario\Form_janela_cad_usuario.Designer.cs">
       <DependentUpon>Form_janela_cad_usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\Form_janela_config_txt.cs">
@@ -326,10 +326,10 @@
     <Compile Include="Form_janela_inven_geral.Designer.cs">
       <DependentUpon>Form_janela_inven_geral.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_janela_login.cs">
+    <Compile Include="Login Usuario\Form_janela_login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_janela_login.Designer.cs">
+    <Compile Include="Login Usuario\Form_janela_login.Designer.cs">
       <DependentUpon>Form_janela_login.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_janela_mov_estoque.cs">
@@ -362,6 +362,12 @@
     <Compile Include="Form_janela_retrabalho.Designer.cs">
       <DependentUpon>Form_janela_retrabalho.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login Usuario\Form_troca_senha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login Usuario\Form_troca_senha.Designer.cs">
+      <DependentUpon>Form_troca_senha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -374,7 +380,7 @@
     <EmbeddedResource Include="Cadastros\Form_janela_cad_turno.resx">
       <DependentUpon>Form_janela_cad_turno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Config\Form_janela_cad_usuario.resx">
+    <EmbeddedResource Include="Login Usuario\Form_janela_cad_usuario.resx">
       <DependentUpon>Form_janela_cad_usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Config\Form_janela_config_txt.resx">
@@ -440,7 +446,7 @@
     <EmbeddedResource Include="Form_janela_inven_geral.resx">
       <DependentUpon>Form_janela_inven_geral.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_janela_login.resx">
+    <EmbeddedResource Include="Login Usuario\Form_janela_login.resx">
       <DependentUpon>Form_janela_login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_mov_estoque.resx">
@@ -457,6 +463,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_parada_mq.resx">
       <DependentUpon>Form_janela_parada_mq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login Usuario\Form_troca_senha.resx">
+      <DependentUpon>Form_troca_senha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

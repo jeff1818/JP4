@@ -76,7 +76,9 @@ namespace AutoUpdateJP
                 webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
 
                 // The variable that will be holding the url address (making sure it starts with http://)
-                Uri URL = new Uri("https://paralelo-erp1.000webhostapp.com/Instalador.zip");
+                
+                //Uri URL = new Uri("https://paralelo-erp1.000webhostapp.com/Instalador.zip");
+                
 
                 // Start the stopwatch which we will be using to calculate the download speed
                 sw.Start();

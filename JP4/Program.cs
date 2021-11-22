@@ -16,8 +16,8 @@ namespace JP4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WINSTART());
-            //Application.Run(new Form_janela_login());
+            //Application.Run(new WINSTART());
+            Application.Run(new Form_janela_login());
             
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JP4.Login_Usuario;
+using System;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
@@ -13,11 +14,11 @@ namespace JP4
 
         int contador_senha=0;
         public int sucesso_logim = 1;
-        private void login_usuario(string user, string senha)
+        private void Login_usuario(string user, string senha)
         {
             try
             {
-                int erro_user = 1;
+                int erro_user = 4;
                 int erro_senha = 0;
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -30,34 +31,26 @@ namespace JP4
 
                 myreader = cmd.ExecuteReader();
 
-
                 while (myreader.Read())
                 {
-                    
-                    
                     if (user == myreader["nome_usuario"].ToString()  && senha == myreader["senha"].ToString())
                     {
                         erro_user = 0;
                     }
 
+                    if (user != myreader["nome_usuario"].ToString() && senha == myreader["senha"].ToString())
+                    {
+                        erro_user = 1;
+                    }
 
                     if (user == myreader["nome_usuario"].ToString() && senha != myreader["senha"].ToString())                    
                     {
-                        
                         erro_senha = 2;
                     }
-                    
                 }
 
-
-                if(erro_user == 1)
+                if (erro_user == 0)
                 {
-                    MessageBox.Show("Usuário Não existe!");
-                }
-
-                if(erro_user == 0)
-                {
-
                     sucesso_logim = 0;
                     WINSTART janela_inicio = new WINSTART();
                     janela_inicio.Show();
@@ -65,16 +58,25 @@ namespace JP4
                     this.Hide();
                 }
 
+
+                if (erro_user == 1)
+                {
+                    MessageBox.Show("Usuário Não existe!");
+                    text_usuario.Focus();
+                }
+                
                 if(erro_senha == 2)
                 {
                     MessageBox.Show("Senha incorreta!");
-
                     contador_senha += 1;
-
 
                     if (contador_senha >= 5)
                     {
-                        MessageBox.Show("");
+                        DialogResult resposta = MessageBox.Show(this, "Muitas tentativas, Deseja mudar a senha!?", "Login", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (resposta == DialogResult.Yes)
+                        {
+                            button_troca_senha.Visible = true;
+                        }
                     }
                 }
 
@@ -90,14 +92,25 @@ namespace JP4
 
         private void button_entrar_Click(object sender, EventArgs e)
         {
-
-            login_usuario(text_usuario.Text, text_senha.Text);
-
+            Login_usuario(text_usuario.Text, text_senha.Text);
         }
 
         private void text_senha_Enter(object sender, EventArgs e)
         {
             text_senha.Text = string.Empty;
+        }
+
+        private void button_sair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button_troca_senha_Click(object sender, EventArgs e)
+        {
+            Form_troca_senha janela_troca_senha = new Form_troca_senha();
+            janela_troca_senha.label_troca_senha_usuario.Text = text_usuario.Text;
+            janela_troca_senha.ShowDialog();
+
         }
     }
 }

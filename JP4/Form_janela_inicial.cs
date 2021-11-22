@@ -34,13 +34,11 @@ namespace JP4
 
             label_status.Text = "Ultimo Backup >> ";
             
-            
             Check_update();
             
 
             CONF01 gerar_backup = new CONF01();
             gerar_backup.fazer_backup();
-
 
             // ativar para depois de 1 ano
             auto_destruicao();
@@ -80,6 +78,10 @@ namespace JP4
             {
                 if (!webClient.DownloadString(link_download).Contains(versao_update))
                 {
+                    label_inicio_versao_prog.Text = "Nova Versão Disponivel!";
+                    label_inicio_versao_prog.BackColor = Color.LightCoral;
+
+                    
                     if (MessageBox.Show("Nova atualização disponivel, Deseja baixar?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         using (var client = new WebClient())
                         {
@@ -108,6 +110,7 @@ namespace JP4
         private void botao_fechar_Click(object sender, EventArgs e)
         {            
             Application.Exit();
+
         }
 
         private void botao_maxm_Click(object sender, EventArgs e)
@@ -176,6 +179,11 @@ namespace JP4
 
         #endregion
 
+
+
+
+
+        // Botões e controles
         private void button_abrir_op_Click(object sender, EventArgs e)
         {
             abrir_janelas(new OP001());
@@ -273,10 +281,6 @@ namespace JP4
         }
         private void button_cadastro_user_Click(object sender, EventArgs e)
         {
-            if(label_nome_usuario.Text == "admin")
-            {
-                abrir_janelas(new Form_janela_cad_usuario());
-            }
             abrir_janelas(new Form_janela_cad_usuario());
         }
         private void button_report_Click(object sender, EventArgs e)
@@ -286,6 +290,17 @@ namespace JP4
         private void timer_digital_Tick(object sender, EventArgs e)
         {
             label_hora_digital.Text = DateTime.Now.ToString("HH:mm");
+        }
+
+        private void WINSTART_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+
+        }
+
+        private void WINSTART_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }
