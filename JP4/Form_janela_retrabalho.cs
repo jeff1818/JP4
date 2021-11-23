@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JP4.Config;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +37,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select id_estoque_trans, select dat_movto, num_docum, cod_descri_completa, secao_nome, operador, cod_local_est_dest, fardos from estoque_trans where ordem_prod = " + num_docum;
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
@@ -58,7 +63,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select id_estoque_trans, select dat_movto, num_docum, cod_descri_completa, secao_nome, operador, cod_local_est_dest, fardos from estoque_trans where date(dat_movto) = " + data_movt;
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
@@ -84,7 +93,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select distinct num_docum from estoque_trans";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -113,7 +126,11 @@ namespace JP4
             {
                 // Mudei para aceitar o cliente
 
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select id_estoque_trans, dat_movto, num_docum, cod_descri_completa, secao_nome, operador, cod_local_est_dest, fardos from estoque_trans where mes_movto=" + mes_movto;
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
@@ -148,7 +165,11 @@ namespace JP4
 
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from estoque_trans where cod_operacao = 'APON'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -186,7 +207,11 @@ namespace JP4
             // alimenta o campo de maquina
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from estoque_trans where cod_operacao = 'APON' AND num_docum = " + ordem_prod;
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -217,7 +242,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select distinct secao_nome from estoque_trans where cod_operacao = 'APON' AND num_docum = " + ordem_prod;
 
                 //SELECT DISTINCT Names FROM MstNames
@@ -252,7 +281,11 @@ namespace JP4
 
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from estoque_trans where cod_operacao = 'APON' AND num_docum = " + ordem_prod + " AND secao_nome = '"+ maquina + "'";
 
                 //SELECT DISTINCT Names FROM MstNames

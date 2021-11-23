@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JP4.Config;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +33,11 @@ namespace JP4
 
                 string dat_movto = "30/08/2021"; //Convert.ToDateTime( DateTime.Today.AddDays(-1).ToString("dd/MM/yyyy"));
 
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 string comando_sql = "select * from estoque_trans where dat_movto= '" + dat_movto + "' and cod_operacao = 'APON' and cod_empresa ='SAN MARINO'";
                 OleDbDataReader myreader;
@@ -69,7 +74,11 @@ namespace JP4
 
                 DateTime dat_movto = Convert.ToDateTime(label_dia_atual.Text);
 
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 string comando_sql = "select * from estoque_trans where dat_movto= '" + dat_movto + "' and cod_operacao = 'APON' and cod_empresa ='PICOFLEX' ";
                 OleDbDataReader myreader;

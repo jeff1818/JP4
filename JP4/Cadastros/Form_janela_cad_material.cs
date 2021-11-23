@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JP4.Config;
+using System;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
@@ -46,7 +47,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_grupo_estoque where codigo_grupo ='" + codigo_grupo + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -74,7 +79,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_grupo_estoque";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -102,7 +111,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_status";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -130,7 +143,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_material";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -158,7 +175,10 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
                 string comando_sql = "select * from db_cadastro_material";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -186,7 +206,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select cadastro_id, codigo_item, status_item, descricao_completa, grupo, tipo_material, cod_familia from db_cadastro_material";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
@@ -211,7 +235,11 @@ namespace JP4
 
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select cadastro_id, codigo_item, status_item, descricao_completa, grupo, tipo_material, cod_familia from db_cadastro_material";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
@@ -266,7 +294,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_material where descricao_completa ='" + descricao_completa + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -297,7 +329,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_grupo_estoque where codigo_grupo = '" + descricao_completa + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -325,7 +361,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_unidade_medida where unidade = '" + unidade + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -408,7 +448,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_grupo_estoque";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -436,7 +480,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_tipo_material";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -467,7 +515,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_unidade_medida";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -495,7 +547,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_status";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -523,7 +579,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_local_estoque";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -551,7 +611,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_local_aplicacao";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -579,7 +643,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_empresas";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -728,7 +796,11 @@ namespace JP4
             string codigo_item01 = "";
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_material where codigo_item ='" + cod_item + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -818,7 +890,11 @@ namespace JP4
             {
                 string comando_sql;
 
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 conexao.Open();
 
@@ -922,7 +998,11 @@ namespace JP4
                 {
                     string comando_sql;
 
-                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    string local_default = @"C:\JP4";
+                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
@@ -947,7 +1027,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 conexao.Open();
 
@@ -972,7 +1056,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_material where cadastro_id =" + Convert.ToInt64(id_cadastro) + "";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);

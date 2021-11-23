@@ -22,6 +22,8 @@ namespace JP4
 
         }
 
+        // Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C:\Users\Jarvis\OneDrive\Visual - basic c#\banco\db_aplicativo_kpi.mdb"
+
         private void Testar_conexao()
         {
             try

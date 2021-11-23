@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JP4.Config;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +29,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_local_estoque";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
@@ -52,7 +57,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_local_estoque where id_local=" + id_local;
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -81,7 +90,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from db_cadastro_empresas";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -114,7 +127,11 @@ namespace JP4
 
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 conexao.Open();
 
@@ -142,7 +159,11 @@ namespace JP4
             {
                 string comando_sql;
 
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 conexao.Open();
 
@@ -168,7 +189,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 conexao.Open();
 
