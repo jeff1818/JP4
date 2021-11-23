@@ -12,25 +12,39 @@ namespace JP4
     {
         public CONF01()
         {
-
             InitializeComponent();
+            Ler_arquivo_config_ini();
             
+        }
+
+
+
+        #region Metodos Configuração INI
+        private void Ler_arquivo_config_ini()
+        {
+            IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+
+            string local_default = @"C:\JP4";
+            text_endereco.Text = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+            text_local_arquivo_ordem.Text = config_ini.IniReadString("RELATORIO", "local_relatorio", local_default);
+
+            label_endereco_backup.Text = config_ini.IniReadString("LOCAL_DESTINO_BK", "local_destino_bk", local_default);
+            label_origem_backup.Text = config_ini.IniReadString("LOCAL_ORIGEM_BK", "local_origem_bk", local_default);
+            label_dt_ultimo_backup.Text = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", local_default);
+
             
-
-            text_endereco.Text = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-            text_local_arquivo_ordem.Text = Properties.Settings.Default.local_arquivo_excel;
-                        
-            label_endereco_backup.Text = Properties.Settings.Default.caminho_backup;
-            label_origem_backup.Text = Properties.Settings.Default.origem_backup;
-            label_dt_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup;
-
-            //gravar_configuracao_ini();
+            //text_endereco.Text = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+            //text_local_arquivo_ordem.Text = Properties.Settings.Default.local_arquivo_excel;
+            //label_endereco_backup.Text = Properties.Settings.Default.caminho_backup;
+            //label_origem_backup.Text = Properties.Settings.Default.origem_backup;
+            //label_dt_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup;
 
         }
 
-        #region Metodos Configuração INI
         private void gravar_configuracao_ini()
         {
+            // Metodo de teste
+
             IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
 
             config_ini.IniWriteString("STRING_DB", "local_banco", text_endereco.Text);
@@ -40,10 +54,7 @@ namespace JP4
             config_ini.IniWriteString("LOCAL_DESTINO_BK", "local_destino_bk", label_endereco_backup.Text);
 
             config_ini.IniWriteString("DT_ULTIMO_BK", "data_ultimo_bk", label_dt_ultimo_backup.Text);
-
-
         }
-
 
 
         #endregion
@@ -94,8 +105,13 @@ namespace JP4
         {
             try
             {
-                string dataInicial = Properties.Settings.Default.dt_ultimo_backup;
+                //string dataInicial = Properties.Settings.Default.dt_ultimo_backup;
+
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string dataInicial = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", "01/11/2021");
+
                 string dataFinal = Convert.ToString(DateTime.Today);
+                                    
 
                 TimeSpan date = Convert.ToDateTime(dataFinal) - Convert.ToDateTime(dataInicial);
                 int totalDias = date.Days;
@@ -108,11 +124,14 @@ namespace JP4
             }
             catch (Exception)
             {
+                //backup_db();
                 MessageBox.Show("Erro ao fazer backup!");
             }
 
             
         }
+        
+      
         private void criar_pasta_backup(string local_db)
         {
             string folderName = local_db + @"\db_backup";
@@ -121,6 +140,9 @@ namespace JP4
             {
                 Directory.CreateDirectory(folderName);
             }
+
+
+
         }
         private void backup_db()
         {
@@ -133,7 +155,7 @@ namespace JP4
 
                 // Use Path class to manipulate file and directory paths.
                 string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-                string destFile = System.IO.Path.Combine(targetPath, fileName);
+                string destFile = System.IO.Path.Combine(targetPath, "bk_"+ fileName);
                                 
                 // To copy a file to another location and
                 // overwrite the destination file if it already exists.
@@ -143,7 +165,12 @@ namespace JP4
 
 
                 label_dt_ultimo_backup.Text = DateTime.Today.ToString("dd/MM/yyyy");
-                Salvar_ultima_data_backup();
+
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                config_ini.IniWriteString("DT_ULTIMO_BK", "data_ultimo_bk", label_dt_ultimo_backup.Text);
+
+
+                //Salvar_ultima_data_backup();
                 //Reset_aplicativo();
 
 
@@ -377,7 +404,7 @@ namespace JP4
                 IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
                 config_ini.IniWriteString("STRING_DB", "local_banco", text_endereco.Text);
                 
-                label_endereco_backup.Text = Procurar_pasta_backup();
+                //label_endereco_backup.Text = Procurar_pasta_backup();
                 
                 config_ini.IniWriteString("LOCAL_ORIGEM_BK", "local_origem_bk", label_origem_backup.Text);
                 criar_pasta_backup(label_origem_backup.Text);
@@ -392,7 +419,7 @@ namespace JP4
                 MessageBox.Show("Campo de endereço não pode ficar em branco!");
             }
             
-            //Salvar_local();
+            //Salvar_local(); // é Necessário porque todo o aplicativo se conecta com o banco atravez desse link :/
             //Salvar_origem_backup();
             //Testar_conexao();
             //Reset_aplicativo();
@@ -428,7 +455,7 @@ namespace JP4
             }
             
             //Salvar_local_os();
-            // Reset_aplicativo();
+            //Reset_aplicativo();
         }
         private void verificarAtualizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -438,7 +465,7 @@ namespace JP4
 
         private void button_config_bakcup_Click(object sender, EventArgs e)
         {
-            //label_endereco_backup.Text = Procurar_pasta_backup();
+            label_endereco_backup.Text = Procurar_pasta_backup();
             //Salvar_origem_backup();
             //Salvar_local_backup();
             //Reset_aplicativo();

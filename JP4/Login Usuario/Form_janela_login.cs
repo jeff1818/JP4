@@ -1,6 +1,9 @@
-﻿using JP4.Login_Usuario;
+﻿using JP4.Config;
+using JP4.Login_Usuario;
 using System;
+using System.Data;
 using System.Data.OleDb;
+using System.IO;
 using System.Windows.Forms;
 
 namespace JP4
@@ -10,8 +13,55 @@ namespace JP4
         public Form_janela_login()
         {
             InitializeComponent();
+            Criar_pasta_sistema();
 
             check_lembrar_senha_pc(Nome_pc());
+
+            // label_status_banco.Text = "";
+            Testar_conexao();
+
+        }
+
+        private void Testar_conexao()
+        {
+            try
+            {
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                connection.Open();
+
+                if (connection.State == ConnectionState.Open)
+                {
+                    label_status_banco.Text = "Conectado com sucesso!";
+
+                }
+                else
+                {
+                    label_status_banco.Text = "Não conectado, verifique o local!";
+
+                }
+                connection.Close();
+
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show(erro.Message);
+            }
+        }
+
+        public void Criar_pasta_sistema()
+        {
+            string folderName = @"C:\JP4";
+            // If directory does not exist, create it
+            if (!Directory.Exists(folderName))
+            {
+                Directory.CreateDirectory(folderName);
+            }
         }
 
         private string Nome_pc()
@@ -19,8 +69,6 @@ namespace JP4
             var name = Environment.MachineName;
             return name;
         }
-
-
 
         int contador_senha = 0;
         public int sucesso_logim = 1;
@@ -59,7 +107,6 @@ namespace JP4
 
             }
         }
-
         private void Lembrar_senha_pc(string nome_usuario, int marcador)
         {
             if(marcador == 0)
@@ -113,9 +160,6 @@ namespace JP4
             }
            
         }
-
-
-
         private void Login_usuario(string user, string senha)
         {
             try

@@ -41,6 +41,7 @@ namespace JP4
             this.label_dica_senha = new System.Windows.Forms.Label();
             this.button_sair = new System.Windows.Forms.Button();
             this.button_config_db = new System.Windows.Forms.Button();
+            this.label_status_banco = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,12 +162,23 @@ namespace JP4
             this.button_config_db.UseVisualStyleBackColor = true;
             this.button_config_db.Click += new System.EventHandler(this.button_config_db_Click);
             // 
+            // label_status_banco
+            // 
+            this.label_status_banco.AutoSize = true;
+            this.label_status_banco.Location = new System.Drawing.Point(14, 482);
+            this.label_status_banco.Name = "label_status_banco";
+            this.label_status_banco.Size = new System.Drawing.Size(13, 13);
+            this.label_status_banco.TabIndex = 19;
+            this.label_status_banco.Text = "--";
+            this.label_status_banco.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form_janela_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.ClientSize = new System.Drawing.Size(249, 480);
+            this.ClientSize = new System.Drawing.Size(249, 504);
+            this.Controls.Add(this.label_status_banco);
             this.Controls.Add(this.button_config_db);
             this.Controls.Add(this.button_sair);
             this.Controls.Add(this.label_dica_senha);
@@ -204,5 +216,6 @@ namespace JP4
         private System.Windows.Forms.Label label_dica_senha;
         private System.Windows.Forms.Button button_sair;
         private System.Windows.Forms.Button button_config_db;
+        private System.Windows.Forms.Label label_status_banco;
     }
 }
