@@ -10,10 +10,112 @@ namespace JP4
         public Form_janela_login()
         {
             InitializeComponent();
+
+            check_lembrar_senha_pc(Nome_pc());
         }
 
-        int contador_senha=0;
+        private string Nome_pc()
+        {
+            var name = Environment.MachineName;
+            return name;
+        }
+
+
+
+        int contador_senha = 0;
         public int sucesso_logim = 1;
+
+        private void check_lembrar_senha_pc(string nome_pc)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from 01db_cadastro_usuarios where nome_pc = '" + nome_pc + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (nome_pc == myreader["nome_pc"].ToString())
+                    {
+                        string nome_usuario = myreader["nome_usuario"].ToString();
+                        string senha = myreader["senha"].ToString();
+
+                        check_lembra_senha.Checked = true;
+                        text_usuario.Text = nome_usuario;
+                        text_senha.Text = senha;
+
+                    }
+                }
+                conexao.Close();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void Lembrar_senha_pc(string nome_usuario, int marcador)
+        {
+            if(marcador == 0)
+            {
+                try
+                {
+                    string nome_pc = Nome_pc();
+                    string comando_sql;
+
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    comando_sql = "UPDATE 01db_cadastro_usuarios SET nome_pc='" + nome_pc + "' WHERE nome_usuario ='" + nome_usuario + "'";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Banco de dados não conectado!");
+                    check_lembra_senha.Checked = false;
+                }
+            }
+
+            if(marcador == 1)
+            {
+                try
+                {
+                    string nome_pc = string.Empty;
+                    string comando_sql;
+
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    conexao.Open();
+
+                    comando_sql = "UPDATE 01db_cadastro_usuarios SET nome_pc='" + nome_pc + "' WHERE nome_usuario ='" + nome_usuario + "'";
+
+                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Banco de dados não conectado!");
+                    check_lembra_senha.Checked = false;
+                }
+            }
+           
+        }
+
+
+
         private void Login_usuario(string user, string senha)
         {
             try
@@ -33,7 +135,7 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    if (user == myreader["nome_usuario"].ToString()  && senha == myreader["senha"].ToString())
+                    if (user == myreader["nome_usuario"].ToString() && senha == myreader["senha"].ToString())
                     {
                         erro_user = 0;
                     }
@@ -43,7 +145,7 @@ namespace JP4
                         erro_user = 1;
                     }
 
-                    if (user == myreader["nome_usuario"].ToString() && senha != myreader["senha"].ToString())                    
+                    if (user == myreader["nome_usuario"].ToString() && senha != myreader["senha"].ToString())
                     {
                         erro_senha = 2;
                     }
@@ -64,8 +166,8 @@ namespace JP4
                     MessageBox.Show("Usuário Não existe!");
                     text_usuario.Focus();
                 }
-                
-                if(erro_senha == 2)
+
+                if (erro_senha == 2)
                 {
                     MessageBox.Show("Senha incorreta!");
                     contador_senha += 1;
@@ -80,12 +182,11 @@ namespace JP4
                     }
                 }
 
-
                 conexao.Close();
             }
-            catch (Exception erro)
+            catch
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show("Banco de dados não encontrado, faça a configuração!");
             }
 
         }
@@ -110,6 +211,29 @@ namespace JP4
             Form_troca_senha janela_troca_senha = new Form_troca_senha();
             janela_troca_senha.label_troca_senha_usuario.Text = text_usuario.Text;
             janela_troca_senha.ShowDialog();
+        }
+
+        private void button_config_db_Click(object sender, EventArgs e)
+        {
+            CONF01 janela_config = new CONF01();
+            janela_config.ShowDialog();
+        }
+
+        private void check_lembra_senha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_lembra_senha.Checked == true)
+            {
+                Lembrar_senha_pc(text_usuario.Text, 0);
+            }
+
+            if (check_lembra_senha.Checked == false)
+            {
+                Lembrar_senha_pc(text_usuario.Text, 1);
+                text_usuario.Text = string.Empty;
+                text_senha.Text = string.Empty;
+            }
+
+
 
         }
     }

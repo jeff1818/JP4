@@ -40,6 +40,7 @@ namespace JP4
             this.label1 = new System.Windows.Forms.Label();
             this.label_dica_senha = new System.Windows.Forms.Label();
             this.button_sair = new System.Windows.Forms.Button();
+            this.button_config_db = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +64,7 @@ namespace JP4
             this.check_lembra_senha.TabIndex = 14;
             this.check_lembra_senha.Text = "Lembrar Senha?";
             this.check_lembra_senha.UseVisualStyleBackColor = true;
+            this.check_lembra_senha.CheckedChanged += new System.EventHandler(this.check_lembra_senha_CheckedChanged);
             // 
             // button_entrar
             // 
@@ -138,14 +140,26 @@ namespace JP4
             // button_sair
             // 
             this.button_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_sair.Font = new System.Drawing.Font("Maiandra GD", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_sair.Location = new System.Drawing.Point(180, 431);
+            this.button_sair.Font = new System.Drawing.Font("Maiandra GD", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_sair.Location = new System.Drawing.Point(172, 445);
             this.button_sair.Name = "button_sair";
-            this.button_sair.Size = new System.Drawing.Size(42, 37);
+            this.button_sair.Size = new System.Drawing.Size(50, 23);
             this.button_sair.TabIndex = 17;
             this.button_sair.Text = "Sair";
             this.button_sair.UseVisualStyleBackColor = true;
             this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
+            // 
+            // button_config_db
+            // 
+            this.button_config_db.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_config_db.Font = new System.Drawing.Font("Maiandra GD", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_config_db.Location = new System.Drawing.Point(17, 445);
+            this.button_config_db.Name = "button_config_db";
+            this.button_config_db.Size = new System.Drawing.Size(59, 23);
+            this.button_config_db.TabIndex = 18;
+            this.button_config_db.Text = "Config.";
+            this.button_config_db.UseVisualStyleBackColor = true;
+            this.button_config_db.Click += new System.EventHandler(this.button_config_db_Click);
             // 
             // Form_janela_login
             // 
@@ -153,6 +167,7 @@ namespace JP4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(249, 480);
+            this.Controls.Add(this.button_config_db);
             this.Controls.Add(this.button_sair);
             this.Controls.Add(this.label_dica_senha);
             this.Controls.Add(this.pictureBox1);
@@ -188,5 +203,6 @@ namespace JP4
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_dica_senha;
         private System.Windows.Forms.Button button_sair;
+        private System.Windows.Forms.Button button_config_db;
     }
 }

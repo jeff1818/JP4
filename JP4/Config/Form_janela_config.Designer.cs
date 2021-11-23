@@ -52,6 +52,7 @@ namespace JP4
             this.button_config_bakcup = new System.Windows.Forms.Button();
             this.label_endereco_backup = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -189,7 +190,8 @@ namespace JP4
             // menuStrip2
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verificarAtualizaçãoToolStripMenuItem});
+            this.verificarAtualizaçãoToolStripMenuItem,
+            this.sairToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(969, 24);
@@ -280,6 +282,13 @@ namespace JP4
             this.label3.TabIndex = 5;
             this.label3.Text = "Ultimo Backup";
             // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
             // CONF01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,6 +299,7 @@ namespace JP4
             this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CONF01";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_janela_config";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -331,5 +341,6 @@ namespace JP4
         private System.Windows.Forms.Button button_config_bakcup;
         private System.Windows.Forms.Label label_origem_backup;
         private System.Windows.Forms.Label label_dt_ultimo_backup;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
     }
 }

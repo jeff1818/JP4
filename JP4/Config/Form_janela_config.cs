@@ -86,8 +86,7 @@ namespace JP4
             }
             catch (Exception)
             {
-
-                
+                MessageBox.Show("Erro ao fazer backup!");
             }
 
             
@@ -240,8 +239,6 @@ namespace JP4
             }
         }
 
-
-
         // Busca local do Banco de dados
         private string Procurar_pasta()
         {
@@ -358,25 +355,21 @@ namespace JP4
             Testar_conexao();
             Reset_aplicativo();
         }
-
         private void button_janela_update_Click(object sender, EventArgs e)
         {
             //Form_janela_update janela_update = new Form_janela_update();
             //janela_update.Show();           
 
         }
-
         private void button_busca_loca_arquivo_os_Click(object sender, EventArgs e)
         {
             text_local_arquivo_ordem.Text = Procurar_pasta_os();
         }
-
         private void button_salva_local_os_Click(object sender, EventArgs e)
         {
             Salvar_local_os();
             Reset_aplicativo();
         }
-
         private void verificarAtualizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
@@ -392,6 +385,11 @@ namespace JP4
         }
 
         private void button1_Click(object sender, EventArgs e){}
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

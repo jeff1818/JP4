@@ -66,8 +66,6 @@ namespace JP4
                 string comando01 = @"/C " + "cd C:/";
                 System.Diagnostics.Process.Start("CMD.exe", comando01).WaitForExit();
 
-
-
                 string comando = @"/C " + "md Fim_do_mundo";
                 System.Diagnostics.Process.Start("CMD.exe", comando).WaitForExit();
 
