@@ -25,12 +25,12 @@ namespace JP4
         {
             InitializeComponent();
 
-
             label_data_inicial.Text = DateTime.Today.ToString("dddd - dd/MM/yyyy").ToUpper();
-            
-
             label_inicio_versao_prog.Text = Application.ProductVersion;
-            label_inicial_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup.ToString();
+
+            IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+            label_inicial_ultimo_backup.Text = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", "01/11/2021");
+            //label_inicial_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup.ToString();
 
             label_status.Text = "Ultimo Backup >> ";
             
@@ -74,7 +74,6 @@ namespace JP4
         }
 
         #endregion
-
 
 
 
@@ -125,21 +124,18 @@ namespace JP4
             Application.Exit();
 
         }
-
         private void botao_maxm_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             botao_maxm.Visible = false;
             botao_restor.Visible = true;
         }
-
         private void botao_restor_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
             botao_maxm.Visible = true;
             botao_restor.Visible = false;
         }
-
         private void botao_mini_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -191,9 +187,6 @@ namespace JP4
         }
 
         #endregion
-
-
-
 
 
         // Botões e controles
@@ -308,7 +301,6 @@ namespace JP4
         private void WINSTART_FormClosed(object sender, FormClosedEventArgs e)
         {
            
-
         }
 
         private void WINSTART_FormClosing(object sender, FormClosingEventArgs e)

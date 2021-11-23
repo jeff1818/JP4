@@ -77,7 +77,12 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 string comando_sql = "select * from 01db_cadastro_usuarios where nome_pc = '" + nome_pc + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -116,7 +121,11 @@ namespace JP4
                     string nome_pc = Nome_pc();
                     string comando_sql;
 
-                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    string local_default = @"C:\JP4";
+                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
@@ -141,7 +150,11 @@ namespace JP4
                     string nome_pc = string.Empty;
                     string comando_sql;
 
-                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    string local_default = @"C:\JP4";
+                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
@@ -167,7 +180,12 @@ namespace JP4
                 int erro_user = 4;
                 int erro_senha = 0;
 
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                
                 string comando_sql = "select * from 01db_cadastro_usuarios";// where nome_usuario = '" + user + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);

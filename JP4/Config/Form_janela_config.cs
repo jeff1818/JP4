@@ -130,8 +130,7 @@ namespace JP4
 
             
         }
-        
-      
+              
         private void criar_pasta_backup(string local_db)
         {
             string folderName = local_db + @"\db_backup";
@@ -161,7 +160,7 @@ namespace JP4
                 // overwrite the destination file if it already exists.
                 System.IO.File.Copy(sourceFile, destFile, true);
 
-                // MessageBox.Show("Backup feito com sucesso!");
+                MessageBox.Show("Backup feito com sucesso!");
 
 
                 label_dt_ultimo_backup.Text = DateTime.Today.ToString("dd/MM/yyyy");
@@ -177,7 +176,7 @@ namespace JP4
             }
             catch (Exception)
             {
-                MessageBox.Show("Source path does not exist!");
+                MessageBox.Show("Falha durante o backup!");
             }
 
         }
@@ -265,7 +264,11 @@ namespace JP4
         {
             try
             {
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 connection.Open();
 
@@ -462,7 +465,6 @@ namespace JP4
             //Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
             // janela_up.ShowDialog();
         }
-
         private void button_config_bakcup_Click(object sender, EventArgs e)
         {
             label_endereco_backup.Text = Procurar_pasta_backup();
@@ -470,9 +472,7 @@ namespace JP4
             //Salvar_local_backup();
             //Reset_aplicativo();
         }
-
         private void button1_Click(object sender, EventArgs e){}
-
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
