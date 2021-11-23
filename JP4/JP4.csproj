@@ -189,6 +189,7 @@
     <Compile Include="Cadastros\Form_janela_cad_turno.Designer.cs">
       <DependentUpon>Form_janela_cad_turno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Config\IniFile.cs" />
     <Compile Include="Login Usuario\Form_janela_cad_usuario.cs">
       <SubType>Form</SubType>
     </Compile>

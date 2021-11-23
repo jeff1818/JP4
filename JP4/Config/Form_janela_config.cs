@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.IO;
 using System.Windows.Forms;
+using JP4.Config;
 
 namespace JP4
 {
@@ -11,7 +12,10 @@ namespace JP4
     {
         public CONF01()
         {
+
             InitializeComponent();
+            
+            
 
             text_endereco.Text = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
             text_local_arquivo_ordem.Text = Properties.Settings.Default.local_arquivo_excel;
@@ -20,16 +24,34 @@ namespace JP4
             label_origem_backup.Text = Properties.Settings.Default.origem_backup;
             label_dt_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup;
 
-            // backup_db();
+            //gravar_configuracao_ini();
 
-            // Ler_arquivo_config(); Funciona muito bem
+        }
+
+        #region Metodos Configuração INI
+        private void gravar_configuracao_ini()
+        {
+            IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+
+            config_ini.IniWriteString("STRING_DB", "local_banco", text_endereco.Text);
+            config_ini.IniWriteString("RELATORIO", "local_relatorio", text_local_arquivo_ordem.Text);
+
+            config_ini.IniWriteString("LOCAL_ORIGEM_BK", "local_origem_bk", label_origem_backup.Text);
+            config_ini.IniWriteString("LOCAL_DESTINO_BK", "local_destino_bk", label_endereco_backup.Text);
+
+            config_ini.IniWriteString("DT_ULTIMO_BK", "data_ultimo_bk", label_dt_ultimo_backup.Text);
+
 
         }
 
 
+
+        #endregion
+
+
         #region Metodos de Atualização
 
-        
+
 
         private void Verifica_update()
         {
@@ -350,10 +372,30 @@ namespace JP4
         }
         private void button_salvar_endereco_Click(object sender, EventArgs e)
         {
-            Salvar_local();
-            Salvar_origem_backup();
-            Testar_conexao();
-            Reset_aplicativo();
+            if(text_endereco.Text != string.Empty)
+            {
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                config_ini.IniWriteString("STRING_DB", "local_banco", text_endereco.Text);
+                
+                label_endereco_backup.Text = Procurar_pasta_backup();
+                
+                config_ini.IniWriteString("LOCAL_ORIGEM_BK", "local_origem_bk", label_origem_backup.Text);
+                criar_pasta_backup(label_origem_backup.Text);
+
+                config_ini.IniWriteString("LOCAL_DESTINO_BK", "local_destino_bk", label_endereco_backup.Text + @"\db_backup");
+                
+                MessageBox.Show("Salvo com sucesso!");
+
+            }
+            else
+            {
+                MessageBox.Show("Campo de endereço não pode ficar em branco!");
+            }
+            
+            //Salvar_local();
+            //Salvar_origem_backup();
+            //Testar_conexao();
+            //Reset_aplicativo();
         }
         private void button_janela_update_Click(object sender, EventArgs e)
         {
@@ -367,8 +409,26 @@ namespace JP4
         }
         private void button_salva_local_os_Click(object sender, EventArgs e)
         {
-            Salvar_local_os();
-            Reset_aplicativo();
+            try
+            {
+                if (text_local_arquivo_ordem.Text != string.Empty)
+                {
+                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    config_ini.IniWriteString("RELATORIO", "local_relatorio", text_local_arquivo_ordem.Text);
+                    MessageBox.Show("Salvo com sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Campo de endereço não pode ficar em branco!");
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            
+            //Salvar_local_os();
+            // Reset_aplicativo();
         }
         private void verificarAtualizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -378,10 +438,10 @@ namespace JP4
 
         private void button_config_bakcup_Click(object sender, EventArgs e)
         {
-            label_endereco_backup.Text = Procurar_pasta_backup();
-            Salvar_origem_backup();
-            Salvar_local_backup();
-            Reset_aplicativo();
+            //label_endereco_backup.Text = Procurar_pasta_backup();
+            //Salvar_origem_backup();
+            //Salvar_local_backup();
+            //Reset_aplicativo();
         }
 
         private void button1_Click(object sender, EventArgs e){}
