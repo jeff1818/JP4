@@ -1281,6 +1281,10 @@ namespace JP4.Apontamento
             if (Convert.ToDouble(label_total_percet.Text) != 100)
             {
                 MessageBox.Show("Mistura Diferente de 100%!");
+
+            }else if(text_tag_cod_mistura.Text == string.Empty)
+            {
+                MessageBox.Show("Campo [Cod. Mistura] não pode ficar em branco!");
             }
             else
             {
@@ -1305,6 +1309,20 @@ namespace JP4.Apontamento
                 Carregar_tag_mistura();
 
             }
+        }
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+
+            DialogResult resposta = MessageBox.Show(this, "Deseja excluir a mistura ??", "Misturas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resposta == DialogResult.Yes)
+            {
+                Deletar_targ_mistura(label_num_transa.Text);
+                limpar_campos();
+                Carregar_tag_mistura();
+            }
+
+
         }
 
         private void combo_tag_mistura_SelectedIndexChanged(object sender, EventArgs e)
@@ -1541,19 +1559,6 @@ namespace JP4.Apontamento
             }
         }
 
-        private void button_delete_Click(object sender, EventArgs e)
-        {
-
-            DialogResult resposta = MessageBox.Show(this, "Deseja excluir a mistura ??", "Misturas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resposta == DialogResult.Yes)
-            {
-                Deletar_targ_mistura(label_num_transa.Text);
-                limpar_campos();
-                Carregar_tag_mistura();
-            }
-
-
-        }
+        
     }
 }
