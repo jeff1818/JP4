@@ -84,6 +84,7 @@ namespace JP4
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
             this.timer_digital = new System.Windows.Forms.Timer(this.components);
+            this.button_cad_mistura = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -262,6 +263,7 @@ namespace JP4
             // panel_sub_menu_cadastro
             // 
             this.panel_sub_menu_cadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(205)))));
+            this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_mistura);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cadastro_user);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_paradas);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_turno);
@@ -278,7 +280,7 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
             this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(48, 39);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
-            this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 563);
+            this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 572);
             this.panel_sub_menu_cadastro.TabIndex = 27;
             this.panel_sub_menu_cadastro.Visible = false;
             // 
@@ -778,6 +780,22 @@ namespace JP4
             this.timer_digital.Enabled = true;
             this.timer_digital.Tick += new System.EventHandler(this.timer_digital_Tick);
             // 
+            // button_cad_mistura
+            // 
+            this.button_cad_mistura.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button_cad_mistura.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_cad_mistura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_cad_mistura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cad_mistura.ForeColor = System.Drawing.Color.White;
+            this.button_cad_mistura.Location = new System.Drawing.Point(3, 535);
+            this.button_cad_mistura.Name = "button_cad_mistura";
+            this.button_cad_mistura.Size = new System.Drawing.Size(139, 32);
+            this.button_cad_mistura.TabIndex = 33;
+            this.button_cad_mistura.Text = "Cadastro de Mistura";
+            this.button_cad_mistura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_cad_mistura.UseVisualStyleBackColor = false;
+            this.button_cad_mistura.Click += new System.EventHandler(this.button_cad_mistura_Click);
+            // 
             // WINSTART
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -871,6 +889,7 @@ namespace JP4
         public System.Windows.Forms.Label label_data_inicial;
         private System.Windows.Forms.Timer timer_digital;
         public System.Windows.Forms.Label label_inicial_ultimo_backup;
+        private System.Windows.Forms.Button button_cad_mistura;
     }
 }
 

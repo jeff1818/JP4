@@ -171,6 +171,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadastros\Form_cadastro_misturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Form_cadastro_misturas.Designer.cs">
+      <DependentUpon>Form_cadastro_misturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastros\Form_janela_cad_paradas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,22 +213,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_aplicativo_kpiDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form_consumo_estrutura.cs">
+    <Compile Include="Apontamento\Form_consumo_estrutura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_consumo_estrutura.Designer.cs">
+    <Compile Include="Apontamento\Form_consumo_estrutura.Designer.cs">
       <DependentUpon>Form_consumo_estrutura.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_janela_abrir_op.cs">
+    <Compile Include="Apontamento\Form_janela_abrir_op.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_janela_abrir_op.Designer.cs">
+    <Compile Include="Apontamento\Form_janela_abrir_op.Designer.cs">
       <DependentUpon>Form_janela_abrir_op.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_janela_apont.cs">
+    <Compile Include="Apontamento\Form_janela_apont.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_janela_apont.Designer.cs">
+    <Compile Include="Apontamento\Form_janela_apont.Designer.cs">
       <DependentUpon>Form_janela_apont.cs</DependentUpon>
     </Compile>
     <Compile Include="Cadastros\Form_janela_cad_empresas.cs">
@@ -309,10 +315,10 @@
     <Compile Include="Form_janela_estoque.Designer.cs">
       <DependentUpon>Form_janela_estoque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_janela_estrutura.cs">
+    <Compile Include="Apontamento\Form_janela_estrutura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_janela_estrutura.Designer.cs">
+    <Compile Include="Apontamento\Form_janela_estrutura.Designer.cs">
       <DependentUpon>Form_janela_estrutura.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_janela_inicial.cs">
@@ -372,6 +378,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="Cadastros\Form_cadastro_misturas.resx">
+      <DependentUpon>Form_cadastro_misturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cadastros\Form_janela_cad_paradas.resx">
       <DependentUpon>Form_janela_cad_paradas.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,13 +396,13 @@
     <EmbeddedResource Include="Config\Form_janela_config_txt.resx">
       <DependentUpon>Form_janela_config_txt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_consumo_estrutura.resx">
+    <EmbeddedResource Include="Apontamento\Form_consumo_estrutura.resx">
       <DependentUpon>Form_consumo_estrutura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_janela_abrir_op.resx">
+    <EmbeddedResource Include="Apontamento\Form_janela_abrir_op.resx">
       <DependentUpon>Form_janela_abrir_op.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_janela_apont.resx">
+    <EmbeddedResource Include="Apontamento\Form_janela_apont.resx">
       <DependentUpon>Form_janela_apont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastros\Form_janela_cad_empresas.resx">
@@ -438,7 +447,7 @@
     <EmbeddedResource Include="Form_janela_estoque.resx">
       <DependentUpon>Form_janela_estoque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_janela_estrutura.resx">
+    <EmbeddedResource Include="Apontamento\Form_janela_estrutura.resx">
       <DependentUpon>Form_janela_estrutura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_inicial.resx">

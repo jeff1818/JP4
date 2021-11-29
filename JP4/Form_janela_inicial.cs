@@ -15,7 +15,7 @@ using System.IO.Compression;
 using System.IO;
 using JP4.Cadastros;
 using JP4.Config;
-
+using JP4.Apontamento;
 
 namespace JP4
 {
@@ -306,6 +306,12 @@ namespace JP4
         private void WINSTART_FormClosing(object sender, FormClosingEventArgs e)
         {
             
+        }
+
+        private void button_cad_mistura_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_cadastro_misturas());
+
         }
     }
 }
