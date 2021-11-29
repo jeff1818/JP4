@@ -82,10 +82,6 @@ namespace JP4.Apontamento
             return resultado;
         }
 
-
-
-
-
         #endregion
 
         #region Metodos Carregar controles
@@ -318,14 +314,8 @@ namespace JP4.Apontamento
 
         #endregion
 
-
-
-
-
-
         #region Filtros Controle
         #endregion
-
 
         #region Salvar // Atualizar // Deletar // Limpar campos // Gerar Numero transação //
         private string Gerar_num_transac(DateTime dia_atual, DateTime hr_atual)
@@ -1274,25 +1264,37 @@ namespace JP4.Apontamento
         }
 
         #endregion
-       
+
+        #region Contrle de Botões // Combos // textbox
 
         private void button_salvar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(label_total_percet.Text) != 100)
-            {
-                MessageBox.Show("Mistura Diferente de 100%!");
 
-            }else if(text_tag_cod_mistura.Text == string.Empty)
+            try
             {
-                MessageBox.Show("Campo [Cod. Mistura] não pode ficar em branco!");
+                if (Convert.ToDouble(label_total_percet.Text) != 100)
+                {
+                    MessageBox.Show("Mistura Diferente de 100%!");
+
+                }
+                else if (text_tag_cod_mistura.Text == string.Empty)
+                {
+                    MessageBox.Show("Campo [Cod. Mistura] não pode ficar em branco!");
+                }
+                else
+                {
+                    Salvar_tag_mistura();
+                    MessageBox.Show("Salvo com sucesso!");
+                    limpar_campos();
+                    Carregar_tag_mistura();
+                }
             }
-            else
+            catch (Exception)
             {
-                Salvar_tag_mistura();
-                MessageBox.Show("Salvo com sucesso!");
-                limpar_campos();
-                Carregar_tag_mistura();
+                
             }
+
+            
 
         }
         private void button_atualizar_Click(object sender, EventArgs e)
@@ -1559,6 +1561,6 @@ namespace JP4.Apontamento
             }
         }
 
-        
+        #endregion
     }
 }

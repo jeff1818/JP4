@@ -762,9 +762,10 @@ namespace JP4.Apontamento
             // label_tipo_mistura
             // 
             this.label_tipo_mistura.AutoSize = true;
-            this.label_tipo_mistura.Location = new System.Drawing.Point(205, 27);
+            this.label_tipo_mistura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tipo_mistura.Location = new System.Drawing.Point(203, 20);
             this.label_tipo_mistura.Name = "label_tipo_mistura";
-            this.label_tipo_mistura.Size = new System.Drawing.Size(13, 13);
+            this.label_tipo_mistura.Size = new System.Drawing.Size(22, 25);
             this.label_tipo_mistura.TabIndex = 55;
             this.label_tipo_mistura.Text = "..";
             // 
