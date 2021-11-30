@@ -31,6 +31,7 @@ namespace JP4
             Carregar_clientes_db();
             // Aba de parada
             // Mistura
+            Carregar_tag_mistura();
             //Carregar_mp_mistura();
             // Aba Pesquisar
             Carregar_operador_pesquisar();
@@ -2070,6 +2071,7 @@ namespace JP4
         }
         private void Apontar_ordem(string tipo_movimento)
         {
+            // Ainda falta anexar a tag mistura a tabela estoque_trans - 29/11/2021
 
             // id_estoque_trans = 
             string cod_empresa = this.combo_empresa.Text;
@@ -4063,10 +4065,134 @@ namespace JP4
         //------------------------------------------------------------------------------------------
 
         #region Metodos Janela Mistura
+        private void Carregar_tag_mistura()
+        {
+            Aba_mistura_combo_tag_mistura.Items.Clear();
+
+            try
+            {
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "select distinct marcador_mistura from db_cadastro_misturas";
+                // marcador_mistura
+                // SELECT DISTINCT
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    Aba_mistura_combo_tag_mistura.Items.Add(myreader["marcador_mistura"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+
+        }
+
+        private void Carregar_misturas_tag(string marcador_mistura)
+        {
+            try
+            {
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "SELECT * FROM db_cadastro_misturas WHERE marcador_mistura = '" + marcador_mistura + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    label_tipo_mistura.Text = myreader["tipo_mistura"].ToString();
+
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_01")
+                    {
+                        abaMistura_combo_mp01.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct01.Text = myreader["percentual_mistura"].ToString();
+                    }
+
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_02")
+                    {
+                        abaMistura_combo_mp02.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct02.Text = myreader["percentual_mistura"].ToString();
+                    }
+
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_03")
+                    {
+                        abaMistura_combo_mp03.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct03.Text = myreader["percentual_mistura"].ToString();
+                    }
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_04")
+                    {
+                        abaMistura_combo_mp04.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct04.Text = myreader["percentual_mistura"].ToString();
+                    }
+
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_05")
+                    {
+                        abaMistura_combo_mp05.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct05.Text = myreader["percentual_mistura"].ToString();
+                    }
+
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_06")
+                    {
+                        abaMistura_combo_mp07.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct07.Text = myreader["percentual_mistura"].ToString();
+                    }
+
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_08")
+                    {
+                        abaMistura_combo_mp09.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct09.Text = myreader["percentual_mistura"].ToString();
+                    }
+
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_09")
+                    {
+                        abaMistura_combo_mp09.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct09.Text = myreader["percentual_mistura"].ToString();
+                    }
+
+                    if (myreader["marcador_campo"].ToString() == "combo_mp_10")
+                    {
+                        abaMistura_combo_mp10.Text = myreader["descr_mp"].ToString();
+                        abaMistura_text_perct10.Text = myreader["percentual_mistura"].ToString();
+                    }
+
+
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
 
         private void Salvar_mistura(string num_tran)
         {
-            // falta modificar esse metodo
+            // Fazer uma forma de puxar mistura já cadastrada 29/11/2021
+
             if (AbaMistura_label_total_mistura.Text != "%")
             {
                 if (abaMistura_text_perct01.Text != string.Empty)
@@ -5650,36 +5776,30 @@ namespace JP4
             Calcular_qtd_total_grid();
 
         }
-
         private void cadItensToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CAD01 cad_material = new CAD01();
             cad_material.ShowDialog();
         }
-
         private void maquinasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_janela_cad_equipamentos cad_equipamento = new Form_janela_cad_equipamentos();
             cad_equipamento.ShowDialog();
         }
-
         private void turnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_janela_cad_turno cad_turno = new Form_janela_cad_turno();
             cad_turno.ShowDialog();
         }
-
         private void operadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_janela_cad_operador cad_operador = new Form_janela_cad_operador();
             cad_operador.ShowDialog();
         }
-
         private void operaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
         private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -5742,6 +5862,11 @@ namespace JP4
                 MessageBox.Show("Ordem de produção incompativel com a maquina!");
             }
 
+        }
+
+        private void Aba_mistura_combo_tag_mistura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Carregar_misturas_tag(Aba_mistura_combo_tag_mistura.Text);
         }
     }
 }

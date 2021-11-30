@@ -222,6 +222,9 @@ namespace JP4
             this.abaParada_hr_fim07 = new System.Windows.Forms.DateTimePicker();
             this.abaParada_hr_inicio07 = new System.Windows.Forms.DateTimePicker();
             this.tab_mistura = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.Aba_mistura_combo_tag_mistura = new System.Windows.Forms.ComboBox();
             this.label61 = new System.Windows.Forms.Label();
             this.abaMistura_button_voltar_parada = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -311,6 +314,7 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
+            this.label_tipo_mistura = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -330,6 +334,7 @@ namespace JP4
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tab_mistura.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.tab_consumo.SuspendLayout();
@@ -2319,6 +2324,7 @@ namespace JP4
             // 
             // tab_mistura
             // 
+            this.tab_mistura.Controls.Add(this.groupBox13);
             this.tab_mistura.Controls.Add(this.label61);
             this.tab_mistura.Controls.Add(this.abaMistura_button_voltar_parada);
             this.tab_mistura.Controls.Add(this.groupBox12);
@@ -2329,6 +2335,38 @@ namespace JP4
             this.tab_mistura.TabIndex = 3;
             this.tab_mistura.Text = "Mistura";
             this.tab_mistura.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.label_tipo_mistura);
+            this.groupBox13.Controls.Add(this.label66);
+            this.groupBox13.Controls.Add(this.Aba_mistura_combo_tag_mistura);
+            this.groupBox13.Location = new System.Drawing.Point(374, 134);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(413, 41);
+            this.groupBox13.TabIndex = 92;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Tag Mistura";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(12, 16);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(66, 13);
+            this.label66.TabIndex = 90;
+            this.label66.Text = "Cod. Mistura";
+            // 
+            // Aba_mistura_combo_tag_mistura
+            // 
+            this.Aba_mistura_combo_tag_mistura.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Aba_mistura_combo_tag_mistura.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.Aba_mistura_combo_tag_mistura.FormattingEnabled = true;
+            this.Aba_mistura_combo_tag_mistura.Location = new System.Drawing.Point(84, 14);
+            this.Aba_mistura_combo_tag_mistura.Name = "Aba_mistura_combo_tag_mistura";
+            this.Aba_mistura_combo_tag_mistura.Size = new System.Drawing.Size(127, 21);
+            this.Aba_mistura_combo_tag_mistura.TabIndex = 91;
+            this.Aba_mistura_combo_tag_mistura.SelectedIndexChanged += new System.EventHandler(this.Aba_mistura_combo_tag_mistura_SelectedIndexChanged);
             // 
             // label61
             // 
@@ -2492,9 +2530,9 @@ namespace JP4
             this.groupBox11.Controls.Add(this.abaMistura_text_perct01);
             this.groupBox11.Controls.Add(this.abaMistura_combo_mp01);
             this.groupBox11.Controls.Add(this.label38);
-            this.groupBox11.Location = new System.Drawing.Point(374, 134);
+            this.groupBox11.Location = new System.Drawing.Point(374, 181);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(413, 386);
+            this.groupBox11.Size = new System.Drawing.Size(413, 383);
             this.groupBox11.TabIndex = 0;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Consumo";
@@ -3236,6 +3274,16 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
+            // label_tipo_mistura
+            // 
+            this.label_tipo_mistura.AutoSize = true;
+            this.label_tipo_mistura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tipo_mistura.Location = new System.Drawing.Point(220, 15);
+            this.label_tipo_mistura.Name = "label_tipo_mistura";
+            this.label_tipo_mistura.Size = new System.Drawing.Size(20, 17);
+            this.label_tipo_mistura.TabIndex = 92;
+            this.label_tipo_mistura.Text = "...";
+            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3284,6 +3332,8 @@ namespace JP4
             this.groupBox8.PerformLayout();
             this.tab_mistura.ResumeLayout(false);
             this.tab_mistura.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox11.ResumeLayout(false);
@@ -3585,5 +3635,9 @@ namespace JP4
         private System.Windows.Forms.Label label_razao_social;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.Label abaConsumo_label_maquina;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.ComboBox Aba_mistura_combo_tag_mistura;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Label label_tipo_mistura;
     }
 }

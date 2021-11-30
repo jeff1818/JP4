@@ -2315,7 +2315,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void button_delete_Click(object sender, EventArgs e)
         {
             if (delete01.Checked == true)
@@ -2369,7 +2368,6 @@ namespace JP4
             }
 
         }
-
         private void button_atualizar_Click(object sender, EventArgs e)
         {
 
