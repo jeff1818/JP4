@@ -15,8 +15,6 @@ namespace JP4.Apontamento
             Carregar_descri_mp();
             Carregar_tipo_material();
             Carregar_tag_mistura();
-
-
         }
 
         #region Metodos de Calculo
@@ -1326,12 +1324,10 @@ namespace JP4.Apontamento
 
 
         }
-
         private void combo_tag_mistura_SelectedIndexChanged(object sender, EventArgs e)
         {
             Carregar_misturas_tag(combo_tag_mistura.Text);
         }
-
         private void text_porcentagem_01_TextChanged(object sender, EventArgs e)
         {
             double resultado = 0;

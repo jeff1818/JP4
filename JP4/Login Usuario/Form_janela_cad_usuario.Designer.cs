@@ -37,6 +37,7 @@ namespace JP4.Config
             this.button_salvar = new System.Windows.Forms.Button();
             this.button_deletar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_user_logado = new System.Windows.Forms.Label();
             this.label_id_cad_usuario = new System.Windows.Forms.Label();
             this.combo_empresa = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@ namespace JP4.Config
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label_user_logado);
             this.groupBox2.Controls.Add(this.button_sair);
             this.groupBox2.Controls.Add(this.button_limpar_controles);
             this.groupBox2.Controls.Add(this.button_atualizar);
@@ -151,6 +153,15 @@ namespace JP4.Config
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação";
+            // 
+            // label_user_logado
+            // 
+            this.label_user_logado.AutoSize = true;
+            this.label_user_logado.Location = new System.Drawing.Point(33, 256);
+            this.label_user_logado.Name = "label_user_logado";
+            this.label_user_logado.Size = new System.Drawing.Size(59, 13);
+            this.label_user_logado.TabIndex = 11;
+            this.label_user_logado.Text = "nome_user";
             // 
             // label_id_cad_usuario
             // 
@@ -277,6 +288,7 @@ namespace JP4.Config
             this.Name = "Form_janela_cad_usuario";
             this.Text = "Form_janela_cad_usuario";
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_usuario)).EndInit();
@@ -307,5 +319,6 @@ namespace JP4.Config
         private System.Windows.Forms.ComboBox combo_empresa;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label_id_cad_usuario;
+        private System.Windows.Forms.Label label_user_logado;
     }
 }

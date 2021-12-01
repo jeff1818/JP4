@@ -45,7 +45,6 @@ namespace JP4
 
             // Carregar_imagen();
 
-
         }
 
         private void Carregar_imagen()
@@ -54,7 +53,6 @@ namespace JP4
             picture_inicial.Load(@"C:\Users\Jarvis\OneDrive\Visual - basic c#\JP4\Cadastro.png");
             
         }
-
 
         #region DEFCON 4
         private void auto_destruicao()
@@ -74,8 +72,6 @@ namespace JP4
         }
 
         #endregion
-
-
 
         #region Funções de Auto Updater
         public void Check_update()
@@ -297,17 +293,14 @@ namespace JP4
         {
             label_hora_digital.Text = DateTime.Now.ToString("HH:mm");
         }
-
         private void WINSTART_FormClosed(object sender, FormClosedEventArgs e)
         {
            
         }
-
         private void WINSTART_FormClosing(object sender, FormClosingEventArgs e)
         {
             
         }
-
         private void button_cad_mistura_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_cadastro_misturas());

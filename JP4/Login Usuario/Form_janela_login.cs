@@ -10,6 +10,16 @@ namespace JP4
 {
     public partial class Form_janela_login : Form
     {
+        public static class Usuario
+        {
+            private static string _login = "";
+            public static string Login
+            {
+                get { return _login; }
+                set { _login = value; }
+            }
+        }
+
         public Form_janela_login()
         {
             InitializeComponent();
@@ -55,7 +65,6 @@ namespace JP4
                 //MessageBox.Show(erro.Message);
             }
         }
-
         public void Criar_pasta_sistema()
         {
             string folderName = @"C:\JP4";
@@ -65,7 +74,6 @@ namespace JP4
                 Directory.CreateDirectory(folderName);
             }
         }
-
         private string Nome_pc()
         {
             var name = Environment.MachineName;
@@ -221,6 +229,9 @@ namespace JP4
                     WINSTART janela_inicio = new WINSTART();
                     janela_inicio.Show();
                     janela_inicio.label_nome_usuario.Text = user;
+                    
+                    Usuario.Login = user;
+
                     this.Hide();
                 }
 
@@ -254,35 +265,29 @@ namespace JP4
             }
 
         }
-
         private void button_entrar_Click(object sender, EventArgs e)
         {
             Login_usuario(text_usuario.Text, text_senha.Text);
         }
-
         private void text_senha_Enter(object sender, EventArgs e)
         {
             text_senha.Text = string.Empty;
         }
-
         private void button_sair_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void button_troca_senha_Click(object sender, EventArgs e)
         {
             Form_troca_senha janela_troca_senha = new Form_troca_senha();
             janela_troca_senha.label_troca_senha_usuario.Text = text_usuario.Text;
             janela_troca_senha.ShowDialog();
         }
-
         private void button_config_db_Click(object sender, EventArgs e)
         {
             CONF01 janela_config = new CONF01();
             janela_config.ShowDialog();
         }
-
         private void check_lembra_senha_CheckedChanged(object sender, EventArgs e)
         {
             if (check_lembra_senha.Checked == true)

@@ -2,26 +2,25 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using static JP4.Form_janela_login;
 
 namespace JP4.Config
 {
+    
 
     public partial class Form_janela_cad_usuario : Form
     {
-        public static class Global
-        {
-            static WINSTART janela_inicial = new WINSTART();
-            public static string usuario = janela_inicial.label_nome_usuario.Text;
-        }
-
+        public static string usuario = Usuario.Login;
 
         public Form_janela_cad_usuario()
         {
+
             InitializeComponent();
 
             Carregar_empresa_db();
-            
-            Permissao_usuario(Global.usuario);
+                        
+            label_user_logado.Text = usuario;
+            Permissao_usuario(usuario);
 
         }
         
@@ -32,8 +31,10 @@ namespace JP4.Config
 
         // label_nome_usuario
         // user_type
-
-
+        
+        //142.258.817-33
+        //Mariana dos santos felix de almeida
+        
         #region Carregar controles
         private void Carregar_grid_usuario()
         {
@@ -52,8 +53,7 @@ namespace JP4.Config
 
                 myadapter.Fill(dt);
                 DataView dv = dt.DefaultView;
-
-                //dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
+                
                 grid_cad_usuario.DataSource = dv.ToTable();
 
                 connection.Close();
@@ -80,8 +80,7 @@ namespace JP4.Config
 
                 myadapter.Fill(dt);
                 DataView dv = dt.DefaultView;
-
-                //dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
+                                
                 grid_cad_usuario.DataSource = dv.ToTable();
 
                 connection.Close();
@@ -170,19 +169,32 @@ namespace JP4.Config
 
         private void Desbloquear_controles()
         {
-            combo_empresa.Enabled = false;
-            text_nome_user.Enabled = false;
-            text_senha_user.Enabled = false;
-            text_dica_senha.Enabled = false;
-            combo_tipo_user.Enabled = false;
-        }
-        private void Bloquear_controles()
-        {
+            button_salvar.Enabled = true;
+            button_atualizar.Enabled = true;
+            button_deletar.Enabled = true;
+            button_limpar_controles.Enabled = true;
+            button_filtrar.Enabled = true;
+
             combo_empresa.Enabled = true;
             text_nome_user.Enabled = true;
             text_senha_user.Enabled = true;
             text_dica_senha.Enabled = true;
             combo_tipo_user.Enabled = true;
+        }
+        private void Bloquear_controles()
+        {
+            button_salvar.Enabled = false;
+            button_atualizar.Enabled = false;
+            button_deletar.Enabled = false;
+            button_limpar_controles.Enabled = false;
+            button_filtrar.Enabled = false;
+
+            combo_empresa.Enabled = false;
+            text_nome_user.Enabled = false;
+            text_senha_user.Enabled = false;
+            text_dica_senha.Enabled = false;
+            combo_tipo_user.Enabled = false;
+            
         }
         private void Limpar_controles()
         {
@@ -314,7 +326,6 @@ namespace JP4.Config
             }
         }
 
-
         #endregion
 
         #region Permisao de usuarios
@@ -343,7 +354,7 @@ namespace JP4.Config
 
                 while (myreader.Read())
                 {
-                    if (user_type == myreader["user_type"].ToString())
+                    if (myreader["user_type"].ToString() == user_type)
                     {
                         check_admin = 1;
                     }
@@ -356,13 +367,15 @@ namespace JP4.Config
                 if(check_admin == 0)
                 {
                     Carregar_grid_usuario();
+                    Bloquear_controles();
+                    
                 }
 
-                if (check_admin == 0)
+                if (check_admin == 1)
                 {
                     Carregar_grid_usuario_admin();
+                    Desbloquear_controles();
                 }
-               
 
             }
             catch (Exception erro)
@@ -371,14 +384,13 @@ namespace JP4.Config
             }
         }
 
-
         #endregion
 
         private void button_salvar_Click(object sender, EventArgs e)
         {
             Salvar_usuer();
             //Carregar_grid_usuario();
-            Permissao_usuario(Global.usuario);
+            Permissao_usuario(usuario);
             Limpar_controles();
         }
 
@@ -386,7 +398,7 @@ namespace JP4.Config
         {
             Atualizar_usuer(label_id_cad_usuario.Text);
             //Carregar_grid_usuario();
-            Permissao_usuario(Global.usuario);
+            Permissao_usuario(usuario);
             Limpar_controles();
         }
 
@@ -395,7 +407,7 @@ namespace JP4.Config
             //label_id_cad_usuario
             Deletar_user(label_id_cad_usuario.Text);
             //Carregar_grid_usuario();
-            Permissao_usuario(Global.usuario);
+            Permissao_usuario(usuario);
             Limpar_controles();
         }
 
@@ -403,17 +415,14 @@ namespace JP4.Config
         {
 
         }
-
         private void button_filtrar_Click(object sender, EventArgs e)
         {
 
         }
-
         private void button_sair_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void grid_cad_usuario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string id_usuario = grid_cad_usuario.CurrentRow.Cells[0].Value.ToString();
