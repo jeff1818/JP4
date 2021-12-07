@@ -1,10 +1,10 @@
-﻿using System;
+﻿using JP4.Config;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
 using System.Windows.Forms;
-using JP4.Config;
 
 namespace JP4
 {
@@ -14,7 +14,7 @@ namespace JP4
         {
             InitializeComponent();
             Ler_arquivo_config_ini();
-            
+
         }
 
 
@@ -32,7 +32,7 @@ namespace JP4
             label_origem_backup.Text = config_ini.IniReadString("LOCAL_ORIGEM_BK", "local_origem_bk", local_default);
             label_dt_ultimo_backup.Text = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", local_default);
 
-            
+
             //text_endereco.Text = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
             //text_local_arquivo_ordem.Text = Properties.Settings.Default.local_arquivo_excel;
             //label_endereco_backup.Text = Properties.Settings.Default.caminho_backup;
@@ -41,7 +41,8 @@ namespace JP4
 
         }
 
-        private void gravar_configuracao_ini()
+        /* Gravar_configuracao_ini
+        private void Gravar_configuracao_ini()
         {
             // Metodo de teste
 
@@ -56,6 +57,7 @@ namespace JP4
             config_ini.IniWriteString("DT_ULTIMO_BK", "data_ultimo_bk", label_dt_ultimo_backup.Text);
         }
 
+        */
 
         #endregion
 
@@ -63,7 +65,7 @@ namespace JP4
         #region Metodos de Atualização
 
 
-
+        /* Verifica_update
         private void Verifica_update()
         {
             DialogResult resposta = MessageBox.Show(this, "Deseja Verificar Atualização?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -74,6 +76,7 @@ namespace JP4
                 janela_inicio.Check_update();
             }
         }
+        */
 
         #endregion
 
@@ -81,7 +84,7 @@ namespace JP4
 
         public void Ler_arquivo_config()
         {
-            
+
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Jarvis\OneDrive\Visual - basic c#\banco\config.txt");
 
             //label_linha01.Text = lines[0];
@@ -93,7 +96,7 @@ namespace JP4
         }
 
 
-       
+
 
         #endregion
 
@@ -111,7 +114,7 @@ namespace JP4
                 string dataInicial = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", "01/11/2021");
 
                 string dataFinal = Convert.ToString(DateTime.Today);
-                                    
+
 
                 TimeSpan date = Convert.ToDateTime(dataFinal) - Convert.ToDateTime(dataInicial);
                 int totalDias = date.Days;
@@ -128,9 +131,8 @@ namespace JP4
                 MessageBox.Show("Erro ao fazer backup!");
             }
 
-            
+
         }
-              
         private void criar_pasta_backup(string local_db)
         {
             string folderName = local_db + @"\db_backup";
@@ -141,11 +143,9 @@ namespace JP4
             }
 
 
-
         }
         private void backup_db()
         {
-
             try
             {
                 string fileName = "db_aplicativo_kpi.mdb";
@@ -154,8 +154,8 @@ namespace JP4
 
                 // Use Path class to manipulate file and directory paths.
                 string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-                string destFile = System.IO.Path.Combine(targetPath, "bk_"+ fileName);
-                                
+                string destFile = System.IO.Path.Combine(targetPath, "bk_" + fileName);
+
                 // To copy a file to another location and
                 // overwrite the destination file if it already exists.
                 System.IO.File.Copy(sourceFile, destFile, true);
@@ -208,7 +208,7 @@ namespace JP4
                 var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
                 connectionString.ConnectionStrings["JP4.Properties.Settings.origem_backup"].ConnectionString = label_origem_backup.Text;
                 config.Save();
-                ConfigurationManager.RefreshSection("connectionStrings");                
+                ConfigurationManager.RefreshSection("connectionStrings");
             }
             catch (Exception erro)
             {
@@ -226,7 +226,7 @@ namespace JP4
                 connectionString.ConnectionStrings["JP4.Properties.Settings.caminho_backup"].ConnectionString = label_endereco_backup.Text;
                 config.Save();
                 ConfigurationManager.RefreshSection("connectionStrings");
-                
+
             }
             catch (Exception erro)
             {
@@ -402,18 +402,18 @@ namespace JP4
         }
         private void button_salvar_endereco_Click(object sender, EventArgs e)
         {
-            if(text_endereco.Text != string.Empty)
+            if (text_endereco.Text != string.Empty)
             {
                 IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
                 config_ini.IniWriteString("STRING_DB", "local_banco", text_endereco.Text);
-                
+
                 //label_endereco_backup.Text = Procurar_pasta_backup();
-                
+
                 config_ini.IniWriteString("LOCAL_ORIGEM_BK", "local_origem_bk", label_origem_backup.Text);
                 criar_pasta_backup(label_origem_backup.Text);
 
-                config_ini.IniWriteString("LOCAL_DESTINO_BK", "local_destino_bk", label_endereco_backup.Text + @"\db_backup");
-                
+                //config_ini.IniWriteString("LOCAL_DESTINO_BK", "local_destino_bk", label_endereco_backup.Text + @"\db_backup");
+
                 MessageBox.Show("Salvo com sucesso!");
 
             }
@@ -421,7 +421,7 @@ namespace JP4
             {
                 MessageBox.Show("Campo de endereço não pode ficar em branco!");
             }
-            
+
             //Salvar_local(); // é Necessário porque todo o aplicativo se conecta com o banco atravez desse link :/
             //Salvar_origem_backup();
             //Testar_conexao();
@@ -456,7 +456,7 @@ namespace JP4
             {
 
             }
-            
+
             //Salvar_local_os();
             //Reset_aplicativo();
         }
@@ -472,7 +472,7 @@ namespace JP4
             //Salvar_local_backup();
             //Reset_aplicativo();
         }
-        private void button1_Click(object sender, EventArgs e){}
+        private void button1_Click(object sender, EventArgs e) { }
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

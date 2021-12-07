@@ -61,11 +61,11 @@ namespace JP4
 
             if(Properties.Settings.Default.apocalipse == dt_hoje)
             {
-                string comando01 = @"/C " + "cd C:/";
-                System.Diagnostics.Process.Start("CMD.exe", comando01).WaitForExit();
+                //Tranformar o bat em EXE para ser executado no tempo determinado 
 
-                string comando = @"/C " + "md Fim_do_mundo";
-                System.Diagnostics.Process.Start("CMD.exe", comando).WaitForExit();
+
+
+                Process.Start(@"C:\JP4\TESTE.bat");
 
 
             }

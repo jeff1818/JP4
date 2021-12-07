@@ -21,19 +21,20 @@ namespace JP4
             combo_empresa.Text = "Picoflex";
 
         }
-
-        //private bool TextBoxVazias()
-        //{
-        //    foreach (Control c in this.Controls)
-        //        if (c is System.Windows.Forms.TextBox)
-        //        {
-        //            System.Windows.Forms.TextBox textBox = c as System.Windows.Forms.TextBox;
-        //            if (string.IsNullOrWhiteSpace(textBox.Text))
-        //                return true;
-        //        }
-        //    return false;
-        //}
-
+        /*
+         
+        private bool TextBoxVazias()
+        {
+            foreach (Control c in this.Controls)
+                if (c is System.Windows.Forms.TextBox)
+                {
+                    System.Windows.Forms.TextBox textBox = c as System.Windows.Forms.TextBox;
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                        return true;
+                }
+            return false;
+        }
+        */
 
         private void Limpar_campos()
         {
@@ -81,7 +82,7 @@ namespace JP4
             text_dt_validade07.Text = string.Empty;
 
             combo_componente08.Text = string.Empty;
-            text_qtd_necess08.Text = string.Empty;
+            text_qtd_necess08.Text = "0";
             text_percentual_refugo08.Text = "0";
             //text_dt_inicio08.Text = string.Empty;
             text_dt_validade08.Text = string.Empty;
@@ -96,7 +97,7 @@ namespace JP4
             text_qtd_necess10.Text = "0";
             text_percentual_refugo10.Text = "0";
             //text_dt_inicio10.Text = string.Empty;
-            text_dt_validade10.Text = "0";
+            text_dt_validade10.Text = string.Empty;
 
             this.id01.Text = "id";
             this.id02.Text = "id";

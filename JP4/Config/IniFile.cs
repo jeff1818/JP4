@@ -362,4 +362,4 @@ namespace JP4.Config
 
         #endregion Ler o arquivo
     }
-}
+} //Final
