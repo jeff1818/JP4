@@ -979,10 +979,52 @@ namespace JP4
         // Saldo = (Iventario + entrada) - Saida
         // Salvar tudo isso em um banco separado
 
+        #region Metodos de busca
+        private string Buscar_tipo_oper(string codigo)
+        {
+            string tipo_operacao = string.Empty;
+
+            try
+            {
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "select * from db_cadastro_operacao where codigo = '" + codigo + "'";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    tipo_operacao = myreader["tipo_operacao"].ToString();
+                }
+                
+                conexao.Close();
+
+                return tipo_operacao;
+
+            }
+            catch
+            {
+                return string.Empty;
+            }
+
+        }
+        #endregion
+
         #region Metodos Carregar
         private void Carregar_grid_estoque()
         {
-            
+            string tipo_operacao = Buscar_tipo_oper("APON");
+
+            // todos os calculos devera s
+
         }
         #endregion
 

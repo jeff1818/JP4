@@ -1791,6 +1791,7 @@ namespace JP4
             return resultado;
         }
 
+        #endregion // Metodos Janela Mistura
 
         //------------------------------------------------------------------------------------------
 
@@ -4099,7 +4100,6 @@ namespace JP4
 
 
         }
-
         private void Carregar_misturas_tag(string marcador_mistura)
         {
             try
@@ -4186,7 +4186,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Salvar_mistura(string num_tran)
         {
             // Fazer uma forma de puxar mistura já cadastrada 29/11/2021
@@ -4758,10 +4757,7 @@ namespace JP4
             }
             return resultado;
         }
-
-
-
-        #endregion // Metodos Janela Mistura
+                
 
         //------------------------------------------------------------------------------------------
 
@@ -5607,8 +5603,7 @@ namespace JP4
                 string local_default = @"C:\JP4";
                 string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, cliente_apon, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans " +
-                    "where (cod_operacao='" + cod_operacao + "') AND (qtd_real >= 0 AND status_estorno = 0)";
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, cliente_apon, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans where (cod_operacao='" + cod_operacao + "') AND (qtd_real >= 0 AND status_estorno = 0)";
 
                 // Verificar se ordem e qtd é igual 
                 // se for igual não puxar
@@ -5618,7 +5613,98 @@ namespace JP4
                 DataTable dt = new DataTable("estoque_trans");
                 myadapter.Fill(dt);
                 DataView dv = dt.DefaultView;
-                abaPesquisar_Grid_apon.DataSource = dt;
+                
+                abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Filtrar_num_docum(string num_docum)
+        {
+            try
+            {
+                string cod_operacao = "APON";
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+
+                //dv.RowFilter = string.Format("mes_movto like '%{0}%'", mes_movto);
+                dv.RowFilter = string.Format("CONVERT(num_docum, 'System.String') like '%{0}%'", num_docum.ToString());
+                abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+                
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Filtrar_operador(string operador)
+        {
+            try
+            {
+                string cod_operacao = "APON";
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+                
+                dv.RowFilter = string.Format("CONVERT(operador, 'System.String') like '%{0}%'", operador.ToString());
+                abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+
+
+                connection.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Filtrar_turno(string cod_turno)
+        {
+            try
+            {
+                string cod_operacao = "APON";
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_real, fardos, operador, secao_nome, cod_turno, mes_movto, ano_movto, dat_movto from estoque_trans where cod_operacao='" + cod_operacao + "' AND qtd_real >= 0 ";
+
+                OleDbConnection connection = new OleDbConnection(conecta_string);
+                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                DataTable dt = new DataTable("estoque_trans");
+                myadapter.Fill(dt);
+                DataView dv = dt.DefaultView;
+
+                dv.RowFilter = string.Format("CONVERT(cod_turno, 'System.String') like '%{0}%'", cod_turno.ToString());
+                abaPesquisar_Grid_apon.DataSource = dv.ToTable();
+
+
                 connection.Close();
             }
             catch (Exception erro)
@@ -5808,39 +5894,39 @@ namespace JP4
         }
         private void operaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form_janela_cad_operacao cad_operacao = new Form_janela_cad_operacao();
+            cad_operacao.ShowDialog();
 
         }
         private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form_janela_cad_empresas janela_cad_empresa = Form_janela_cad_empresas();
+            janela_cad_empresa.ShowDialog();
 
         }
-
         private void defeitosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form_janela_cad_defeitos cad_defeitos = new Form_janela_cad_defeitos();
             cad_defeitos.ShowDialog();
         }
-
         private void paradasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Form_janela_cad_paradas janela_parada = new Form_janela_cad_paradas();
+            janela_parada.ShowDialog();
         }
-
         private void etruturaDoItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ST01 janela_estrutura = new ST01();
+            janela_estrutura.ShowDialog();
         }
-
         private void abaPesquisar_combo_mes_lanc_SelectedIndexChanged(object sender, EventArgs e)
         {
             Filtrar_mes_ano(Convert.ToInt32(abaPesquisar_combo_mes_lanc.Text));
         }
-
         private void abaPesquisar_text_ano_lanc_Leave(object sender, EventArgs e)
         {
             Filtrar_ano(Convert.ToInt32(abaPesquisar_text_ano_lanc.Text));
         }
-
         private void combo_local_desti_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -5856,15 +5942,12 @@ namespace JP4
                 combo_cliente_esto.Text = combo_local_desti.Text;
             }
         }
-
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_janela_cad_clientes cad_clientes = new Form_janela_cad_clientes();
             cad_clientes.ShowDialog();
         }
-
         private void combo_ordem_prod_Leave(object sender, EventArgs e){}
-
         private void combo_cod_item_Leave(object sender, EventArgs e)
         {
             if (Verificar_maquina_local(combo_desc_completa.Text, combo_maquinas.Text) == 1)
@@ -5873,10 +5956,41 @@ namespace JP4
             }
 
         }
-
         private void Aba_mistura_combo_tag_mistura_SelectedIndexChanged(object sender, EventArgs e)
         {
             Carregar_misturas_tag(Aba_mistura_combo_tag_mistura.Text);
+        }
+
+        private void abaPesquisar_text_ordem_TextChanged(object sender, EventArgs e)
+        {
+            Filtrar_num_docum(abaPesquisar_text_ordem.Text);
+        }
+
+        private void abaPesquisar_combo_operador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filtrar_operador(abaPesquisar_combo_operador.Text);
+        }
+
+        private void abaPesquisar_combo_turno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filtrar_turno(abaPesquisar_combo_turno.Text);
+        }
+
+        private void pesquisarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void localDeEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_janela_cad_local_estoque janela_local_estoque = Form_janela_cad_local_estoque();
+            janela_local_estoque.ShowDialog();
+        }
+
+        private void localDeAplicaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_janela_cad_local_aplicacao janela_aplicacao = Form_janela_cad_local_aplicacao();
+            janela_aplicacao.ShowDialog();
         }
     }
 }

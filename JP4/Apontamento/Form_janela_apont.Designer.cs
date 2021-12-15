@@ -223,6 +223,7 @@ namespace JP4
             this.abaParada_hr_inicio07 = new System.Windows.Forms.DateTimePicker();
             this.tab_mistura = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label_tipo_mistura = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.Aba_mistura_combo_tag_mistura = new System.Windows.Forms.ComboBox();
             this.label61 = new System.Windows.Forms.Label();
@@ -314,7 +315,6 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
-            this.label_tipo_mistura = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -380,6 +380,7 @@ namespace JP4
             this.pesquisarToolStripMenuItem.Name = "pesquisarToolStripMenuItem";
             this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.pesquisarToolStripMenuItem.Text = "Pesquisar";
+            this.pesquisarToolStripMenuItem.Click += new System.EventHandler(this.pesquisarToolStripMenuItem_Click);
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -452,35 +453,35 @@ namespace JP4
             // cadItensToolStripMenuItem
             // 
             this.cadItensToolStripMenuItem.Name = "cadItensToolStripMenuItem";
-            this.cadItensToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.cadItensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadItensToolStripMenuItem.Text = "Cad. Itens";
             this.cadItensToolStripMenuItem.Click += new System.EventHandler(this.cadItensToolStripMenuItem_Click);
             // 
             // maquinasToolStripMenuItem
             // 
             this.maquinasToolStripMenuItem.Name = "maquinasToolStripMenuItem";
-            this.maquinasToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.maquinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.maquinasToolStripMenuItem.Text = "Maquinas";
             this.maquinasToolStripMenuItem.Click += new System.EventHandler(this.maquinasToolStripMenuItem_Click);
             // 
             // turnosToolStripMenuItem
             // 
             this.turnosToolStripMenuItem.Name = "turnosToolStripMenuItem";
-            this.turnosToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.turnosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.turnosToolStripMenuItem.Text = "Turnos";
             this.turnosToolStripMenuItem.Click += new System.EventHandler(this.turnosToolStripMenuItem_Click);
             // 
             // operadoresToolStripMenuItem
             // 
             this.operadoresToolStripMenuItem.Name = "operadoresToolStripMenuItem";
-            this.operadoresToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.operadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.operadoresToolStripMenuItem.Text = "Operadores";
             this.operadoresToolStripMenuItem.Click += new System.EventHandler(this.operadoresToolStripMenuItem_Click);
             // 
             // operaçãoToolStripMenuItem
             // 
             this.operaçãoToolStripMenuItem.Name = "operaçãoToolStripMenuItem";
-            this.operaçãoToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.operaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.operaçãoToolStripMenuItem.Text = "Operação";
             this.operaçãoToolStripMenuItem.Click += new System.EventHandler(this.operaçãoToolStripMenuItem_Click);
             // 
@@ -490,51 +491,53 @@ namespace JP4
             this.localDeEstoqueToolStripMenuItem,
             this.localDeAplicaçãoToolStripMenuItem});
             this.localToolStripMenuItem.Name = "localToolStripMenuItem";
-            this.localToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.localToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.localToolStripMenuItem.Text = "Local";
             // 
             // localDeEstoqueToolStripMenuItem
             // 
             this.localDeEstoqueToolStripMenuItem.Name = "localDeEstoqueToolStripMenuItem";
-            this.localDeEstoqueToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.localDeEstoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.localDeEstoqueToolStripMenuItem.Text = "Local de Estoque";
+            this.localDeEstoqueToolStripMenuItem.Click += new System.EventHandler(this.localDeEstoqueToolStripMenuItem_Click);
             // 
             // localDeAplicaçãoToolStripMenuItem
             // 
             this.localDeAplicaçãoToolStripMenuItem.Name = "localDeAplicaçãoToolStripMenuItem";
-            this.localDeAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.localDeAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.localDeAplicaçãoToolStripMenuItem.Text = "Local de Aplicação";
+            this.localDeAplicaçãoToolStripMenuItem.Click += new System.EventHandler(this.localDeAplicaçãoToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(132, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // empresaToolStripMenuItem
             // 
             this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
-            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.empresaToolStripMenuItem.Text = "Empresa";
             this.empresaToolStripMenuItem.Click += new System.EventHandler(this.empresaToolStripMenuItem_Click);
             // 
             // defeitosToolStripMenuItem1
             // 
             this.defeitosToolStripMenuItem1.Name = "defeitosToolStripMenuItem1";
-            this.defeitosToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.defeitosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.defeitosToolStripMenuItem1.Text = "Defeitos";
             this.defeitosToolStripMenuItem1.Click += new System.EventHandler(this.defeitosToolStripMenuItem1_Click);
             // 
             // paradasToolStripMenuItem1
             // 
             this.paradasToolStripMenuItem1.Name = "paradasToolStripMenuItem1";
-            this.paradasToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.paradasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.paradasToolStripMenuItem1.Text = "Paradas";
             this.paradasToolStripMenuItem1.Click += new System.EventHandler(this.paradasToolStripMenuItem1_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -2348,6 +2351,16 @@ namespace JP4
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Tag Mistura";
             // 
+            // label_tipo_mistura
+            // 
+            this.label_tipo_mistura.AutoSize = true;
+            this.label_tipo_mistura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tipo_mistura.Location = new System.Drawing.Point(220, 15);
+            this.label_tipo_mistura.Name = "label_tipo_mistura";
+            this.label_tipo_mistura.Size = new System.Drawing.Size(20, 17);
+            this.label_tipo_mistura.TabIndex = 92;
+            this.label_tipo_mistura.Text = "...";
+            // 
             // label66
             // 
             this.label66.AutoSize = true;
@@ -3201,6 +3214,7 @@ namespace JP4
             this.abaPesquisar_combo_turno.Name = "abaPesquisar_combo_turno";
             this.abaPesquisar_combo_turno.Size = new System.Drawing.Size(121, 21);
             this.abaPesquisar_combo_turno.TabIndex = 7;
+            this.abaPesquisar_combo_turno.SelectedIndexChanged += new System.EventHandler(this.abaPesquisar_combo_turno_SelectedIndexChanged);
             // 
             // label30
             // 
@@ -3226,6 +3240,7 @@ namespace JP4
             this.abaPesquisar_combo_operador.Name = "abaPesquisar_combo_operador";
             this.abaPesquisar_combo_operador.Size = new System.Drawing.Size(121, 21);
             this.abaPesquisar_combo_operador.TabIndex = 3;
+            this.abaPesquisar_combo_operador.SelectedIndexChanged += new System.EventHandler(this.abaPesquisar_combo_operador_SelectedIndexChanged);
             // 
             // label29
             // 
@@ -3260,6 +3275,7 @@ namespace JP4
             this.abaPesquisar_text_ordem.Name = "abaPesquisar_text_ordem";
             this.abaPesquisar_text_ordem.Size = new System.Drawing.Size(100, 20);
             this.abaPesquisar_text_ordem.TabIndex = 1;
+            this.abaPesquisar_text_ordem.TextChanged += new System.EventHandler(this.abaPesquisar_text_ordem_TextChanged);
             // 
             // label26
             // 
@@ -3273,16 +3289,6 @@ namespace JP4
             // db_cadastro_grupo_estoqueTableAdapter1
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
-            // 
-            // label_tipo_mistura
-            // 
-            this.label_tipo_mistura.AutoSize = true;
-            this.label_tipo_mistura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tipo_mistura.Location = new System.Drawing.Point(220, 15);
-            this.label_tipo_mistura.Name = "label_tipo_mistura";
-            this.label_tipo_mistura.Size = new System.Drawing.Size(20, 17);
-            this.label_tipo_mistura.TabIndex = 92;
-            this.label_tipo_mistura.Text = "...";
             // 
             // AP01
             // 

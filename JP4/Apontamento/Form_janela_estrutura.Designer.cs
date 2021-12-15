@@ -34,6 +34,8 @@ namespace JP4
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.combo_maquina_destino = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.combo_cliente = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -147,8 +149,7 @@ namespace JP4
             this.button_delete = new System.Windows.Forms.Button();
             this.button_atualizar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.combo_maquina_destino = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.button_sair = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -204,6 +205,23 @@ namespace JP4
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "--";
+            // 
+            // combo_maquina_destino
+            // 
+            this.combo_maquina_destino.FormattingEnabled = true;
+            this.combo_maquina_destino.Location = new System.Drawing.Point(587, 45);
+            this.combo_maquina_destino.Name = "combo_maquina_destino";
+            this.combo_maquina_destino.Size = new System.Drawing.Size(143, 21);
+            this.combo_maquina_destino.TabIndex = 19;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(494, 49);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 13);
+            this.label21.TabIndex = 18;
+            this.label21.Text = "Maquina Destino";
             // 
             // label20
             // 
@@ -1291,6 +1309,7 @@ namespace JP4
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button_sair);
             this.groupBox3.Controls.Add(this.button_editar);
             this.groupBox3.Controls.Add(this.button_delete);
             this.groupBox3.Controls.Add(this.button_atualizar);
@@ -1303,22 +1322,15 @@ namespace JP4
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opções";
             // 
-            // combo_maquina_destino
+            // button_sair
             // 
-            this.combo_maquina_destino.FormattingEnabled = true;
-            this.combo_maquina_destino.Location = new System.Drawing.Point(587, 45);
-            this.combo_maquina_destino.Name = "combo_maquina_destino";
-            this.combo_maquina_destino.Size = new System.Drawing.Size(143, 21);
-            this.combo_maquina_destino.TabIndex = 19;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(494, 49);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 13);
-            this.label21.TabIndex = 18;
-            this.label21.Text = "Maquina Destino";
+            this.button_sair.Location = new System.Drawing.Point(6, 168);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(157, 30);
+            this.button_sair.TabIndex = 21;
+            this.button_sair.Text = "SAIR";
+            this.button_sair.UseVisualStyleBackColor = true;
+            this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
             // 
             // ST01
             // 
@@ -1469,5 +1481,6 @@ namespace JP4
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox combo_maquina_destino;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button_sair;
     }
 }

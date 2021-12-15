@@ -17,19 +17,19 @@
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
+    <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>https://paralelo-erp1.000webhostapp.com/</UpdateUrl>
+    <UpdateUrl>\\10.14.11.111\01 - Industrial\PRODUÇÃO\01 - PLANILHAS DE PRODUÇÃO\%40Sistema_integrado\#Aplicativo\Update\</UpdateUrl>
     <ProductName>Gestão de Produção</ProductName>
     <PublisherName>Jeferson de Souza</PublisherName>
     <MinimumRequiredVersion>11.3.3.21</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>67</ApplicationRevision>
+    <ApplicationRevision>73</ApplicationRevision>
     <ApplicationVersion>11.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -309,10 +309,10 @@
     <Compile Include="Config\Form_janela_config.Designer.cs">
       <DependentUpon>Form_janela_config.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_janela_estoque.cs">
+    <Compile Include="Estoque\Form_janela_estoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_janela_estoque.Designer.cs">
+    <Compile Include="Estoque\Form_janela_estoque.Designer.cs">
       <DependentUpon>Form_janela_estoque.cs</DependentUpon>
     </Compile>
     <Compile Include="Apontamento\Form_janela_estrutura.cs">
@@ -327,10 +327,10 @@
     <Compile Include="Form_janela_inicial.Designer.cs">
       <DependentUpon>Form_janela_inicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_janela_inven_geral.cs">
+    <Compile Include="Estoque\Form_janela_inven_geral.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_janela_inven_geral.Designer.cs">
+    <Compile Include="Estoque\Form_janela_inven_geral.Designer.cs">
       <DependentUpon>Form_janela_inven_geral.cs</DependentUpon>
     </Compile>
     <Compile Include="Login Usuario\Form_janela_login.cs">
@@ -339,10 +339,10 @@
     <Compile Include="Login Usuario\Form_janela_login.Designer.cs">
       <DependentUpon>Form_janela_login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_janela_mov_estoque.cs">
+    <Compile Include="Estoque\Form_janela_mov_estoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_janela_mov_estoque.Designer.cs">
+    <Compile Include="Estoque\Form_janela_mov_estoque.Designer.cs">
       <DependentUpon>Form_janela_mov_estoque.cs</DependentUpon>
     </Compile>
     <Compile Include="Relatorio\Form_janela_report01.cs">
@@ -351,10 +351,10 @@
     <Compile Include="Relatorio\Form_janela_report01.Designer.cs">
       <DependentUpon>Form_janela_report01.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_janela_stoque_trans.cs">
+    <Compile Include="Estoque\Form_janela_stoque_trans.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_janela_stoque_trans.Designer.cs">
+    <Compile Include="Estoque\Form_janela_stoque_trans.Designer.cs">
       <DependentUpon>Form_janela_stoque_trans.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_janela_parada_mq.cs">
@@ -377,6 +377,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorio\Form_janela_report_apontamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorio\Form_janela_report_apontamento.Designer.cs">
+      <DependentUpon>Form_janela_report_apontamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio\Form_janela_report_defeitos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorio\Form_janela_report_defeitos.Designer.cs">
+      <DependentUpon>Form_janela_report_defeitos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorio\Form_janela_report_paradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorio\Form_janela_report_paradas.Designer.cs">
+      <DependentUpon>Form_janela_report_paradas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Cadastros\Form_cadastro_misturas.resx">
       <DependentUpon>Form_cadastro_misturas.cs</DependentUpon>
@@ -444,7 +462,7 @@
     <EmbeddedResource Include="Config\Form_janela_config.resx">
       <DependentUpon>Form_janela_config.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_janela_estoque.resx">
+    <EmbeddedResource Include="Estoque\Form_janela_estoque.resx">
       <DependentUpon>Form_janela_estoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apontamento\Form_janela_estrutura.resx">
@@ -453,13 +471,13 @@
     <EmbeddedResource Include="Form_janela_inicial.resx">
       <DependentUpon>Form_janela_inicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_janela_inven_geral.resx">
+    <EmbeddedResource Include="Estoque\Form_janela_inven_geral.resx">
       <DependentUpon>Form_janela_inven_geral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login Usuario\Form_janela_login.resx">
       <DependentUpon>Form_janela_login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_janela_mov_estoque.resx">
+    <EmbeddedResource Include="Estoque\Form_janela_mov_estoque.resx">
       <DependentUpon>Form_janela_mov_estoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorio\Form_janela_report01.resx">
@@ -468,7 +486,7 @@
     <EmbeddedResource Include="Form_janela_retrabalho.resx">
       <DependentUpon>Form_janela_retrabalho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_janela_stoque_trans.resx">
+    <EmbeddedResource Include="Estoque\Form_janela_stoque_trans.resx">
       <DependentUpon>Form_janela_stoque_trans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_janela_parada_mq.resx">
@@ -486,6 +504,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Relatorio\Form_janela_report_apontamento.resx">
+      <DependentUpon>Form_janela_report_apontamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorio\Form_janela_report_defeitos.resx">
+      <DependentUpon>Form_janela_report_defeitos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorio\Form_janela_report_paradas.resx">
+      <DependentUpon>Form_janela_report_paradas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="db_aplicativo_kpiDataSet.xsc">
       <DependentUpon>db_aplicativo_kpiDataSet.xsd</DependentUpon>
     </None>

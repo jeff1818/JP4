@@ -324,7 +324,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Carregar_descricao_grupo(string descricao_completa)
         {
             try
@@ -356,7 +355,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Carrega_descricao_undMedida(string unidade)
         {
             try
@@ -388,7 +386,6 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Limpar_filtro()
         {
 
