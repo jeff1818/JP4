@@ -17,9 +17,25 @@ namespace JP4
             InitializeComponent();
         }
 
+        /*
+        Saldo = Inventário inicial + Entradas (Apon, AR, AJ+) - Saidas (Back, consumo MP, AJ-, RM, BAXM)
+        
+        inventário inicial = tabela de inventário.
+
+        Entradas (Apon, AR, AJ+) = stoque_trans
+
+        Saidas (Back, consumo MP, AJ-, RM, BAXM) = stoque_trans
+
+        criar rotina para relacionar e calcular esses dados
+
+
+
+         */
+
+
         #region Metodos de Busca
 
-        
+
 
         #endregion
 

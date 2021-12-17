@@ -22,7 +22,6 @@ namespace JP4
             Carregar_empresa_db();
         }
 
-
         private void Carregar_grid_equipamento()
         {
             try

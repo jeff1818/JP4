@@ -5900,7 +5900,7 @@ namespace JP4
         }
         private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_janela_cad_empresas janela_cad_empresa = Form_janela_cad_empresas();
+            Form_janela_cad_empresas janela_cad_empresa = new Form_janela_cad_empresas();
             janela_cad_empresa.ShowDialog();
 
         }
@@ -5983,13 +5983,13 @@ namespace JP4
 
         private void localDeEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_janela_cad_local_estoque janela_local_estoque = Form_janela_cad_local_estoque();
+            Form_janela_cad_local_estoque janela_local_estoque = new Form_janela_cad_local_estoque();
             janela_local_estoque.ShowDialog();
         }
 
         private void localDeAplicaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_janela_cad_local_aplicacao janela_aplicacao = Form_janela_cad_local_aplicacao();
+            Form_janela_cad_local_aplicacao janela_aplicacao = new Form_janela_cad_local_aplicacao();
             janela_aplicacao.ShowDialog();
         }
     }

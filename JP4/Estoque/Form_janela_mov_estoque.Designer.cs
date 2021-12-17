@@ -72,6 +72,7 @@ namespace JP4
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_sair = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBox_mes_filtro = new System.Windows.Forms.ComboBox();
             this.textBox_ano_filtro = new System.Windows.Forms.TextBox();
@@ -99,7 +100,6 @@ namespace JP4
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.button_sair = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_mov_estoque.SuspendLayout();
@@ -185,6 +185,7 @@ namespace JP4
             this.relatorioEstoqueToolStripMenuItem.Name = "relatorioEstoqueToolStripMenuItem";
             this.relatorioEstoqueToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
             this.relatorioEstoqueToolStripMenuItem.Text = "Relatorio Estoque";
+            this.relatorioEstoqueToolStripMenuItem.Click += new System.EventHandler(this.relatorioEstoqueToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -538,6 +539,15 @@ namespace JP4
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
             // 
+            // button_sair
+            // 
+            this.button_sair.Location = new System.Drawing.Point(6, 193);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(116, 23);
+            this.button_sair.TabIndex = 21;
+            this.button_sair.Text = "Sair";
+            this.button_sair.UseVisualStyleBackColor = true;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -823,15 +833,6 @@ namespace JP4
             this.label30.Size = new System.Drawing.Size(30, 13);
             this.label30.TabIndex = 0;
             this.label30.Text = "Item:";
-            // 
-            // button_sair
-            // 
-            this.button_sair.Location = new System.Drawing.Point(6, 193);
-            this.button_sair.Name = "button_sair";
-            this.button_sair.Size = new System.Drawing.Size(116, 23);
-            this.button_sair.TabIndex = 21;
-            this.button_sair.Text = "Sair";
-            this.button_sair.UseVisualStyleBackColor = true;
             // 
             // STOQ01
             // 

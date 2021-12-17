@@ -1118,7 +1118,8 @@ namespace JP4
 
         private void inventárioMensalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form_janela_inven_geral janela_inventario_geral = new Form_janela_inven_geral();
+            janela_inventario_geral.ShowDialog();
         }
 
         private void button_iniciar_Click_1(object sender, EventArgs e)
@@ -1157,6 +1158,12 @@ namespace JP4
         {
             Limpar_controles();
             Carrega_grid();
+        }
+
+        private void relatorioEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_janela_estoque relatorio_estoque = new Form_janela_estoque();
+            relatorio_estoque.ShowDialog();
         }
     }
 }
