@@ -1,10 +1,14 @@
-﻿using JP4.Config;
+﻿using ClosedXML.Excel;
+using JP4.Config;
 using JP4.Login_Usuario;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
 using System.Windows.Forms;
+using System.Configuration;
+using Ubiety.Dns.Core;
 
 namespace JP4
 {
@@ -25,21 +29,278 @@ namespace JP4
             InitializeComponent();
             Criar_pasta_sistema();
 
-            check_lembrar_senha_pc(Nome_pc());
+            //check_lembrar_senha_pc(Nome_pc());
+            check_lembrar_senha_pc_mysql(Nome_pc());
+
 
             // label_status_banco.Text = "";
-            Testar_conexao();
+
+            //Testar_conexao();
+            Testat_sql();
+
+            exportar_mysql();
 
         }
 
-        // Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C:\Users\Jarvis\OneDrive\Visual - basic c#\banco\db_aplicativo_kpi.mdb"
+        // ---------------------------------------------------
+
+        private void exportar_mysql()
+        {
+            // SELECT* FROM cadastro INTO OUTFILE '/tmp/cadastro.csv' FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n'
+
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = @"SELECT * FROM 01db_cadastro_usuarios INTO OUTFILE 'C:\JP4\cadastro.csv'";
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+
+                conexao.Open();
+
+                conexao.Close();
+            }
+            catch
+            {
+
+            }
+
+            
+
+
+
+        }
+
+        private void check_lembrar_senha_pc_mysql(string nome_pc)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from 01db_cadastro_usuarios where nome_pc = '" + nome_pc + "'";
+
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+
+                //OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+
+                //OleDbDataReader myreader;
+                MySqlDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (nome_pc == myreader["nome_pc"].ToString())
+                    {
+                        string nome_usuario = myreader["nome_usuario"].ToString();
+                        string senha = myreader["senha"].ToString();
+
+                        check_lembra_senha.Checked = true;
+                        text_usuario.Text = nome_usuario;
+                        text_senha.Text = senha;
+
+                    }
+                }
+                conexao.Close();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void Testat_sql()
+        {
+            try
+            {
+                //var connString = @"Server=db-gestao-prod.mysql.uhserver.com;Database=db_gestao_prod;Uid=jefersondev;Pwd='h4ck3rtcho!@';Connect Timeout=30;";
+                var connString = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                var connection = new MySqlConnection(connString);
+                var command = connection.CreateCommand();
+                connection.Open();
+
+
+                if (connection.State == ConnectionState.Open)
+                {
+                    label_status_banco.Text = "Conectado com sucesso!";
+
+                }
+                else
+                {
+                    label_status_banco.Text = "Não conectado, verifique o local!";
+
+                }
+                connection.Close();
+
+            }
+            catch (Exception)
+            {
+
+            }
+
+
+            /*
+                        try
+                        {
+                            connection.Open();
+                            command.CommandText = "INSERT INTO db_teste (nome, idade) VALUES ('Carol', '31')";
+                            command.ExecuteNonQuery();
+                        }
+                        finally
+                        {
+                            if (connection.State == ConnectionState.Open)
+                                connection.Close();
+                        }
+            */
+
+        }
+
+        private void Lembrar_senha_pc_mysql(string nome_usuario, int marcador)
+        {
+            if (marcador == 0)
+            {
+                try
+                {
+                    string nome_pc = Nome_pc();
+                    string comando_sql;
+
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
+                    conexao.Open();
+
+                    comando_sql = "UPDATE 01db_cadastro_usuarios SET nome_pc='" + nome_pc + "' WHERE nome_usuario ='" + nome_usuario + "'";
+
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Banco de dados não conectado!");
+                    check_lembra_senha.Checked = false;
+                }
+            }
+
+            if (marcador == 1)
+            {
+                try
+                {
+                    string nome_pc = string.Empty;
+                    string comando_sql;
+
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
+                    conexao.Open();
+
+                    comando_sql = "UPDATE 01db_cadastro_usuarios SET nome_pc='" + nome_pc + "' WHERE nome_usuario ='" + nome_usuario + "'";
+
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Banco de dados não conectado!");
+                    check_lembra_senha.Checked = false;
+                }
+            }
+
+        }
+
+        private void Login_usuario_mysql(string user, string senha)
+        {
+            try
+            {
+                int erro_user = 4;
+                int erro_senha = 0;
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from 01db_cadastro_usuarios";// where nome_usuario = '" + user + "'";
+
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (user == myreader["nome_usuario"].ToString() && senha == myreader["senha"].ToString())
+                    {
+                        erro_user = 0;
+                    }
+
+                    if (user != myreader["nome_usuario"].ToString() && senha == myreader["senha"].ToString())
+                    {
+                        erro_user = 1;
+                    }
+
+                    if (user == myreader["nome_usuario"].ToString() && senha != myreader["senha"].ToString())
+                    {
+                        erro_senha = 2;
+                    }
+                }
+
+                if (erro_user == 0)
+                {
+                    sucesso_logim = 0;
+                    WINSTART janela_inicio = new WINSTART();
+                    janela_inicio.Show();
+                    janela_inicio.label_nome_usuario.Text = user;
+
+                    Usuario.Login = user;
+
+                    this.Hide();
+                }
+
+
+                if (erro_user == 1)
+                {
+                    MessageBox.Show("Usuário Não existe!");
+                    text_usuario.Focus();
+                }
+
+                if (erro_senha == 2)
+                {
+                    MessageBox.Show("Senha incorreta!");
+                    contador_senha += 1;
+
+                    if (contador_senha >= 5)
+                    {
+                        DialogResult resposta = MessageBox.Show(this, "Muitas tentativas, Deseja mudar a senha!?", "Login", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (resposta == DialogResult.Yes)
+                        {
+                            button_troca_senha.Visible = true;
+                        }
+                    }
+                }
+
+                conexao.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Banco de dados não encontrado, faça a configuração!");
+            }
+
+        }
+
+        // ---------------------------------------------------
+
+
+
 
         private void Testar_conexao()
         {
             try
             {
+
                 //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                
+
+                //
                 IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
                 string local_default = @"C:\JP4";
                 string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
@@ -65,6 +326,7 @@ namespace JP4
                 //MessageBox.Show(erro.Message);
             }
         }
+
         public void Criar_pasta_sistema()
         {
             string folderName = @"C:\JP4";
@@ -83,12 +345,13 @@ namespace JP4
         int contador_senha = 0;
         public int sucesso_logim = 1;
 
+
         private void check_lembrar_senha_pc(string nome_pc)
         {
             try
             {
                 //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                
+
                 IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
                 string local_default = @"C:\JP4";
                 string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
@@ -124,7 +387,7 @@ namespace JP4
         }
         private void Lembrar_senha_pc(string nome_usuario, int marcador)
         {
-            if(marcador == 0)
+            if (marcador == 0)
             {
                 try
                 {
@@ -153,7 +416,7 @@ namespace JP4
                 }
             }
 
-            if(marcador == 1)
+            if (marcador == 1)
             {
                 try
                 {
@@ -181,7 +444,7 @@ namespace JP4
                     check_lembra_senha.Checked = false;
                 }
             }
-           
+
         }
         private void Login_usuario(string user, string senha)
         {
@@ -195,7 +458,7 @@ namespace JP4
                 IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
                 string local_default = @"C:\JP4";
                 string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-                
+
                 string comando_sql = "select * from 01db_cadastro_usuarios";// where nome_usuario = '" + user + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -229,7 +492,7 @@ namespace JP4
                     WINSTART janela_inicio = new WINSTART();
                     janela_inicio.Show();
                     janela_inicio.label_nome_usuario.Text = user;
-                    
+
                     Usuario.Login = user;
 
                     this.Hide();
@@ -267,7 +530,8 @@ namespace JP4
         }
         private void button_entrar_Click(object sender, EventArgs e)
         {
-            Login_usuario(text_usuario.Text, text_senha.Text);
+            //Login_usuario(text_usuario.Text, text_senha.Text);
+            Login_usuario_mysql(text_usuario.Text, text_senha.Text);
         }
         private void text_senha_Enter(object sender, EventArgs e)
         {
@@ -292,12 +556,14 @@ namespace JP4
         {
             if (check_lembra_senha.Checked == true)
             {
-                Lembrar_senha_pc(text_usuario.Text, 0);
+                //Lembrar_senha_pc(text_usuario.Text, 0);
+                Lembrar_senha_pc_mysql(text_usuario.Text, 0);
             }
 
             if (check_lembra_senha.Checked == false)
             {
-                Lembrar_senha_pc(text_usuario.Text, 1);
+                //Lembrar_senha_pc(text_usuario.Text, 1);
+                Lembrar_senha_pc_mysql(text_usuario.Text, 1);
                 text_usuario.Text = string.Empty;
                 text_senha.Text = string.Empty;
             }

@@ -85,6 +85,8 @@ namespace JP4
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
             this.timer_digital = new System.Windows.Forms.Timer(this.components);
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.button_exportar_dados = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -212,6 +214,7 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.panel9);
             this.panel_menu_vertical.Controls.Add(this.label_inicial_ultimo_backup);
             this.panel_menu_vertical.Controls.Add(this.panel8);
             this.panel_menu_vertical.Controls.Add(this.panel_sub_menu_cadastro);
@@ -236,6 +239,7 @@ namespace JP4
             this.panel_menu_vertical.Controls.Add(this.button_apontamento);
             this.panel_menu_vertical.Controls.Add(this.pictureBox1);
             this.panel_menu_vertical.Controls.Add(this.button_estoque_atual);
+            this.panel_menu_vertical.Controls.Add(this.button_exportar_dados);
             this.panel_menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_menu_vertical.Location = new System.Drawing.Point(0, 35);
             this.panel_menu_vertical.Name = "panel_menu_vertical";
@@ -278,7 +282,7 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_aplica);
             this.panel_sub_menu_cadastro.Controls.Add(this.button1);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
-            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(48, 39);
+            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(59, 6);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 572);
             this.panel_sub_menu_cadastro.TabIndex = 27;
@@ -796,6 +800,29 @@ namespace JP4
             this.timer_digital.Enabled = true;
             this.timer_digital.Tick += new System.EventHandler(this.timer_digital_Tick);
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Black;
+            this.panel9.Location = new System.Drawing.Point(4, 453);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(5, 32);
+            this.panel9.TabIndex = 37;
+            // 
+            // button_exportar_dados
+            // 
+            this.button_exportar_dados.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_exportar_dados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_exportar_dados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_exportar_dados.ForeColor = System.Drawing.Color.White;
+            this.button_exportar_dados.Location = new System.Drawing.Point(15, 453);
+            this.button_exportar_dados.Name = "button_exportar_dados";
+            this.button_exportar_dados.Size = new System.Drawing.Size(180, 32);
+            this.button_exportar_dados.TabIndex = 36;
+            this.button_exportar_dados.Text = "Exportar Dados";
+            this.button_exportar_dados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_exportar_dados.UseVisualStyleBackColor = true;
+            this.button_exportar_dados.Click += new System.EventHandler(this.button_exportar_dados_Click);
+            // 
             // WINSTART
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -890,6 +917,8 @@ namespace JP4
         private System.Windows.Forms.Timer timer_digital;
         public System.Windows.Forms.Label label_inicial_ultimo_backup;
         private System.Windows.Forms.Button button_cad_mistura;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button button_exportar_dados;
     }
 }
 

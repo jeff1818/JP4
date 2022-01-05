@@ -30,12 +30,20 @@ namespace JP4
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_fechar_mes = new System.Windows.Forms.Button();
+            this.panel_fechamento_mes = new System.Windows.Forms.Panel();
+            this.button_fechar = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBox_ano_referencia = new System.Windows.Forms.ComboBox();
+            this.combo_mes_referencia = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button_fechar_mes_op = new System.Windows.Forms.Button();
             this.button_sair = new System.Windows.Forms.Button();
             this.button_deletar = new System.Windows.Forms.Button();
             this.button_atualizar = new System.Windows.Forms.Button();
             this.button_salvar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label_id_inventario = new System.Windows.Forms.Label();
             this.checkBox_mes_fechado = new System.Windows.Forms.CheckBox();
             this.rich_observacao = new System.Windows.Forms.RichTextBox();
@@ -59,13 +67,15 @@ namespace JP4
             this.label1 = new System.Windows.Forms.Label();
             this.grid_movi_estoque = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            this.panel_fechamento_mes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_movi_estoque)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button_fechar_mes);
+            this.groupBox1.Controls.Add(this.panel_fechamento_mes);
+            this.groupBox1.Controls.Add(this.button_fechar_mes_op);
             this.groupBox1.Controls.Add(this.button_sair);
             this.groupBox1.Controls.Add(this.button_deletar);
             this.groupBox1.Controls.Add(this.button_atualizar);
@@ -78,15 +88,82 @@ namespace JP4
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
             // 
-            // button_fechar_mes
+            // panel_fechamento_mes
             // 
-            this.button_fechar_mes.Location = new System.Drawing.Point(12, 116);
-            this.button_fechar_mes.Name = "button_fechar_mes";
-            this.button_fechar_mes.Size = new System.Drawing.Size(142, 23);
-            this.button_fechar_mes.TabIndex = 4;
-            this.button_fechar_mes.Text = "Fechar o Mês";
-            this.button_fechar_mes.UseVisualStyleBackColor = true;
-            this.button_fechar_mes.Click += new System.EventHandler(this.button_fechar_mes_Click);
+            this.panel_fechamento_mes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_fechamento_mes.Controls.Add(this.button_fechar);
+            this.panel_fechamento_mes.Controls.Add(this.label11);
+            this.panel_fechamento_mes.Controls.Add(this.label10);
+            this.panel_fechamento_mes.Controls.Add(this.comboBox_ano_referencia);
+            this.panel_fechamento_mes.Controls.Add(this.combo_mes_referencia);
+            this.panel_fechamento_mes.Controls.Add(this.label7);
+            this.panel_fechamento_mes.Location = new System.Drawing.Point(12, 181);
+            this.panel_fechamento_mes.Name = "panel_fechamento_mes";
+            this.panel_fechamento_mes.Size = new System.Drawing.Size(142, 153);
+            this.panel_fechamento_mes.TabIndex = 19;
+            this.panel_fechamento_mes.Visible = false;
+            // 
+            // button_fechar
+            // 
+            this.button_fechar.Location = new System.Drawing.Point(3, 111);
+            this.button_fechar.Name = "button_fechar";
+            this.button_fechar.Size = new System.Drawing.Size(127, 23);
+            this.button_fechar.TabIndex = 23;
+            this.button_fechar.Text = "Fechar";
+            this.button_fechar.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 76);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(27, 13);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Mês";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(26, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Ano";
+            // 
+            // comboBox_ano_referencia
+            // 
+            this.comboBox_ano_referencia.FormattingEnabled = true;
+            this.comboBox_ano_referencia.Location = new System.Drawing.Point(42, 32);
+            this.comboBox_ano_referencia.Name = "comboBox_ano_referencia";
+            this.comboBox_ano_referencia.Size = new System.Drawing.Size(74, 21);
+            this.comboBox_ano_referencia.TabIndex = 20;
+            // 
+            // combo_mes_referencia
+            // 
+            this.combo_mes_referencia.FormattingEnabled = true;
+            this.combo_mes_referencia.Location = new System.Drawing.Point(42, 76);
+            this.combo_mes_referencia.Name = "combo_mes_referencia";
+            this.combo_mes_referencia.Size = new System.Drawing.Size(74, 21);
+            this.combo_mes_referencia.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Mês que será finalizado.";
+            // 
+            // button_fechar_mes_op
+            // 
+            this.button_fechar_mes_op.Location = new System.Drawing.Point(12, 116);
+            this.button_fechar_mes_op.Name = "button_fechar_mes_op";
+            this.button_fechar_mes_op.Size = new System.Drawing.Size(142, 23);
+            this.button_fechar_mes_op.TabIndex = 4;
+            this.button_fechar_mes_op.Text = "Fechar o Mês";
+            this.button_fechar_mes_op.UseVisualStyleBackColor = true;
+            this.button_fechar_mes_op.Click += new System.EventHandler(this.button_fechar_mes_Click);
             // 
             // button_sair
             // 
@@ -130,6 +207,7 @@ namespace JP4
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label_id_inventario);
             this.groupBox2.Controls.Add(this.checkBox_mes_fechado);
             this.groupBox2.Controls.Add(this.rich_observacao);
@@ -159,6 +237,15 @@ namespace JP4
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações basicas";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(459, 106);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 13);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Observação";
+            // 
             // label_id_inventario
             // 
             this.label_id_inventario.AutoSize = true;
@@ -177,14 +264,15 @@ namespace JP4
             this.checkBox_mes_fechado.TabIndex = 11;
             this.checkBox_mes_fechado.Text = "Fechado";
             this.checkBox_mes_fechado.UseVisualStyleBackColor = true;
+            this.checkBox_mes_fechado.CheckedChanged += new System.EventHandler(this.checkBox_mes_fechado_CheckedChanged);
             // 
             // rich_observacao
             // 
-            this.rich_observacao.Location = new System.Drawing.Point(330, 103);
+            this.rich_observacao.Location = new System.Drawing.Point(330, 126);
             this.rich_observacao.Name = "rich_observacao";
-            this.rich_observacao.Size = new System.Drawing.Size(311, 126);
+            this.rich_observacao.Size = new System.Drawing.Size(311, 102);
             this.rich_observacao.TabIndex = 9;
-            this.rich_observacao.Text = "Observação...";
+            this.rich_observacao.Text = "...";
             this.rich_observacao.Click += new System.EventHandler(this.rich_observacao_Click);
             this.rich_observacao.Leave += new System.EventHandler(this.rich_observacao_Leave);
             // 
@@ -235,6 +323,8 @@ namespace JP4
             // 
             // combo_unidade_medida
             // 
+            this.combo_unidade_medida.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.combo_unidade_medida.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_unidade_medida.FormattingEnabled = true;
             this.combo_unidade_medida.Location = new System.Drawing.Point(139, 130);
             this.combo_unidade_medida.Name = "combo_unidade_medida";
@@ -252,7 +342,8 @@ namespace JP4
             // 
             // date_referencia_mes_contagem
             // 
-            this.date_referencia_mes_contagem.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_referencia_mes_contagem.CustomFormat = "MM/yyyy";
+            this.date_referencia_mes_contagem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.date_referencia_mes_contagem.Location = new System.Drawing.Point(139, 52);
             this.date_referencia_mes_contagem.Name = "date_referencia_mes_contagem";
             this.date_referencia_mes_contagem.Size = new System.Drawing.Size(112, 20);
@@ -269,7 +360,8 @@ namespace JP4
             // 
             // date_contagem
             // 
-            this.date_contagem.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date_contagem.CustomFormat = "MM/yyyy";
+            this.date_contagem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.date_contagem.Location = new System.Drawing.Point(139, 24);
             this.date_contagem.Name = "date_contagem";
             this.date_contagem.Size = new System.Drawing.Size(112, 20);
@@ -293,9 +385,12 @@ namespace JP4
             this.checkBox_mes_aberto.TabIndex = 10;
             this.checkBox_mes_aberto.Text = "Aberto";
             this.checkBox_mes_aberto.UseVisualStyleBackColor = true;
+            this.checkBox_mes_aberto.CheckedChanged += new System.EventHandler(this.checkBox_mes_aberto_CheckedChanged);
             // 
             // combo_local_destino
             // 
+            this.combo_local_destino.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.combo_local_destino.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_local_destino.FormattingEnabled = true;
             this.combo_local_destino.Location = new System.Drawing.Point(139, 157);
             this.combo_local_destino.Name = "combo_local_destino";
@@ -313,6 +408,8 @@ namespace JP4
             // 
             // combo_categoria
             // 
+            this.combo_categoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.combo_categoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_categoria.FormattingEnabled = true;
             this.combo_categoria.Location = new System.Drawing.Point(139, 103);
             this.combo_categoria.Name = "combo_categoria";
@@ -330,6 +427,8 @@ namespace JP4
             // 
             // combo_descricao_item
             // 
+            this.combo_descricao_item.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.combo_descricao_item.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_descricao_item.FormattingEnabled = true;
             this.combo_descricao_item.Location = new System.Drawing.Point(139, 76);
             this.combo_descricao_item.Name = "combo_descricao_item";
@@ -359,6 +458,7 @@ namespace JP4
             this.grid_movi_estoque.ReadOnly = true;
             this.grid_movi_estoque.Size = new System.Drawing.Size(770, 308);
             this.grid_movi_estoque.TabIndex = 8;
+            this.grid_movi_estoque.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_movi_estoque_CellDoubleClick);
             // 
             // Form_janela_inven_geral
             // 
@@ -370,8 +470,11 @@ namespace JP4
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Form_janela_inven_geral";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inventário Geral";
             this.groupBox1.ResumeLayout(false);
+            this.panel_fechamento_mes.ResumeLayout(false);
+            this.panel_fechamento_mes.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_movi_estoque)).EndInit();
@@ -399,7 +502,7 @@ namespace JP4
         private System.Windows.Forms.CheckBox checkBox_mes_aberto;
         private System.Windows.Forms.DateTimePicker date_referencia_mes_contagem;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button_fechar_mes;
+        private System.Windows.Forms.Button button_fechar_mes_op;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox text_qtd_fardos;
         private System.Windows.Forms.Label label8;
@@ -410,5 +513,13 @@ namespace JP4
         private System.Windows.Forms.RichTextBox rich_observacao;
         private System.Windows.Forms.CheckBox checkBox_mes_fechado;
         private System.Windows.Forms.Label label_id_inventario;
+        private System.Windows.Forms.Panel panel_fechamento_mes;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox_ano_referencia;
+        private System.Windows.Forms.ComboBox combo_mes_referencia;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button_fechar;
+        private System.Windows.Forms.Label label12;
     }
 }

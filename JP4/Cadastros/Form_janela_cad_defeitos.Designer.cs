@@ -30,6 +30,7 @@ namespace JP4
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_id_defeitos = new System.Windows.Forms.Label();
             this.label_desc_origem_apara = new System.Windows.Forms.Label();
             this.text_observacao = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,9 +45,8 @@ namespace JP4
             this.button_deletar = new System.Windows.Forms.Button();
             this.button_filtrar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button_atualizar = new System.Windows.Forms.Button();
-            this.label_id_defeitos = new System.Windows.Forms.Label();
             this.button_limpar_controles = new System.Windows.Forms.Button();
+            this.button_atualizar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_defeitos)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -71,6 +71,15 @@ namespace JP4
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informação basica";
+            // 
+            // label_id_defeitos
+            // 
+            this.label_id_defeitos.AutoSize = true;
+            this.label_id_defeitos.Location = new System.Drawing.Point(6, 84);
+            this.label_id_defeitos.Name = "label_id_defeitos";
+            this.label_id_defeitos.Size = new System.Drawing.Size(15, 13);
+            this.label_id_defeitos.TabIndex = 8;
+            this.label_id_defeitos.Text = "id";
             // 
             // label_desc_origem_apara
             // 
@@ -207,25 +216,6 @@ namespace JP4
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Menu";
             // 
-            // button_atualizar
-            // 
-            this.button_atualizar.Location = new System.Drawing.Point(12, 62);
-            this.button_atualizar.Name = "button_atualizar";
-            this.button_atualizar.Size = new System.Drawing.Size(114, 23);
-            this.button_atualizar.TabIndex = 10;
-            this.button_atualizar.Text = "Atualizar";
-            this.button_atualizar.UseVisualStyleBackColor = true;
-            this.button_atualizar.Click += new System.EventHandler(this.button_atualizar_Click);
-            // 
-            // label_id_defeitos
-            // 
-            this.label_id_defeitos.AutoSize = true;
-            this.label_id_defeitos.Location = new System.Drawing.Point(6, 84);
-            this.label_id_defeitos.Name = "label_id_defeitos";
-            this.label_id_defeitos.Size = new System.Drawing.Size(15, 13);
-            this.label_id_defeitos.TabIndex = 8;
-            this.label_id_defeitos.Text = "id";
-            // 
             // button_limpar_controles
             // 
             this.button_limpar_controles.Location = new System.Drawing.Point(12, 120);
@@ -235,6 +225,16 @@ namespace JP4
             this.button_limpar_controles.Text = "Limpar Controles";
             this.button_limpar_controles.UseVisualStyleBackColor = true;
             this.button_limpar_controles.Click += new System.EventHandler(this.button_limpar_controles_Click);
+            // 
+            // button_atualizar
+            // 
+            this.button_atualizar.Location = new System.Drawing.Point(12, 62);
+            this.button_atualizar.Name = "button_atualizar";
+            this.button_atualizar.Size = new System.Drawing.Size(114, 23);
+            this.button_atualizar.TabIndex = 10;
+            this.button_atualizar.Text = "Atualizar";
+            this.button_atualizar.UseVisualStyleBackColor = true;
+            this.button_atualizar.Click += new System.EventHandler(this.button_atualizar_Click);
             // 
             // Form_janela_cad_defeitos
             // 

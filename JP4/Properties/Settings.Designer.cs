@@ -12,7 +12,7 @@ namespace JP4.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -23,14 +23,15 @@ namespace JP4.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"C:\\Users\\Jarvis\\OneDrive\\Visual - b" +
-            "asic c#\\banco\\db_aplicativo_kpi.mdb\"")]
-        public string db_aplicativo_kpiConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("2022-12-06")]
+        public global::System.DateTime apocalipse {
             get {
-                return ((string)(this["db_aplicativo_kpiConnectionString"]));
+                return ((global::System.DateTime)(this["apocalipse"]));
+            }
+            set {
+                this["apocalipse"] = value;
             }
         }
         
@@ -67,6 +68,16 @@ namespace JP4.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Jarvis\\OneDrive\\Visual - basic c#\\banco\\config.txt")]
+        public string arquivo_txt {
+            get {
+                return ((string)(this["arquivo_txt"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("05/11/2021")]
         public string dt_ultimo_backup {
             get {
@@ -74,25 +85,14 @@ namespace JP4.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2022-12-06")]
-        public global::System.DateTime apocalipse {
-            get {
-                return ((global::System.DateTime)(this["apocalipse"]));
-            }
-            set {
-                this["apocalipse"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Jarvis\\OneDrive\\Visual - basic c#\\banco\\config.txt")]
-        public string arquivo_txt {
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=db-gestao-prod.mysql.uhserver.com;Database=db_gestao_prod;Uid=jefersondev;" +
+            "Pwd=\'h4ck3rtcho!@\';Connect Timeout=30")]
+        public string db_aplicativo_kpiConnectionString {
             get {
-                return ((string)(this["arquivo_txt"]));
+                return ((string)(this["db_aplicativo_kpiConnectionString"]));
             }
         }
     }

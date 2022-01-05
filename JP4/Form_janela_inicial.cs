@@ -306,5 +306,10 @@ namespace JP4
             abrir_janelas(new Form_cadastro_misturas());
 
         }
+
+        private void button_exportar_dados_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_exportar_dados());
+        }
     }
 }

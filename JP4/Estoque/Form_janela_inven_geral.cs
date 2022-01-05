@@ -24,6 +24,9 @@ namespace JP4
             Carregar_categorias();
             carregar_unidade_medida();
 
+            Carregar_ano_inven();
+            Carregar_meses_invent();
+
         }
 
 
@@ -64,10 +67,11 @@ namespace JP4
             return "0";
         }
 
+
         #endregion
 
         #region Metodos de Carregar Controles
-                       
+        
         private void Carrega_descr_completa()
         {
             // db_cadastro_material
@@ -210,7 +214,7 @@ namespace JP4
                 string local_default = @"C:\JP4";
                 string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                string comando_sql = "select data_invent, mes_referencia, categoria_tipos, descricao_completa, unidade_medida, fator_padrao, local_destino, qtd_kg, qtd_fardos, status_mes, observacao  from db_inventario_mensal";
+                string comando_sql = "select id_inventario, data_invent, mes_referencia, categoria_tipos, descricao_completa, unidade_medida, fator_padrao, local_destino, qtd_kg, qtd_fardos, status_mes, observacao  from db_inventario_mensal";
 
                 OleDbConnection connection = new OleDbConnection(conecta_string);
                 OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
@@ -218,8 +222,6 @@ namespace JP4
 
                 myadapter.Fill(dt);
                 DataView dv = dt.DefaultView;
-
-                //dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
                 grid_movi_estoque.DataSource = dv.ToTable();
 
                 connection.Close();
@@ -262,6 +264,70 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
+        private void Carregar_ano_inven()
+        {
+            try
+            {
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "select distinct ano_referencia from db_inventario_mensal";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    comboBox_ano_referencia.Items.Add(myreader["ano_referencia"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+        private void Carregar_meses_invent()
+        {
+            try
+            {
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "select distinct mes_referencia from db_inventario_mensal";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    combo_mes_referencia.Items.Add(myreader["mes_referencia"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
 
         #endregion
 
@@ -299,8 +365,8 @@ namespace JP4
         }
         private void Limpar_campos()
         {
-            date_contagem.Text = string.Empty;
-            date_referencia_mes_contagem.Text = string.Empty;
+            //date_contagem.Text = string.Empty;
+            //date_referencia_mes_contagem.Text = string.Empty;
             combo_categoria.Text = string.Empty;
             combo_descricao_item.Text = string.Empty;
             combo_unidade_medida.Text = string.Empty;
@@ -320,7 +386,7 @@ namespace JP4
 
 
 
-        #region Metodos de salvar // Atualizar // Deletar 
+        #region Metodos de salvar // Atualizar // Deletar // Carregar
         private void Salvar_inventario()
         {
             DateTime data_invent = date_contagem.Value;
@@ -342,7 +408,17 @@ namespace JP4
             double valor_total= 0;
 
             string status_mes = string.Empty;
-            string observacao = rich_observacao.Text;
+
+            if (checkBox_mes_aberto.Checked == true)
+            {
+                status_mes = "A";
+            }
+            if (checkBox_mes_fechado.Checked == true)
+            {
+                status_mes = "F";
+            }
+
+             string observacao = rich_observacao.Text;
                       
 
 
@@ -479,6 +555,66 @@ namespace JP4
             }
         }
 
+        private void Carrega_campos(string id_inventario)
+        {
+            try
+            {
+                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                string local_default = @"C:\JP4";
+                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+
+                string comando_sql = "select * from db_inventario_mensal where id_inventario =" + Convert.ToInt64(id_inventario) + "";
+
+                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                OleDbDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    date_contagem.Value = Convert.ToDateTime(myreader["data_invent"].ToString());
+                    date_referencia_mes_contagem.Value = Convert.ToDateTime(myreader["data_referencia"].ToString());
+
+                    combo_categoria.Text = myreader["categoria_tipos"].ToString();
+                    combo_descricao_item.Text = myreader["descricao_completa"].ToString();
+                    combo_unidade_medida.Text = myreader["unidade_medida"].ToString();
+                    label_fator_padrao.Text = myreader["fator_padrao"].ToString();
+                    combo_local_destino.Text = myreader["local_destino"].ToString();
+                    text_qtd_kg.Text = myreader["qtd_kg"].ToString();
+                    text_qtd_fardos.Text = myreader["qtd_fardos"].ToString();                    
+                    rich_observacao.Text = myreader["observacao"].ToString();
+
+
+                    if (myreader["status_mes"].ToString() == "A")
+                    {
+                        checkBox_mes_aberto.Checked = true;
+                        checkBox_mes_fechado.Checked = false;
+                    }
+
+                    if (myreader["status_mes"].ToString() == "F")
+                    {
+                        checkBox_mes_fechado.Checked = true;
+                        checkBox_mes_aberto.Checked = false;
+                    }
+
+
+                }
+
+
+                
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+
         #endregion
 
         private void button_salvar_Click(object sender, EventArgs e)
@@ -505,7 +641,13 @@ namespace JP4
 
         private void button_fechar_mes_Click(object sender, EventArgs e)
         {
-
+            if(panel_fechamento_mes.Visible == false)
+            {
+                panel_fechamento_mes.Visible = true;
+            }else
+            {
+                panel_fechamento_mes.Visible = false;
+            }
         }
 
         private void button_sair_Click(object sender, EventArgs e)
@@ -525,13 +667,13 @@ namespace JP4
 
         private void rich_observacao_Leave(object sender, EventArgs e)
         {
-            if(rich_observacao.Text != "Observação...")
+            if(rich_observacao.Text != "...")
             {
 
             }
             else
             {
-                rich_observacao.Text = "Observação...";
+                rich_observacao.Text = "...";
             }
 
         }
@@ -541,6 +683,22 @@ namespace JP4
         private void text_qtd_fardos_Leave(object sender, EventArgs e)
         {
             text_qtd_kg.Text = Convert.ToString(Calculo_quilos(Convert.ToDouble(text_qtd_kg.Text), Convert.ToDouble(label_fator_padrao.Text), Convert.ToDouble(text_qtd_fardos.Text)));
+        }
+
+        private void grid_movi_estoque_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string id_inventario = grid_movi_estoque.CurrentRow.Cells[0].Value.ToString();
+            Carrega_campos(id_inventario);
+        }
+
+        private void checkBox_mes_aberto_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox_mes_fechado.Checked = false;
+        }
+
+        private void checkBox_mes_fechado_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox_mes_aberto.Checked = false;
         }
     }
 }
