@@ -45,14 +45,9 @@ namespace JP4
             this.button_busca_loca_arquivo_os = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.verificarAtualizaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_config_local = new System.Windows.Forms.TabPage();
-            this.label_dt_ultimo_backup = new System.Windows.Forms.Label();
-            this.label_origem_backup = new System.Windows.Forms.Label();
-            this.button_config_bakcup = new System.Windows.Forms.Button();
-            this.label_endereco_backup = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -97,9 +92,9 @@ namespace JP4
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(342, 26);
+            this.label1.Size = new System.Drawing.Size(316, 26);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Endereço banco de dados Access";
+            this.label1.Text = "Endereço planilhas exportadas.";
             // 
             // button_salvar_endereco
             // 
@@ -205,6 +200,13 @@ namespace JP4
             this.verificarAtualizaçãoToolStripMenuItem.Text = "Verificar Atualização";
             this.verificarAtualizaçãoToolStripMenuItem.Click += new System.EventHandler(this.verificarAtualizaçãoToolStripMenuItem_Click);
             // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage_config_local);
@@ -217,11 +219,6 @@ namespace JP4
             // 
             // tabPage_config_local
             // 
-            this.tabPage_config_local.Controls.Add(this.label_dt_ultimo_backup);
-            this.tabPage_config_local.Controls.Add(this.label_origem_backup);
-            this.tabPage_config_local.Controls.Add(this.button_config_bakcup);
-            this.tabPage_config_local.Controls.Add(this.label_endereco_backup);
-            this.tabPage_config_local.Controls.Add(this.label3);
             this.tabPage_config_local.Controls.Add(this.groupBox1);
             this.tabPage_config_local.Controls.Add(this.groupBox2);
             this.tabPage_config_local.Location = new System.Drawing.Point(4, 22);
@@ -231,63 +228,6 @@ namespace JP4
             this.tabPage_config_local.TabIndex = 0;
             this.tabPage_config_local.Text = "Config. Locais";
             this.tabPage_config_local.UseVisualStyleBackColor = true;
-            // 
-            // label_dt_ultimo_backup
-            // 
-            this.label_dt_ultimo_backup.AutoSize = true;
-            this.label_dt_ultimo_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_dt_ultimo_backup.Location = new System.Drawing.Point(114, 289);
-            this.label_dt_ultimo_backup.Name = "label_dt_ultimo_backup";
-            this.label_dt_ultimo_backup.Size = new System.Drawing.Size(80, 17);
-            this.label_dt_ultimo_backup.TabIndex = 10;
-            this.label_dt_ultimo_backup.Text = "20/08/2021";
-            // 
-            // label_origem_backup
-            // 
-            this.label_origem_backup.AutoSize = true;
-            this.label_origem_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_origem_backup.Location = new System.Drawing.Point(15, 314);
-            this.label_origem_backup.Name = "label_origem_backup";
-            this.label_origem_backup.Size = new System.Drawing.Size(16, 13);
-            this.label_origem_backup.TabIndex = 9;
-            this.label_origem_backup.Text = "...";
-            // 
-            // button_config_bakcup
-            // 
-            this.button_config_bakcup.Location = new System.Drawing.Point(251, 283);
-            this.button_config_bakcup.Name = "button_config_bakcup";
-            this.button_config_bakcup.Size = new System.Drawing.Size(163, 23);
-            this.button_config_bakcup.TabIndex = 8;
-            this.button_config_bakcup.Text = "configurar pasta bakcup";
-            this.button_config_bakcup.UseVisualStyleBackColor = true;
-            this.button_config_bakcup.Click += new System.EventHandler(this.button_config_bakcup_Click);
-            // 
-            // label_endereco_backup
-            // 
-            this.label_endereco_backup.AutoSize = true;
-            this.label_endereco_backup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_endereco_backup.Location = new System.Drawing.Point(15, 346);
-            this.label_endereco_backup.Name = "label_endereco_backup";
-            this.label_endereco_backup.Size = new System.Drawing.Size(16, 13);
-            this.label_endereco_backup.TabIndex = 7;
-            this.label_endereco_backup.Text = "...";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 288);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Ultimo Backup";
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // CONF01
             // 
@@ -311,7 +251,6 @@ namespace JP4
             this.menuStrip2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage_config_local.ResumeLayout(false);
-            this.tabPage_config_local.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,11 +275,6 @@ namespace JP4
         private System.Windows.Forms.ToolStripMenuItem verificarAtualizaçãoToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage_config_local;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label_endereco_backup;
-        private System.Windows.Forms.Button button_config_bakcup;
-        private System.Windows.Forms.Label label_origem_backup;
-        private System.Windows.Forms.Label label_dt_ultimo_backup;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
     }
 }

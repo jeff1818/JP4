@@ -17,7 +17,6 @@ namespace JP4.Config
         public Form_janela_config_txt()
         {
             InitializeComponent();
-
             text_endereco.Text = Properties.Settings.Default.arquivo_txt;
             
         }
@@ -31,7 +30,6 @@ namespace JP4.Config
             string nome_arquivo;
             string endereco_completo = string.Empty;
             // string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
-
 
             OpenFileDialog folderBrowser = new OpenFileDialog();
 
@@ -61,7 +59,6 @@ namespace JP4.Config
         }
         private void Salvar_local()
         {
-
             try
             {
                 var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -76,7 +73,6 @@ namespace JP4.Config
             {
                 MessageBox.Show("Erro ao salvar o local do banco! || " + erro.Message);
             }
-
         }
 
         private void button_buscar_local_Click(object sender, EventArgs e)

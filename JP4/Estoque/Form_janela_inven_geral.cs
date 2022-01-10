@@ -1,9 +1,9 @@
 ﻿using JP4.Config;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -77,16 +77,15 @@ namespace JP4
             // db_cadastro_material
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
                 string comando_sql = "select descricao_completa from db_cadastro_material";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -110,16 +109,16 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select * from db_cadastro_categorias_inventario";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -143,16 +142,16 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select * from db_cadastro_unidade_medida";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -176,16 +175,16 @@ namespace JP4
 
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select * from db_cadastro_local_estoque";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -209,15 +208,15 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select id_inventario, data_invent, mes_referencia, categoria_tipos, descricao_completa, unidade_medida, fator_padrao, local_destino, qtd_kg, qtd_fardos, status_mes, observacao  from db_inventario_mensal";
 
-                OleDbConnection connection = new OleDbConnection(conecta_string);
-                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                MySqlConnection connection = new MySqlConnection(conecta_string);
+                MySqlDataAdapter myadapter = new MySqlDataAdapter(comando_sql, connection);
                 DataTable dt = new DataTable("db_inventario_mensal");
 
                 myadapter.Fill(dt);
@@ -236,16 +235,16 @@ namespace JP4
             try
             {
                 
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + cod_descri_completa + "'";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -268,16 +267,16 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select distinct ano_referencia from db_inventario_mensal";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -300,16 +299,16 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select distinct mes_referencia from db_inventario_mensal";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -424,12 +423,12 @@ namespace JP4
 
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
                 string comando_sql;
@@ -437,7 +436,7 @@ namespace JP4
                 comando_sql = "INSERT INTO db_inventario_mensal(data_invent, data_referencia, dia_referencia, mes_referencia, ano_referencia, categoria_tipos, descricao_completa, unidade_medida, fator_padrao, local_destino, qtd_kg, qtd_fardos, valor_unit, valor_total, status_mes, observacao) " +
                     "VALUES('" + data_invent + "','" + data_referencia + "','" + dia_referencia + "','" + mes_referencia + "','" + ano_referencia + "','" + categoria_tipos + "','" + descricao_completa + "','" + unidade_medida + "','" + fator_padrao + "','" + local_destino + "','" + qtd_kg + "','" + qtd_fardos + "','" + valor_unit + "','" + valor_total + "','" + status_mes + "','" + observacao  + "')";
 
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
@@ -481,12 +480,12 @@ namespace JP4
                 {
                     string comando_sql;
 
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "UPDATE db_inventario_mensal SET " +
@@ -508,7 +507,7 @@ namespace JP4
                             "',observacao='" + observacao +
                             "' WHERE id_inventario=" + id_inventario;
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -530,19 +529,19 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
                 string comando_sql;
 
                 comando_sql = "DELETE FROM db_inventario_mensal WHERE ID_cadas_equipamento = " + id_inventario;
 
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
@@ -559,16 +558,16 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select * from db_inventario_mensal where id_inventario =" + Convert.ToInt64(id_inventario) + "";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();

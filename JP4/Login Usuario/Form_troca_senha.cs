@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data.OleDb;
 using System.Drawing;
 using System.Windows.Forms;
@@ -20,12 +21,12 @@ namespace JP4.Login_Usuario
                 string comando_sql;
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
                 comando_sql = "UPDATE 01db_cadastro_usuarios SET senha='" + senha + "' WHERE nome_usuario ='" + nome_usuario + "'";
 
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 

@@ -25,59 +25,31 @@ namespace JP4
             IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
 
             string local_default = @"C:\JP4";
-            text_endereco.Text = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+            text_endereco.Text = config_ini.IniReadString("LOCAL_EXPORT", "local_exporta_arquivo", local_default);
             text_local_arquivo_ordem.Text = config_ini.IniReadString("RELATORIO", "local_relatorio", local_default);
 
-            label_endereco_backup.Text = config_ini.IniReadString("LOCAL_DESTINO_BK", "local_destino_bk", local_default);
-            label_origem_backup.Text = config_ini.IniReadString("LOCAL_ORIGEM_BK", "local_origem_bk", local_default);
-            label_dt_ultimo_backup.Text = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", local_default);
-
-
-            //text_endereco.Text = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-            //text_local_arquivo_ordem.Text = Properties.Settings.Default.local_arquivo_excel;
-            //label_endereco_backup.Text = Properties.Settings.Default.caminho_backup;
-            //label_origem_backup.Text = Properties.Settings.Default.origem_backup;
-            //label_dt_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup;
-
+            //label_endereco_backup.Text = config_ini.IniReadString("LOCAL_DESTINO_BK", "local_destino_bk", local_default);
+            //label_origem_backup.Text = config_ini.IniReadString("LOCAL_ORIGEM_BK", "local_origem_bk", local_default);
+            //label_dt_ultimo_backup.Text = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", local_default);
         }
 
-        /* Gravar_configuracao_ini
+        //Gravar_configuracao_ini
         private void Gravar_configuracao_ini()
         {
             // Metodo de teste
 
             IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-
-            config_ini.IniWriteString("STRING_DB", "local_banco", text_endereco.Text);
+            //config_ini.IniWriteString("LOCAL_EXPORT", "local_exporta_arquivo", label_dt_ultimo_backup.Text);
             config_ini.IniWriteString("RELATORIO", "local_relatorio", text_local_arquivo_ordem.Text);
-
-            config_ini.IniWriteString("LOCAL_ORIGEM_BK", "local_origem_bk", label_origem_backup.Text);
-            config_ini.IniWriteString("LOCAL_DESTINO_BK", "local_destino_bk", label_endereco_backup.Text);
-
-            config_ini.IniWriteString("DT_ULTIMO_BK", "data_ultimo_bk", label_dt_ultimo_backup.Text);
         }
 
-        */
+        
 
         #endregion
 
 
         #region Metodos de Atualização
-
-
-        /* Verifica_update
-        private void Verifica_update()
-        {
-            DialogResult resposta = MessageBox.Show(this, "Deseja Verificar Atualização?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if(resposta == DialogResult.Yes)
-            {
-                WINSTART janela_inicio = new WINSTART();
-                janela_inicio.Check_update();
-            }
-        }
-        */
-
+        
         #endregion
 
         #region Arquivo TXT
@@ -104,35 +76,35 @@ namespace JP4
         #region Fazer backup do banco de dados Acess
 
 
-        public void fazer_backup()
-        {
-            try
-            {
-                //string dataInicial = Properties.Settings.Default.dt_ultimo_backup;
+        //public void fazer_backup()
+        //{
+        //    try
+        //    {
+        //        //string dataInicial = Properties.Settings.Default.dt_ultimo_backup;
 
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string dataInicial = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", "01/11/2021");
+        //        IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+        //        string dataInicial = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", "01/11/2021");
 
-                string dataFinal = Convert.ToString(DateTime.Today);
-
-
-                TimeSpan date = Convert.ToDateTime(dataFinal) - Convert.ToDateTime(dataInicial);
-                int totalDias = date.Days;
-                //MessageBox.Show(totalDias.ToString());
-
-                if (totalDias > 2)
-                {
-                    backup_db();
-                }
-            }
-            catch (Exception)
-            {
-                //backup_db();
-                MessageBox.Show("Erro ao fazer backup!");
-            }
+        //        string dataFinal = Convert.ToString(DateTime.Today);
 
 
-        }
+        //        TimeSpan date = Convert.ToDateTime(dataFinal) - Convert.ToDateTime(dataInicial);
+        //        int totalDias = date.Days;
+        //        //MessageBox.Show(totalDias.ToString());
+
+        //        if (totalDias > 2)
+        //        {
+        //            backup_db();
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        //backup_db();
+        //        MessageBox.Show("Erro ao fazer backup!");
+        //    }
+
+
+        //}
         private void criar_pasta_backup(string local_db)
         {
             string folderName = local_db + @"\db_backup";
@@ -141,99 +113,95 @@ namespace JP4
             {
                 Directory.CreateDirectory(folderName);
             }
-
-
         }
-        private void backup_db()
-        {
-            try
-            {
-                string fileName = "db_aplicativo_kpi.mdb";
-                string sourcePath = label_origem_backup.Text;
-                string targetPath = label_endereco_backup.Text;
+        //private void backup_db()
+        //{
+        //    try
+        //    {
+        //        string fileName = "db_aplicativo_kpi.mdb";
+        //        string sourcePath = label_origem_backup.Text;
+        //        string targetPath = label_endereco_backup.Text;
 
-                // Use Path class to manipulate file and directory paths.
-                string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-                string destFile = System.IO.Path.Combine(targetPath, "bk_" + fileName);
+        //        // Use Path class to manipulate file and directory paths.
+        //        string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+        //        string destFile = System.IO.Path.Combine(targetPath, "bk_" + fileName);
 
-                // To copy a file to another location and
-                // overwrite the destination file if it already exists.
-                System.IO.File.Copy(sourceFile, destFile, true);
+        //        // To copy a file to another location and
+        //        // overwrite the destination file if it already exists.
+        //        System.IO.File.Copy(sourceFile, destFile, true);
+        //        MessageBox.Show("Backup feito com sucesso!");
 
-                MessageBox.Show("Backup feito com sucesso!");
+        //        label_dt_ultimo_backup.Text = DateTime.Today.ToString("dd/MM/yyyy");
 
-
-                label_dt_ultimo_backup.Text = DateTime.Today.ToString("dd/MM/yyyy");
-
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                config_ini.IniWriteString("DT_ULTIMO_BK", "data_ultimo_bk", label_dt_ultimo_backup.Text);
+        //        IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+        //        config_ini.IniWriteString("DT_ULTIMO_BK", "data_ultimo_bk", label_dt_ultimo_backup.Text);
 
 
-                //Salvar_ultima_data_backup();
-                //Reset_aplicativo();
+        //        //Salvar_ultima_data_backup();
+        //        //Reset_aplicativo();
 
 
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Falha durante o backup!");
-            }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        MessageBox.Show("Falha durante o backup!");
+        //    }
 
-        }
-        private void Salvar_ultima_data_backup()
-        {
-            // JP4.Properties.Settings.dt_ultimo_backup
-            try
-            {
-                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                connectionString.ConnectionStrings["JP4.Properties.Settings.dt_ultimo_backup"].ConnectionString = label_dt_ultimo_backup.Text;
-                config.Save();
-                ConfigurationManager.RefreshSection("connectionStrings");
+        //}
+        //private void Salvar_ultima_data_backup()
+        //{
+        //    // JP4.Properties.Settings.dt_ultimo_backup
+        //    try
+        //    {
+        //        var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        //        var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
+        //        connectionString.ConnectionStrings["JP4.Properties.Settings.dt_ultimo_backup"].ConnectionString = label_dt_ultimo_backup.Text;
+        //        config.Save();
+        //        ConfigurationManager.RefreshSection("connectionStrings");
 
-                MessageBox.Show("Salvo com sucesso!");
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro ao salvar origem do banco ! || " + erro.Message);
-            }
+        //        MessageBox.Show("Salvo com sucesso!");
+        //    }
+        //    catch (Exception erro)
+        //    {
+        //        MessageBox.Show("Erro ao salvar origem do banco ! || " + erro.Message);
+        //    }
 
-        }
-        private void Salvar_origem_backup()
-        {
+        //}
+        //private void Salvar_origem_backup()
+        //{
 
-            try
-            {
-                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                connectionString.ConnectionStrings["JP4.Properties.Settings.origem_backup"].ConnectionString = label_origem_backup.Text;
-                config.Save();
-                ConfigurationManager.RefreshSection("connectionStrings");
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro ao salvar origem do banco ! || " + erro.Message);
-            }
+        //    try
+        //    {
+        //        var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        //        var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
+        //        connectionString.ConnectionStrings["JP4.Properties.Settings.origem_backup"].ConnectionString = label_origem_backup.Text;
+        //        config.Save();
+        //        ConfigurationManager.RefreshSection("connectionStrings");
+        //    }
+        //    catch (Exception erro)
+        //    {
+        //        MessageBox.Show("Erro ao salvar origem do banco ! || " + erro.Message);
+        //    }
 
-        }
-        private void Salvar_local_backup()
-        {
+        //}
+        //private void Salvar_local_backup()
+        //{
 
-            try
-            {
-                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                connectionString.ConnectionStrings["JP4.Properties.Settings.caminho_backup"].ConnectionString = label_endereco_backup.Text;
-                config.Save();
-                ConfigurationManager.RefreshSection("connectionStrings");
+        //    try
+        //    {
+        //        var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        //        var connectionString = (ConnectionStringsSection)config.GetSection("connectionStrings");
+        //        connectionString.ConnectionStrings["JP4.Properties.Settings.caminho_backup"].ConnectionString = label_endereco_backup.Text;
+        //        config.Save();
+        //        ConfigurationManager.RefreshSection("connectionStrings");
 
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Erro ao salvar o local do backup! || " + erro.Message);
-            }
+        //    }
+        //    catch (Exception erro)
+        //    {
+        //        MessageBox.Show("Erro ao salvar o local do backup! || " + erro.Message);
+        //    }
 
-        }
+        //}
         private string Procurar_pasta_backup()
         {
             string local_pasta;
@@ -292,35 +260,35 @@ namespace JP4
         }
 
         // Busca local do Banco de dados
-        private string Procurar_pasta()
-        {
-            string local_pasta;
-            string nome_arquivo;
-            string endereco_completo = string.Empty;
-            string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
+        //private string Procurar_pasta()
+        //{
+        //    string local_pasta;
+        //    string nome_arquivo;
+        //    string endereco_completo = string.Empty;
+        //    string texto_conecta = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
 
 
-            OpenFileDialog folderBrowser = new OpenFileDialog();
+        //    OpenFileDialog folderBrowser = new OpenFileDialog();
 
-            folderBrowser.ValidateNames = true;
-            folderBrowser.CheckFileExists = false;
-            folderBrowser.CheckPathExists = true;
+        //    folderBrowser.ValidateNames = true;
+        //    folderBrowser.CheckFileExists = false;
+        //    folderBrowser.CheckPathExists = true;
 
-            folderBrowser.FileName = "Localizar Arquivo";
-            if (folderBrowser.ShowDialog() == DialogResult.OK)
-            {
-                local_pasta = Path.GetDirectoryName(folderBrowser.FileName);
-                nome_arquivo = Path.GetFileName(folderBrowser.FileName);
+        //    folderBrowser.FileName = "Localizar Arquivo";
+        //    if (folderBrowser.ShowDialog() == DialogResult.OK)
+        //    {
+        //        local_pasta = Path.GetDirectoryName(folderBrowser.FileName);
+        //        nome_arquivo = Path.GetFileName(folderBrowser.FileName);
 
-                // endereco_completo = texto_conecta + @"""" + local_pasta + @"\" + nome_arquivo + @"""";
-                endereco_completo = texto_conecta + '\u0022' + local_pasta + @"\" + nome_arquivo + '\u0022'; //"; providerName =" + '\u0022' + "System.Data.OleDb"+'\u0022';
-                label_origem_backup.Text = local_pasta;
-                //Salvar_origem_backup();
-                criar_pasta_backup(local_pasta);
-            }
+        //        // endereco_completo = texto_conecta + @"""" + local_pasta + @"\" + nome_arquivo + @"""";
+        //        endereco_completo = texto_conecta + '\u0022' + local_pasta + @"\" + nome_arquivo + '\u0022'; //"; providerName =" + '\u0022' + "System.Data.OleDb"+'\u0022';
+        //        label_origem_backup.Text = local_pasta;
+        //        //Salvar_origem_backup();
+        //        criar_pasta_backup(local_pasta);
+        //    }
 
-            return endereco_completo;
-        }
+        //    return endereco_completo;
+        //}
         private void Salvar_local()
         {
 
@@ -393,26 +361,46 @@ namespace JP4
             Application.Restart();
         }
 
+        private string Procurar_pasta_import_mysql()
+        {
+            string local_pasta;
+            string nome_arquivo;
+            string endereco_completo = string.Empty;
+
+            OpenFileDialog folderBrowser = new OpenFileDialog();
+
+            folderBrowser.ValidateNames = true;
+            folderBrowser.CheckFileExists = false;
+            folderBrowser.CheckPathExists = true;
+
+            folderBrowser.FileName = "Localizar Arquivo";
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                local_pasta = Path.GetDirectoryName(folderBrowser.FileName);
+                nome_arquivo = Path.GetFileName(folderBrowser.FileName);
+
+                endereco_completo = local_pasta + @"\";//  + "Relatorio.xlsx"; // nome_arquivo;
+                //criar_pasta_backup(local_pasta);
+            }
+
+            return endereco_completo;
+        }
+
 
         // Area de botão 
 
         private void button_procurar_pasta_Click(object sender, EventArgs e)
         {
-            text_endereco.Text = Procurar_pasta();
+            // text_endereco.Text = Procurar_pasta();
+            text_endereco.Text = Procurar_pasta_import_mysql();
+
         }
         private void button_salvar_endereco_Click(object sender, EventArgs e)
         {
             if (text_endereco.Text != string.Empty)
             {
                 IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                config_ini.IniWriteString("STRING_DB", "local_banco", text_endereco.Text);
-
-                //label_endereco_backup.Text = Procurar_pasta_backup();
-
-                config_ini.IniWriteString("LOCAL_ORIGEM_BK", "local_origem_bk", label_origem_backup.Text);
-                criar_pasta_backup(label_origem_backup.Text);
-
-                //config_ini.IniWriteString("LOCAL_DESTINO_BK", "local_destino_bk", label_endereco_backup.Text + @"\db_backup");
+                config_ini.IniWriteString("LOCAL_EXPORT", "local_exporta_arquivo", text_endereco.Text);
 
                 MessageBox.Show("Salvo com sucesso!");
 
@@ -467,10 +455,7 @@ namespace JP4
         }
         private void button_config_bakcup_Click(object sender, EventArgs e)
         {
-            label_endereco_backup.Text = Procurar_pasta_backup();
-            //Salvar_origem_backup();
-            //Salvar_local_backup();
-            //Reset_aplicativo();
+            
         }
         private void button1_Click(object sender, EventArgs e) { }
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)

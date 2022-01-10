@@ -111,7 +111,7 @@ namespace JP4.Config
 
                     connection.Close();
 
-                    backgroundWorker1.RunWorkerAsync();
+                    //backgroundWorker1.RunWorkerAsync();
 
                 };
                 

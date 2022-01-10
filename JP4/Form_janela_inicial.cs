@@ -28,17 +28,14 @@ namespace JP4
             label_data_inicial.Text = DateTime.Today.ToString("dddd - dd/MM/yyyy").ToUpper();
             label_inicio_versao_prog.Text = Application.ProductVersion;
 
-            IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-            label_inicial_ultimo_backup.Text = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", "01/11/2021");
+            //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+            //label_inicial_ultimo_backup.Text = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", "01/11/2021");
             //label_inicial_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup.ToString();
 
             label_status.Text = "Ultimo Backup >> ";
             
             Check_update();
-            
-
-            CONF01 gerar_backup = new CONF01();
-            gerar_backup.fazer_backup();
+                       
 
             // ativar para depois de 1 ano
             auto_destruicao();

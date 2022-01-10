@@ -15,6 +15,7 @@ namespace JP4
         public Form_janela_stoque_trans()
         {
             InitializeComponent();
+
         }
     }
 }

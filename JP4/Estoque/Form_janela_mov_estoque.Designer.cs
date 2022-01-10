@@ -280,7 +280,7 @@ namespace JP4
             this.combo_empresa.Location = new System.Drawing.Point(730, 139);
             this.combo_empresa.Name = "combo_empresa";
             this.combo_empresa.Size = new System.Drawing.Size(128, 21);
-            this.combo_empresa.TabIndex = 27;
+            this.combo_empresa.TabIndex = 13;
             // 
             // label13
             // 
@@ -325,7 +325,7 @@ namespace JP4
             this.combo_local_destino.Location = new System.Drawing.Point(291, 125);
             this.combo_local_destino.Name = "combo_local_destino";
             this.combo_local_destino.Size = new System.Drawing.Size(128, 21);
-            this.combo_local_destino.TabIndex = 8;
+            this.combo_local_destino.TabIndex = 9;
             // 
             // label11
             // 
@@ -344,7 +344,7 @@ namespace JP4
             this.combo_local_orig.Location = new System.Drawing.Point(85, 125);
             this.combo_local_orig.Name = "combo_local_orig";
             this.combo_local_orig.Size = new System.Drawing.Size(128, 21);
-            this.combo_local_orig.TabIndex = 7;
+            this.combo_local_orig.TabIndex = 8;
             // 
             // label10
             // 
@@ -360,7 +360,7 @@ namespace JP4
             this.text_qtd_movt.Location = new System.Drawing.Point(85, 99);
             this.text_qtd_movt.Name = "text_qtd_movt";
             this.text_qtd_movt.Size = new System.Drawing.Size(128, 20);
-            this.text_qtd_movt.TabIndex = 6;
+            this.text_qtd_movt.TabIndex = 7;
             // 
             // label9
             // 
@@ -377,7 +377,7 @@ namespace JP4
             this.text_tipo_mov.Location = new System.Drawing.Point(489, 74);
             this.text_tipo_mov.Name = "text_tipo_mov";
             this.text_tipo_mov.Size = new System.Drawing.Size(44, 20);
-            this.text_tipo_mov.TabIndex = 16;
+            this.text_tipo_mov.TabIndex = 6;
             // 
             // label8
             // 
@@ -448,15 +448,16 @@ namespace JP4
             this.dt_movt.Location = new System.Drawing.Point(730, 38);
             this.dt_movt.Name = "dt_movt";
             this.dt_movt.Size = new System.Drawing.Size(128, 20);
-            this.dt_movt.TabIndex = 9;
+            this.dt_movt.TabIndex = 11;
             // 
             // dt_lancamento
             // 
-            this.dt_lancamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_lancamento.CustomFormat = "dd/MM/yyyy";
+            this.dt_lancamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_lancamento.Location = new System.Drawing.Point(730, 82);
             this.dt_lancamento.Name = "dt_lancamento";
             this.dt_lancamento.Size = new System.Drawing.Size(128, 20);
-            this.dt_lancamento.TabIndex = 7;
+            this.dt_lancamento.TabIndex = 12;
             // 
             // combo_operacao
             // 
