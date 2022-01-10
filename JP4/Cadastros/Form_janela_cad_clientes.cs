@@ -1,7 +1,7 @@
 ﻿using JP4.Config;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace JP4
@@ -30,15 +30,11 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 string comando_sql = "select * from db_cadastro_clientes";
 
-                OleDbConnection connection = new OleDbConnection(conecta_string);
-                OleDbDataAdapter myadapter = new OleDbDataAdapter(comando_sql, connection);
+                MySqlConnection connection = new MySqlConnection(conecta_string);
+                MySqlDataAdapter myadapter = new MySqlDataAdapter(comando_sql, connection);
                 DataTable dt = new DataTable("db_cadastro_clientes");
 
                 myadapter.Fill(dt);
@@ -55,23 +51,16 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-
         private void Carregar_controles(string cliente_id)
         {
-            
-
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 string comando_sql = "select * from db_cadastro_clientes where cliente_id= " + cliente_id;
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -98,21 +87,16 @@ namespace JP4
             }
         }
 
-
         private void Carregar_local_destino()
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 string comando_sql = "select * from db_cadastro_local_estoque";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -146,19 +130,15 @@ namespace JP4
             string cliente_nome = text_nome_reduzido.Text;
             string razao_social = text_razao_social.Text;
             string nome_fantasia = text_nome_fantasia.Text;
-            DateTime data_cadastro = date_cadastro.Value;
-            DateTime ultima_modificao = date_modificacao.Value;
+            string data_cadastro = date_cadastro.Value.ToString("yyyy/MM/dd");
+            string ultima_modificao = date_modificacao.Value.ToString("yyyy/MM/dd");
             string observacao = richText_observacao.Text;
             string local_destino_cliente = combo_local_destino.Text;
 
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
                 string comando_sql;
@@ -166,7 +146,7 @@ namespace JP4
                 comando_sql = "INSERT INTO db_cadastro_clientes(status, codigo_cliente, cliente_nome, razao_social,nome_fantasia, data_cadastro , ultima_modificao, observacao, local_destino_cliente) " +
                     "VALUES('" + status + "','" + codigo_cliente + "','" + cliente_nome + "','" + razao_social + "','" + nome_fantasia + "','" + data_cadastro + "','" + ultima_modificao + "','" + observacao +"','"+ local_destino_cliente + "')";
 
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
             }
@@ -183,8 +163,10 @@ namespace JP4
             string cliente_nome = text_nome_reduzido.Text;
             string razao_social = text_razao_social.Text;
             string nome_fantasia = text_nome_fantasia.Text;
-            DateTime data_cadastro = date_cadastro.Value;
-            DateTime ultima_modificao = date_modificacao.Value;
+            
+            string data_cadastro = date_cadastro.Value.ToString("yyyy/MM/dd");
+            string ultima_modificao = date_modificacao.Value.ToString("yyyy/MM/dd");
+
             string observacao = richText_observacao.Text;
             string local_destino_cliente = combo_local_destino.Text;
 
@@ -192,12 +174,8 @@ namespace JP4
             {
                 string comando_sql;
 
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
                 comando_sql = "UPDATE db_cadastro_clientes SET " +
@@ -212,7 +190,7 @@ namespace JP4
                         "', local_destino_cliente='" + local_destino_cliente +
                         "' WHERE cliente_id=" + cliente_id;
 
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
@@ -229,19 +207,15 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
                 string comando_sql;
 
                 comando_sql = "DELETE FROM db_cadastro_clientes WHERE cliente_id = " + cliente_id;
 
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
@@ -269,11 +243,6 @@ namespace JP4
 
 
         #endregion
-
-
-
-
-
 
 
         #region Botões de comando

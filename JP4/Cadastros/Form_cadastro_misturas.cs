@@ -1,6 +1,7 @@
 ﻿using JP4.Config;
+using MySql.Data.MySqlClient;
 using System;
-using System.Data.OleDb;
+
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -87,16 +88,16 @@ namespace JP4.Apontamento
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select * from db_cadastro_material where grupo = '05'";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -140,16 +141,16 @@ namespace JP4.Apontamento
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select * from db_cadastro_tipo_material";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -174,17 +175,17 @@ namespace JP4.Apontamento
 
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "select distinct marcador_mistura from db_cadastro_misturas";
                 // marcador_mistura
                 // SELECT DISTINCT
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -208,16 +209,16 @@ namespace JP4.Apontamento
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                //string local_default = @"C:\JP4";
+                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
                 string comando_sql = "SELECT * FROM db_cadastro_misturas WHERE marcador_mistura = '" + marcador_mistura + "'";
 
-                OleDbConnection conexao = new OleDbConnection(conecta_string);
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
-                OleDbDataReader myreader;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
                 conexao.Open();
 
                 myreader = cmd.ExecuteReader();
@@ -379,18 +380,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -418,18 +419,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -457,18 +458,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -496,18 +497,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -535,18 +536,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -574,18 +575,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -613,18 +614,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -652,18 +653,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -691,18 +692,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -730,18 +731,18 @@ namespace JP4.Apontamento
                 try
                 {
                     string comando_sql;
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_cadastro_misturas(num_transac, data_lanc, dia_lanc, mes_lanc, ano_lanc, marcador_mistura, tipo_mistura, descr_mp, percentual_mistura, marcador_campo) " +
                     "VALUES('" + num_transac + "','" + data_lanc + "','" + dia_lanc + "','" + mes_lanc + "','" + ano_lanc + "','" + marcador_mistura + "','" + tipo_mistura + "','" + descr_mp + "','" + percentual_mistura + "','" + marcador_campo + "')";
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
                 }
@@ -770,12 +771,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -792,7 +793,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_01.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -818,12 +819,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -840,7 +841,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_02.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -866,12 +867,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -888,7 +889,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_03.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -914,12 +915,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -936,7 +937,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_04.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -962,12 +963,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -984,7 +985,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_05.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -1010,12 +1011,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -1032,7 +1033,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_06.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -1058,12 +1059,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -1080,7 +1081,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_07.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -1106,12 +1107,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -1128,7 +1129,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_08.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -1154,12 +1155,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -1176,7 +1177,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_09.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -1202,12 +1203,12 @@ namespace JP4.Apontamento
 
                 try
                 {
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+                    //string local_default = @"C:\JP4";
+                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                    OleDbConnection conexao = new OleDbConnection(conecta_string);
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
 
@@ -1224,7 +1225,7 @@ namespace JP4.Apontamento
                         "' WHERE id_estrutura=" + Convert.ToInt64(label_status_10.Text) + "";
 
 
-                    OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                     cmd.ExecuteNonQuery();
                     conexao.Close();
 
@@ -1238,18 +1239,18 @@ namespace JP4.Apontamento
         private void Deletar_targ_mistura(string num_transac)
         {
             string comando_sql;
-            //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-            IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-            string local_default = @"C:\JP4";
-            string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
+            string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+            //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
+            //string local_default = @"C:\JP4";
+            //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-            OleDbConnection conexao = new OleDbConnection(conecta_string);
+            MySqlConnection conexao = new MySqlConnection(conecta_string);
             conexao.Open();
             try
             {
                 comando_sql = "DELETE FROM db_cadastro_misturas WHERE num_transac ='" + num_transac + "'";
 
-                OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
             }

@@ -202,6 +202,11 @@
       <DependentUpon>Form_exportar_dados.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\IniFile.cs" />
+    <Compile Include="DataSet_mysql.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_mysql.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login Usuario\Form_janela_cad_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -523,6 +528,17 @@
     <EmbeddedResource Include="Relatorio\Form_janela_report_paradas.resx">
       <DependentUpon>Form_janela_report_paradas.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet_mysql.xsc">
+      <DependentUpon>DataSet_mysql.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet_mysql.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_mysql.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet_mysql.xss">
+      <DependentUpon>DataSet_mysql.xsd</DependentUpon>
+    </None>
     <None Include="db_aplicativo_kpiDataSet.xsc">
       <DependentUpon>db_aplicativo_kpiDataSet.xsd</DependentUpon>
     </None>

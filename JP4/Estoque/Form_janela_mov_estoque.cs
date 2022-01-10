@@ -728,16 +728,16 @@ namespace JP4
 
             // Como fazer insert valores mysql
 
-            double qtd_movto = Convert.ToDouble(text_qtd_movt.Text.Replace('.', ',')) * Fator_conversao(cod_descri_completa);
+            string qtd_movto = Convert.ToString(Convert.ToDouble(text_qtd_movt.Text) * Fator_conversao(cod_descri_completa)).Replace(',','.');
 
-            double qtd_real = 0.0;
+            string qtd_real = string.Empty;
             if (Busca_tipo_baixa(combo_operacao.Text) == "Saida")
             {
-                qtd_real = qtd_movto * (-1);
+                qtd_real = Convert.ToString(Convert.ToDouble(qtd_movto) * (-1));
             }
             if (Busca_tipo_baixa(combo_operacao.Text) == "Entrada")
             {
-                qtd_real = qtd_movto;// * (-1);
+                qtd_real = Convert.ToString(qtd_movto);// * (-1);
             }
 
             //double qtd_real = qtd_movto;// * (-1);
