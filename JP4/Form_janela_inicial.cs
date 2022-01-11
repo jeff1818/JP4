@@ -26,11 +26,7 @@ namespace JP4
             InitializeComponent();
 
             label_data_inicial.Text = DateTime.Today.ToString("dddd - dd/MM/yyyy").ToUpper();
-            label_inicio_versao_prog.Text = Application.ProductVersion;
-
-            //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-            //label_inicial_ultimo_backup.Text = config_ini.IniReadString("DT_ULTIMO_BK", "data_ultimo_bk", "01/11/2021");
-            //label_inicial_ultimo_backup.Text = Properties.Settings.Default.dt_ultimo_backup.ToString();
+            label_inicio_versao_prog.Text = Application.ProductVersion;            
 
             label_status.Text = "Ultimo Backup >> ";
             

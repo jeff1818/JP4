@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
 namespace Gerador_hash
 {
     public partial class Form_gerador_md5 : Form
@@ -17,7 +20,7 @@ namespace Gerador_hash
             InitializeComponent();
 
         }
-        
+
         public string CalculaHash(string Senha)
         {
             try

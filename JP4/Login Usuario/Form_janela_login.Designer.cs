@@ -47,6 +47,7 @@ namespace JP4
             this.label_nome_cliente = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_help = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -56,9 +57,9 @@ namespace JP4
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(70, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(53, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 109);
+            this.pictureBox1.Size = new System.Drawing.Size(190, 158);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -149,9 +150,9 @@ namespace JP4
             // 
             this.button_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_sair.Font = new System.Drawing.Font("Maiandra GD", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_sair.Location = new System.Drawing.Point(181, 305);
+            this.button_sair.Location = new System.Drawing.Point(174, 280);
             this.button_sair.Name = "button_sair";
-            this.button_sair.Size = new System.Drawing.Size(50, 23);
+            this.button_sair.Size = new System.Drawing.Size(57, 31);
             this.button_sair.TabIndex = 17;
             this.button_sair.Text = "Sair";
             this.button_sair.UseVisualStyleBackColor = true;
@@ -161,9 +162,9 @@ namespace JP4
             // 
             this.button_config_db.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_config_db.Font = new System.Drawing.Font("Maiandra GD", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_config_db.Location = new System.Drawing.Point(26, 305);
+            this.button_config_db.Location = new System.Drawing.Point(26, 280);
             this.button_config_db.Name = "button_config_db";
-            this.button_config_db.Size = new System.Drawing.Size(59, 23);
+            this.button_config_db.Size = new System.Drawing.Size(66, 31);
             this.button_config_db.TabIndex = 18;
             this.button_config_db.Text = "Config.";
             this.button_config_db.UseVisualStyleBackColor = true;
@@ -172,7 +173,7 @@ namespace JP4
             // label_status_banco
             // 
             this.label_status_banco.AutoSize = true;
-            this.label_status_banco.Location = new System.Drawing.Point(21, 342);
+            this.label_status_banco.Location = new System.Drawing.Point(23, 329);
             this.label_status_banco.Name = "label_status_banco";
             this.label_status_banco.Size = new System.Drawing.Size(13, 13);
             this.label_status_banco.TabIndex = 19;
@@ -191,10 +192,11 @@ namespace JP4
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button_help);
             this.groupBox1.Controls.Add(this.label_nome_cliente);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label_produto_id);
-            this.groupBox1.Location = new System.Drawing.Point(12, 498);
+            this.groupBox1.Location = new System.Drawing.Point(12, 546);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(260, 76);
             this.groupBox1.TabIndex = 21;
@@ -234,19 +236,31 @@ namespace JP4
             this.groupBox2.Controls.Add(this.label_dica_senha);
             this.groupBox2.Controls.Add(this.button_entrar);
             this.groupBox2.Controls.Add(this.check_lembra_senha);
-            this.groupBox2.Location = new System.Drawing.Point(12, 127);
+            this.groupBox2.Location = new System.Drawing.Point(12, 190);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(260, 365);
+            this.groupBox2.Size = new System.Drawing.Size(260, 350);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Area Login";
+            // 
+            // button_help
+            // 
+            this.button_help.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button_help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_help.Font = new System.Drawing.Font("Maiandra GD", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_help.Location = new System.Drawing.Point(236, 6);
+            this.button_help.Name = "button_help";
+            this.button_help.Size = new System.Drawing.Size(24, 23);
+            this.button_help.TabIndex = 23;
+            this.button_help.Text = "!";
+            this.button_help.UseVisualStyleBackColor = true;
             // 
             // Form_janela_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.ClientSize = new System.Drawing.Size(288, 586);
+            this.ClientSize = new System.Drawing.Size(288, 635);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
@@ -285,5 +299,6 @@ namespace JP4
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label_nome_cliente;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button_help;
     }
 }

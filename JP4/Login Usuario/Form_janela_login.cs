@@ -5,8 +5,6 @@ using System;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
-using System.Security.Cryptography;
-using System.Text;
 using System.Windows.Forms;
 
 namespace JP4
@@ -22,18 +20,21 @@ namespace JP4
                 set { _login = value; }
             }
         }
-        
+
         public Form_janela_login()
         {
             InitializeComponent();
             Criar_pasta_sistema();
-            
+
             check_lembrar_senha_pc_mysql(Nome_pc());
             Testat_sql();
 
-            Acesso_pc(Nome_pc());
+            //Acesso_pc(Nome_pc());
+
             label_nome_cliente.Text = Carregar_nome_cliente(Nome_pc());
             label_produto_id.Text = Carrega_produto_id(label_nome_cliente.Text);
+
+
 
         }
 
@@ -71,10 +72,9 @@ namespace JP4
                 conexao.Close();
             }
             catch { }
-            
+
             return nome_cliente;
         }
-
         private string Carrega_produto_id(string nome_cliente)
         {
 
@@ -94,16 +94,24 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    produto_hash = myreader["produto_hash"].ToString();
+                    if (myreader["produto_hash"].ToString() == CalculaHash(Nome_pc()))
+                    {
+                        produto_hash = myreader["produto_hash"].ToString();
+                    }
+
                 }
 
                 conexao.Close();
             }
             catch { }
 
+            if (produto_hash == string.Empty)
+            {
+                label_nome_cliente.Text = "Sem acesso!";
+            }
+
             return produto_hash;
         }
-
         private string Verificar_pc_cadastrado(string nome_pc)
         {
             string check_pc = "N";
@@ -121,7 +129,7 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    if(myreader["produto_hash"].ToString() == CalculaHash(Nome_pc()))
+                    if (myreader["produto_hash"].ToString() == CalculaHash(Nome_pc()) & myreader["controle_acesso"].ToString() == "S")
                     {
                         check_pc = "S";
                     }
@@ -129,12 +137,11 @@ namespace JP4
 
                 conexao.Close();
             }
-            catch{}
+            catch { }
 
             return check_pc;
 
         }
-
         public string CalculaHash(string Senha)
         {
             try
@@ -154,9 +161,8 @@ namespace JP4
                 return null; // Caso encontre erro retorna nulo
             }
         }
-
         private void Acesso_pc(string pc_name)
-        {            
+        {
             string data_entrada = DateTime.Today.ToString("yyyy/MM/dd");
             string hora_entrada = DateTime.Now.ToString("HH:mm:ss");
             string maquina_md5 = CalculaHash(pc_name);
@@ -635,15 +641,16 @@ namespace JP4
         }
         private void button_entrar_Click(object sender, EventArgs e)
         {
-            if (Verificar_pc_cadastrado(Nome_pc()) == "S"){
+            if (Verificar_pc_cadastrado(Nome_pc()) == "S")
+            {
 
                 Login_usuario_mysql(text_usuario.Text, text_senha.Text);
             }
             else
             {
-                MessageBox.Show("Você não tem autorizaçao para usar esta versão do programa, verifique sua licenca com admin!");
+                MessageBox.Show("Computador sem permissão de uso!");
             }
-                        
+
             //Login_usuario_mysql(text_usuario.Text, text_senha.Text);
 
         }

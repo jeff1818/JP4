@@ -90,19 +90,7 @@ namespace JP4
 
                         if (resposta == DialogResult.Yes)
                         {
-                            //salvar_paradas_mq();
-                            //Salvar_mistura();
-                            Apontar_ordem(this.label_tipo_movimento.Text);
-
-                            //MessageBox.Show("Salvo com Sucesso!!");
-                            //tab_menu_apontamento.SelectedTab = tab_apontamento;
-                            //toolStripStatusLabel_status_apon.Text = "Apontamento feito com Sucesso!";
-                            //Limpar_campos();
-
-                            //button_paradas.BackColor = Color.Transparent;
-                            //button_defeitos.BackColor = Color.Transparent;
-                            //button_mistura_mp.BackColor = Color.Transparent;
-                            //this.Refresh();
+                            Apontar_ordem(this.label_tipo_movimento.Text);                            
                         }
                         else if (resposta == DialogResult.No)
                         {
@@ -339,10 +327,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select local_aplicacao, empresa from db_cadastro_material where descricao_completa ='" + descricao_completa + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -376,10 +360,6 @@ namespace JP4
             {
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_empresas";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -409,10 +389,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_turnos";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -439,10 +415,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_equipamento";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -474,10 +446,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_operador"; //where equipamento = 'Picotadeira'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -510,10 +478,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_operador where equipamento = '"+ equipamento + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -546,10 +510,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_local_estoque";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -579,10 +539,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_local_estoque";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -612,10 +568,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select local_estoque from db_cadastro_material where codigo_item ='" + cod_item + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -644,10 +596,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_clientes";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -676,10 +624,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_paradas where origem_apara ='" + origem_apara + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -729,10 +673,6 @@ namespace JP4
                 // Mudei para aceitar o cliente
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura where cliente='"+ cliente+ "' and maquina_destino = '"+ maquina_destino +"'";
 
                 MySqlConnection connection = new MySqlConnection(conecta_string);
@@ -784,10 +724,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_apara where origem_apara ='" + origem_apara + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -872,21 +808,17 @@ namespace JP4
         {
             try
             {
-                // Esta aparecendo um erro e não puxar do  jeito certo 
+                // Esta aparecendo um erro e não puxa do  jeito certo 
                 // 08/03/2021 - 17:37
                 // 
 
                 var turno = this.combo_turnos.Text;
 
-                DateTime hora_inicio;
-                DateTime hora_final;
+                string hora_inicio;
+                string hora_final;
 
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_turnos where turno='" + turno + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -899,10 +831,10 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    hora_inicio = Convert.ToDateTime(myreader["inicio_turno"]);
-                    hora_final = Convert.ToDateTime(myreader["fim_turno"]);
+                    hora_inicio = Convert.ToDateTime(myreader["inicio_turno"]).ToString("HH:mm");
+                    hora_final = Convert.ToDateTime(myreader["fim_turno"]).ToString("HH:mm");
 
-                    this.label_descri_turno.Text = hora_inicio.ToString("HH:mm") + " as " + hora_final.ToString("HH;mm");
+                    this.label_descri_turno.Text = hora_inicio + " as " + hora_final;
                 }
 
                 conexao.Close();
@@ -971,10 +903,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -1028,10 +956,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -1135,10 +1059,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + cod_descri_completa + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1175,10 +1095,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_operacao where nome_prog = '" + nome_programa + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1215,10 +1131,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1252,10 +1164,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_grupo_estoque where codigo_grupo = '" + codigo_grupo + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1289,10 +1197,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + descricao_completa + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1327,10 +1231,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_clientes where local_destino_cliente='"+ local_destino_cliente+"'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1363,10 +1263,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_material where descricao_completa='" + desc_completa + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1416,10 +1312,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_paradas where descricao_parada = '" + desc_parada + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1453,10 +1345,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_apara where descricao_apara = '" + desc_defeitos + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1491,10 +1379,6 @@ namespace JP4
             {
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_material where grupo = '05'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1551,10 +1435,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select tipo_material from db_cadastro_material where descricao_completa='" + cod_descri_completa + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -1594,10 +1474,6 @@ namespace JP4
             {
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "SELECT SUM(qtd_real) AS Total FROM estoque_trans WHERE num_docum=" + num_docum + " AND cod_operacao='APON'";
                 // SELECT NOME, SUM(PONTOS) AS total FROM tabela
 
@@ -1644,10 +1520,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_equipamento where descricao_equipamento = '" + maquina + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -2073,17 +1945,25 @@ namespace JP4
             string cod_descri_completa = this.combo_desc_completa.Text;
             string cod_descri_reduzida = Buscar_descri_reduzida(cod_descri_completa);
             int mes_proces = DateTime.Now.Month;            
-            DateTime dat_proces = DateTime.Today;
+            //DateTime dat_proces = DateTime.Today;
+            string dat_proces = DateTime.Today.ToString("yyyy/MM/dd");
 
-            DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
-            int mes_movto = dat_movto.Month;
-            int ano_movto = dat_movto.Year;
+            //DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
+            string dat_movto = dt_final_pro.Value.ToString("yyyy/MM/dd");
+            int mes_movto = DateTime.Today.Month;
+            int ano_movto = DateTime.Today.Year;
 
             string cod_operacao = this.text_operacao.Text;
-            double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
+
+            double num_docum = Convert.ToDouble(combo_ordem_prod.Text);
+
             string ies_tip_movto = tipo_movimento; //this.label_tipo_movimento.Text;
-            double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
-            double qtd_real = qtd_movto;// * (-1);
+
+            //double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
+            //double qtd_real = qtd_movto;// * (-1);
+            string qtd_movto = text_qtd_boa.Text.Replace(',', '.');
+            string qtd_real = qtd_movto;// * (-1);
+
             double fardos = Convert.ToDouble(this.text_qtd_fardos.Text);
             double num_secao_requis = 1;
             string operador = this.combo_operadores.Text;
@@ -2097,21 +1977,32 @@ namespace JP4
             string cod_turno = this.combo_turnos.Text;
             string nom_usuario = Nome_pc();
             string num_prog = this.Name;
-            double largura_material = Convert.ToDouble(text_largura.Text);
-            double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
-            double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
-            double velocidade = Convert.ToDouble(this.text_velocidade.Text);
-            double contador_fardos = Convert.ToDouble(this.text_contador.Text);
+
+            string largura_material = text_largura.Text.Replace(',','.');
+            string n_bobina_inical = text_bobina_ini.Text.Replace(',', '.');
+            string n_bobina_final = text_bobina_fim.Text.Replace(',', '.');
+            string velocidade = text_velocidade.Text.Replace(',', '.');
+            string contador_fardos = text_contador.Text.Replace(',', '.');
+
+
+            //double largura_material = Convert.ToDouble(text_largura.Text);
+            //double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
+            //double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
+            //double velocidade = Convert.ToDouble(this.text_velocidade.Text);
+            //double contador_fardos = Convert.ToDouble(this.text_contador.Text);
+
+
+
             //double peso_medio_bobina =  Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
-            
+
             double peso_total_fardo;
-            if (qtd_movto == 0 || fardos == 0)
+            if (Convert.ToDouble(qtd_movto) == 0 || fardos == 0)
             {
                 peso_total_fardo = 0;
             }
             else 
             {
-                peso_total_fardo = (qtd_movto / fardos);
+                peso_total_fardo = (Convert.ToDouble(qtd_movto) / fardos);
             }
 
             double peso_medio_bobina;
@@ -2133,10 +2024,18 @@ namespace JP4
                 }
             }
 
-            DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
-            DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
-            DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
-            DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
+            //DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
+            //DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
+            //DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
+            //DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
+
+            string hora_inical = hr_inicial_prod.Value.ToString("HH:mm:ss");
+            string hora_final = hr_final_prod.Value.ToString("HH:mm:ss");
+            string data_operac = dt_lançamento.Value.ToString("HH:mm:ss");
+            string hor_operac = DateTime.Now.ToString("HH:mm:ss");
+
+
+
             string Tipo_material = this.label_tipo_material.Text;
 
             if(richText_observacao.Text == string.Empty)
@@ -2148,7 +2047,7 @@ namespace JP4
             int status_estorno = 0;
             string cliente_apon = this.combo_cliente_esto.Text;            
             string razao_social_cliente = label_razao_social.Text;
-            num_transac = Gerar_num_transac(num_docum, hor_operac);
+            num_transac = Gerar_num_transac(num_docum, Convert.ToDateTime(hor_operac));
 
             string marcador_mistura = Aba_mistura_combo_tag_mistura.Text;
 
@@ -2157,10 +2056,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
@@ -2173,7 +2068,7 @@ namespace JP4
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
-                Consumo_estrutura(num_transac, cod_descri_completa, qtd_movto, cliente_apon, secao_nome);
+                Consumo_estrutura(num_transac, cod_descri_completa, Convert.ToDouble(qtd_movto), cliente_apon, secao_nome);
 
                 Salvar_paradas_mq(num_transac);
                 Salvar_defeitos_mq(num_transac);
