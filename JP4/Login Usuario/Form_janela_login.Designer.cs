@@ -42,16 +42,23 @@ namespace JP4
             this.button_sair = new System.Windows.Forms.Button();
             this.button_config_db = new System.Windows.Forms.Button();
             this.label_status_banco = new System.Windows.Forms.Label();
+            this.label_produto_id = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_nome_cliente = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(44, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(70, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 134);
+            this.pictureBox1.Size = new System.Drawing.Size(122, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -59,7 +66,7 @@ namespace JP4
             // check_lembra_senha
             // 
             this.check_lembra_senha.AutoSize = true;
-            this.check_lembra_senha.Location = new System.Drawing.Point(17, 277);
+            this.check_lembra_senha.Location = new System.Drawing.Point(26, 137);
             this.check_lembra_senha.Name = "check_lembra_senha";
             this.check_lembra_senha.Size = new System.Drawing.Size(104, 17);
             this.check_lembra_senha.TabIndex = 14;
@@ -71,7 +78,7 @@ namespace JP4
             // 
             this.button_entrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_entrar.Font = new System.Drawing.Font("Maiandra GD", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_entrar.Location = new System.Drawing.Point(17, 329);
+            this.button_entrar.Location = new System.Drawing.Point(26, 189);
             this.button_entrar.Name = "button_entrar";
             this.button_entrar.Size = new System.Drawing.Size(205, 35);
             this.button_entrar.TabIndex = 13;
@@ -83,7 +90,7 @@ namespace JP4
             // 
             this.button_troca_senha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_troca_senha.Font = new System.Drawing.Font("Maiandra GD", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_troca_senha.Location = new System.Drawing.Point(17, 370);
+            this.button_troca_senha.Location = new System.Drawing.Point(26, 230);
             this.button_troca_senha.Name = "button_troca_senha";
             this.button_troca_senha.Size = new System.Drawing.Size(205, 32);
             this.button_troca_senha.TabIndex = 12;
@@ -94,7 +101,7 @@ namespace JP4
             // 
             // text_senha
             // 
-            this.text_senha.Location = new System.Drawing.Point(15, 251);
+            this.text_senha.Location = new System.Drawing.Point(24, 111);
             this.text_senha.Name = "text_senha";
             this.text_senha.PasswordChar = '*';
             this.text_senha.Size = new System.Drawing.Size(207, 20);
@@ -103,7 +110,7 @@ namespace JP4
             // 
             // text_usuario
             // 
-            this.text_usuario.Location = new System.Drawing.Point(15, 187);
+            this.text_usuario.Location = new System.Drawing.Point(24, 47);
             this.text_usuario.Name = "text_usuario";
             this.text_usuario.Size = new System.Drawing.Size(207, 20);
             this.text_usuario.TabIndex = 10;
@@ -112,7 +119,7 @@ namespace JP4
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 231);
+            this.label2.Location = new System.Drawing.Point(21, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 17);
             this.label2.TabIndex = 9;
@@ -122,7 +129,7 @@ namespace JP4
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 167);
+            this.label1.Location = new System.Drawing.Point(21, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 8;
@@ -131,7 +138,7 @@ namespace JP4
             // label_dica_senha
             // 
             this.label_dica_senha.AutoSize = true;
-            this.label_dica_senha.Location = new System.Drawing.Point(14, 297);
+            this.label_dica_senha.Location = new System.Drawing.Point(23, 157);
             this.label_dica_senha.Name = "label_dica_senha";
             this.label_dica_senha.Size = new System.Drawing.Size(13, 13);
             this.label_dica_senha.TabIndex = 16;
@@ -142,7 +149,7 @@ namespace JP4
             // 
             this.button_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_sair.Font = new System.Drawing.Font("Maiandra GD", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_sair.Location = new System.Drawing.Point(172, 445);
+            this.button_sair.Location = new System.Drawing.Point(181, 305);
             this.button_sair.Name = "button_sair";
             this.button_sair.Size = new System.Drawing.Size(50, 23);
             this.button_sair.TabIndex = 17;
@@ -154,7 +161,7 @@ namespace JP4
             // 
             this.button_config_db.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_config_db.Font = new System.Drawing.Font("Maiandra GD", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_config_db.Location = new System.Drawing.Point(17, 445);
+            this.button_config_db.Location = new System.Drawing.Point(26, 305);
             this.button_config_db.Name = "button_config_db";
             this.button_config_db.Size = new System.Drawing.Size(59, 23);
             this.button_config_db.TabIndex = 18;
@@ -165,31 +172,84 @@ namespace JP4
             // label_status_banco
             // 
             this.label_status_banco.AutoSize = true;
-            this.label_status_banco.Location = new System.Drawing.Point(14, 482);
+            this.label_status_banco.Location = new System.Drawing.Point(21, 342);
             this.label_status_banco.Name = "label_status_banco";
             this.label_status_banco.Size = new System.Drawing.Size(13, 13);
             this.label_status_banco.TabIndex = 19;
             this.label_status_banco.Text = "--";
             this.label_status_banco.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label_produto_id
+            // 
+            this.label_produto_id.AutoSize = true;
+            this.label_produto_id.Location = new System.Drawing.Point(6, 40);
+            this.label_produto_id.Name = "label_produto_id";
+            this.label_produto_id.Size = new System.Drawing.Size(13, 13);
+            this.label_produto_id.TabIndex = 20;
+            this.label_produto_id.Text = "--";
+            this.label_produto_id.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label_nome_cliente);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label_produto_id);
+            this.groupBox1.Location = new System.Drawing.Point(12, 498);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(260, 76);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = ".";
+            // 
+            // label_nome_cliente
+            // 
+            this.label_nome_cliente.AutoSize = true;
+            this.label_nome_cliente.Location = new System.Drawing.Point(98, 16);
+            this.label_nome_cliente.Name = "label_nome_cliente";
+            this.label_nome_cliente.Size = new System.Drawing.Size(16, 13);
+            this.label_nome_cliente.TabIndex = 22;
+            this.label_nome_cliente.Text = "...";
+            this.label_nome_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Licenciado para:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.text_senha);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label_status_banco);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.button_config_db);
+            this.groupBox2.Controls.Add(this.text_usuario);
+            this.groupBox2.Controls.Add(this.button_sair);
+            this.groupBox2.Controls.Add(this.button_troca_senha);
+            this.groupBox2.Controls.Add(this.label_dica_senha);
+            this.groupBox2.Controls.Add(this.button_entrar);
+            this.groupBox2.Controls.Add(this.check_lembra_senha);
+            this.groupBox2.Location = new System.Drawing.Point(12, 127);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(260, 365);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Area Login";
+            // 
             // Form_janela_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.ClientSize = new System.Drawing.Size(249, 504);
-            this.Controls.Add(this.label_status_banco);
-            this.Controls.Add(this.button_config_db);
-            this.Controls.Add(this.button_sair);
-            this.Controls.Add(this.label_dica_senha);
+            this.ClientSize = new System.Drawing.Size(288, 586);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.check_lembra_senha);
-            this.Controls.Add(this.button_entrar);
-            this.Controls.Add(this.button_troca_senha);
-            this.Controls.Add(this.text_senha);
-            this.Controls.Add(this.text_usuario);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -198,8 +258,11 @@ namespace JP4
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Integrado";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -217,5 +280,10 @@ namespace JP4
         private System.Windows.Forms.Button button_sair;
         private System.Windows.Forms.Button button_config_db;
         private System.Windows.Forms.Label label_status_banco;
+        private System.Windows.Forms.Label label_produto_id;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_nome_cliente;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

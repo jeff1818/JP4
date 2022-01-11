@@ -28,7 +28,7 @@ namespace JP4.Cadastros
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_operador where id_tipo_material=" + id_tipo_material;
+                string comando_sql = "select * from db_cadastro_tipo_material where id_tipo_material='" + id_tipo_material+ "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -157,7 +157,7 @@ namespace JP4.Cadastros
 
                 string comando_sql;
 
-                comando_sql = "DELETE FROM db_cadastro_tipo_material WHERE id_operador = " + id_tipo_material;
+                comando_sql = "DELETE FROM db_cadastro_tipo_material WHERE id_tipo_material = " + id_tipo_material;
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();

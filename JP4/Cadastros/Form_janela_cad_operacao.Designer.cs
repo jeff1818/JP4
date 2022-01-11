@@ -30,6 +30,7 @@ namespace JP4
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_sair = new System.Windows.Forms.Button();
             this.button_limpar_controles = new System.Windows.Forms.Button();
             this.button_atualizar = new System.Windows.Forms.Button();
             this.button_filtrar = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@ namespace JP4
             this.text_cod_operacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_sair = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_cad_operacao)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -67,6 +67,16 @@ namespace JP4
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Menu";
+            // 
+            // button_sair
+            // 
+            this.button_sair.Location = new System.Drawing.Point(12, 178);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(114, 23);
+            this.button_sair.TabIndex = 14;
+            this.button_sair.Text = "Sair";
+            this.button_sair.UseVisualStyleBackColor = true;
+            this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
             // 
             // button_limpar_controles
             // 
@@ -155,7 +165,8 @@ namespace JP4
             // 
             this.combo_programa_destino.FormattingEnabled = true;
             this.combo_programa_destino.Items.AddRange(new object[] {
-            "AP01"});
+            "AP01",
+            "STOQ01"});
             this.combo_programa_destino.Location = new System.Drawing.Point(340, 44);
             this.combo_programa_destino.Name = "combo_programa_destino";
             this.combo_programa_destino.Size = new System.Drawing.Size(121, 21);
@@ -230,16 +241,6 @@ namespace JP4
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo:";
-            // 
-            // button_sair
-            // 
-            this.button_sair.Location = new System.Drawing.Point(12, 178);
-            this.button_sair.Name = "button_sair";
-            this.button_sair.Size = new System.Drawing.Size(114, 23);
-            this.button_sair.TabIndex = 14;
-            this.button_sair.Text = "Sair";
-            this.button_sair.UseVisualStyleBackColor = true;
-            this.button_sair.Click += new System.EventHandler(this.button_sair_Click);
             // 
             // Form_janela_cad_operacao
             // 

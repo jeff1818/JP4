@@ -1,14 +1,13 @@
-﻿using ClosedXML.Excel;
-using JP4.Config;
+﻿using JP4.Config;
 using JP4.Login_Usuario;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
-using System.Configuration;
-using Ubiety.Dns.Core;
 
 namespace JP4
 {
@@ -23,54 +22,173 @@ namespace JP4
                 set { _login = value; }
             }
         }
-
+        
         public Form_janela_login()
         {
             InitializeComponent();
             Criar_pasta_sistema();
-
-            //check_lembrar_senha_pc(Nome_pc());
+            
             check_lembrar_senha_pc_mysql(Nome_pc());
-
-
-            // label_status_banco.Text = "";
-
-            //Testar_conexao();
             Testat_sql();
 
-            exportar_mysql();
+            Acesso_pc(Nome_pc());
+            label_nome_cliente.Text = Carregar_nome_cliente(Nome_pc());
+            label_produto_id.Text = Carrega_produto_id(label_nome_cliente.Text);
 
         }
 
         // ---------------------------------------------------
 
-        private void exportar_mysql()
-        {
-            // SELECT* FROM cadastro INTO OUTFILE '/tmp/cadastro.csv' FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n'
+        #region Area de licença de sofware
 
+        // Vincular o nome do computador ao usuário que "comprou"
+        // Verificar se ele tem permissão de usar
+        // Gerar serial number 
+        // verificar se esta liberador ou não
+
+        private string Carregar_nome_cliente(string nome_pc)
+        {
+            // 02db_cadastro_computadores
+
+            string nome_cliente = string.Empty;
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from 02db_cadastro_computadores where nome_pc= '" + nome_pc + "'";
+
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    nome_cliente = myreader["nome_cliente"].ToString();
+                }
+
+                conexao.Close();
+            }
+            catch { }
+            
+            return nome_cliente;
+        }
+
+        private string Carrega_produto_id(string nome_cliente)
+        {
+
+            string produto_hash = string.Empty;
 
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = @"SELECT * FROM 01db_cadastro_usuarios INTO OUTFILE 'C:\JP4\cadastro.csv'";
+                string comando_sql = "select * from 02db_cadastro_computadores where nome_cliente= '" + nome_cliente + "'";
+
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
-
+                MySqlDataReader myreader;
                 conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    produto_hash = myreader["produto_hash"].ToString();
+                }
 
                 conexao.Close();
             }
-            catch
+            catch { }
+
+            return produto_hash;
+        }
+
+        private string Verificar_pc_cadastrado(string nome_pc)
+        {
+            string check_pc = "N";
+            try
             {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from 02db_cadastro_computadores where nome_pc= '" + nome_pc + "'";
 
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
+                conexao.Open();
+
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if(myreader["produto_hash"].ToString() == CalculaHash(Nome_pc()))
+                    {
+                        check_pc = "S";
+                    }
+                }
+
+                conexao.Close();
             }
+            catch{}
 
-            
-
-
+            return check_pc;
 
         }
 
+        public string CalculaHash(string Senha)
+        {
+            try
+            {
+                System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(Senha);
+                byte[] hash = md5.ComputeHash(inputBytes);
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("X2"));
+                }
+                return sb.ToString(); // Retorna senha criptografada 
+            }
+            catch (Exception)
+            {
+                return null; // Caso encontre erro retorna nulo
+            }
+        }
+
+        private void Acesso_pc(string pc_name)
+        {            
+            string data_entrada = DateTime.Today.ToString("yyyy/MM/dd");
+            string hora_entrada = DateTime.Now.ToString("HH:mm:ss");
+            string maquina_md5 = CalculaHash(pc_name);
+
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                conexao.Open();
+
+                string comando_sql;
+
+                comando_sql = "INSERT INTO 03db_controle_acesso(nome_pc, data_entrada, hora_entrada, maquina_md5) " +
+                    "VALUES('" + pc_name + "','" + data_entrada + "','" + hora_entrada + "','" + maquina_md5 + "')";
+
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+
+            }
+
+        }
+
+        #endregion
+
+
+
+        // -----------------------------------------------------------------------
         private void check_lembrar_senha_pc_mysql(string nome_pc)
         {
             try
@@ -288,10 +406,7 @@ namespace JP4
 
         }
 
-        // ---------------------------------------------------
-
-
-
+        // -----------------------------------------------------------------------
 
         private void Testar_conexao()
         {
@@ -326,7 +441,6 @@ namespace JP4
                 //MessageBox.Show(erro.Message);
             }
         }
-
         public void Criar_pasta_sistema()
         {
             string folderName = @"C:\JP4";
@@ -350,12 +464,7 @@ namespace JP4
         {
             try
             {
-                //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                string local_default = @"C:\JP4";
-                string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 string comando_sql = "select * from 01db_cadastro_usuarios where nome_pc = '" + nome_pc + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
@@ -394,11 +503,7 @@ namespace JP4
                     string nome_pc = Nome_pc();
                     string comando_sql;
 
-                    //string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    string local_default = @"C:\JP4";
-                    string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                     OleDbConnection conexao = new OleDbConnection(conecta_string);
                     conexao.Open();
 
@@ -530,8 +635,17 @@ namespace JP4
         }
         private void button_entrar_Click(object sender, EventArgs e)
         {
-            //Login_usuario(text_usuario.Text, text_senha.Text);
-            Login_usuario_mysql(text_usuario.Text, text_senha.Text);
+            if (Verificar_pc_cadastrado(Nome_pc()) == "S"){
+
+                Login_usuario_mysql(text_usuario.Text, text_senha.Text);
+            }
+            else
+            {
+                MessageBox.Show("Você não tem autorizaçao para usar esta versão do programa, verifique sua licenca com admin!");
+            }
+                        
+            //Login_usuario_mysql(text_usuario.Text, text_senha.Text);
+
         }
         private void text_senha_Enter(object sender, EventArgs e)
         {

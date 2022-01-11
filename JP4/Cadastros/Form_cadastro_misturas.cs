@@ -89,10 +89,6 @@ namespace JP4.Apontamento
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_material where grupo = '05'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -142,10 +138,6 @@ namespace JP4.Apontamento
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_cadastro_tipo_material";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -176,10 +168,6 @@ namespace JP4.Apontamento
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select distinct marcador_mistura from db_cadastro_misturas";
                 // marcador_mistura
                 // SELECT DISTINCT
@@ -210,10 +198,6 @@ namespace JP4.Apontamento
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "SELECT * FROM db_cadastro_misturas WHERE marcador_mistura = '" + marcador_mistura + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -365,10 +349,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -381,10 +365,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -404,10 +384,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -420,10 +400,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -443,10 +419,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -459,10 +435,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -482,10 +454,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -498,10 +470,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -521,10 +489,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -537,10 +505,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -560,10 +524,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -576,10 +540,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -599,10 +559,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -615,10 +575,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -638,10 +594,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -654,10 +610,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -677,10 +629,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -693,10 +645,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -716,10 +664,10 @@ namespace JP4.Apontamento
             {
                 string num_transac = Gerar_num_transac(DateTime.Now, DateTime.Now);
 
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -732,10 +680,6 @@ namespace JP4.Apontamento
                 {
                     string comando_sql;
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -757,10 +701,10 @@ namespace JP4.Apontamento
         {
             if (label_status_01.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -772,10 +716,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -805,10 +745,10 @@ namespace JP4.Apontamento
             }
             if (label_status_02.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -820,10 +760,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -853,10 +789,10 @@ namespace JP4.Apontamento
             }
             if (label_status_03.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -868,10 +804,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -901,10 +833,10 @@ namespace JP4.Apontamento
             }
             if (label_status_04.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -916,10 +848,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -949,10 +877,10 @@ namespace JP4.Apontamento
             }
             if (label_status_05.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -964,10 +892,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -997,10 +921,10 @@ namespace JP4.Apontamento
             }
             if (label_status_06.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -1012,10 +936,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -1045,10 +965,10 @@ namespace JP4.Apontamento
             }
             if (label_status_07.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -1060,10 +980,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -1093,10 +1009,10 @@ namespace JP4.Apontamento
             }
             if (label_status_08.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -1108,10 +1024,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -1141,10 +1053,10 @@ namespace JP4.Apontamento
             }
             if (label_status_09.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -1156,10 +1068,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -1189,10 +1097,10 @@ namespace JP4.Apontamento
             }
             if (label_status_10.Text != "id")
             {
-                DateTime data_lanc = DateTime.Now;
-                int dia_lanc = data_lanc.Day;
-                int mes_lanc = data_lanc.Month;
-                int ano_lanc = data_lanc.Year;
+                string data_lanc = DateTime.Now.ToString("yyyy/MM/dd");
+                int dia_lanc = DateTime.Today.Day;
+                int mes_lanc = DateTime.Today.Month;
+                int ano_lanc = DateTime.Today.Year;
 
                 string marcador_mistura = text_tag_cod_mistura.Text;
                 string tipo_mistura = combo_tipo_mistura.Text;
@@ -1204,10 +1112,6 @@ namespace JP4.Apontamento
                 try
                 {
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
                     string comando_sql;
@@ -1240,10 +1144,6 @@ namespace JP4.Apontamento
         {
             string comando_sql;
             string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-            //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-            //string local_default = @"C:\JP4";
-            //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
             MySqlConnection conexao = new MySqlConnection(conecta_string);
             conexao.Open();
             try

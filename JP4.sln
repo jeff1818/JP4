@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JP4", "JP4\JP4.csproj", "{C1DFF987-96D8-4F95-A2F9-D5B35856D618}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpdateJP", "AutoUpdateJP\AutoUpdateJP.csproj", "{A76399D4-EB15-497B-988C-EA38EA25667F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gerador_hash", "Gerador_hash\Gerador_hash.csproj", "{369C2E96-EAE4-4985-85F6-64DB1574A8CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A76399D4-EB15-497B-988C-EA38EA25667F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A76399D4-EB15-497B-988C-EA38EA25667F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A76399D4-EB15-497B-988C-EA38EA25667F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369C2E96-EAE4-4985-85F6-64DB1574A8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369C2E96-EAE4-4985-85F6-64DB1574A8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369C2E96-EAE4-4985-85F6-64DB1574A8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369C2E96-EAE4-4985-85F6-64DB1574A8CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

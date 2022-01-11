@@ -106,8 +106,8 @@ namespace JP4.Cadastros
             //observacao
 
             string turno = text_descri_turno.Text;
-            DateTime inicio_turno = hr_inicial.Value;
-            DateTime fim_turno = hr_final.Value;
+            string inicio_turno = hr_inicial.Value.ToString("HH:mm:ss");
+            string fim_turno = hr_final.Value.ToString("HH:mm:ss"); 
             string observacao = rich_observacao.Text;
             
             try
@@ -139,8 +139,8 @@ namespace JP4.Cadastros
         private void Atualizar_turno(string id_turno)
         {
             string turno = text_descri_turno.Text;
-            DateTime inicio_turno = hr_inicial.Value;
-            DateTime fim_turno = hr_final.Value;
+            string inicio_turno = hr_inicial.Value.ToString("HH:mm:ss");
+            string fim_turno = hr_final.Value.ToString("HH:mm:ss");
             string observacao = rich_observacao.Text;
 
             try
