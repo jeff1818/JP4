@@ -5,10 +5,10 @@
     <Setting Name="db_aplicativo_kpiConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionString&gt;Dsn=MySQL - Remote;uid=jefersondev;pwd=h4ck3rtcho!@&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Server=db-gestao-prod.mysql.uhserver.com;Database=db_gestao_prod;Uid=jefersondev;Pwd='h4ck3rtcho!@';Connect Timeout=30; convert zero datetime=True&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.Odbc&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Dsn=MySQL - Remote;uid=jefersondev;pwd=h4ck3rtcho!@</Value>
+      <Value Profile="(Default)">Server=db-gestao-prod.mysql.uhserver.com;Database=db_gestao_prod;Uid=jefersondev;Pwd='h4ck3rtcho!@';Connect Timeout=30; convert zero datetime=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

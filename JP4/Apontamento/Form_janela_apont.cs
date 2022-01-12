@@ -831,10 +831,10 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    hora_inicio = Convert.ToDateTime(myreader["inicio_turno"]).ToString("HH:mm");
-                    hora_final = Convert.ToDateTime(myreader["fim_turno"]).ToString("HH:mm");
+                    hora_inicio = myreader["inicio_turno"].ToString();
+                    hora_final = myreader["fim_turno"].ToString();
 
-                    this.label_descri_turno.Text = hora_inicio + " as " + hora_final;
+                    label_descri_turno.Text = hora_inicio + " as " + hora_final;
                 }
 
                 conexao.Close();
@@ -1984,42 +1984,39 @@ namespace JP4
             string velocidade = text_velocidade.Text.Replace(',', '.');
             string contador_fardos = text_contador.Text.Replace(',', '.');
 
-
             //double largura_material = Convert.ToDouble(text_largura.Text);
             //double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
             //double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
             //double velocidade = Convert.ToDouble(this.text_velocidade.Text);
             //double contador_fardos = Convert.ToDouble(this.text_contador.Text);
 
-
-
             //double peso_medio_bobina =  Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
 
-            double peso_total_fardo;
+            string peso_total_fardo;
             if (Convert.ToDouble(qtd_movto) == 0 || fardos == 0)
             {
-                peso_total_fardo = 0;
+                peso_total_fardo = "0";
             }
             else 
             {
-                peso_total_fardo = (Convert.ToDouble(qtd_movto) / fardos);
+                peso_total_fardo = Convert.ToString( (Convert.ToDouble(qtd_movto) / fardos)).Replace(',','.');
             }
 
-            double peso_medio_bobina;
+            string peso_medio_bobina;
             
-            if (peso_total_fardo == 0)
+            if (Convert.ToDouble(peso_total_fardo) == 0)
             {
-                peso_medio_bobina = 0;
+                peso_medio_bobina = "0";
             }
             else
             {
                 try
                 {
-                    peso_medio_bobina = peso_total_fardo / Peso_medio_bobina(cod_descri_completa); // Fazer metodo pra calcular o peso
+                    peso_medio_bobina =  Convert.ToString(Convert.ToDouble(peso_total_fardo) / Peso_medio_bobina(cod_descri_completa)).Replace(',','.'); // Fazer metodo pra calcular o peso
                 }
                 catch (DivideByZeroException)
                 {
-                    peso_medio_bobina = 0;
+                    peso_medio_bobina = "0";
                     MessageBox.Show("O apontamento vai ser salvo \r\n Porem, o item apontado esta com erro no cadastro \r\n Vá ate o cadastro do item e informe um numero maior que zero no campo [Qtd Embalagem]");
                 }
             }
@@ -2031,7 +2028,7 @@ namespace JP4
 
             string hora_inical = hr_inicial_prod.Value.ToString("HH:mm:ss");
             string hora_final = hr_final_prod.Value.ToString("HH:mm:ss");
-            string data_operac = dt_lançamento.Value.ToString("HH:mm:ss");
+            string data_operac = dt_lançamento.Value.ToString("yyyy/MM/dd");
             string hor_operac = DateTime.Now.ToString("HH:mm:ss");
 
 
@@ -2108,8 +2105,12 @@ namespace JP4
             int mes_proces = DateTime.Now.Month;
             int mes_movto = DateTime.Now.Month;
             int ano_movto = DateTime.Now.Year;
-            DateTime dat_proces = DateTime.Today;
-            DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
+            
+            //DateTime dat_proces = DateTime.Today;
+            //DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
+            string dat_proces = DateTime.Today.ToString("yyyy/MM/dd");
+            string dat_movto = dt_final_pro.Value.ToString("yyyy/MM/dd");
+
             string cod_operacao = Buscar_operacao("AP01", "Saida"); //this.text_operacao.Text;
             double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
             string ies_tip_movto = this.label_tipo_movimento.Text;
@@ -2137,10 +2138,17 @@ namespace JP4
             double contador_fardos = Convert.ToDouble(this.text_contador.Text);
             double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
             double peso_total_fardo = 0; // Fazer metodos pra calcular
-            DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
-            DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
-            DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
-            DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
+            
+            //DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
+            //DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
+            //DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
+            //DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
+
+            string hora_inical = hr_inicial_prod.Value.ToString("HH:mm");
+            string hora_final = hr_final_prod.Value.ToString("HH:mm");
+            string data_operac = dt_lançamento.Value.ToString("yyyy/MM/dd");
+            string hor_operac = DateTime.Now.ToString("HH:mm");
+
             string Tipo_material = ""; // this.label_tipo_material.Text;
             string observacao = "";//this.richText_observacao.Text;
 
@@ -2243,13 +2251,22 @@ namespace JP4
             int mes_proces = DateTime.Now.Month;
             int mes_movto = DateTime.Now.Month;
             int ano_movto = DateTime.Now.Year;
-            DateTime dat_proces = DateTime.Today;
-            DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
+            
+            //DateTime dat_proces = DateTime.Today;
+            //DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
+            string dat_proces = DateTime.Today.ToString("yyyy/MM/dd");
+            string dat_movto = dt_final_pro.Value.ToString("yyyy/MM/dd");
+
             string cod_operacao = this.text_operacao.Text;
             double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
             string ies_tip_movto = tipo_movimento; // this.label_tipo_movimento.Text;
-            double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
-            double qtd_real = qtd_movto * (-1); // mudou aqui
+
+            //double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
+            //double qtd_real = qtd_movto * (-1); // mudou aqui
+
+            string qtd_movto = text_qtd_boa.Text.Replace(',','.');
+            string qtd_real = Convert.ToString(Convert.ToDouble(qtd_movto) * (-1)); // mudou aqui
+
             double fardos = Convert.ToDouble(this.text_qtd_fardos.Text) * (-1); // Mudou
             double num_secao_requis = 1;
             string operador = this.combo_operadores.Text;
@@ -2270,10 +2287,17 @@ namespace JP4
             double contador_fardos = Convert.ToDouble(this.text_contador.Text);
             double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
             double peso_total_fardo = 0; // Fazer metodos pra calcular
-            DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
-            DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
-            DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
-            DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
+
+            //DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
+            //DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
+            //DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
+            //DateTime hor_operac = Convert.ToDateTime(DateTime.Now);
+
+            string hora_inical = hr_inicial_prod.Value.ToString("HH:mm");
+            string hora_final = hr_final_prod.Value.ToString("HH:mm");
+            string data_operac = dt_lançamento.Value.ToString("yyyy/MM/dd");
+            string hor_operac = DateTime.Now.ToString("HH:mm");
+
             string Tipo_material = this.label_tipo_material.Text;
             string observacao = this.richText_observacao.Text;
 
@@ -2974,15 +2998,16 @@ namespace JP4
                 string operador = label_AbaDefeitos_operador.Text;
                 string codigo_defeitos;
                 string descricao_defeitos = AbaDefeito_combo_defeito01.Text;
-                double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd01.Text, cultures);
+                //double qtd_defeitos = Convert.ToDouble(AbaDefeito_text_qtd01.Text, cultures);
+                string qtd_defeitos = AbaDefeito_text_qtd01.Text.Replace(',', '.');
                 string observacao = richText_label_AbaDefeitos_obs.Text;
                 string num_transac = num_tran;
                 string campo_marcador = AbaDefeito_combo_defeito01.Name;
                 codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
-                DateTime data_lanc = Convert.ToDateTime(label_AbaDefeitos_data.Text);
+                string data_lanc = Convert.ToDateTime(label_AbaDefeitos_data.Text).ToString("yyyy/MM/dd") ;
 
-                double mes_lanc = data_lanc.Month;
-                double ano_lanc = data_lanc.Year;
+                double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
                 try
                 {
@@ -3485,18 +3510,26 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada01.Text;
-                    DateTime hora_inicio = abaParada_hr_inicio01.Value;
-                    DateTime hora_final = abaParada_hr_fim01.Value;
-                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+                    
+                    //DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    //DateTime hora_final = abaParada_hr_fim01.Value;
+                    //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+
+                    string hora_inicio = abaParada_hr_inicio01.Value.ToString("HH:mm");
+                    string hora_final = abaParada_hr_fim01.Value.ToString("HH:mm");
+                    string total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text).ToString("HH:mm");
+
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total01.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total01.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaParada_combo_parada01.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
-                    DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
 
-                    double mes_lanc = data_lanc.Month;
-                    double ano_lanc = data_lanc.Year;
+                    //DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    string data_lanc = Convert.ToDateTime(abaParadas_label_data.Text).ToString("yyyy/MM/dd");
+
+                    double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                    double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
 
                     try
@@ -3535,9 +3568,14 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada02.Text;
-                    DateTime hora_inicio = abaParada_hr_inicio02.Value;
-                    DateTime hora_final = abaParada_hr_fim02.Value;
-                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total02.Text);
+                    //DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    //DateTime hora_final = abaParada_hr_fim01.Value;
+                    //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+
+                    string hora_inicio = abaParada_hr_inicio02.Value.ToString("HH:mm");
+                    string hora_final = abaParada_hr_fim02.Value.ToString("HH:mm");
+                    string total_horas = Convert.ToDateTime(abaParada_label_hr_total02.Text).ToString("HH:mm");
+
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total02.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total02.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
@@ -3545,10 +3583,11 @@ namespace JP4
                     string campo_marcador = abaParada_combo_parada02.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
 
-                    DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    //DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    string data_lanc = Convert.ToDateTime(abaParadas_label_data.Text).ToString("yyyy/MM/dd");
 
-                    double mes_lanc = data_lanc.Month;
-                    double ano_lanc = data_lanc.Year;
+                    double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                    double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
 
                     try
@@ -3587,18 +3626,25 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada03.Text;
-                    DateTime hora_inicio = abaParada_hr_inicio03.Value;
-                    DateTime hora_final = abaParada_hr_fim03.Value;
-                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total03.Text);
+                    //DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    //DateTime hora_final = abaParada_hr_fim01.Value;
+                    //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+
+                    string hora_inicio = abaParada_hr_inicio03.Value.ToString("HH:mm");
+                    string hora_final = abaParada_hr_fim03.Value.ToString("HH:mm");
+                    string total_horas = Convert.ToDateTime(abaParada_label_hr_total03.Text).ToString("HH:mm");
+
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total03.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total03.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
                     string campo_marcador = abaParada_combo_parada03.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
-                    DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
-                    double mes_lanc = data_lanc.Month;
-                    double ano_lanc = data_lanc.Year;
+                    //DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    string data_lanc = Convert.ToDateTime(abaParadas_label_data.Text).ToString("yyyy/MM/dd");
+
+                    double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                    double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
 
                     try
@@ -3637,19 +3683,26 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada04.Text;
-                    DateTime hora_inicio = abaParada_hr_inicio04.Value;
-                    DateTime hora_final = abaParada_hr_fim04.Value;
-                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total04.Text);
+                    //DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    //DateTime hora_final = abaParada_hr_fim01.Value;
+                    //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+
+                    string hora_inicio = abaParada_hr_inicio04.Value.ToString("HH:mm");
+                    string hora_final = abaParada_hr_fim04.Value.ToString("HH:mm");
+                    string total_horas = Convert.ToDateTime(abaParada_label_hr_total04.Text).ToString("HH:mm");
+
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total04.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total04.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
                     string campo_marcador = abaParada_combo_parada04.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
-                    DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
 
-                    double mes_lanc = data_lanc.Month;
-                    double ano_lanc = data_lanc.Year;
+                    //DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    string data_lanc = Convert.ToDateTime(abaParadas_label_data.Text).ToString("yyyy/MM/dd");
+
+                    double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                    double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
 
                     try
@@ -3688,19 +3741,26 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada05.Text;
-                    DateTime hora_inicio = abaParada_hr_inicio05.Value;
-                    DateTime hora_final = abaParada_hr_fim05.Value;
-                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total05.Text);
+                    //DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    //DateTime hora_final = abaParada_hr_fim01.Value;
+                    //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+
+                    string hora_inicio = abaParada_hr_inicio05.Value.ToString("HH:mm");
+                    string hora_final = abaParada_hr_fim05.Value.ToString("HH:mm");
+                    string total_horas = Convert.ToDateTime(abaParada_label_hr_total05.Text).ToString("HH:mm");
+
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total05.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total05.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
                     string campo_marcador = abaParada_combo_parada05.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
-                    DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
 
-                    double mes_lanc = data_lanc.Month;
-                    double ano_lanc = data_lanc.Year;
+                    //DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    string data_lanc = Convert.ToDateTime(abaParadas_label_data.Text).ToString("yyyy/MM/dd");
+
+                    double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                    double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
 
                     try
@@ -3739,19 +3799,25 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada06.Text;
-                    DateTime hora_inicio = abaParada_hr_inicio06.Value;
-                    DateTime hora_final = abaParada_hr_fim06.Value;
-                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total06.Text);
+                    //DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    //DateTime hora_final = abaParada_hr_fim01.Value;
+                    //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+
+                    string hora_inicio = abaParada_hr_inicio06.Value.ToString("HH:mm");
+                    string hora_final = abaParada_hr_fim06.Value.ToString("HH:mm");
+                    string total_horas = Convert.ToDateTime(abaParada_label_hr_total06.Text).ToString("HH:mm");
+
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total06.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total06.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
                     string campo_marcador = abaParada_combo_parada06.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
-                    DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    //DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    string data_lanc = Convert.ToDateTime(abaParadas_label_data.Text).ToString("yyyy/MM/dd");
 
-                    double mes_lanc = data_lanc.Month;
-                    double ano_lanc = data_lanc.Year;
+                    double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                    double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
 
                     try
@@ -3791,19 +3857,25 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada07.Text;
-                    DateTime hora_inicio = abaParada_hr_inicio07.Value;
-                    DateTime hora_final = abaParada_hr_fim07.Value;
-                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total07.Text);
+                    //DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    //DateTime hora_final = abaParada_hr_fim01.Value;
+                    //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+
+                    string hora_inicio = abaParada_hr_inicio07.Value.ToString("HH:mm");
+                    string hora_final = abaParada_hr_fim07.Value.ToString("HH:mm");
+                    string total_horas = Convert.ToDateTime(abaParada_label_hr_total07.Text).ToString("HH:mm");
+
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total07.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total07.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
                     string campo_marcador = abaParada_combo_parada07.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
-                    DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    //DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    string data_lanc = Convert.ToDateTime(abaParadas_label_data.Text).ToString("yyyy/MM/dd");
 
-                    double mes_lanc = data_lanc.Month;
-                    double ano_lanc = data_lanc.Year;
+                    double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                    double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
                     try
                     {
@@ -3841,19 +3913,25 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada08.Text;
-                    DateTime hora_inicio = abaParada_hr_inicio08.Value;
-                    DateTime hora_final = abaParada_hr_fim08.Value;
-                    DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total08.Text);
+                    //DateTime hora_inicio = abaParada_hr_inicio01.Value;
+                    //DateTime hora_final = abaParada_hr_fim01.Value;
+                    //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
+
+                    string hora_inicio = abaParada_hr_inicio08.Value.ToString("HH:mm");
+                    string hora_final = abaParada_hr_fim08.Value.ToString("HH:mm");
+                    string total_horas = Convert.ToDateTime(abaParada_label_hr_total08.Text).ToString("HH:mm");
+
                     double total_minutos = Convert.ToDateTime(abaParada_label_hr_total08.Text).Hour + Convert.ToDateTime(abaParada_label_hr_total08.Text).Minute;
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
 
                     string campo_marcador = abaParada_combo_parada08.Name;
                     codigo_parada = busca_cod_parada_db(descricao_parada);
-                    DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    //DateTime data_lanc = Convert.ToDateTime(abaParadas_label_data.Text);
+                    string data_lanc = Convert.ToDateTime(abaParadas_label_data.Text).ToString("yyyy/MM/dd");
 
-                    double mes_lanc = data_lanc.Month;
-                    double ano_lanc = data_lanc.Year;
+                    double mes_lanc = Convert.ToDateTime(data_lanc).Month;
+                    double ano_lanc = Convert.ToDateTime(data_lanc).Year;
 
                     try
                     {
@@ -4088,13 +4166,22 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp01.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',','.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct01.Text) / 100).Replace(',','.');
+                    string consumo_mp =  Convert.ToString( Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',','.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp01.Name;
@@ -4137,13 +4224,20 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp02.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct02.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct02.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp02.Name;
@@ -4184,13 +4278,21 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp03.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct03.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct03.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp03.Name;
@@ -4231,13 +4333,21 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp04.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct04.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct04.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp04.Name;
@@ -4279,13 +4389,21 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp05.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct05.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct05.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp05.Name;
@@ -4326,13 +4444,21 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp06.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct06.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct06.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp06.Name;
@@ -4374,13 +4500,21 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp07.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct07.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct07.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp07.Name;
@@ -4422,13 +4556,21 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp08.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct08.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct08.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp08.Name;
@@ -4470,13 +4612,21 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp09.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct09.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct09.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp09.Name;
@@ -4518,13 +4668,21 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp10.Text;
-                    double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
-                    double percentual = Convert.ToDouble(abaMistura_text_perct10.Text) / 100;
-                    double consumo_mp = producao * percentual;
+                    //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
+                    //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
+                    //double consumo_mp = producao * percentual;
+
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct10.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
+
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
                     int ano = Convert.ToDateTime(dt_inicio_pro.Value).Date.Year;
-                    DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+
+                    //DateTime data_lancamento = Convert.ToDateTime(dt_inicio_pro.Value);
+                    string data_lancamento = dt_inicio_pro.Value.ToString("yyyy/MM/dd");
+
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp10.Name;

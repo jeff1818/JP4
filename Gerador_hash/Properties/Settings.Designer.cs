@@ -26,7 +26,8 @@ namespace Gerador_hash.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Dsn=MySQL - Remote;uid=jefersondev;pwd=h4ck3rtcho!@")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=db-gestao-prod.mysql.uhserver.com;Database=db_gestao_prod;Uid=jefersondev;" +
+            "Pwd=\'h4ck3rtcho!@\';Connect Timeout=30; convert zero datetime=True")]
         public string db_aplicativo_kpiConnectionString {
             get {
                 return ((string)(this["db_aplicativo_kpiConnectionString"]));

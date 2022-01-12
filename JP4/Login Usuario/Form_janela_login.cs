@@ -29,7 +29,7 @@ namespace JP4
             check_lembrar_senha_pc_mysql(Nome_pc());
             Testat_sql();
 
-            //Acesso_pc(Nome_pc());
+            Acesso_pc(Nome_pc());
 
             label_nome_cliente.Text = Carregar_nome_cliente(Nome_pc());
             label_produto_id.Text = Carrega_produto_id(label_nome_cliente.Text);
@@ -166,6 +166,7 @@ namespace JP4
             string data_entrada = DateTime.Today.ToString("yyyy/MM/dd");
             string hora_entrada = DateTime.Now.ToString("HH:mm:ss");
             string maquina_md5 = CalculaHash(pc_name);
+            string user_name_pc = Environment.UserName;
 
             try
             {
@@ -175,8 +176,8 @@ namespace JP4
 
                 string comando_sql;
 
-                comando_sql = "INSERT INTO 03db_controle_acesso(nome_pc, data_entrada, hora_entrada, maquina_md5) " +
-                    "VALUES('" + pc_name + "','" + data_entrada + "','" + hora_entrada + "','" + maquina_md5 + "')";
+                comando_sql = "INSERT INTO 03db_controle_acesso(nome_pc, data_entrada, hora_entrada, maquina_md5, user_name_pc) " +
+                    "VALUES('" + pc_name + "','" + data_entrada + "','" + hora_entrada + "','" + maquina_md5 + "','" + user_name_pc + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
