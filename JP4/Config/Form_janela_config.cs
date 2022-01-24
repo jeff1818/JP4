@@ -3,7 +3,9 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Windows.Forms;
 
 namespace JP4
@@ -14,6 +16,8 @@ namespace JP4
         {
             InitializeComponent();
             Ler_arquivo_config_ini();
+
+            
 
         }
 
@@ -43,13 +47,50 @@ namespace JP4
             config_ini.IniWriteString("RELATORIO", "local_relatorio", text_local_arquivo_ordem.Text);
         }
 
-        
+
 
         #endregion
 
 
         #region Metodos de Atualização
-        
+
+        public void Download_file()
+        {
+            string urlArquivo = "https://onedrive.live.com/download?cid=37ABC5C967094270&resid=37ABC5C967094270%2143546&authkey=ALBey4pELk566qg";
+            string caminhoArquivo = @"C:\JP4\JP4_setup.zip";
+            
+            System.Net.WebClient client = new System.Net.WebClient();
+            client.DownloadFile(urlArquivo, caminhoArquivo);
+
+            Descompactar_arquivo();
+
+        }
+
+        private void Descompactar_arquivo()
+        {
+            try
+            {
+                System.Threading.Thread.Sleep(5000);
+                File.Delete(@"C:\JP4\setup.exe");
+
+                string zipPath = @"C:\JP4\JP4_setup.zip";
+                string extractPath = @"C:\JP4\";
+                ZipFile.ExtractToDirectory(zipPath, extractPath);
+                File.Delete(@"C:\JP4\JP4_setup.zip");
+
+                Process.Start(@"C:\JP4\setup.exe");
+                this.Close();
+            }
+            catch
+            {
+                Process.Start(@"C:\JP4\setup.exe");
+                this.Close();
+            }
+        }
+
+
+
+
         #endregion
 
         #region Arquivo TXT
@@ -455,7 +496,7 @@ namespace JP4
         }
         private void button_config_bakcup_Click(object sender, EventArgs e)
         {
-            
+
         }
         private void button1_Click(object sender, EventArgs e) { }
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)

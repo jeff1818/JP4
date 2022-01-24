@@ -86,7 +86,9 @@ namespace JP4
                     if (MessageBox.Show("Nova atualização disponivel, Deseja baixar?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         using (var client = new WebClient())
                         {
-                            Process.Start(@"C:\JP4\AutoUpdateJP.exe");
+                            CONF01 baixar_novo = new CONF01();
+                            baixar_novo.Download_file();
+                            //Process.Start(@"C:\JP4\AutoUpdateJP.exe");
                             this.Close();
                         }
                 }

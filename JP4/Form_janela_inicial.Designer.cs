@@ -41,6 +41,7 @@ namespace JP4
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.label_inicial_ultimo_backup = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel_sub_menu_cadastro = new System.Windows.Forms.Panel();
@@ -80,13 +81,12 @@ namespace JP4
             this.button_apontamento = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_estoque_atual = new System.Windows.Forms.Button();
+            this.button_exportar_dados = new System.Windows.Forms.Button();
             this.panel_central = new System.Windows.Forms.Panel();
             this.picture_inicial = new System.Windows.Forms.PictureBox();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
             this.timer_digital = new System.Windows.Forms.Timer(this.components);
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.button_exportar_dados = new System.Windows.Forms.Button();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -247,6 +247,14 @@ namespace JP4
             this.panel_menu_vertical.TabIndex = 4;
             this.panel_menu_vertical.Click += new System.EventHandler(this.panel_menu_vertical_Click);
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Black;
+            this.panel9.Location = new System.Drawing.Point(4, 453);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(5, 32);
+            this.panel9.TabIndex = 37;
+            // 
             // label_inicial_ultimo_backup
             // 
             this.label_inicial_ultimo_backup.AutoSize = true;
@@ -282,7 +290,7 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_aplica);
             this.panel_sub_menu_cadastro.Controls.Add(this.button1);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
-            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(59, 6);
+            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(140, 6);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 572);
             this.panel_sub_menu_cadastro.TabIndex = 27;
@@ -766,6 +774,21 @@ namespace JP4
             this.button_estoque_atual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_estoque_atual.UseVisualStyleBackColor = true;
             // 
+            // button_exportar_dados
+            // 
+            this.button_exportar_dados.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_exportar_dados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button_exportar_dados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_exportar_dados.ForeColor = System.Drawing.Color.White;
+            this.button_exportar_dados.Location = new System.Drawing.Point(15, 453);
+            this.button_exportar_dados.Name = "button_exportar_dados";
+            this.button_exportar_dados.Size = new System.Drawing.Size(180, 32);
+            this.button_exportar_dados.TabIndex = 36;
+            this.button_exportar_dados.Text = "Exportar Dados";
+            this.button_exportar_dados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_exportar_dados.UseVisualStyleBackColor = true;
+            this.button_exportar_dados.Click += new System.EventHandler(this.button_exportar_dados_Click);
+            // 
             // panel_central
             // 
             this.panel_central.AutoSize = true;
@@ -799,29 +822,6 @@ namespace JP4
             // 
             this.timer_digital.Enabled = true;
             this.timer_digital.Tick += new System.EventHandler(this.timer_digital_Tick);
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Black;
-            this.panel9.Location = new System.Drawing.Point(4, 453);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(5, 32);
-            this.panel9.TabIndex = 37;
-            // 
-            // button_exportar_dados
-            // 
-            this.button_exportar_dados.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.button_exportar_dados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button_exportar_dados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_exportar_dados.ForeColor = System.Drawing.Color.White;
-            this.button_exportar_dados.Location = new System.Drawing.Point(15, 453);
-            this.button_exportar_dados.Name = "button_exportar_dados";
-            this.button_exportar_dados.Size = new System.Drawing.Size(180, 32);
-            this.button_exportar_dados.TabIndex = 36;
-            this.button_exportar_dados.Text = "Exportar Dados";
-            this.button_exportar_dados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_exportar_dados.UseVisualStyleBackColor = true;
-            this.button_exportar_dados.Click += new System.EventHandler(this.button_exportar_dados_Click);
             // 
             // WINSTART
             // 

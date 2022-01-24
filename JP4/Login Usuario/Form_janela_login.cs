@@ -4,7 +4,10 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
+using System.Net;
 using System.Windows.Forms;
 
 namespace JP4
@@ -34,9 +37,59 @@ namespace JP4
             label_nome_cliente.Text = Carregar_nome_cliente(Nome_pc());
             label_produto_id.Text = Carrega_produto_id(label_nome_cliente.Text);
 
+            //Download_file();
+            //Check_update();
+        }
 
+        #region Area de Upload
+              
+
+
+        public void Download_file()
+        {
+            progressBar1.Visible = true;
+
+            string urlArquivo = "https://onedrive.live.com/download?cid=37ABC5C967094270&resid=37ABC5C967094270%2143546&authkey=ALBey4pELk566qg";
+            string caminhoArquivo = @"C:\JP4\JP4_setup.zip";
+
+            WebClient client = new WebClient();
+            client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(barra_status_download);
+
+            client.DownloadFile(urlArquivo, caminhoArquivo);
+            
+            Descompactar_arquivo();
 
         }
+        private void barra_status_download(object sender, DownloadProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+        private void Descompactar_arquivo()
+        {
+            try
+            {
+                System.Threading.Thread.Sleep(5000);
+                File.Delete(@"C:\JP4\setup.exe");
+
+                string zipPath = @"C:\JP4\JP4_setup.zip";
+                string extractPath = @"C:\JP4\";
+                ZipFile.ExtractToDirectory(zipPath, extractPath);
+                File.Delete(@"C:\JP4\JP4_setup.zip");
+
+                Process.Start(@"C:\JP4\setup.exe");
+                this.Close();
+            }
+            catch
+            {
+                Process.Start(@"C:\JP4\setup.exe");
+                this.Close();
+            }
+        }
+
+
+        #endregion
+
+
 
         // ---------------------------------------------------
 
@@ -234,7 +287,6 @@ namespace JP4
 
             }
         }
-
         private void Testat_sql()
         {
             try
@@ -280,7 +332,6 @@ namespace JP4
             */
 
         }
-
         private void Lembrar_senha_pc_mysql(string nome_usuario, int marcador)
         {
             if (marcador == 0)
@@ -334,7 +385,6 @@ namespace JP4
             }
 
         }
-
         private void Login_usuario_mysql(string user, string senha)
         {
             try
