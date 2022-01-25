@@ -140,7 +140,7 @@ namespace Gerador_hash
                 string comando_sql;
 
                 comando_sql = "INSERT INTO 02db_cadastro_computadores(nome_cliente, nome_pc, produto_hash, controle_acesso) " +
-                    "VALUES('" + nome_cliente + "','" + nome_pc + "','" + produto_hash + "','," + controle_acesso + "')";
+                    "VALUES('" + nome_cliente + "','" + nome_pc + "','" + produto_hash + "','" + controle_acesso + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();

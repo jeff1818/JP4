@@ -31,7 +31,7 @@ namespace JP4
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_consulta_estoque = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grid_consulta_estoque = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@ namespace JP4
             this.tab_inventario_geral = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tab_consulta_estoque.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_consulta_estoque)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@ namespace JP4
             // 
             // tab_consulta_estoque
             // 
-            this.tab_consulta_estoque.Controls.Add(this.dataGridView1);
+            this.tab_consulta_estoque.Controls.Add(this.grid_consulta_estoque);
             this.tab_consulta_estoque.Controls.Add(this.groupBox1);
             this.tab_consulta_estoque.Location = new System.Drawing.Point(4, 22);
             this.tab_consulta_estoque.Name = "tab_consulta_estoque";
@@ -69,15 +69,15 @@ namespace JP4
             this.tab_consulta_estoque.Text = "Consulta Estoque";
             this.tab_consulta_estoque.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // grid_consulta_estoque
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 103);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1064, 448);
-            this.dataGridView1.TabIndex = 1;
+            this.grid_consulta_estoque.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.grid_consulta_estoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_consulta_estoque.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_consulta_estoque.Location = new System.Drawing.Point(3, 103);
+            this.grid_consulta_estoque.Name = "grid_consulta_estoque";
+            this.grid_consulta_estoque.Size = new System.Drawing.Size(1064, 448);
+            this.grid_consulta_estoque.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -168,7 +168,7 @@ namespace JP4
             this.Text = "Relatorio de Estoque";
             this.tabControl1.ResumeLayout(false);
             this.tab_consulta_estoque.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_consulta_estoque)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -185,7 +185,7 @@ namespace JP4
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grid_consulta_estoque;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
     }

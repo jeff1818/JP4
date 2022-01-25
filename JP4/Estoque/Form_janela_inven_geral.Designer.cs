@@ -29,6 +29,7 @@ namespace JP4
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_janela_inven_geral));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel_fechamento_mes = new System.Windows.Forms.Panel();
             this.button_fechar = new System.Windows.Forms.Button();
@@ -469,6 +470,7 @@ namespace JP4
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_janela_inven_geral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inventário Geral";

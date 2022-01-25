@@ -42,7 +42,6 @@ namespace JP4
 
         private void Carregar_imagen()
         {
-
             picture_inicial.Load(@"C:\Users\Jarvis\OneDrive\Visual - basic c#\JP4\Cadastro.png");
             
         }
@@ -290,8 +289,13 @@ namespace JP4
         }
         private void WINSTART_FormClosed(object sender, FormClosedEventArgs e)
         {
-           
+            // Exportar_dados_MYsql
+
+            Form_exportar_dados exportar_dados = new Form_exportar_dados();
+            exportar_dados.Exportar_dados_MYsql();
+
         }
+
         private void WINSTART_FormClosing(object sender, FormClosingEventArgs e)
         {
             
@@ -305,6 +309,11 @@ namespace JP4
         private void button_exportar_dados_Click(object sender, EventArgs e)
         {
             abrir_janelas(new Form_exportar_dados());
+        }
+
+        private void button_invent_geral_Click(object sender, EventArgs e)
+        {
+            abrir_janelas(new Form_janela_inven_geral());
         }
     }
 }

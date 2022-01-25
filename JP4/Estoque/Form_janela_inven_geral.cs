@@ -53,7 +53,6 @@ namespace JP4
 
 
 
-
         #endregion
 
         #region Metodos de Busca
@@ -384,27 +383,36 @@ namespace JP4
         #endregion
 
 
-
         #region Metodos de salvar // Atualizar // Deletar // Carregar
         private void Salvar_inventario()
         {
-            DateTime data_invent = date_contagem.Value;
-            DateTime data_referencia = date_referencia_mes_contagem.Value;
-            int dia_referencia = data_referencia.Day;
-            int mes_referencia = data_referencia.Month;
-            int ano_referencia = data_referencia.Year;
+            string data_invent = date_contagem.Value.ToString("yyyy/MM/dd");
+            string data_referencia = date_referencia_mes_contagem.Value.ToString("yyyy/MM/dd");
+
+            int dia_referencia = date_referencia_mes_contagem.Value.Day;
+            int mes_referencia = date_referencia_mes_contagem.Value.Month;
+            int ano_referencia = date_referencia_mes_contagem.Value.Year;
 
             string categoria_tipos = combo_categoria.Text;
             string descricao_completa = combo_descricao_item.Text;
             string unidade_medida = combo_unidade_medida.Text;
-            double fator_padrao = Convert.ToDouble(label_fator_padrao.Text);
+            
+            //double fator_padrao = Convert.ToDouble(label_fator_padrao.Text);
+            string fator_padrao = label_fator_padrao.Text;
+
             string local_destino = combo_local_destino.Text;
 
-            double qtd_kg = Convert.ToDouble(text_qtd_kg.Text);
-            
-            double qtd_fardos = Convert.ToDouble(text_qtd_fardos.Text);
-            double valor_unit = 0;
-            double valor_total= 0;
+            //double qtd_kg = Convert.ToDouble(text_qtd_kg.Text);
+            string qtd_kg = text_qtd_kg.Text.Replace(',', '.'); 
+
+            //double qtd_fardos = Convert.ToDouble(text_qtd_fardos.Text);
+            string qtd_fardos = text_qtd_fardos.Text.Replace(',', '.'); 
+
+            //double valor_unit = 0;
+            //double valor_total= 0;
+
+            string valor_unit = "0";
+            string valor_total = "0";
 
             string status_mes = string.Empty;
 
@@ -424,10 +432,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
@@ -453,38 +457,46 @@ namespace JP4
         private void Atualizar_inventario(string id_inventario)
         {
 
-            if(checkBox_mes_aberto.Checked == false)
+            if(checkBox_mes_aberto.Checked == true)
             {
 
-                DateTime data_invent = date_contagem.Value;
-                DateTime data_referencia = date_referencia_mes_contagem.Value;
-                int dia_referencia = data_referencia.Day;
-                int mes_referencia = data_referencia.Month;
-                int ano_referencia = data_referencia.Year;
+                string data_invent = date_contagem.Value.ToString("yyyy/MM/dd");
+                string data_referencia = date_referencia_mes_contagem.Value.ToString("yyyy/MM/dd");
+
+                int dia_referencia = date_referencia_mes_contagem.Value.Day;
+                int mes_referencia = date_referencia_mes_contagem.Value.Month;
+                int ano_referencia = date_referencia_mes_contagem.Value.Year;
 
                 string categoria_tipos = combo_categoria.Text;
                 string descricao_completa = combo_descricao_item.Text;
                 string unidade_medida = combo_unidade_medida.Text;
-                double fator_padrao = Convert.ToDouble(label_fator_padrao.Text);
+
+                //double fator_padrao = Convert.ToDouble(label_fator_padrao.Text);
+                string fator_padrao = label_fator_padrao.Text;
+
                 string local_destino = combo_local_destino.Text;
 
-                double qtd_kg = Convert.ToDouble(text_qtd_kg.Text);
-                double qtd_fardos = Convert.ToDouble(text_qtd_fardos.Text);
-                double valor_unit = 0;
-                double valor_total = 0;
+                //double qtd_kg = Convert.ToDouble(text_qtd_kg.Text);
+                string qtd_kg = text_qtd_kg.Text.Replace(',', '.'); 
+
+                //double qtd_fardos = Convert.ToDouble(text_qtd_fardos.Text);
+                string qtd_fardos = text_qtd_fardos.Text.Replace(',', '.');
+
+                //double valor_unit = 0;
+                //double valor_total= 0;
+
+                string valor_unit = "0";
+                string valor_total = "0";
 
                 string status_mes = string.Empty;
                 string observacao = rich_observacao.Text;
+
 
                 try
                 {
                     string comando_sql;
 
                     string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                    //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                    //string local_default = @"C:\JP4";
-                    //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                     MySqlConnection conexao = new MySqlConnection(conecta_string);
                     conexao.Open();
 
@@ -530,10 +542,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
@@ -559,10 +567,6 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select * from db_inventario_mensal where id_inventario =" + Convert.ToInt64(id_inventario) + "";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
@@ -598,12 +602,8 @@ namespace JP4
                         checkBox_mes_fechado.Checked = true;
                         checkBox_mes_aberto.Checked = false;
                     }
-
-
                 }
-
-
-                
+                                
                 conexao.Close();
 
             }

@@ -19,6 +19,19 @@ namespace JP4.Config
             Ler_arquivo_config_ini();
         }
 
+        public void Exportar_dados_MYsql()
+        {
+            if (MessageBox.Show("Deseja exportar dados antes de fechar?", "Exporta MySQL", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Exportar_dados_mysql("select * from estoque_trans", "estoque_trans", "db_estoque_trans.xlsx");
+                Exportar_dados_mysql("select * from db_defeitos_mq", "defeitos", "db_defeitos.xlsx");
+                Exportar_dados_mysql("select * from db_paradas_mq", "paradas_mq", "db_paradas.xlsx");
+                Exportar_dados_mysql("select * from db_mp_apon", "consumo_mp", "db_consumo_mp.xlsx");
+                Exportar_dados_mysql("select * from db_cadastro_material", "cadastro_material", "db_cadastro.xlsx");
+            }
+            
+
+        }
         
 
         #region Configuração INI
@@ -233,6 +246,7 @@ namespace JP4.Config
             MessageBox.Show("Todos os arquivos gerados com sucesso!");
 
             label_titulo_tabela.Text = "Finalizado!";
+
         }
 
        

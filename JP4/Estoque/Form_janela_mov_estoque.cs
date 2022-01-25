@@ -644,10 +644,6 @@ namespace JP4
             {
                 string cod_operacao = "APON";
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 string comando_sql = "select id_estoque_trans, cod_descri_completa, cod_operacao, num_docum, qtd_movto, secao_nome, data_operac, observacao, mes_movto, ano_movto, cod_local_est_orig, cod_local_est_dest from estoque_trans " +
                     "where (cod_operacao <>'" + cod_operacao + "') AND (qtd_movto >= 0 AND status_estorno = 0)";
 

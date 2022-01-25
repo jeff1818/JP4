@@ -491,8 +491,9 @@ namespace JP4
         }
         private void verificarAtualizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Upload_app.CONFI02_UP janela_up = new Upload_app.CONFI02_UP();
-            // janela_up.ShowDialog();
+            WINSTART update = new WINSTART();
+            update.Check_update();
+
         }
         private void button_config_bakcup_Click(object sender, EventArgs e)
         {

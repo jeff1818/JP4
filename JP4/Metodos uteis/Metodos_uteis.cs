@@ -3,8 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Forms;
+using MessageBox = System.Windows.MessageBox;
 
 namespace JP4.Metodos_uteis
 {
@@ -22,6 +26,19 @@ namespace JP4.Metodos_uteis
             return conecta_string;
 
         }
+
+
+        #region Metodos para Autalização
+        public void Update_material()
+        {
+            
+
+        }
+
+       
+        
+
+        #endregion
 
     }
 }
