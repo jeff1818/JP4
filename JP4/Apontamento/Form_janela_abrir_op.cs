@@ -1,12 +1,6 @@
 ﻿using ClosedXML.Excel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -29,7 +23,7 @@ namespace JP4
         //        // adicionar uma janela para o usuário esclher a pasta e local da pasta
         //        // adicionar uma opção para escolher o nome da aba dentro do arquivo
 
-                
+
         //        var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
         //        var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
         //        var totalLinhas = planilha.Rows().Count();
@@ -47,7 +41,7 @@ namespace JP4
         //    }
 
         //}
-     
+
         private void carregar_descricao_completa(string ordem_prod)
         {
             try
@@ -55,7 +49,7 @@ namespace JP4
                 // Referencia https://carloscds.net/2021/01/lendo-planilha-excel-mais-simples/
                 // adicionar uma janela para o usuário esclher a pasta e local da pasta
                 // adicionar uma opção para escolher o nome da aba dentro do arquivo
-                
+
                 var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
                 var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
                 var totalLinhas = planilha.Rows().Count();
@@ -65,7 +59,7 @@ namespace JP4
                     if (planilha.Cell($"B{l}").Value.ToString() == ordem_prod & planilha.Cell($"G{l}").Value.ToString() != "Digitada")
                     {
                         //combo_desc_completa.Text = planilha.Cell($"F{l}").Value.ToString();
-                        
+
 
                         break;
                     }

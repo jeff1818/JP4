@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -18,7 +15,7 @@ namespace JP4
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new WINSTART());
             Application.Run(new Form_janela_login());
-            
+
         }
     }
 }

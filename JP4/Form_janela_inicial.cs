@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Net;
-using System.Diagnostics;
-using System.Threading;
-using System.IO.Compression;
-using System.IO;
+﻿using JP4.Apontamento;
 using JP4.Cadastros;
 using JP4.Config;
-using JP4.Apontamento;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Net;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace JP4
 {
@@ -26,32 +17,30 @@ namespace JP4
             InitializeComponent();
 
             label_data_inicial.Text = DateTime.Today.ToString("dddd - dd/MM/yyyy").ToUpper();
-            label_inicio_versao_prog.Text = Application.ProductVersion;            
+            label_inicio_versao_prog.Text = Application.ProductVersion;
 
             label_status.Text = "Ultimo Backup >> ";
-            
+
             Check_update();
-                       
+
 
             // ativar para depois de 1 ano
             auto_destruicao();
 
             // Carregar_imagen();
 
+
+
         }
 
-        private void Carregar_imagen()
-        {
-            picture_inicial.Load(@"C:\Users\Jarvis\OneDrive\Visual - basic c#\JP4\Cadastro.png");
-            
-        }
+
 
         #region DEFCON 4
         private void auto_destruicao()
         {
             DateTime dt_hoje = DateTime.Today;
 
-            if(Properties.Settings.Default.apocalipse == dt_hoje)
+            if (Properties.Settings.Default.apocalipse == dt_hoje)
             {
                 //Tranformar o bat em EXE para ser executado no tempo determinado 
 
@@ -81,7 +70,7 @@ namespace JP4
                     label_inicio_versao_prog.Text = "Nova Versão Disponivel!";
                     label_inicio_versao_prog.BackColor = Color.LightCoral;
 
-                    
+
                     if (MessageBox.Show("Nova atualização disponivel, Deseja baixar?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         using (var client = new WebClient())
                         {
@@ -99,7 +88,7 @@ namespace JP4
         }
 
         #endregion
-        
+
 
         #region Declaração que faz o formulário se mover com o mouse
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")] private extern static void ReleaseCapture();
@@ -110,7 +99,7 @@ namespace JP4
         #region Menu do topo
 
         private void botao_fechar_Click(object sender, EventArgs e)
-        {            
+        {
             Application.Exit();
 
         }
@@ -142,7 +131,7 @@ namespace JP4
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-                
+
         private void abrir_janelas(object formularios)
         {
             if (this.panel_central.Controls.Count > 0)
@@ -253,7 +242,7 @@ namespace JP4
         }
         private void button_area_cadastro_MouseLeave(object sender, EventArgs e)
         {
-           
+
         }
         private void label_status_Click(object sender, EventArgs e)
         {
@@ -298,7 +287,7 @@ namespace JP4
 
         private void WINSTART_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
         }
         private void button_cad_mistura_Click(object sender, EventArgs e)
         {

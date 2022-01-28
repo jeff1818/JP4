@@ -17,7 +17,7 @@ namespace JP4
             InitializeComponent();
             Ler_arquivo_config_ini();
 
-            
+
 
         }
 
@@ -58,7 +58,7 @@ namespace JP4
         {
             string urlArquivo = "https://onedrive.live.com/download?cid=37ABC5C967094270&resid=37ABC5C967094270%2143546&authkey=ALBey4pELk566qg";
             string caminhoArquivo = @"C:\JP4\JP4_setup.zip";
-            
+
             System.Net.WebClient client = new System.Net.WebClient();
             client.DownloadFile(urlArquivo, caminhoArquivo);
 

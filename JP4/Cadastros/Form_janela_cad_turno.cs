@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4.Cadastros
@@ -107,9 +100,9 @@ namespace JP4.Cadastros
 
             string turno = text_descri_turno.Text;
             string inicio_turno = hr_inicial.Value.ToString("HH:mm:ss");
-            string fim_turno = hr_final.Value.ToString("HH:mm:ss"); 
+            string fim_turno = hr_final.Value.ToString("HH:mm:ss");
             string observacao = rich_observacao.Text;
-            
+
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;

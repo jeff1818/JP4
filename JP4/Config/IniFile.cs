@@ -44,13 +44,10 @@
  */
 
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using System.Reflection;
 
 
 namespace JP4.Config

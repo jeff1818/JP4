@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -57,7 +50,7 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_grupo_estoque where id_grupo_estoque= "+ id_grupo_estoque;
+                string comando_sql = "select * from db_cadastro_grupo_estoque where id_grupo_estoque= " + id_grupo_estoque;
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -89,7 +82,7 @@ namespace JP4
             string codigo_grupo = text_cod_grupo_estoque.Text;
             string nome_grupo = text_nome_grupo_estoque.Text;
             string descricao = text_descr_grupo_estoque.Text;
-            
+
 
             try
             {
@@ -100,7 +93,7 @@ namespace JP4
                 string comando_sql;
 
                 comando_sql = "INSERT INTO db_cadastro_grupo_estoque(codigo_grupo, nome_grupo, descricao) " +
-                    "VALUES('" + codigo_grupo + "','" + nome_grupo + "','" + descricao +"')";
+                    "VALUES('" + codigo_grupo + "','" + nome_grupo + "','" + descricao + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();

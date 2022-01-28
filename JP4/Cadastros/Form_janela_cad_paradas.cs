@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4.Cadastros
@@ -25,7 +18,7 @@ namespace JP4.Cadastros
         #region Carregar controles 
         private void Carregar_controles(string id_paradas)
         {
-            
+
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -76,7 +69,7 @@ namespace JP4.Cadastros
                 while (myreader.Read())
                 {
                     combo_origem_parada.Items.Add(myreader["local_estoque"].ToString());
-                    
+
                 }
 
                 conexao.Close();

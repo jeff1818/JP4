@@ -14,12 +14,12 @@ namespace JP4.Config
         {
             InitializeComponent();
             Carregar_empresa_db();
-                        
+
             label_user_logado.Text = usuario;
             Permissao_usuario(usuario);
 
         }
-        
+
 
         // Cadastrar usuarios
         // Criar senhas 
@@ -27,10 +27,10 @@ namespace JP4.Config
 
         // label_nome_usuario
         // user_type
-        
+
         //142.258.817-33
         //Mariana dos santos felix de almeida
-        
+
         #region Carregar controles
         private void Carregar_grid_usuario()
         {
@@ -45,7 +45,7 @@ namespace JP4.Config
 
                 myadapter.Fill(dt);
                 DataView dv = dt.DefaultView;
-                
+
                 grid_cad_usuario.DataSource = dv.ToTable();
 
                 connection.Close();
@@ -68,7 +68,7 @@ namespace JP4.Config
 
                 myadapter.Fill(dt);
                 DataView dv = dt.DefaultView;
-                                
+
                 grid_cad_usuario.DataSource = dv.ToTable();
 
                 connection.Close();
@@ -174,7 +174,7 @@ namespace JP4.Config
             text_senha_user.Enabled = false;
             text_dica_senha.Enabled = false;
             combo_tipo_user.Enabled = false;
-            
+
         }
         private void Limpar_controles()
         {
@@ -328,11 +328,11 @@ namespace JP4.Config
                 conexao.Close();
 
 
-                if(check_admin == 0)
+                if (check_admin == 0)
                 {
                     Carregar_grid_usuario();
                     Bloquear_controles();
-                    
+
                 }
 
                 if (check_admin == 1)

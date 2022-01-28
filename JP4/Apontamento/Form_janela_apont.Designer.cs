@@ -129,12 +129,11 @@ namespace JP4
             this.abaApon_label_id_apont = new System.Windows.Forms.Label();
             this.abaApon_label_num_transa = new System.Windows.Forms.Label();
             this.richText_observacao = new System.Windows.Forms.RichTextBox();
+            this.tab_menu_apontamento = new System.Windows.Forms.TabControl();
+            this.tab_apontamento = new System.Windows.Forms.TabPage();
             this.status_bar_apon = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_nome = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_status_apon = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar_apon = new System.Windows.Forms.ToolStripProgressBar();
-            this.tab_menu_apontamento = new System.Windows.Forms.TabControl();
-            this.tab_apontamento = new System.Windows.Forms.TabPage();
             this.tab_defeitos_apon = new System.Windows.Forms.TabPage();
             this.AbaDefeitos_button_voltar_apon = new System.Windows.Forms.Button();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
@@ -315,6 +314,7 @@ namespace JP4
             this.abaPesquisar_text_ordem = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.db_cadastro_grupo_estoqueTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_cadastro_grupo_estoqueTableAdapter();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -323,9 +323,9 @@ namespace JP4
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.status_bar_apon.SuspendLayout();
             this.tab_menu_apontamento.SuspendLayout();
             this.tab_apontamento.SuspendLayout();
+            this.status_bar_apon.SuspendLayout();
             this.tab_defeitos_apon.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.groupBox17.SuspendLayout();
@@ -453,35 +453,35 @@ namespace JP4
             // cadItensToolStripMenuItem
             // 
             this.cadItensToolStripMenuItem.Name = "cadItensToolStripMenuItem";
-            this.cadItensToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadItensToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.cadItensToolStripMenuItem.Text = "Cad. Itens";
             this.cadItensToolStripMenuItem.Click += new System.EventHandler(this.cadItensToolStripMenuItem_Click);
             // 
             // maquinasToolStripMenuItem
             // 
             this.maquinasToolStripMenuItem.Name = "maquinasToolStripMenuItem";
-            this.maquinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.maquinasToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.maquinasToolStripMenuItem.Text = "Maquinas";
             this.maquinasToolStripMenuItem.Click += new System.EventHandler(this.maquinasToolStripMenuItem_Click);
             // 
             // turnosToolStripMenuItem
             // 
             this.turnosToolStripMenuItem.Name = "turnosToolStripMenuItem";
-            this.turnosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.turnosToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.turnosToolStripMenuItem.Text = "Turnos";
             this.turnosToolStripMenuItem.Click += new System.EventHandler(this.turnosToolStripMenuItem_Click);
             // 
             // operadoresToolStripMenuItem
             // 
             this.operadoresToolStripMenuItem.Name = "operadoresToolStripMenuItem";
-            this.operadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.operadoresToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.operadoresToolStripMenuItem.Text = "Operadores";
             this.operadoresToolStripMenuItem.Click += new System.EventHandler(this.operadoresToolStripMenuItem_Click);
             // 
             // operaçãoToolStripMenuItem
             // 
             this.operaçãoToolStripMenuItem.Name = "operaçãoToolStripMenuItem";
-            this.operaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.operaçãoToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.operaçãoToolStripMenuItem.Text = "Operação";
             this.operaçãoToolStripMenuItem.Click += new System.EventHandler(this.operaçãoToolStripMenuItem_Click);
             // 
@@ -491,53 +491,53 @@ namespace JP4
             this.localDeEstoqueToolStripMenuItem,
             this.localDeAplicaçãoToolStripMenuItem});
             this.localToolStripMenuItem.Name = "localToolStripMenuItem";
-            this.localToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.localToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.localToolStripMenuItem.Text = "Local";
             // 
             // localDeEstoqueToolStripMenuItem
             // 
             this.localDeEstoqueToolStripMenuItem.Name = "localDeEstoqueToolStripMenuItem";
-            this.localDeEstoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.localDeEstoqueToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.localDeEstoqueToolStripMenuItem.Text = "Local de Estoque";
             this.localDeEstoqueToolStripMenuItem.Click += new System.EventHandler(this.localDeEstoqueToolStripMenuItem_Click);
             // 
             // localDeAplicaçãoToolStripMenuItem
             // 
             this.localDeAplicaçãoToolStripMenuItem.Name = "localDeAplicaçãoToolStripMenuItem";
-            this.localDeAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.localDeAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.localDeAplicaçãoToolStripMenuItem.Text = "Local de Aplicação";
             this.localDeAplicaçãoToolStripMenuItem.Click += new System.EventHandler(this.localDeAplicaçãoToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(132, 6);
             // 
             // empresaToolStripMenuItem
             // 
             this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
-            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.empresaToolStripMenuItem.Text = "Empresa";
             this.empresaToolStripMenuItem.Click += new System.EventHandler(this.empresaToolStripMenuItem_Click);
             // 
             // defeitosToolStripMenuItem1
             // 
             this.defeitosToolStripMenuItem1.Name = "defeitosToolStripMenuItem1";
-            this.defeitosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.defeitosToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.defeitosToolStripMenuItem1.Text = "Defeitos";
             this.defeitosToolStripMenuItem1.Click += new System.EventHandler(this.defeitosToolStripMenuItem1_Click);
             // 
             // paradasToolStripMenuItem1
             // 
             this.paradasToolStripMenuItem1.Name = "paradasToolStripMenuItem1";
-            this.paradasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.paradasToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.paradasToolStripMenuItem1.Text = "Paradas";
             this.paradasToolStripMenuItem1.Click += new System.EventHandler(this.paradasToolStripMenuItem1_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -1332,35 +1332,6 @@ namespace JP4
             this.richText_observacao.TabIndex = 24;
             this.richText_observacao.Text = "";
             // 
-            // status_bar_apon
-            // 
-            this.status_bar_apon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel_nome,
-            this.toolStripStatusLabel_status_apon,
-            this.toolStripProgressBar_apon});
-            this.status_bar_apon.Location = new System.Drawing.Point(3, 587);
-            this.status_bar_apon.Name = "status_bar_apon";
-            this.status_bar_apon.Size = new System.Drawing.Size(1186, 22);
-            this.status_bar_apon.TabIndex = 11;
-            this.status_bar_apon.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel_nome
-            // 
-            this.toolStripStatusLabel_nome.Name = "toolStripStatusLabel_nome";
-            this.toolStripStatusLabel_nome.Size = new System.Drawing.Size(17, 17);
-            this.toolStripStatusLabel_nome.Text = "--";
-            // 
-            // toolStripStatusLabel_status_apon
-            // 
-            this.toolStripStatusLabel_status_apon.Name = "toolStripStatusLabel_status_apon";
-            this.toolStripStatusLabel_status_apon.Size = new System.Drawing.Size(22, 17);
-            this.toolStripStatusLabel_status_apon.Text = "---";
-            // 
-            // toolStripProgressBar_apon
-            // 
-            this.toolStripProgressBar_apon.Name = "toolStripProgressBar_apon";
-            this.toolStripProgressBar_apon.Size = new System.Drawing.Size(100, 16);
-            // 
             // tab_menu_apontamento
             // 
             this.tab_menu_apontamento.Controls.Add(this.tab_apontamento);
@@ -1392,6 +1363,30 @@ namespace JP4
             this.tab_apontamento.Size = new System.Drawing.Size(1192, 612);
             this.tab_apontamento.TabIndex = 0;
             this.tab_apontamento.Text = "Apontamento";
+            // 
+            // status_bar_apon
+            // 
+            this.status_bar_apon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_nome,
+            this.toolStripStatusLabel_status_apon,
+            this.toolStripProgressBar1});
+            this.status_bar_apon.Location = new System.Drawing.Point(3, 587);
+            this.status_bar_apon.Name = "status_bar_apon";
+            this.status_bar_apon.Size = new System.Drawing.Size(1186, 22);
+            this.status_bar_apon.TabIndex = 11;
+            this.status_bar_apon.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel_nome
+            // 
+            this.toolStripStatusLabel_nome.Name = "toolStripStatusLabel_nome";
+            this.toolStripStatusLabel_nome.Size = new System.Drawing.Size(17, 17);
+            this.toolStripStatusLabel_nome.Text = "--";
+            // 
+            // toolStripStatusLabel_status_apon
+            // 
+            this.toolStripStatusLabel_status_apon.Name = "toolStripStatusLabel_status_apon";
+            this.toolStripStatusLabel_status_apon.Size = new System.Drawing.Size(22, 17);
+            this.toolStripStatusLabel_status_apon.Text = "---";
             // 
             // tab_defeitos_apon
             // 
@@ -3290,6 +3285,12 @@ namespace JP4
             // 
             this.db_cadastro_grupo_estoqueTableAdapter1.ClearBeforeFill = true;
             // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(1000, 16);
+            this.toolStripProgressBar1.Visible = false;
+            // 
             // AP01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3320,11 +3321,11 @@ namespace JP4
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.status_bar_apon.ResumeLayout(false);
-            this.status_bar_apon.PerformLayout();
             this.tab_menu_apontamento.ResumeLayout(false);
             this.tab_apontamento.ResumeLayout(false);
             this.tab_apontamento.PerformLayout();
+            this.status_bar_apon.ResumeLayout(false);
+            this.status_bar_apon.PerformLayout();
             this.tab_defeitos_apon.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
@@ -3444,12 +3445,10 @@ namespace JP4
         private System.Windows.Forms.RichTextBox richText_observacao;
         private System.Windows.Forms.DateTimePicker dt_lançamento;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.StatusStrip status_bar_apon;
         private System.Windows.Forms.Label label_tipo_material;
         private System.Windows.Forms.ToolStripMenuItem salvarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem repetirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_nome;
         private System.Windows.Forms.TextBox text_local_aplicacao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tab_menu_apontamento;
@@ -3508,7 +3507,6 @@ namespace JP4
         private System.Windows.Forms.TextBox abaConsumo_text_qtd_boa;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_status_apon;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.Label label54;
@@ -3560,7 +3558,6 @@ namespace JP4
         private System.Windows.Forms.Button abaParada_button_ir_mistura;
         private System.Windows.Forms.Button abaParada_button_voltar_apontamento;
         private System.Windows.Forms.Button abaMistura_button_voltar_parada;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar_apon;
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.RichTextBox abaParadas_obs;
         private System.Windows.Forms.Label abaParadas_label_turno;
@@ -3645,5 +3642,9 @@ namespace JP4
         private System.Windows.Forms.ComboBox Aba_mistura_combo_tag_mistura;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label_tipo_mistura;
+        private System.Windows.Forms.StatusStrip status_bar_apon;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_nome;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_status_apon;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }

@@ -1,5 +1,4 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 
 using System.Drawing;
@@ -765,7 +764,7 @@ namespace JP4.Apontamento
                     string comando_sql;
 
                     comando_sql = "UPDATE db_cadastro_misturas SET " +
-                        "data_lanc='" +  data_lanc +
+                        "data_lanc='" + data_lanc +
                         "', dia_lanc='" + dia_lanc +
                         "', mes_lanc='" + mes_lanc +
                         "', ano_lanc='" + ano_lanc +
@@ -1158,7 +1157,7 @@ namespace JP4.Apontamento
             {
                 MessageBox.Show(erro.Message);
             }
-            
+
 
         }
 
@@ -1190,10 +1189,10 @@ namespace JP4.Apontamento
             }
             catch (Exception)
             {
-                
+
             }
 
-            
+
 
         }
         private void button_atualizar_Click(object sender, EventArgs e)

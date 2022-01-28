@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -84,7 +77,7 @@ namespace JP4
             {
                 MessageBox.Show(erro.Message);
             }
-        }        
+        }
         private void Carregar_equipamentos()
         {
             try
@@ -182,7 +175,7 @@ namespace JP4
                 string comando_sql;
 
                 comando_sql = "INSERT INTO db_cadastro_operador(nome, turno, funcao, equipamento) " +
-                    "VALUES('" + nome + "','" + turno + "','" + funcao + "','"+ equipamento + "')";
+                    "VALUES('" + nome + "','" + turno + "','" + funcao + "','" + equipamento + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -205,7 +198,7 @@ namespace JP4
             {
                 string comando_sql;
 
-                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;                
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
@@ -294,7 +287,7 @@ namespace JP4
         {
             try
             {
-                
+
                 var turno = combo_turno.Text;
                 DateTime hora_inicio;
                 DateTime hora_final;

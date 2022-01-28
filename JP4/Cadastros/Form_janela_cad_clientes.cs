@@ -1,5 +1,4 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -144,7 +143,7 @@ namespace JP4
                 string comando_sql;
 
                 comando_sql = "INSERT INTO db_cadastro_clientes(status, codigo_cliente, cliente_nome, razao_social,nome_fantasia, data_cadastro , ultima_modificao, observacao, local_destino_cliente) " +
-                    "VALUES('" + status + "','" + codigo_cliente + "','" + cliente_nome + "','" + razao_social + "','" + nome_fantasia + "','" + data_cadastro + "','" + ultima_modificao + "','" + observacao +"','"+ local_destino_cliente + "')";
+                    "VALUES('" + status + "','" + codigo_cliente + "','" + cliente_nome + "','" + razao_social + "','" + nome_fantasia + "','" + data_cadastro + "','" + ultima_modificao + "','" + observacao + "','" + local_destino_cliente + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -163,7 +162,7 @@ namespace JP4
             string cliente_nome = text_nome_reduzido.Text;
             string razao_social = text_razao_social.Text;
             string nome_fantasia = text_nome_fantasia.Text;
-            
+
             string data_cadastro = date_cadastro.Value.ToString("yyyy/MM/dd");
             string ultima_modificao = date_modificacao.Value.ToString("yyyy/MM/dd");
 

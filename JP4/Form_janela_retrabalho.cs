@@ -1,20 +1,13 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
 {
     public partial class Form_janela_retrabalho : Form
     {
-        
+
 
         public Form_janela_retrabalho()
         {
@@ -147,7 +140,7 @@ namespace JP4
             }
         }
 
-        
+
 
         #endregion
 
@@ -160,7 +153,7 @@ namespace JP4
             int dia = data_apontamento.Day;
             int mes = data_apontamento.Month;
             int ano = data_apontamento.Year;
-            
+
 
 
             try
@@ -185,11 +178,11 @@ namespace JP4
                     int mes_db = Convert.ToDateTime(myreader["dat_movto"]).Month;
                     int ano_db = Convert.ToDateTime(myreader["dat_movto"]).Year;
 
-                    if(dia == dia_db && mes == mes_db && ano == ano_db)
+                    if (dia == dia_db && mes == mes_db && ano == ano_db)
                     {
                         origem_combo_ordem_prod.Items.Add(myreader["num_docum"].ToString());
                     }
-                    
+
                 }
 
                 conexao.Close();
@@ -226,7 +219,7 @@ namespace JP4
                     origem_text_descri_item.Text = myreader["cod_descri_completa"].ToString();
                     origem_combo_maquina.Items.Add(myreader["secao_nome"].ToString());
 
-                }              
+                }
 
                 conexao.Close();
 
@@ -272,7 +265,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
         }
-        
+
         private void Busca_operador_afins(double ordem_prod, string maquina)
         {
             // operador
@@ -286,7 +279,7 @@ namespace JP4
                 //string local_default = @"C:\JP4";
                 //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                string comando_sql = "select * from estoque_trans where cod_operacao = 'APON' AND num_docum = " + ordem_prod + " AND secao_nome = '"+ maquina + "'";
+                string comando_sql = "select * from estoque_trans where cod_operacao = 'APON' AND num_docum = " + ordem_prod + " AND secao_nome = '" + maquina + "'";
 
                 //SELECT DISTINCT Names FROM MstNames
                 // TEm que achar um jeito de fazer isso aqui retornar somente itens distintos
@@ -322,8 +315,8 @@ namespace JP4
         {
             Filtrar_gird_data(origem_dt_apontameno.Value);
         }
-        private void origem_combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e){}
-        private void origem_combo_maquina_SelectedIndexChanged(object sender, EventArgs e){}
+        private void origem_combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void origem_combo_maquina_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void origem_combo_mes_SelectedIndexChanged(object sender, EventArgs e)
         {

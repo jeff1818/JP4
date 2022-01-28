@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -49,7 +48,7 @@ namespace JP4.Login_Usuario
 
         private void button_salvar_Click(object sender, EventArgs e)
         {
-            if(textBox_senha.Text == textBox_confirma_senha.Text)
+            if (textBox_senha.Text == textBox_confirma_senha.Text)
             {
                 Salvar_senha(label_troca_senha_usuario.Text, textBox_confirma_senha.Text);
             }

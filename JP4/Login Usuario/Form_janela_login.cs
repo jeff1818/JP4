@@ -39,15 +39,18 @@ namespace JP4
 
             //Download_file();
             //Check_update();
+
+
+
         }
 
         #region Area de Upload
-             
+
 
 
         public void Download_file()
         {
-            progressBar1.Visible = true;
+            progressBar_inicial.Visible = true;
 
             string urlArquivo = "https://onedrive.live.com/download?cid=37ABC5C967094270&resid=37ABC5C967094270%2143546&authkey=ALBey4pELk566qg";
             string caminhoArquivo = @"C:\JP4\JP4_setup.zip";
@@ -56,13 +59,13 @@ namespace JP4
             client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(barra_status_download);
 
             client.DownloadFile(urlArquivo, caminhoArquivo);
-            
+
             Descompactar_arquivo();
 
         }
         private void barra_status_download(object sender, DownloadProgressChangedEventArgs e)
         {
-            progressBar1.Value = e.ProgressPercentage;
+            progressBar_inicial.Value = e.ProgressPercentage;
         }
         private void Descompactar_arquivo()
         {
@@ -695,7 +698,11 @@ namespace JP4
             if (Verificar_pc_cadastrado(Nome_pc()) == "S")
             {
 
+
+
                 Login_usuario_mysql(text_usuario.Text, text_senha.Text);
+
+
             }
             else
             {

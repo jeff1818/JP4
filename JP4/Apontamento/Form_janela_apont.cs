@@ -21,7 +21,7 @@ namespace JP4
             dt_final_pro.Value = DateTime.Now;
 
             #region Chamar Metodos
-            Importar_ordens();
+            // Importar_ordens();
             Carregar_empresa_db();
             Carregar_maquina_db();
             Carregar_turno_db();
@@ -40,10 +40,13 @@ namespace JP4
             Carregar_maquina_pesquisar();
 
             #endregion
-            
+
             toolStripStatusLabel_nome.Text = "AP01";
             text_operacao.Text = Buscar_operacao("AP01", "Entrada");
             abaPesquisar_text_ano_lanc.Text = Convert.ToString(DateTime.Now.Year);
+
+            //Thread.Sleep(50);
+            Importar_ordens();
 
         }
 
@@ -90,7 +93,7 @@ namespace JP4
 
                         if (resposta == DialogResult.Yes)
                         {
-                            Apontar_ordem(this.label_tipo_movimento.Text);                            
+                            Apontar_ordem(this.label_tipo_movimento.Text);
                         }
                         else if (resposta == DialogResult.No)
                         {
@@ -119,8 +122,8 @@ namespace JP4
 
         }
 
-        private void Verifica_ordem_estornada(){}
-        private void Resetar_janela(){}
+        private void Verifica_ordem_estornada() { }
+        private void Resetar_janela() { }
 
         #endregion
 
@@ -128,30 +131,105 @@ namespace JP4
 
         #region carrega itens do arquivo de excel
 
-        private void Importar_ordens()
+        // Importar do excel para o banco consome muito recurso
+        private void Importar_excel_mysql(string Setor, string Id_Op, string Id_Pedido, string Id_Cli_For, string Id_Produto, string Descricao, string Status, string Qtd_Prev, string Qtd_Prod, string Saldo, string UM, string Dt_Inicio, string Dt_Fim, string Dt_Entrega, string Ord_OP)
         {
+            decimal op_maior = 0;
 
             try
             {
-                // adicionar uma janela para o usuário esclher a pasta e local da pasta
-                // adicionar uma opção para escolher o nome da aba dentro do arquivo
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "SELECT MAX(Id_Op) FROM db_ordem_producao";
 
-                //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                conexao.Open();
 
-                //var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
-                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");                
+                op_maior = Convert.ToDecimal(cmd.ExecuteScalar());
+
+                conexao.Close();
+
+            }
+            catch (Exception)
+            {
+                op_maior = 0;
+            }
+
+
+
+            if (Convert.ToDecimal(Id_Op) >= op_maior)
+            {
+                try
+                {
+                    string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                    MySqlConnection conexao = new MySqlConnection(conecta_string);
+                    conexao.Open();
+                    string comando_sql;
+
+                    comando_sql = "INSERT INTO db_ordem_producao(Setor, Id_Op, Id_Pedido, Id_Cli_For, Id_Produto, Descricao, Status, Qtd_Prev, Qtd_Prod, Saldo, UM, Dt_Inicio, Dt_Fim, Dt_Entrega, Ord_OP) " +
+                        "VALUES('" + Setor + "','" + Id_Op + "','" + Id_Pedido + "','" + Id_Cli_For + "','" + Id_Produto + "','" + Descricao + "','" + Status + "','" + Qtd_Prev + "','" + Qtd_Prod + "','" + Saldo + "','" + UM + "','" + Dt_Inicio + "','" + Dt_Fim + "','" + Dt_Entrega + "','" + Ord_OP + "')";
+
+                    MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        public void Importar_ordens()
+        {
+            try
+            {
+                toolStripProgressBar1.Visible = true;
+
+                IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
                 string local_default = @"C:\JP4";
                 var xls = new XLWorkbook(config_ini.IniReadString("RELATORIO", "local_relatorio", local_default));
 
                 var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
                 var totalLinhas = planilha.Rows().Count();
                 // primeira linha é o cabecalho
+
+                toolStripProgressBar1.Maximum = totalLinhas;
+
                 for (int l = 2; l <= totalLinhas; l++)
                 {
                     if (planilha.Cell($"G{l}").Value.ToString() != "Digitada")
+                    {
                         this.combo_ordem_prod.Items.Add(planilha.Cell($"B{l}").Value.ToString());
 
+                        // Consome muito recurso pra carregar
+                        //Importar_excel_mysql(planilha.Cell($"A{l}").Value.ToString(),
+                        //                    planilha.Cell($"B{l}").Value.ToString(),
+                        //                    planilha.Cell($"C{l}").Value.ToString(),
+                        //                    planilha.Cell($"D{l}").Value.ToString(),
+                        //                    planilha.Cell($"E{l}").Value.ToString(),
+                        //                    planilha.Cell($"F{l}").Value.ToString(),
+                        //                    planilha.Cell($"G{l}").Value.ToString(),
+
+                        //                    planilha.Cell($"H{l}").Value.ToString().Replace(',', '.'),
+                        //                    planilha.Cell($"I{l}").Value.ToString().Replace(',', '.'),
+                        //                    planilha.Cell($"J{l}").Value.ToString().Replace(',', '.'),
+
+                        //                    planilha.Cell($"K{l}").Value.ToString(),
+
+                        //                    Convert.ToDateTime(planilha.Cell($"L{l}").Value.ToString()).ToString("yyyy/MM/dd"),
+                        //                    Convert.ToDateTime(planilha.Cell($"M{l}").Value.ToString()).ToString("yyyy/MM/dd"),
+
+                        //                    planilha.Cell($"N{l}").Value.ToString(),
+                        //                    planilha.Cell($"O{l}").Value.ToString());
+                    }
+
+
+                    toolStripProgressBar1.Value = l;
+
                 }
+
+                toolStripProgressBar1.Visible = false;
             }
 
 
@@ -162,7 +240,37 @@ namespace JP4
             }
 
         }
-        private void carregar_descricao_completa(string ordem_prod)
+
+        private void Importar_ordens_mysql()
+        {
+            try
+            {
+
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_ordem_producao";
+
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
+                conexao.Open();
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    combo_ordem_prod.Items.Add(myreader["Id_Op"].ToString());
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void Carregar_descricao_completa(string ordem_prod)
         {
             try
             {
@@ -172,11 +280,11 @@ namespace JP4
 
                 //var xls = new XLWorkbook(@"C:\Users\Jeferson\OneDrive\Visual - basic c#\Import_sistema\db_ordem_prod.xlsx");
                 //var xls = new XLWorkbook(Properties.Settings.Default.local_arquivo_excel);
-                
+
                 IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
                 string local_default = @"C:\JP4";
                 var xls = new XLWorkbook(config_ini.IniReadString("RELATORIO", "local_relatorio", local_default));
-                
+
                 var planilha = xls.Worksheets.First(w => w.Name == "db_ordem_prod");
                 var totalLinhas = planilha.Rows().Count();
                 // primeira linha é o cabecalho
@@ -198,7 +306,39 @@ namespace JP4
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void carregar_cod_item(string ordem_prod)
+        private void Carregar_descricao_completa_mysql(string ordem_prod)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_ordem_producao";
+
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
+                conexao.Open();
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (myreader["Id_Op"].ToString() == ordem_prod & myreader["Status"].ToString() != "Digitada")
+                    {
+                        combo_desc_completa.Text = myreader["Descricao"].ToString();
+                        Carregar_local_aplicacao(combo_desc_completa.Text);
+                    }
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void Carregar_cod_item(string ordem_prod)
         {
             try
             {
@@ -229,7 +369,40 @@ namespace JP4
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void carregar_qtd_prevista(string ordem_prod)
+        private void Carregar_cod_item_mysql(string ordem_prod)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_ordem_producao";
+
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
+                conexao.Open();
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (myreader["Id_Op"].ToString() == ordem_prod & myreader["Status"].ToString() != "Digitada")
+                    {
+                        combo_cod_item.Text = myreader["Id_Produto"].ToString();
+
+                    }
+
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void Carregar_qtd_prevista(string ordem_prod)
         {
             try
             {
@@ -261,7 +434,40 @@ namespace JP4
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void carregar_maquina_arquivo(string ordem_prod)
+        private void Carregar_qtd_prevista_mysql(string ordem_prod)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_ordem_producao";
+
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
+                conexao.Open();
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (myreader["Id_Op"].ToString() == ordem_prod & myreader["Status"].ToString() != "Digitada")
+                    {
+                        text_qtd_planejada.Text = myreader["Qtd_Prev"].ToString();
+
+                    }
+
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+        }
+
+        private void Carregar_maquina_arquivo(string ordem_prod)
         {
             try
             {
@@ -293,6 +499,38 @@ namespace JP4
                 MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+        private void Carregar_maquina_arquivo_mysql(string ordem_prod)
+        {
+            try
+            {
+                string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
+                string comando_sql = "select * from db_ordem_producao";
+
+                MySqlConnection conexao = new MySqlConnection(conecta_string);
+                MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
+                MySqlDataReader myreader;
+                conexao.Open();
+                myreader = cmd.ExecuteReader();
+
+                while (myreader.Read())
+                {
+                    if (myreader["Id_Op"].ToString() == ordem_prod & myreader["Status"].ToString() != "Digitada")
+                    {
+                        text_qtd_planejada.Text = myreader["Setor"].ToString();
+
+                    }
+
+                }
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
         }
 
         #endregion // Carregar itens excel 
@@ -478,7 +716,7 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_operador where equipamento = '"+ equipamento + "'";
+                string comando_sql = "select * from db_cadastro_operador where equipamento = '" + equipamento + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -673,7 +911,7 @@ namespace JP4
                 // Mudei para aceitar o cliente
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura where cliente='"+ cliente+ "' and maquina_destino = '"+ maquina_destino +"'";
+                string comando_sql = "select descri_pai, descri_filho, qtd_necessaria, Qt_total from db_estrutura where cliente='" + cliente + "' and maquina_destino = '" + maquina_destino + "'";
 
                 MySqlConnection connection = new MySqlConnection(conecta_string);
                 MySqlDataAdapter myadapter = new MySqlDataAdapter(comando_sql, connection);
@@ -783,11 +1021,11 @@ namespace JP4
 
         private void combo_ordem_prod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            carregar_descricao_completa(this.combo_ordem_prod.Text);
-            carregar_cod_item(this.combo_ordem_prod.Text);
-            carregar_qtd_prevista(this.combo_ordem_prod.Text);
+            Carregar_descricao_completa(this.combo_ordem_prod.Text);
+            Carregar_cod_item(this.combo_ordem_prod.Text);
+            Carregar_qtd_prevista(this.combo_ordem_prod.Text);
             Soma_saldo_op(Convert.ToDouble(combo_ordem_prod.Text));
-            carregar_maquina_arquivo(this.combo_ordem_prod.Text);
+            Carregar_maquina_arquivo(this.combo_ordem_prod.Text);
             label_tipo_material.Text = Buscar_tipo_material(combo_desc_completa.Text);
 
 
@@ -894,7 +1132,6 @@ namespace JP4
                 e.Handled = true;
             }
         }
-
         private void Calculo_bobina_inicial()
         {
             string descricao_completa = this.combo_desc_completa.Text;
@@ -937,7 +1174,6 @@ namespace JP4
 
 
         }
-
         private void text_qtd_fardos_Leave(object sender, EventArgs e)
         {
             string descricao_completa = this.combo_desc_completa.Text;
@@ -1231,7 +1467,7 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_clientes where local_destino_cliente='"+ local_destino_cliente+"'";
+                string comando_sql = "select * from db_cadastro_clientes where local_destino_cliente='" + local_destino_cliente + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -1242,20 +1478,20 @@ namespace JP4
 
                 while (myreader.Read())
                 {
-                    string razao_social = myreader["razao_social"].ToString();                    
+                    string razao_social = myreader["razao_social"].ToString();
                     label_razao_social.Text = razao_social;
-                                        
+
                 }
                 conexao.Close();
-                
+
             }
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
             }
 
-            
-        }        
+
+        }
         private int Verificar_maquina_local(string desc_completa, string maquina)
         {
             string local_aplicacao = "";
@@ -1297,14 +1533,14 @@ namespace JP4
             }
             catch (Exception)
             {
-                
-            }            
+
+            }
 
             return resultado;
 
 
         }
-        
+
         // Janela Parada de maquina
         private string busca_cod_parada_db(string desc_parada)
         {
@@ -1856,7 +2092,7 @@ namespace JP4
                 return cod_geral_erro;
             }
 
-            
+
 
             //if (combo_cliente_esto.Text == string.Empty)
             //{
@@ -1893,7 +2129,7 @@ namespace JP4
                 return cod_geral_erro;
             }
 
-            if(combo_local_desti.Text == string.Empty)
+            if (combo_local_desti.Text == string.Empty)
             {
                 MessageBox.Show("Verifique o campo Local Destino");
                 cod_geral_erro = 1;
@@ -1944,7 +2180,7 @@ namespace JP4
             string cod_item = this.combo_cod_item.Text;
             string cod_descri_completa = this.combo_desc_completa.Text;
             string cod_descri_reduzida = Buscar_descri_reduzida(cod_descri_completa);
-            int mes_proces = DateTime.Now.Month;            
+            int mes_proces = DateTime.Now.Month;
             //DateTime dat_proces = DateTime.Today;
             string dat_proces = DateTime.Today.ToString("yyyy/MM/dd");
 
@@ -1978,7 +2214,7 @@ namespace JP4
             string nom_usuario = Nome_pc();
             string num_prog = this.Name;
 
-            string largura_material = text_largura.Text.Replace(',','.');
+            string largura_material = text_largura.Text.Replace(',', '.');
             string n_bobina_inical = text_bobina_ini.Text.Replace(',', '.');
             string n_bobina_final = text_bobina_fim.Text.Replace(',', '.');
             string velocidade = text_velocidade.Text.Replace(',', '.');
@@ -1997,13 +2233,13 @@ namespace JP4
             {
                 peso_total_fardo = "0";
             }
-            else 
+            else
             {
-                peso_total_fardo = Convert.ToString( (Convert.ToDouble(qtd_movto) / fardos)).Replace(',','.');
+                peso_total_fardo = Convert.ToString((Convert.ToDouble(qtd_movto) / fardos)).Replace(',', '.');
             }
 
             string peso_medio_bobina;
-            
+
             if (Convert.ToDouble(peso_total_fardo) == 0)
             {
                 peso_medio_bobina = "0";
@@ -2012,7 +2248,7 @@ namespace JP4
             {
                 try
                 {
-                    peso_medio_bobina =  Convert.ToString(Convert.ToDouble(peso_total_fardo) / Peso_medio_bobina(cod_descri_completa)).Replace(',','.'); // Fazer metodo pra calcular o peso
+                    peso_medio_bobina = Convert.ToString(Convert.ToDouble(peso_total_fardo) / Peso_medio_bobina(cod_descri_completa)).Replace(',', '.'); // Fazer metodo pra calcular o peso
                 }
                 catch (DivideByZeroException)
                 {
@@ -2035,14 +2271,14 @@ namespace JP4
 
             string Tipo_material = this.label_tipo_material.Text;
 
-            if(richText_observacao.Text == string.Empty)
+            if (richText_observacao.Text == string.Empty)
             {
                 richText_observacao.Text = "--";
             }
 
             string observacao = richText_observacao.Text;
             int status_estorno = 0;
-            string cliente_apon = this.combo_cliente_esto.Text;            
+            string cliente_apon = this.combo_cliente_esto.Text;
             string razao_social_cliente = label_razao_social.Text;
             num_transac = Gerar_num_transac(num_docum, Convert.ToDateTime(hor_operac));
 
@@ -2059,7 +2295,7 @@ namespace JP4
                 string comando_sql;
 
                 comando_sql = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao, status_estorno, cliente_apon, razao_social_cliente, marcador_mistura) " +
-                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "','" + status_estorno + "','" + cliente_apon + "','"+ razao_social_cliente + "','"+ marcador_mistura + "')";
+                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "','" + status_estorno + "','" + cliente_apon + "','" + razao_social_cliente + "','" + marcador_mistura + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -2090,7 +2326,7 @@ namespace JP4
                 tab_menu_apontamento.SelectedTab = tab_apontamento;
 
             }
-           
+
 
         }
         private void Consumo_estrutura(string num_transac01, string descri_item, double qtd_apont, string cliente, string maquina_destino)
@@ -2102,10 +2338,11 @@ namespace JP4
             string cod_item = "";//this.combo_cod_item.Text;
             //string cod_descri_completa = this.combo_desc_completa.Text;
             string cod_descri_reduzida = Buscar_descri_reduzida(descri_item);
+
             int mes_proces = DateTime.Now.Month;
             int mes_movto = DateTime.Now.Month;
             int ano_movto = DateTime.Now.Year;
-            
+
             //DateTime dat_proces = DateTime.Today;
             //DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
             string dat_proces = DateTime.Today.ToString("yyyy/MM/dd");
@@ -2113,10 +2350,12 @@ namespace JP4
 
             string cod_operacao = Buscar_operacao("AP01", "Saida"); //this.text_operacao.Text;
             double num_docum = Convert.ToDouble(this.combo_ordem_prod.Text);
+
             string ies_tip_movto = this.label_tipo_movimento.Text;
-            double qtd_movto = 0; // Convert.ToDouble(this.text_qtd_boa.Text);
-            double qtd_real = qtd_movto * (-1);
-            double fardos = Convert.ToDouble(this.text_qtd_fardos.Text);
+
+            string qtd_movto = "0"; // Convert.ToDouble(this.text_qtd_boa.Text);
+            string qtd_real = Convert.ToString(Convert.ToDouble(qtd_movto) * (-1)).Replace(',', '.');
+            string fardos = text_qtd_fardos.Text;
             double num_secao_requis = 1;
 
             string operador = this.combo_operadores.Text;
@@ -2132,13 +2371,14 @@ namespace JP4
             string num_prog = this.Name;
 
             double largura_material = 0;
+
             double n_bobina_inical = Convert.ToDouble(this.text_bobina_ini.Text);
             double n_bobina_final = Convert.ToDouble(this.text_bobina_fim.Text);
             double velocidade = Convert.ToDouble(this.text_velocidade.Text);
             double contador_fardos = Convert.ToDouble(this.text_contador.Text);
             double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
             double peso_total_fardo = 0; // Fazer metodos pra calcular
-            
+
             //DateTime hora_inical = Convert.ToDateTime(this.hr_inicial_prod.Value);
             //DateTime hora_final = Convert.ToDateTime(this.hr_final_prod.Value);
             //DateTime data_operac = Convert.ToDateTime(this.dt_lançamento.Value);
@@ -2159,11 +2399,7 @@ namespace JP4
                 //double qtd_item_filho = 0;
 
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
-                string comando_sql = "select * from db_estrutura where descri_pai = '" + descri_item + "' and cliente = '"+ cliente + "' and maquina_destino = '" + maquina_destino+"'";
+                string comando_sql = "select * from db_estrutura where descri_pai = '" + descri_item + "' and cliente = '" + cliente + "' and maquina_destino = '" + maquina_destino + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -2178,8 +2414,8 @@ namespace JP4
                     {
                         cod_item = myreader["cod_item_compon"].ToString();
                         item_filho = myreader["descri_filho"].ToString();
-                        qtd_movto = Convert.ToDouble(myreader["qtd_necessaria"]) * qtd_apont;
-                        qtd_real = qtd_movto * (-1);
+                        qtd_movto = Convert.ToString(Convert.ToDouble(myreader["qtd_necessaria"]) * qtd_apont);
+                        qtd_real = Convert.ToString(Convert.ToDouble(qtd_movto) * (-1));
 
                         comando_sql02 = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao) " +
                     "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + item_filho + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "')";
@@ -2194,14 +2430,13 @@ namespace JP4
             }
             catch (Exception erro)
             {
-
                 MessageBox.Show(erro.Message + "\r\n Erro Consumo de estrutura!");
             }
         }
         private void Estornar_apontamento_delete(string id_apontamento)
         {
             // Estornando e deletando
-            
+
             string num_transac = this.abaApon_label_num_transa.Text; // mudou aqui            
             // string cod_descri_completa = this.combo_desc_completa.Text; 
             // double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
@@ -2209,12 +2444,7 @@ namespace JP4
             try
             {
                 string comando_sql;
-
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
-                //string local_default = @"C:\JP4";
-                //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
-
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 conexao.Open();
 
@@ -2224,7 +2454,7 @@ namespace JP4
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
-                
+
                 Estornar_consumo_estrutura(num_transac);
                 Estornar_paradas(num_transac);
                 Estornar_consumo_mp(num_transac);
@@ -2251,7 +2481,7 @@ namespace JP4
             int mes_proces = DateTime.Now.Month;
             int mes_movto = DateTime.Now.Month;
             int ano_movto = DateTime.Now.Year;
-            
+
             //DateTime dat_proces = DateTime.Today;
             //DateTime dat_movto = Convert.ToDateTime(this.dt_final_pro.Value);
             string dat_proces = DateTime.Today.ToString("yyyy/MM/dd");
@@ -2264,7 +2494,7 @@ namespace JP4
             //double qtd_movto = Convert.ToDouble(this.text_qtd_boa.Text);
             //double qtd_real = qtd_movto * (-1); // mudou aqui
 
-            string qtd_movto = text_qtd_boa.Text.Replace(',','.');
+            string qtd_movto = text_qtd_boa.Text.Replace(',', '.');
             string qtd_real = Convert.ToString(Convert.ToDouble(qtd_movto) * (-1)); // mudou aqui
 
             double fardos = Convert.ToDouble(this.text_qtd_fardos.Text) * (-1); // Mudou
@@ -2302,7 +2532,7 @@ namespace JP4
             string observacao = this.richText_observacao.Text;
 
             string cliente_apon = this.combo_cliente_esto.Text;
-            
+
             //num_transac = Gerar_num_transac(num_docum, hor_operac);
 
             // links para banco de dados
@@ -2321,13 +2551,13 @@ namespace JP4
                 string comando_sql;
 
                 comando_sql = "INSERT INTO estoque_trans(cod_empresa, num_transac, cod_item, cod_descri_completa, cod_descri_reduzida, mes_proces, mes_movto, ano_movto, dat_proces, dat_movto, cod_operacao, num_docum, ies_tip_movto, qtd_real, qtd_movto, num_secao_requis, operador, secao_nome, cod_local_est_orig, cod_local_est_dest, num_lote_orig, num_lote_dest, ies_sit_est_orig, ies_sit_est_dest, cod_turno, nom_usuario, num_prog, largura_material, n_bobina_inical, n_bobina_final, velocidade, contador, fardos, peso_medio_bobina, peso_total_fardo, hora_inical, hora_final, data_operac, hor_operac, Tipo_material, observacao) " +
-                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "','"+ cliente_apon + "')";
+                    "VALUES('" + cod_empresa + "','" + num_transac + "','" + cod_item + "','" + cod_descri_completa + "','" + cod_descri_reduzida + "','" + mes_proces + "','" + mes_movto + "','" + ano_movto + "','" + dat_proces + "','" + dat_movto + "','" + cod_operacao + "','" + num_docum + "','" + ies_tip_movto + "','" + qtd_real + "','" + qtd_movto + "','" + num_secao_requis + "','" + operador + "','" + secao_nome + "','" + cod_local_est_orig + "','" + cod_local_est_dest + "','" + num_lote_orig + "','" + num_lote_dest + "','" + ies_sit_est_orig + "','" + ies_sit_est_dest + "','" + cod_turno + "','" + nom_usuario + "','" + num_prog + "','" + largura_material + "','" + n_bobina_inical + "','" + n_bobina_final + "','" + velocidade + "','" + contador_fardos + "','" + fardos + "','" + peso_medio_bobina + "','" + peso_total_fardo + "','" + hora_inical + "','" + hora_final + "','" + data_operac + "','" + hor_operac + "','" + Tipo_material + "','" + observacao + "','" + cliente_apon + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
                 conexao.Close();
 
-                
+
                 Estornar_paradas(num_transac);
                 Estornar_consumo_mp(num_transac);
                 Estornar_defeitos_mq(num_transac);
@@ -3004,7 +3234,7 @@ namespace JP4
                 string num_transac = num_tran;
                 string campo_marcador = AbaDefeito_combo_defeito01.Name;
                 codigo_defeitos = busca_cod_defeitos_db(descricao_defeitos);
-                string data_lanc = Convert.ToDateTime(label_AbaDefeitos_data.Text).ToString("yyyy/MM/dd") ;
+                string data_lanc = Convert.ToDateTime(label_AbaDefeitos_data.Text).ToString("yyyy/MM/dd");
 
                 double mes_lanc = Convert.ToDateTime(data_lanc).Month;
                 double ano_lanc = Convert.ToDateTime(data_lanc).Year;
@@ -3510,7 +3740,7 @@ namespace JP4
                     string operador = abaParadas_label_operador.Text;
                     string codigo_parada = "";
                     string descricao_parada = abaParada_combo_parada01.Text;
-                    
+
                     //DateTime hora_inicio = abaParada_hr_inicio01.Value;
                     //DateTime hora_final = abaParada_hr_fim01.Value;
                     //DateTime total_horas = Convert.ToDateTime(abaParada_label_hr_total01.Text);
@@ -4166,14 +4396,14 @@ namespace JP4
                     string turno = AbaMistura_label_turno.Text;
                     string operador = AbaMistura_label_operador.Text;
                     string materia_prima = abaMistura_combo_mp01.Text;
-                    
+
                     //double producao = Convert.ToDouble(AbaMistura_label_producao.Text);
                     //double percentual = Convert.ToDouble(abaMistura_text_perct01.Text) / 100;
                     //double consumo_mp = producao * percentual;
 
-                    string producao = AbaMistura_label_producao.Text.Replace(',','.');
-                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct01.Text) / 100).Replace(',','.');
-                    string consumo_mp =  Convert.ToString( Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',','.');
+                    string producao = AbaMistura_label_producao.Text.Replace(',', '.');
+                    string percentual = Convert.ToString(Convert.ToDouble(abaMistura_text_perct01.Text) / 100).Replace(',', '.');
+                    string consumo_mp = Convert.ToString(Convert.ToDouble(producao) * Convert.ToDouble(percentual)).Replace(',', '.');
 
                     int dia = Convert.ToDateTime(dt_inicio_pro.Value).Date.Day;
                     int mes = Convert.ToDateTime(dt_inicio_pro.Value).Date.Month;
@@ -4185,7 +4415,7 @@ namespace JP4
                     string observacao = abaParadas_obs.Text;
                     string num_transac = num_tran;
                     string campo_marcador = abaMistura_combo_mp01.Name;
-                    
+
                     string Tipo_material = AbaMistura_label_tipoMaterial.Text;
 
                     string marcador_mistura = Aba_mistura_combo_tag_mistura.Text;
@@ -4203,7 +4433,7 @@ namespace JP4
                         string comando_sql;
 
                         comando_sql = "INSERT INTO db_mp_apon(ordem_prod, maquina, turno, operador, materia_prima, producao, percentual, consumo_mp, dia, mes, ano, data_lancamento, observacao, num_transac, campo_marcador, Tipo_material, marcador_mistura) " +
-                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','"+ Tipo_material + "','" + marcador_mistura + "')";
+                          "VALUES('" + ordem_prod + "','" + maquina + "','" + turno + "','" + operador + "','" + materia_prima + "','" + producao + "','" + percentual + "','" + consumo_mp + "','" + dia + "','" + mes + "','" + ano + "','" + data_lancamento + "','" + observacao + "','" + num_transac + "','" + campo_marcador + "','" + Tipo_material + "','" + marcador_mistura + "')";
 
                         MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                         cmd.ExecuteNonQuery();
@@ -4802,7 +5032,7 @@ namespace JP4
             }
             return resultado;
         }
-                
+
 
         //------------------------------------------------------------------------------------------
 
@@ -4810,10 +5040,10 @@ namespace JP4
 
         private void button_apontamento_Click(object sender, EventArgs e)
         {
-            Desbloquear_controles();            
+            Desbloquear_controles();
             this.label_tipo_movimento.Text = "N";
 
-            if(combo_ordem_prod.Text != string.Empty)
+            if (combo_ordem_prod.Text != string.Empty)
             {
                 Limpar_campos();
             }
@@ -4821,9 +5051,9 @@ namespace JP4
         }
         private void button_estornar_Click(object sender, EventArgs e)
         {
-            
+
             //Estatus_estorno(abaApon_label_id_apont.Text); // identifica qual ordem foi estornada            
-            
+
             Estornar_apontamento_delete(abaApon_label_id_apont.Text); // 13/08
             //label_tipo_movimento.Text = "R";
             label_tipo_movimento.Text = "N";
@@ -5448,7 +5678,7 @@ namespace JP4
                 MySqlDataReader myreader;
                 conexao.Open();
 
-                myreader = cmd.ExecuteReader();             
+                myreader = cmd.ExecuteReader();
 
 
                 while (myreader.Read())
@@ -5658,7 +5888,7 @@ namespace JP4
                 DataTable dt = new DataTable("estoque_trans");
                 myadapter.Fill(dt);
                 DataView dv = dt.DefaultView;
-                
+
                 abaPesquisar_Grid_apon.DataSource = dv.ToTable();
 
 
@@ -5690,7 +5920,7 @@ namespace JP4
                 //dv.RowFilter = string.Format("mes_movto like '%{0}%'", mes_movto);
                 dv.RowFilter = string.Format("CONVERT(num_docum, 'System.String') like '%{0}%'", num_docum.ToString());
                 abaPesquisar_Grid_apon.DataSource = dv.ToTable();
-                
+
 
                 connection.Close();
             }
@@ -5716,7 +5946,7 @@ namespace JP4
                 DataTable dt = new DataTable("estoque_trans");
                 myadapter.Fill(dt);
                 DataView dv = dt.DefaultView;
-                
+
                 dv.RowFilter = string.Format("CONVERT(operador, 'System.String') like '%{0}%'", operador.ToString());
                 abaPesquisar_Grid_apon.DataSource = dv.ToTable();
 
@@ -5975,7 +6205,7 @@ namespace JP4
         private void combo_local_desti_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            label_razao_social.Text = "---";            
+            label_razao_social.Text = "---";
             Buscar_razao_social(combo_local_desti.Text);
 
             if (label_razao_social.Text == "---")
@@ -5992,7 +6222,7 @@ namespace JP4
             Form_janela_cad_clientes cad_clientes = new Form_janela_cad_clientes();
             cad_clientes.ShowDialog();
         }
-        private void combo_ordem_prod_Leave(object sender, EventArgs e){}
+        private void combo_ordem_prod_Leave(object sender, EventArgs e) { }
         private void combo_cod_item_Leave(object sender, EventArgs e)
         {
             if (Verificar_maquina_local(combo_desc_completa.Text, combo_maquinas.Text) == 1)

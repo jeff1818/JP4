@@ -19,7 +19,7 @@ namespace Gerador_hash
             Carregar_nome_pc();
         }
 
-        
+
         #region Metodos Aba Cadastro
 
         private void Limpar_campos()
@@ -155,7 +155,7 @@ namespace Gerador_hash
 
             }
         }
-        
+
         public void Atualizar_pc_liberado(string id_computadores)
         {
             string nome_cliente = textBox_cad_nome_cliente.Text;
@@ -304,7 +304,7 @@ namespace Gerador_hash
                 return null; // Caso encontre erro retorna nulo
             }
         }
-        
+
 
 
         private void button_gerar_md5_Click(object sender, EventArgs e)
@@ -318,7 +318,7 @@ namespace Gerador_hash
         private void grid_lista_pc_conectado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string id_pc = grid_lista_pc_conectado.CurrentRow.Cells[0].Value.ToString();
-            
+
             tab_area_relatorio_computadores.SelectedTab = tab_cadastro;
             Carregar_controles(id_pc);
 

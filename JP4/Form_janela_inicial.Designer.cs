@@ -41,6 +41,7 @@ namespace JP4
             this.botao_maxm = new System.Windows.Forms.PictureBox();
             this.botao_fechar = new System.Windows.Forms.PictureBox();
             this.panel_menu_vertical = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label_inicial_ultimo_backup = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -82,13 +83,12 @@ namespace JP4
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_estoque_atual = new System.Windows.Forms.Button();
             this.button_exportar_dados = new System.Windows.Forms.Button();
+            this.button_invent_geral = new System.Windows.Forms.Button();
             this.panel_central = new System.Windows.Forms.Panel();
-            this.picture_inicial = new System.Windows.Forms.PictureBox();
             this.db_aplicativo_kpiDataSet = new JP4.db_aplicativo_kpiDataSet();
             this.db_configTableAdapter1 = new JP4.db_aplicativo_kpiDataSetTableAdapters.db_configTableAdapter();
             this.timer_digital = new System.Windows.Forms.Timer(this.components);
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.button_invent_geral = new System.Windows.Forms.Button();
+            this.progressBar_inicial = new System.Windows.Forms.ProgressBar();
             this.panel_titulo_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botao_restor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.botao_mini)).BeginInit();
@@ -97,8 +97,6 @@ namespace JP4
             this.panel_menu_vertical.SuspendLayout();
             this.panel_sub_menu_cadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel_central.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_inicial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_aplicativo_kpiDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,6 +214,7 @@ namespace JP4
             // panel_menu_vertical
             // 
             this.panel_menu_vertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel_menu_vertical.Controls.Add(this.progressBar_inicial);
             this.panel_menu_vertical.Controls.Add(this.panel10);
             this.panel_menu_vertical.Controls.Add(this.panel9);
             this.panel_menu_vertical.Controls.Add(this.label_inicial_ultimo_backup);
@@ -247,9 +246,17 @@ namespace JP4
             this.panel_menu_vertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_menu_vertical.Location = new System.Drawing.Point(0, 35);
             this.panel_menu_vertical.Name = "panel_menu_vertical";
-            this.panel_menu_vertical.Size = new System.Drawing.Size(200, 689);
+            this.panel_menu_vertical.Size = new System.Drawing.Size(200, 719);
             this.panel_menu_vertical.TabIndex = 4;
             this.panel_menu_vertical.Click += new System.EventHandler(this.panel_menu_vertical_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Black;
+            this.panel10.Location = new System.Drawing.Point(3, 301);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(5, 32);
+            this.panel10.TabIndex = 39;
             // 
             // panel9
             // 
@@ -294,7 +301,7 @@ namespace JP4
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_aplica);
             this.panel_sub_menu_cadastro.Controls.Add(this.button1);
             this.panel_sub_menu_cadastro.Controls.Add(this.button_cad_local_estoque);
-            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(140, 6);
+            this.panel_sub_menu_cadastro.Location = new System.Drawing.Point(59, 3);
             this.panel_sub_menu_cadastro.Name = "panel_sub_menu_cadastro";
             this.panel_sub_menu_cadastro.Size = new System.Drawing.Size(146, 572);
             this.panel_sub_menu_cadastro.TabIndex = 27;
@@ -793,48 +800,6 @@ namespace JP4
             this.button_exportar_dados.UseVisualStyleBackColor = true;
             this.button_exportar_dados.Click += new System.EventHandler(this.button_exportar_dados_Click);
             // 
-            // panel_central
-            // 
-            this.panel_central.AutoSize = true;
-            this.panel_central.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel_central.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel_central.Controls.Add(this.picture_inicial);
-            this.panel_central.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_central.Location = new System.Drawing.Point(200, 35);
-            this.panel_central.Name = "panel_central";
-            this.panel_central.Size = new System.Drawing.Size(1169, 689);
-            this.panel_central.TabIndex = 5;
-            // 
-            // picture_inicial
-            // 
-            this.picture_inicial.Location = new System.Drawing.Point(337, 51);
-            this.picture_inicial.Name = "picture_inicial";
-            this.picture_inicial.Size = new System.Drawing.Size(529, 461);
-            this.picture_inicial.TabIndex = 0;
-            this.picture_inicial.TabStop = false;
-            // 
-            // db_aplicativo_kpiDataSet
-            // 
-            this.db_aplicativo_kpiDataSet.DataSetName = "db_aplicativo_kpiDataSet";
-            this.db_aplicativo_kpiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // db_configTableAdapter1
-            // 
-            this.db_configTableAdapter1.ClearBeforeFill = true;
-            // 
-            // timer_digital
-            // 
-            this.timer_digital.Enabled = true;
-            this.timer_digital.Tick += new System.EventHandler(this.timer_digital_Tick);
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.Black;
-            this.panel10.Location = new System.Drawing.Point(3, 301);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(5, 32);
-            this.panel10.TabIndex = 39;
-            // 
             // button_invent_geral
             // 
             this.button_invent_geral.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
@@ -850,6 +815,40 @@ namespace JP4
             this.button_invent_geral.UseVisualStyleBackColor = true;
             this.button_invent_geral.Click += new System.EventHandler(this.button_invent_geral_Click);
             // 
+            // panel_central
+            // 
+            this.panel_central.AutoSize = true;
+            this.panel_central.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel_central.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel_central.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_central.Location = new System.Drawing.Point(200, 35);
+            this.panel_central.Name = "panel_central";
+            this.panel_central.Size = new System.Drawing.Size(1169, 719);
+            this.panel_central.TabIndex = 5;
+            // 
+            // db_aplicativo_kpiDataSet
+            // 
+            this.db_aplicativo_kpiDataSet.DataSetName = "db_aplicativo_kpiDataSet";
+            this.db_aplicativo_kpiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // db_configTableAdapter1
+            // 
+            this.db_configTableAdapter1.ClearBeforeFill = true;
+            // 
+            // timer_digital
+            // 
+            this.timer_digital.Enabled = true;
+            this.timer_digital.Tick += new System.EventHandler(this.timer_digital_Tick);
+            // 
+            // progressBar_inicial
+            // 
+            this.progressBar_inicial.BackColor = System.Drawing.SystemColors.Highlight;
+            this.progressBar_inicial.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBar_inicial.Location = new System.Drawing.Point(0, 706);
+            this.progressBar_inicial.Name = "progressBar_inicial";
+            this.progressBar_inicial.Size = new System.Drawing.Size(200, 13);
+            this.progressBar_inicial.TabIndex = 0;
+            // 
             // WINSTART
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -857,7 +856,7 @@ namespace JP4
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1369, 724);
+            this.ClientSize = new System.Drawing.Size(1369, 754);
             this.Controls.Add(this.panel_central);
             this.Controls.Add(this.panel_menu_vertical);
             this.Controls.Add(this.panel_titulo_menu);
@@ -880,8 +879,6 @@ namespace JP4
             this.panel_menu_vertical.PerformLayout();
             this.panel_sub_menu_cadastro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel_central.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picture_inicial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_aplicativo_kpiDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -938,7 +935,6 @@ namespace JP4
         private System.Windows.Forms.Button button_report;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button button_estoque_atual;
-        private System.Windows.Forms.PictureBox picture_inicial;
         public System.Windows.Forms.Label label_hora_digital;
         public System.Windows.Forms.Label label_data_inicial;
         private System.Windows.Forms.Timer timer_digital;
@@ -948,6 +944,7 @@ namespace JP4
         private System.Windows.Forms.Button button_exportar_dados;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button button_invent_geral;
+        public System.Windows.Forms.ProgressBar progressBar_inicial;
     }
 }
 

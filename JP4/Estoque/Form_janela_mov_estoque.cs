@@ -1,5 +1,4 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -672,7 +671,7 @@ namespace JP4
 
         private double Fator_conversao(string cod_descri_completa)
         {
-            
+
 
             try
             {
@@ -682,7 +681,7 @@ namespace JP4
                 //string local_default = @"C:\JP4";
                 //string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + cod_descri_completa+"'";
+                string comando_sql = "select * from db_cadastro_material where descricao_completa = '" + cod_descri_completa + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -706,7 +705,7 @@ namespace JP4
             }
             catch (Exception erro)
             {
-                
+
                 MessageBox.Show(erro.Message);
             }
 
@@ -724,7 +723,7 @@ namespace JP4
 
             // Como fazer insert valores mysql
 
-            string qtd_movto = Convert.ToString(Convert.ToDouble(text_qtd_movt.Text) * Fator_conversao(cod_descri_completa)).Replace(',','.');
+            string qtd_movto = Convert.ToString(Convert.ToDouble(text_qtd_movt.Text) * Fator_conversao(cod_descri_completa)).Replace(',', '.');
 
             string qtd_real = string.Empty;
             if (Busca_tipo_baixa(combo_operacao.Text) == "Saida")
@@ -773,7 +772,7 @@ namespace JP4
             double peso_medio_bobina = 0; // Fazer metodo pra calcular o peso
             double peso_total_fardo = 0; // Fazer metodos pra calcular
             string hora_inical = DateTime.Now.ToString("HH:mm:ss");
-            string hora_final = DateTime.Now.ToString("HH:mm:ss");            
+            string hora_final = DateTime.Now.ToString("HH:mm:ss");
             string data_operac = dt_lancamento.Value.ToString("yyyy/mm/dd");
             string hor_operac = DateTime.Now.ToString("HH:mm:ss");
             string Tipo_material = Buscar_tipo_material(combo_descri_completa.Text);
@@ -1002,7 +1001,7 @@ namespace JP4
                 {
                     tipo_operacao = myreader["tipo_operacao"].ToString();
                 }
-                
+
                 conexao.Close();
 
                 return tipo_operacao;
@@ -1047,7 +1046,7 @@ namespace JP4
             //string cod_barra;
             //string num_lote;
 
-            
+
 
 
 
@@ -1066,7 +1065,7 @@ namespace JP4
         {
 
         }
-       
+
 
 
 
@@ -1084,7 +1083,7 @@ namespace JP4
 
         }
 
-       
+
 
         private void text_num_documento_MouseHover(object sender, EventArgs e)
         {

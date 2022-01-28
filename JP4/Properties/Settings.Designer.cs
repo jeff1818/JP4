@@ -88,21 +88,21 @@ namespace JP4.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=db-gestao-prod.mysql.uhserver.com;Database=db_gestao_prod;Uid=jefersondev;" +
-            "Pwd=\'h4ck3rtcho!@\';Connect Timeout=30; convert zero datetime=True")]
-        public string db_aplicativo_kpiConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Dsn=MySQL - Remote")]
+        public string ConnectionString_mysql {
             get {
-                return ((string)(this["db_aplicativo_kpiConnectionString"]));
+                return ((string)(this["ConnectionString_mysql"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Dsn=MySQL - Remote")]
-        public string ConnectionString_mysql {
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=db-gestao-prod.mysql.uhserver.com;Database=db_gestao_prod;Uid=jefersondev;" +
+            "Pwd=\'h4ck3rtcho!@\';Connect Timeout=30; convert zero datetime=True")]
+        public string db_aplicativo_kpiConnectionString {
             get {
-                return ((string)(this["ConnectionString_mysql"]));
+                return ((string)(this["db_aplicativo_kpiConnectionString"]));
             }
         }
     }

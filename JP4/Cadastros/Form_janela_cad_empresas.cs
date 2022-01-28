@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -75,7 +68,7 @@ namespace JP4
 
                 MessageBox.Show(erro.Message);
             }
-        }        
+        }
 
         //-------------------------------------------------------------------------------------------------
         // Salvar // Atualizar // Deletar

@@ -166,7 +166,7 @@ namespace JP4
                 string local_default = @"C:\JP4";
                 string conecta_string = config_ini.IniReadString("STRING_DB", "local_banco", local_default);
 
-                string comando_sql = "SELECT * FROM db_estrutura WHERE descri_pai = '" + item_pai + "' AND cliente = '"+ cliente+ "' AND maquina_destino ='"+ maquina_destino+"'";
+                string comando_sql = "SELECT * FROM db_estrutura WHERE descri_pai = '" + item_pai + "' AND cliente = '" + cliente + "' AND maquina_destino ='" + maquina_destino + "'";
 
                 OleDbConnection conexao = new OleDbConnection(conecta_string);
                 OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);
@@ -493,7 +493,7 @@ namespace JP4
             this.delete09.Enabled = false;
             this.delete10.Enabled = false;
 
-            
+
 
         }
         private void Desbloquear_controles()
@@ -569,7 +569,7 @@ namespace JP4
             this.delete09.Enabled = true;
             this.delete10.Enabled = true;
 
-            
+
 
         }
         private void Atualizar_estrutura()
@@ -1727,7 +1727,7 @@ namespace JP4
                 string descri_filho = combo_componente01.Text;
                 double qtd_necessaria = Convert.ToDouble(text_qtd_necess01.Text);
                 string marcador_campo = combo_componente01.Name;
-                
+
                 string maquina_destino = combo_maquina_destino.Text;
 
                 try
@@ -1743,7 +1743,7 @@ namespace JP4
                     conexao.Open();
 
                     comando_sql = "INSERT INTO db_estrutura(empresa, item_pai, descri_pai, cod_item_compon, descri_filho, qtd_necessaria, Qt_total, pct_refug, dat_validade_ini, dat_validade_fim, cod_posicao, num_transac, cliente, marcador_campo, maquina_destino) " +
-                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','"+ maquina_destino + "')";
+                    "VALUES('" + empresa + "','" + item_pai + "','" + descri_pai + "','" + cod_item_compon + "','" + descri_filho + "','" + qtd_necessaria + "','" + Qt_total + "','" + pct_refug + "','" + dat_validade_ini + "','" + dat_validade_fim + "','" + cod_posicao + "','" + num_transac + "','" + cliente + "','" + marcador_campo + "','" + maquina_destino + "')";
 
 
                     OleDbCommand cmd = new OleDbCommand(comando_sql, conexao);

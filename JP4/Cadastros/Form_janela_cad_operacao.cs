@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -75,7 +68,7 @@ namespace JP4
                     text_cod_operacao.Text = myreader["codigo"].ToString();
                     text_descri_operacao.Text = myreader["descricao"].ToString();
                     combo_tipo_operacao.Text = myreader["tipo_operacao"].ToString();
-                    combo_programa_destino.Text =  myreader["nome_prog"].ToString();
+                    combo_programa_destino.Text = myreader["nome_prog"].ToString();
                 }
 
                 conexao.Close();
@@ -116,7 +109,7 @@ namespace JP4
                 string comando_sql;
 
                 comando_sql = "INSERT INTO db_cadastro_operacao(codigo, descricao, tipo_operacao, nome_prog) " +
-                    "VALUES('" + codigo + "','" + descricao + "','" + tipo_operacao + "',',"+ nome_prog + "')";
+                    "VALUES('" + codigo + "','" + descricao + "','" + tipo_operacao + "','," + nome_prog + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();

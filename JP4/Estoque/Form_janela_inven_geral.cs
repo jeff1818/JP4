@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -35,9 +28,9 @@ namespace JP4
         #region Metodos de calculo
         private double Calculo_quilos(double qtd_kg, double fator_padrao, double qtd_fardos)
         {
-            double resultado=0;
+            double resultado = 0;
 
-            if(qtd_kg <= 0 & qtd_fardos > 0)
+            if (qtd_kg <= 0 & qtd_fardos > 0)
             {
                 resultado = fator_padrao * qtd_fardos;
             }
@@ -70,7 +63,7 @@ namespace JP4
         #endregion
 
         #region Metodos de Carregar Controles
-        
+
         private void Carrega_descr_completa()
         {
             // db_cadastro_material
@@ -136,7 +129,7 @@ namespace JP4
                 MessageBox.Show(erro.Message);
             }
 
-        }        
+        }
         private void carregar_unidade_medida()
         {
             try
@@ -233,7 +226,7 @@ namespace JP4
         {
             try
             {
-                
+
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
                 //IniFile config_ini = new IniFile(@"C:\JP4", "config_app");
                 //string local_default = @"C:\JP4";
@@ -254,7 +247,7 @@ namespace JP4
                 }
 
                 conexao.Close();
-                
+
 
             }
             catch (Exception erro)
@@ -343,7 +336,7 @@ namespace JP4
             text_qtd_kg.Enabled = false;
             text_qtd_fardos.Enabled = false;
             checkBox_mes_aberto.Enabled = false;
-            checkBox_mes_fechado.Enabled = false;            
+            checkBox_mes_fechado.Enabled = false;
             rich_observacao.Enabled = false;
         }
         private void Desbloquear_campos()
@@ -375,7 +368,7 @@ namespace JP4
 
             checkBox_mes_aberto.Checked = false;
             checkBox_mes_fechado.Checked = false;
-            
+
             rich_observacao.Text = string.Empty;
 
         }
@@ -396,17 +389,17 @@ namespace JP4
             string categoria_tipos = combo_categoria.Text;
             string descricao_completa = combo_descricao_item.Text;
             string unidade_medida = combo_unidade_medida.Text;
-            
+
             //double fator_padrao = Convert.ToDouble(label_fator_padrao.Text);
             string fator_padrao = label_fator_padrao.Text;
 
             string local_destino = combo_local_destino.Text;
 
             //double qtd_kg = Convert.ToDouble(text_qtd_kg.Text);
-            string qtd_kg = text_qtd_kg.Text.Replace(',', '.'); 
+            string qtd_kg = text_qtd_kg.Text.Replace(',', '.');
 
             //double qtd_fardos = Convert.ToDouble(text_qtd_fardos.Text);
-            string qtd_fardos = text_qtd_fardos.Text.Replace(',', '.'); 
+            string qtd_fardos = text_qtd_fardos.Text.Replace(',', '.');
 
             //double valor_unit = 0;
             //double valor_total= 0;
@@ -425,8 +418,8 @@ namespace JP4
                 status_mes = "F";
             }
 
-             string observacao = rich_observacao.Text;
-                      
+            string observacao = rich_observacao.Text;
+
 
 
             try
@@ -438,7 +431,7 @@ namespace JP4
                 string comando_sql;
 
                 comando_sql = "INSERT INTO db_inventario_mensal(data_invent, data_referencia, dia_referencia, mes_referencia, ano_referencia, categoria_tipos, descricao_completa, unidade_medida, fator_padrao, local_destino, qtd_kg, qtd_fardos, valor_unit, valor_total, status_mes, observacao) " +
-                    "VALUES('" + data_invent + "','" + data_referencia + "','" + dia_referencia + "','" + mes_referencia + "','" + ano_referencia + "','" + categoria_tipos + "','" + descricao_completa + "','" + unidade_medida + "','" + fator_padrao + "','" + local_destino + "','" + qtd_kg + "','" + qtd_fardos + "','" + valor_unit + "','" + valor_total + "','" + status_mes + "','" + observacao  + "')";
+                    "VALUES('" + data_invent + "','" + data_referencia + "','" + dia_referencia + "','" + mes_referencia + "','" + ano_referencia + "','" + categoria_tipos + "','" + descricao_completa + "','" + unidade_medida + "','" + fator_padrao + "','" + local_destino + "','" + qtd_kg + "','" + qtd_fardos + "','" + valor_unit + "','" + valor_total + "','" + status_mes + "','" + observacao + "')";
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -457,7 +450,7 @@ namespace JP4
         private void Atualizar_inventario(string id_inventario)
         {
 
-            if(checkBox_mes_aberto.Checked == true)
+            if (checkBox_mes_aberto.Checked == true)
             {
 
                 string data_invent = date_contagem.Value.ToString("yyyy/MM/dd");
@@ -477,7 +470,7 @@ namespace JP4
                 string local_destino = combo_local_destino.Text;
 
                 //double qtd_kg = Convert.ToDouble(text_qtd_kg.Text);
-                string qtd_kg = text_qtd_kg.Text.Replace(',', '.'); 
+                string qtd_kg = text_qtd_kg.Text.Replace(',', '.');
 
                 //double qtd_fardos = Convert.ToDouble(text_qtd_fardos.Text);
                 string qtd_fardos = text_qtd_fardos.Text.Replace(',', '.');
@@ -587,7 +580,7 @@ namespace JP4
                     label_fator_padrao.Text = myreader["fator_padrao"].ToString();
                     combo_local_destino.Text = myreader["local_destino"].ToString();
                     text_qtd_kg.Text = myreader["qtd_kg"].ToString();
-                    text_qtd_fardos.Text = myreader["qtd_fardos"].ToString();                    
+                    text_qtd_fardos.Text = myreader["qtd_fardos"].ToString();
                     rich_observacao.Text = myreader["observacao"].ToString();
 
 
@@ -603,7 +596,7 @@ namespace JP4
                         checkBox_mes_aberto.Checked = false;
                     }
                 }
-                                
+
                 conexao.Close();
 
             }
@@ -640,10 +633,11 @@ namespace JP4
 
         private void button_fechar_mes_Click(object sender, EventArgs e)
         {
-            if(panel_fechamento_mes.Visible == false)
+            if (panel_fechamento_mes.Visible == false)
             {
                 panel_fechamento_mes.Visible = true;
-            }else
+            }
+            else
             {
                 panel_fechamento_mes.Visible = false;
             }
@@ -666,7 +660,7 @@ namespace JP4
 
         private void rich_observacao_Leave(object sender, EventArgs e)
         {
-            if(rich_observacao.Text != "...")
+            if (rich_observacao.Text != "...")
             {
 
             }
@@ -677,7 +671,7 @@ namespace JP4
 
         }
 
-        private void text_qtd_fardos_TextChanged(object sender, EventArgs e){}
+        private void text_qtd_fardos_TextChanged(object sender, EventArgs e) { }
 
         private void text_qtd_fardos_Leave(object sender, EventArgs e)
         {

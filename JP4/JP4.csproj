@@ -29,7 +29,7 @@
     <MinimumRequiredVersion>11.3.3.21</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>90</ApplicationRevision>
+    <ApplicationRevision>94</ApplicationRevision>
     <ApplicationVersion>11.3.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -213,11 +213,11 @@
     <Compile Include="Login Usuario\Form_janela_cad_usuario.Designer.cs">
       <DependentUpon>Form_janela_cad_usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Config\Form_janela_config_txt.cs">
+    <Compile Include="Config\Form_janela_status.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Config\Form_janela_config_txt.Designer.cs">
-      <DependentUpon>Form_janela_config_txt.cs</DependentUpon>
+    <Compile Include="Config\Form_janela_status.Designer.cs">
+      <DependentUpon>Form_janela_status.cs</DependentUpon>
     </Compile>
     <Compile Include="db_aplicativo_kpiDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -426,8 +426,8 @@
     <EmbeddedResource Include="Login Usuario\Form_janela_cad_usuario.resx">
       <DependentUpon>Form_janela_cad_usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Config\Form_janela_config_txt.resx">
-      <DependentUpon>Form_janela_config_txt.cs</DependentUpon>
+    <EmbeddedResource Include="Config\Form_janela_status.resx">
+      <DependentUpon>Form_janela_status.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apontamento\Form_consumo_estrutura.resx">
       <DependentUpon>Form_consumo_estrutura.cs</DependentUpon>

@@ -1,5 +1,4 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -88,7 +87,7 @@ namespace JP4
                 while (myreader.Read())
                 {
                     this.combo_grupo_estoque.Items.Add(myreader["codigo_grupo"].ToString());
-                    
+
                 }
 
                 conexao.Close();
@@ -713,7 +712,7 @@ namespace JP4
             label_descri_grupo_estoque.Text = string.Empty;
 
             abaCadastro_label_id_cadastro.Text = "0000";
-            
+
 
         }
         private void verifica_campos()
@@ -860,7 +859,7 @@ namespace JP4
         private void Salvar_cadastro()
         {
 
-            char[] charsToTrim = { '*',' ', '\'' };
+            char[] charsToTrim = { '*', ' ', '\'' };
 
             string codigo_item = text_cod_item.Text.Trim(charsToTrim);
             string status_item = combo_status.Text.Trim(charsToTrim);
@@ -1070,7 +1069,7 @@ namespace JP4
 
                 if (resposta == DialogResult.Yes)
                     Salvar_cadastro();
-                    limpar_campos();
+                limpar_campos();
 
             }
 

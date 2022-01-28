@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -45,11 +38,11 @@ namespace JP4
             {
                 MessageBox.Show(erro.Message);
             }
-        }      
+        }
 
         private void Carregar_controles(string iD_cadas_equipamento)
         {
-           
+
 
             try
             {
@@ -71,7 +64,7 @@ namespace JP4
                     text_fator.Text = myreader["fator"].ToString();
                     text_velocidade_padrao.Text = myreader["velocidade_padrao"].ToString();
                     text_hr_trabalhada.Text = myreader["horas_trabalhadas"].ToString();
-                    text_quilo_hora.Text= myreader["quilo_hora"].ToString();
+                    text_quilo_hora.Text = myreader["quilo_hora"].ToString();
                     text_prod_minuto.Text = myreader["minutos"].ToString();
                     text_patriponio.Text = myreader["patrimonio"].ToString();
                     text_comprimento.Text = myreader["comprimento"].ToString();
@@ -207,7 +200,7 @@ namespace JP4
                         "',altura='" + altura +
                         "',largura='" + largura +
                         "',empresa_fornecedora='" + empresa_fornecedora +
-                        "' WHERE ID_cadas_equipamento=" +ID_cadas_equipamento;
+                        "' WHERE ID_cadas_equipamento=" + ID_cadas_equipamento;
 
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
                 cmd.ExecuteNonQuery();
@@ -321,6 +314,6 @@ namespace JP4
             Carregar_controles(ID_cadas_equipamento);
         }
 
-       
+
     }
 }

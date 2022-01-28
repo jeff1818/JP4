@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using System.Net;
 using System.Windows.Forms;
 
 
@@ -25,7 +24,7 @@ namespace AutoUpdate
         {
             string urlArquivo = "https://onedrive.live.com/download?cid=37ABC5C967094270&resid=37ABC5C967094270%2143546&authkey=ALBey4pELk566qg";
             string caminhoArquivo = @"C:\JP4\JP4_setup.zip";
-            
+
             System.Net.WebClient client = new System.Net.WebClient();
             client.DownloadFile(urlArquivo, caminhoArquivo);
 
@@ -38,7 +37,7 @@ namespace AutoUpdate
             {
                 System.Threading.Thread.Sleep(5000);
                 File.Delete(@"C:\JP4\setup.exe");
-                
+
                 string zipPath = @"C:\JP4\JP4_setup.zip";
                 string extractPath = @"C:\JP4\";
                 ZipFile.ExtractToDirectory(zipPath, extractPath);

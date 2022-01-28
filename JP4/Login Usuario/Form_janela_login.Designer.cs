@@ -48,7 +48,7 @@ namespace JP4
             this.label_nome_cliente = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBar_inicial = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -256,13 +256,13 @@ namespace JP4
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Area Login";
             // 
-            // progressBar1
+            // progressBar_inicial
             // 
-            this.progressBar1.Location = new System.Drawing.Point(8, 174);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(260, 10);
-            this.progressBar1.TabIndex = 23;
-            this.progressBar1.Visible = false;
+            this.progressBar_inicial.Location = new System.Drawing.Point(8, 174);
+            this.progressBar_inicial.Name = "progressBar_inicial";
+            this.progressBar_inicial.Size = new System.Drawing.Size(260, 10);
+            this.progressBar_inicial.TabIndex = 23;
+            this.progressBar_inicial.Visible = false;
             // 
             // Form_janela_login
             // 
@@ -270,7 +270,7 @@ namespace JP4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.ClientSize = new System.Drawing.Size(279, 635);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progressBar_inicial);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
@@ -310,6 +310,6 @@ namespace JP4
         private System.Windows.Forms.Label label_nome_cliente;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button_help;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        public System.Windows.Forms.ProgressBar progressBar_inicial;
     }
 }

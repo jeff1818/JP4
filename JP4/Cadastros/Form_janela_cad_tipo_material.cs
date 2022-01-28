@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4.Cadastros
@@ -28,7 +21,7 @@ namespace JP4.Cadastros
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_tipo_material where id_tipo_material='" + id_tipo_material+ "'";
+                string comando_sql = "select * from db_cadastro_tipo_material where id_tipo_material='" + id_tipo_material + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -89,7 +82,7 @@ namespace JP4.Cadastros
             string codigo_material = text_codigo_tipo_material.Text;
             string tipo_material = text_tipo_material.Text;
             string descricao = text_descri_tipo_material.Text;
-            
+
 
             try
             {
@@ -228,7 +221,7 @@ namespace JP4.Cadastros
         private void grid_tipo_material_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string id_tipo_material = grid_tipo_material.CurrentRow.Cells[0].Value.ToString();
-            label_id_tipo_material.Text = id_tipo_material;            
+            label_id_tipo_material.Text = id_tipo_material;
             Carregar_controles(id_tipo_material);
         }
 

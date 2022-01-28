@@ -1,13 +1,6 @@
-﻿using JP4.Config;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JP4
@@ -17,7 +10,7 @@ namespace JP4
         public Form_janela_cad_defeitos()
         {
             InitializeComponent();
-            
+
             Carregar_grid_defeitos();
             Carregar_origem_defeitos();
 
@@ -57,7 +50,7 @@ namespace JP4
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
-                string comando_sql = "select * from db_cadastro_local_origem_apara where local_estoque='"+ local_origem + "'";
+                string comando_sql = "select * from db_cadastro_local_origem_apara where local_estoque='" + local_origem + "'";
 
                 MySqlConnection conexao = new MySqlConnection(conecta_string);
                 MySqlCommand cmd = new MySqlCommand(comando_sql, conexao);
@@ -80,7 +73,7 @@ namespace JP4
 
                 MessageBox.Show(erro.Message);
             }
-        }        
+        }
         private void Carregar_controles_defeitos(string id_aparas)
         {
             try
@@ -131,7 +124,7 @@ namespace JP4
                 //dv.RowFilter = string.Format("descri_pai like '%{0}%'", item_pai);
                 grid_cad_defeitos.DataSource = dv.ToTable();
 
-                
+
 
                 connection.Close();
             }
@@ -198,7 +191,7 @@ namespace JP4
             string descricao_apara = text_descri_apara.Text;
             string origem_apara = combo_origem_apara.Text;
             string observacao = text_observacao.Text;
-            
+
             try
             {
                 string conecta_string = Properties.Settings.Default.db_aplicativo_kpiConnectionString;
@@ -217,9 +210,9 @@ namespace JP4
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
-                
+
             }
-         }
+        }
         private void Atualizar_defeitos(string id_aparas)
         {
             string codigo_apara = text_cod_defeito.Text;
@@ -333,6 +326,6 @@ namespace JP4
 
         }
 
-        
+
     }
 }
